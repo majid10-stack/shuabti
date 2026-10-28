@@ -62,7 +62,7 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .logo small{display:block;color:var(--muted);font-size:12px}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 14px;font-size:13px;color:var(--muted)}
 .chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
-.sum{margin:-4px 0 12px;font-size:14px;color:var(--muted);font-weight:600}
+#hwSum{margin-bottom:14px}
 .acts{display:flex;gap:6px;flex:none}
 #themeBtn{font-size:16px;padding:3px 12px;line-height:1.5}
 .gpill{font-family:var(--font-display);font-weight:700;color:var(--brand-ink);background:var(--brand);border-radius:999px;padding:1px 12px;font-size:15px;margin-inline-start:8px;vertical-align:middle}
@@ -211,7 +211,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     </section>
     <section id="p-hw" hidden>
       <h2>المهام</h2>
-      <p class="sum" id="hwSum"></p>
+      <div class="today" id="hwSum"></div>
       <div class="chips" id="hwFilter">
         <button class="chip" data-f="all" aria-pressed="true">الكل</button>
         <button class="chip" data-f="open" aria-pressed="false">غير منجزة</button>
@@ -343,7 +343,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     var list=TODAY_IDX>=0?(SCHEDULES[G][TODAY_IDX]||[]):[];var next=list[0];
     var open=allTasks().filter(function(h){return !st.done[h.k]}).length;
     $('today').innerHTML='<div class="l"><div class="k">اليوم · '+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):'لا توجد محاضرات اليوم')+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div>';
-    $('hwSum').textContent=open?'لديك '+open+(open===1?' مهمة مفتوحة':(open<=10?' مهام مفتوحة':' مهمة مفتوحة')):'أنجزت كل مهامك ✓';
+    var all=allTasks(),dn=all.length-open;
+    $('hwSum').innerHTML='<div class="l"><div class="k">مهامك</div><div class="v">'+(open?'لديك '+open+(open===1?' مهمة مفتوحة':(open<=10?' مهام مفتوحة':' مهمة مفتوحة')):'أنجزت كل مهامك ✓')+'</div><div class="t">'+(all.length?'منجز '+dn+' من '+all.length:'لا توجد مهام بعد')+'</div></div>';
     $('hwBadge').textContent=open;$('hwBadge').hidden=!open;
     $('foot').textContent='للاطلاع فقط. الإضافة والتعديل من مسؤول الشعبة'+(D.owner?': '+D.owner:'')+'.';
   }

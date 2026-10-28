@@ -3,7 +3,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@500;700&display=swap">
 <style>
-/* Layout: a read-only student app, phone-width column with a bottom tab bar; content comes from the published data block. */
+/* Layout: group picker (A/B/C) first, then a read-only phone-width app column with a bottom tab bar; content comes from the published data block. */
 :root{
   --bg:#EEF1EE; --surface:#FFFFFF; --ink:#16231F; --muted:#5E6F69; --line:#D9E0DC;
   --brand:#0E5A4E; --brand-ink:#FFFFFF; --brand-soft:#DCEDE8;
@@ -34,14 +34,35 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 button{font:inherit;color:inherit;cursor:pointer}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.app{max-width:460px;margin-inline:auto;min-height:100vh;display:flex;flex-direction:column;padding-bottom:84px}
-header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
-.logo{display:flex;align-items:center;gap:10px;min-width:0}
+[hidden]{display:none!important}
 .mark{width:38px;height:38px;border-radius:11px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:22px;flex:none}
-.logo h1{margin:0;font-family:var(--font-display);font-size:24px;font-weight:700;line-height:1.1}
-.logo small{display:block;color:var(--muted);font-size:12px}
+
+/* group picker */
+.gate{max-width:460px;margin-inline:auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:28px;padding-block:32px}
+.gate .brand{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.gate .brand .mark{width:60px;height:60px;border-radius:18px;font-size:36px}
+.gate h1{margin:0;font-family:var(--font-display);font-size:40px;line-height:1.1;font-weight:700}
+.gate p{margin:0;color:var(--muted)}
+.gate .ask{font-family:var(--font-display);font-size:22px;color:var(--ink);font-weight:700}
+.gbtns{display:flex;flex-direction:column;gap:12px}
+.gbtn{display:flex;align-items:center;gap:16px;text-align:right;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.gbtn b{width:52px;height:52px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-family:var(--font-display);font-size:28px;font-weight:700;flex:none}
+.gbtn strong{display:block;font-size:19px;font-weight:600;line-height:1.3}
+.gbtn span{font-size:13px;color:var(--muted)}
+.gbtn:hover,.gbtn:focus-visible{border-color:var(--brand)}
 .owner{margin:0;font-weight:600;font-size:14px;color:var(--brand);background:var(--brand-soft);border-radius:10px;padding:6px 12px;align-self:flex-start}
 .owner:empty{display:none}
+
+/* app */
+.app{max-width:460px;margin-inline:auto;min-height:100vh;display:flex;flex-direction:column;padding-bottom:84px}
+header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;min-width:0}
+.logo h1{margin:0;font-family:var(--font-display);font-size:24px;font-weight:700;line-height:1.1}
+.logo small{display:block;color:var(--muted);font-size:12px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 14px;font-size:13px;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.gpill{font-family:var(--font-display);font-weight:700;color:var(--brand-ink);background:var(--brand);border-radius:999px;padding:1px 12px;font-size:15px;margin-inline-start:8px;vertical-align:middle}
 .today{background:var(--brand);color:var(--brand-ink);border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .today .l{min-width:0}
 .today .k{font-size:12px;opacity:.8}
@@ -50,7 +71,6 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .today .n{font-family:var(--font-display);font-size:34px;font-weight:700;line-height:1;text-align:center;flex:none}
 .today .n span{display:block;font-family:var(--font-body);font-size:11px;font-weight:400;opacity:.85;margin-top:2px}
 main{padding-top:18px;flex:1}
-section[hidden],[hidden]{display:none!important}
 h2{font-family:var(--font-display);font-size:19px;margin:0 0 12px;font-weight:700}
 .days{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px}
 .day{flex:1 0 auto;min-width:62px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:8px 6px;text-align:center;font-size:13px;color:var(--muted)}
@@ -67,8 +87,6 @@ h2{font-family:var(--font-display);font-size:19px;margin:0 0 12px;font-weight:70
 .lec.now .body{border-color:var(--amber)}
 .tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--amber-soft);color:var(--amber);margin-inline-start:6px}
 .chips{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 14px;font-size:13px;color:var(--muted)}
-.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
 .hw{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
 .hw input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--brand);flex:none}
 .hw .b{min-width:0;flex:1}
@@ -108,11 +126,31 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 .badge{position:absolute;top:2px;inset-inline-start:calc(50% + 6px);background:var(--warn);color:#fff;font-size:10px;font-weight:700;border-radius:999px;min-width:16px;height:16px;display:grid;place-items:center;padding:0 4px}
 </style>
 
-<div class="app" lang="ar">
+<div class="gate" id="gate" lang="ar">
+  <div class="brand">
+    <div class="mark" aria-hidden="true">ش</div>
+    <h1>شعبتي</h1>
+    <p>المرحلة الثانية · قسم الفيزياء الطبية</p>
+  </div>
+  <div>
+    <p class="ask" style="margin-bottom:12px">اختر شعبتك</p>
+    <div class="gbtns">
+      <button class="gbtn" type="button" data-g="A"><b>A</b><div><strong>شعبة A</strong><span>جدول المحاضرات والواجبات والملفات</span></div></button>
+      <button class="gbtn" type="button" data-g="B"><b>B</b><div><strong>شعبة B</strong><span>جدول المحاضرات والواجبات والملفات</span></div></button>
+      <button class="gbtn" type="button" data-g="C"><b>C</b><div><strong>شعبة C</strong><span>جدول المحاضرات والواجبات والملفات</span></div></button>
+    </div>
+  </div>
+  <p class="owner" id="gateOwner"></p>
+</div>
+
+<div class="app" id="app" lang="ar" hidden>
   <header>
-    <div class="logo">
-      <div class="mark" aria-hidden="true">ش</div>
-      <div><h1>شعبتي</h1><small id="sub"></small></div>
+    <div class="top">
+      <div class="logo">
+        <div class="mark" aria-hidden="true">ش</div>
+        <div><h1>شعبتي<span class="gpill" id="gpill"></span></h1><small id="sub"></small></div>
+      </div>
+      <button class="chip" id="changeG" type="button">تغيير الشعبة</button>
     </div>
     <p class="owner" id="owner"></p>
     <div class="today" id="today"></div>
@@ -146,34 +184,53 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     </section>
   </main>
   <p class="foot" id="foot"></p>
+
+  <nav aria-label="التنقل">
+    <div role="tablist" id="tabs">
+      <button role="tab" data-p="schedule" aria-selected="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>الجدول</button>
+      <button role="tab" data-p="hw" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>الواجبات<span class="badge" id="hwBadge" hidden>0</span></button>
+      <button role="tab" data-p="files" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/></svg>الملفات</button>
+      <button role="tab" data-p="news" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7z"/><path d="M10 20a2 2 0 004 0"/></svg>الإعلانات</button>
+    </div>
+  </nav>
 </div>
 
-<nav aria-label="التنقل">
-  <div role="tablist" id="tabs">
-    <button role="tab" data-p="schedule" aria-selected="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>الجدول</button>
-    <button role="tab" data-p="hw" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>الواجبات<span class="badge" id="hwBadge" hidden>0</span></button>
-    <button role="tab" data-p="files" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/></svg>الملفات</button>
-    <button role="tab" data-p="news" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7z"/><path d="M10 20a2 2 0 004 0"/></svg>الإعلانات</button>
-  </div>
-</nav>
-
-<script id="data" type="application/json">{"owner": "ماجد أحمد الشمري", "stage": "المرحلة الثانية · كروب A", "homework": [{"t": "هل الدم فقط بلون الأحمر؟ وهل توجد ألوان أخرى؟ ولماذا؟", "s": "الفسلجة (مختبر)", "date": "2026-11-03", "note": "التسليم في محاضرة المختبر القادمة"}], "announcements": [], "files": {"الفيزياء الذرية (مختبر)": [{"n": "تجربة الذرية الرابعة.pdf", "p": "atomic-lab-4.pdf", "d": "مختبر الفيزياء الذرية"}]}}</script>
+<script id="data" type="application/json">{"owner": "ماجد أحمد الشمري", "groups": {"A": {"homework": [{"t": "هل الدم فقط بلون الأحمر؟ وهل توجد ألوان أخرى؟ ولماذا؟", "s": "الفسلجة (مختبر)", "date": "2026-11-03", "note": "التسليم في محاضرة المختبر القادمة"}], "announcements": [], "files": {"الفيزياء الذرية (مختبر)": [{"n": "تجربة الذرية الرابعة.pdf", "p": "atomic-lab-4.pdf", "d": "مختبر الفيزياء الذرية"}]}}, "B": {"homework": [], "announcements": [], "files": {}}, "C": {"homework": [], "announcements": [], "files": {}}}}</script>
 <script>
 (function(){
-  var D={owner:'',stage:'',homework:[],announcements:[],files:{}};
+  var D={owner:'',groups:{}};
   try{D=JSON.parse(document.getElementById('data').textContent)}catch(e){}
+  var GROUPS=['A','B','C'];
   var DAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس'];
   var MONTHS=['كانون الثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين الأول','تشرين الثاني','كانون الأول'];
   var FULLDAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
-  var SCHEDULE={
-    0:[['08:30','10:30','الفسلجة','قاعة 5 · أ.م. إنعام أحمد + د. هبة خليل'],['10:30','12:30','اللغة الإنكليزية','قاعة 5 · م.م. أريج محمد'],['12:30','14:30','الإرشاد','قاعة 6']],
-    1:[['08:30','10:30','البصريات','قاعة 7 · د. خالد قاسم + د. هدى مسعود'],['10:30','12:30','الفيزياء الحياتية','قاعة 7 · د. هدى مسعود + د. محمد عبد الله']],
-    2:[['08:30','10:30','الفسلجة (مختبر)','مختبر 2 · د. نور مازن وآخرون'],['10:30','12:30','الفيزياء الحياتية (مختبر)','مختبر 2 · د. محمد عبد الله وآخرون']],
-    3:[['08:30','10:30','البصريات (مختبر)','مختبر البصريات · قسم الفيزياء · د. طه مصطفى + د. إياد جياد'],['10:30','12:30','الفيزياء الذرية','قاعة 5 · أ.م.د. قصي خطاب عمر'],['12:30','14:30','الفيزياء الذرية (مختبر)','مختبر 3 · أ.م.د. قصي خطاب عمر وآخرون']],
-    4:[['08:30','10:30','جرائم حزب البعث في العراق','قاعة 7 · م.م. محمد محسن'],['10:30','12:30','الموجات الكهرومغناطيسية','قاعة 5 · د. خالد قاسم']]
+  var SCHEDULES={
+    A:{
+      0:[['08:30','10:30','الفسلجة','قاعة 5 · أ.م.د. إنعام أحمد + د. هبة خليل'],['10:30','12:30','اللغة الإنكليزية','قاعة 5 · م.م. أريج محمد'],['12:30','14:30','الإرشاد','قاعة 6']],
+      1:[['08:30','10:30','البصريات','قاعة 7 · د. خالد قاسم + د. هدى مسعود'],['10:30','12:30','الفيزياء الحياتية','قاعة 7 · د. هدى مسعود + د. محمد عبد الله']],
+      2:[['08:30','10:30','الفسلجة (مختبر)','مختبر 2 · د. نور مازن + م.م. نادية خالد + م.م. سجى حسين + م.م. سارة محمد'],['10:30','12:30','الفيزياء الحياتية (مختبر)','مختبر 4 · د. محمد عبد الله + د. امنة اسماعيل + م.م. سارة محمد + م.م. سجى حسين']],
+      3:[['08:30','10:30','البصريات (مختبر)','مختبر البصريات · قسم الفيزياء · د. طه مصطفى + د. إياد جياد'],['10:30','12:30','الفيزياء الذرية','قاعة 5 · أ.م.د. قصي خطاب عمر'],['12:30','14:30','الفيزياء الذرية (مختبر)','مختبر 3 · أ.م.د. قصي خطاب عمر + د. أيمن عبد الجبار + ست سنا']],
+      4:[['08:30','10:30','جرائم حزب البعث في العراق','قاعة 7 · م.م. محمد محسن'],['10:30','12:30','الموجات الكهرومغناطيسية','قاعة 5 · د. خالد قاسم']]
+    },
+    B:{
+      0:[['08:30','10:30','البصريات','قاعة 7 · د. خالد قاسم + د. هدى مسعود'],['10:30','12:30','الفسلجة','قاعة 7 · أ.م.د. إنعام أحمد + د. هبة خليل']],
+      1:[['08:30','10:30','الفيزياء الذرية (مختبر)','مختبر 3 · أ.م.د. قصي خطاب عمر + د. أيمن عبد الجبار + ست سنا'],['10:30','12:30','الموجات الكهرومغناطيسية','قاعة 5 · د. خالد قاسم'],['12:30','14:30','الإرشاد','قاعة 6']],
+      2:[['08:30','10:30','جرائم حزب البعث في العراق','قاعة 5 · م.م. داليا عادل'],['10:30','12:30','الفيزياء الذرية','قاعة 7 · أ.م.د. قصي خطاب عمر'],['12:30','14:30','اللغة الإنكليزية','قاعة 7 · م.م. أريج محمد']],
+      3:[['08:30','10:30','الفسلجة (مختبر)','مختبر 2 · د. هبة خليل + د. نور مازن + م.م. نادية خالد + م.م. سجى حسين'],['10:30','12:30','البصريات (مختبر)','مختبر البصريات · قسم الفيزياء · د. طه مصطفى + د. إياد جياد']],
+      4:[['08:30','10:30','الفيزياء الحياتية (مختبر)','مختبر 4 · د. امنة اسماعيل + م.م. نادية خالد + م.م. سارة محمد + م.م. سجى حسين'],['10:30','12:30','الفيزياء الحياتية','قاعة 1 · د. هدى مسعود + د. محمد عبد الله']]
+    },
+    C:{
+      0:[['08:30','10:30','الفيزياء الحياتية (مختبر)','مختبر 4 · د. محمد عبد الله + د. امنة اسماعيل + م.م. نادية خالد + م.م. سارة محمد'],['10:30','12:30','الفيزياء الذرية','قاعة 3 · أ.م.د. قصي خطاب عمر']],
+      1:[['08:30','10:30','الفسلجة','قاعة 3 · أ.م.د. إنعام أحمد + د. هبة خليل'],['10:30','12:30','الفسلجة (مختبر)','مختبر 2 · د. هبة خليل + د. نور مازن + م.م. سارة محمد + م.م. سجى حسين']],
+      2:[['08:30','10:30','البصريات','قاعة 7 · د. خالد قاسم + د. هدى مسعود'],['10:30','12:30','اللغة الإنكليزية','قاعة 5 · م.م. أريج محمد'],['12:30','14:30','الفيزياء الذرية (مختبر)','مختبر 3 · أ.م.د. قصي خطاب عمر + د. أيمن عبد الجبار + ست سنا']],
+      3:[['08:30','10:30','الإرشاد','قاعة 6'],['10:30','12:30','الفيزياء الحياتية','قاعة 7 · د. هدى مسعود + د. محمد عبد الله'],['12:30','14:30','البصريات (مختبر)','مختبر البصريات · قسم الفيزياء · د. طه مصطفى + د. إياد جياد']],
+      4:[['08:30','10:30','الموجات الكهرومغناطيسية','قاعة 5 · د. خالد قاسم'],['10:30','12:30','جرائم حزب البعث في العراق','قاعة 7 · م.م. محمد محسن']]
+    }
   };
-  var SUBJECTS=[];Object.keys(SCHEDULE).forEach(function(d){SCHEDULE[d].forEach(function(l){if(SUBJECTS.indexOf(l[2])<0)SUBJECTS.push(l[2])})});
-  SUBJECTS=SUBJECTS.filter(function(s){return s.indexOf('(مختبر)')<0}).concat(SUBJECTS.filter(function(s){return s.indexOf('(مختبر)')>-1}));
+  function subjectsOf(g){
+    var all=[];Object.keys(SCHEDULES[g]).forEach(function(d){SCHEDULES[g][d].forEach(function(l){if(all.indexOf(l[2])<0)all.push(l[2])})});
+    return all.filter(function(s){return s.indexOf('(مختبر)')<0}).concat(all.filter(function(s){return s.indexOf('(مختبر)')>-1}));
+  }
   var now=new Date();var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   var TODAY_IDX=today.getDay()<=4?today.getDay():-1;
   function addDays(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n)}
@@ -181,29 +238,33 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function fmt(d){return FULLDAYS[d.getDay()]+' '+d.getDate()+' '+MONTHS[d.getMonth()]}
   var $=function(id){return document.getElementById(id)};
   function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
-  var st={day:TODAY_IDX>=0?TODAY_IDX:0,filter:'all',folder:null,done:{}};
+
+  var G=null,SUBJECTS=[],st={day:0,filter:'all',folder:null,done:{}};
   try{st.done=JSON.parse(localStorage.getItem('shuabti-done')||'{}')||{}}catch(e){}
   function saveDone(){try{localStorage.setItem('shuabti-done',JSON.stringify(st.done))}catch(e){}}
-  function hwKey(h){return (h.t||'')+'|'+(h.s||'')+'|'+(h.date||'')}
+  function gdata(){var g=(D.groups||{})[G]||{};return {homework:g.homework||[],announcements:g.announcements||[],files:g.files||{}}}
+  function hwKey(h){return G+'|'+(h.t||'')+'|'+(h.s||'')+'|'+(h.date||'')}
   function daysLeft(date){var p=date.split('-');return Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000)}
 
   function renderHeader(){
-    $('sub').textContent=D.stage||'';
+    var gd=gdata();
+    $('gpill').textContent='شعبة '+G;
+    $('sub').textContent='المرحلة الثانية · شعبة '+G;
     $('owner').textContent=D.owner?'الطالب: '+D.owner:'';
-    var list=TODAY_IDX>=0?(SCHEDULE[TODAY_IDX]||[]):[];var next=list[0];
-    var open=(D.homework||[]).filter(function(h){return !st.done[hwKey(h)]}).length;
+    var list=TODAY_IDX>=0?(SCHEDULES[G][TODAY_IDX]||[]):[];var next=list[0];
+    var open=gd.homework.filter(function(h){return !st.done[hwKey(h)]}).length;
     $('today').innerHTML='<div class="l"><div class="k">اليوم · '+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):'لا توجد محاضرات اليوم')+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div><div class="n">'+open+'<span>واجب مفتوح</span></div>';
     $('hwBadge').textContent=open;$('hwBadge').hidden=!open;
     $('foot').textContent='للاطلاع فقط. الإضافة والتعديل من مسؤول الشعبة'+(D.owner?': '+D.owner:'')+'.';
   }
   function renderDays(){
     $('days').innerHTML=DAYS.map(function(d,i){return '<button class="day" data-i="'+i+'" aria-pressed="'+(i===st.day)+'">'+d+'<b>'+addDays(weekStart,i).getDate()+'</b></button>'}).join('');
-    var L=SCHEDULE[st.day]||[];
-    $('lectures').innerHTML=L.map(function(l,i){var isNow=st.day===TODAY_IDX&&i===0;
-      return '<li class="lec'+(isNow?' now':'')+'"><div class="time"><b>'+l[0]+'</b>حتى '+l[1]+'</div><div class="body"><strong>'+esc(l[2])+(isNow?'<span class="tag">التالية</span>':'')+'</strong><span>'+esc(l[3])+'</span></div></li>'}).join('');
+    var L=SCHEDULES[G][st.day]||[];
+    $('lectures').innerHTML=L.length?L.map(function(l,i){var isNow=st.day===TODAY_IDX&&i===0;
+      return '<li class="lec'+(isNow?' now':'')+'"><div class="time"><b>'+l[0]+'</b>حتى '+l[1]+'</div><div class="body"><strong>'+esc(l[2])+(isNow?'<span class="tag">التالية</span>':'')+'</strong><span>'+esc(l[3])+'</span></div></li>'}).join(''):'<li class="empty">لا توجد محاضرات في هذا اليوم.</li>';
   }
   function renderHw(){
-    var all=D.homework||[];
+    var all=gdata().homework;
     var items=all.filter(function(h){var d=!!st.done[hwKey(h)];return st.filter==='all'||(st.filter==='open'?!d:d)});
     $('hwList').innerHTML=items.length?items.map(function(h){
       var k=hwKey(h),dn=!!st.done[k],dueTxt='',dateTxt='';
@@ -217,26 +278,46 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   }
   function ftype(f){var e=(f.n.split('.').pop()||'').toLowerCase();return /^(png|jpe?g|gif|webp|avif)$/.test(e)?'img':(/^(doc|docx)$/.test(e)?'doc':'file')}
   function renderFiles(){
+    var files=gdata().files;
     var open=!!st.folder;$('folderView').hidden=open;$('folderOpen').hidden=!open;
     $('filesTitle').textContent=open?st.folder:'ملفات المواد';
     if(!open){
-      $('folders').innerHTML=SUBJECTS.map(function(s,i){var n=((D.files||{})[s]||[]).length;
+      $('folders').innerHTML=SUBJECTS.map(function(s,i){var n=(files[s]||[]).length;
         return '<li><button class="folder" type="button" data-s="'+i+'"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><strong>'+esc(s)+'</strong><span>'+(n?n+(n===1?' ملف':' ملفات'):'فارغ')+'</span></button></li>'}).join('');
       return;
     }
-    var fs=(D.files||{})[st.folder]||[];
+    var fs=files[st.folder]||[];
     $('fileList').innerHTML=fs.length?fs.map(function(f){var t=ftype(f);var ext=(f.n.split('.').pop()||'FILE').toUpperCase().slice(0,4);
       var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext);
       return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+'</strong>'+(f.d?'<span>'+esc(f.d)+'</span>':'')+'</div><span class="open">فتح</span></a></li>'}).join(''):
       '<li class="empty">لا توجد ملفات في هذا المجلد بعد.</li>';
   }
   function renderAnn(){
-    var a=D.announcements||[];
+    var a=gdata().announcements;
     $('annList').innerHTML=a.length?a.map(function(x){return '<li class="ann'+(x.pin?' pin':'')+'"><div class="h"><span>'+esc(x.w||D.owner||'')+'</span><span>'+esc(x.d||'')+(x.pin?' · مثبّت':'')+'</span></div><p>'+esc(x.t)+'</p></li>'}).join(''):
       '<li class="empty">لا توجد إعلانات حالياً.</li>';
   }
   function show(p){['schedule','hw','files','news'].forEach(function(k){$('p-'+k).hidden=k!==p});
     Array.prototype.forEach.call($('tabs').children,function(b){b.setAttribute('aria-selected',b.dataset.p===p)});window.scrollTo(0,0)}
+
+  function openGroup(g){
+    G=g;SUBJECTS=subjectsOf(g);st.day=TODAY_IDX>=0?TODAY_IDX:0;st.filter='all';st.folder=null;
+    Array.prototype.forEach.call($('hwFilter').children,function(c){c.setAttribute('aria-pressed',c.dataset.f==='all')});
+    try{localStorage.setItem('shuabti-group',g)}catch(e){}
+    $('gate').hidden=true;$('app').hidden=false;
+    renderHeader();renderDays();renderHw();renderFiles();renderAnn();show('schedule');
+  }
+  function openGate(){
+    G=null;try{localStorage.removeItem('shuabti-group')}catch(e){}
+    $('app').hidden=true;$('gate').hidden=false;window.scrollTo(0,0);
+  }
+  function hashGroup(){var h=(location.hash||'').replace('#','').toUpperCase();return GROUPS.indexOf(h)>-1?h:null}
+  function route(){var g=hashGroup();if(g)openGroup(g);else openGate()}
+
+  $('gateOwner').textContent=D.owner?'الطالب: '+D.owner:'';
+  document.querySelector('.gbtns').addEventListener('click',function(e){var b=e.target.closest('.gbtn');if(b)location.hash=b.dataset.g});
+  $('changeG').onclick=function(){location.hash=''};
+  window.addEventListener('hashchange',route);
   $('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.dataset.p)});
   $('days').addEventListener('click',function(e){var b=e.target.closest('.day');if(b){st.day=+b.dataset.i;renderDays()}});
   $('hwFilter').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;st.filter=b.dataset.f;
@@ -244,7 +325,11 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   $('hwList').addEventListener('change',function(e){var k=e.target.dataset.k;if(k==null)return;if(e.target.checked)st.done[k]=1;else delete st.done[k];saveDone();renderHw()});
   $('folders').addEventListener('click',function(e){var b=e.target.closest('.folder');if(!b)return;st.folder=SUBJECTS[+b.dataset.s];renderFiles();window.scrollTo(0,0)});
   $('backBtn').onclick=function(){st.folder=null;renderFiles();window.scrollTo(0,0)};
-  renderHeader();renderDays();renderHw();renderFiles();renderAnn();
+
+  var first=hashGroup();
+  if(!first){var s=null;try{s=localStorage.getItem('shuabti-group')}catch(e){}
+    if(s&&GROUPS.indexOf(s)>-1){try{history.replaceState(null,'','#'+s)}catch(e){location.hash=s;first=s}first=s}}
+  if(first)openGroup(first);else openGate();
 })();
 </script>
 

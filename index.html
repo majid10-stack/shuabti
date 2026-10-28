@@ -65,6 +65,7 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 #hwSum{margin-bottom:14px}
 .fsearch{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;direction:rtl}
 .newtag{display:inline-block;font-size:11px;font-weight:700;padding:1px 9px;border-radius:99px;background:var(--warn);color:#fff;margin-inline-start:6px;vertical-align:middle}
+.offl{background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber);font-weight:700;font-size:13px;text-align:center;border-radius:12px;padding:8px 12px}
 .acts{display:flex;gap:6px;flex:none}
 #themeBtn{font-size:16px;padding:3px 12px;line-height:1.5}
 .gpill{font-family:var(--font-display);font-weight:700;color:var(--brand-ink);background:var(--brand);border-radius:999px;padding:1px 12px;font-size:15px;margin-inline-start:8px;vertical-align:middle}
@@ -202,6 +203,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
       </div>
       <div class="acts"><button class="chip" id="themeBtn" type="button" aria-label="تبديل الوضع الداكن والفاتح">🌙</button><button class="chip" id="changeG" type="button">تغيير الشعبة</button></div>
     </div>
+    <div class="offl" id="offl" role="status" hidden>أنت تتصفح النسخة المحفوظة 📌</div>
     <p class="owner" id="owner"></p>
     <div class="today" id="today"></div>
   </header>
@@ -505,6 +507,10 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 
   setInterval(function(){if(G){renderHeader();renderDays()}},30000);
   document.addEventListener('visibilitychange',function(){if(!document.hidden&&G){renderHeader();renderDays()}});
+
+  function paintNet(){$('offl').hidden=navigator.onLine!==false}
+  window.addEventListener('online',paintNet);window.addEventListener('offline',paintNet);paintNet();
+  try{if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0)navigator.serviceWorker.register('sw.js')}catch(e){}
 
   var first=hashGroup();
   if(!first){var s=null;try{s=localStorage.getItem('shuabti-group')}catch(e){}

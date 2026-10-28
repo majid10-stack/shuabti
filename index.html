@@ -63,6 +63,8 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 14px;font-size:13px;color:var(--muted)}
 .chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
 #hwSum{margin-bottom:14px}
+.fsearch{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;direction:rtl}
+.newtag{display:inline-block;font-size:11px;font-weight:700;padding:1px 9px;border-radius:99px;background:var(--warn);color:#fff;margin-inline-start:6px;vertical-align:middle}
 .acts{display:flex;gap:6px;flex:none}
 #themeBtn{font-size:16px;padding:3px 12px;line-height:1.5}
 .gpill{font-family:var(--font-display);font-weight:700;color:var(--brand-ink);background:var(--brand);border-radius:999px;padding:1px 12px;font-size:15px;margin-inline-start:8px;vertical-align:middle}
@@ -234,6 +236,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     </section>
     <section id="p-files" hidden>
       <h2 id="filesTitle">ملفات المواد</h2>
+      <input class="fsearch" id="fq" type="search" placeholder="🔍 ابحث عن ملف…" aria-label="بحث في الملفات" autocomplete="off">
       <div id="folderView"><ul class="folders" id="folders"></ul></div>
       <div id="folderOpen" hidden>
         <div class="chips"><button class="chip" id="backBtn" type="button">→ كل المواد</button></div>
@@ -278,7 +281,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 </div>
 
 <script data-goatcounter="https://shuabti-majid.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script id="data" type="application/json">{"owner": "ماجد أحمد الشمري", "groups": {"A": {"homework": [{"t": "هل الدم فقط بلون الأحمر؟ وهل توجد ألوان أخرى؟ ولماذا؟", "s": "الفسلجة (مختبر)", "date": "2026-11-03", "note": "التسليم في محاضرة المختبر القادمة"}], "announcements": [], "files": {"الفيزياء الذرية (مختبر)": [{"n": "تجربة الذرية الرابعة.pdf", "p": "atomic-lab-4.pdf", "d": "مختبر الفيزياء الذرية"}]}}, "B": {"homework": [], "announcements": [], "files": {}}, "C": {"homework": [], "announcements": [], "files": {}}}}</script>
+<script id="data" type="application/json">{"owner": "ماجد أحمد الشمري", "groups": {"A": {"homework": [{"t": "هل الدم فقط بلون الأحمر؟ وهل توجد ألوان أخرى؟ ولماذا؟", "s": "الفسلجة (مختبر)", "date": "2026-11-03", "note": "التسليم في محاضرة المختبر القادمة"}], "announcements": [], "files": {"الفيزياء الذرية (مختبر)": [{"n": "تجربة الذرية الرابعة.pdf", "p": "atomic-lab-4.pdf", "d": "مختبر الفيزياء الذرية", "a": "2026-10-28"}]}}, "B": {"homework": [], "announcements": [], "files": {}}, "C": {"homework": [], "announcements": [], "files": {}}}}</script>
 <script>
 (function(){
   var D={owner:'',groups:{}};
@@ -371,20 +374,30 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     renderHeader();
   }
   function ftype(f){var e=(f.n.split('.').pop()||'').toLowerCase();return /^(png|jpe?g|gif|webp|avif)$/.test(e)?'img':(/^(doc|docx)$/.test(e)?'doc':'file')}
+  var seen={};try{seen=JSON.parse(localStorage.getItem('shuabti-seen')||'{}')||{}}catch(e){}
+  function seenKey(f){return G+'|'+f.p}
+  function isNew(f){return !seen[seenKey(f)]}
+  function fileRow(f,sub){var t=ftype(f);var ext=(f.n.split('.').pop()||'FILE').toUpperCase().slice(0,4);
+    var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext);
+    return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+'</div><span class="open">فتح</span></a></li>'}
   function renderFiles(){
-    var files=gdata().files;
-    var open=!!st.folder;$('folderView').hidden=open;$('folderOpen').hidden=!open;
-    $('filesTitle').textContent=open?st.folder:'ملفات المواد';
+    var files=gdata().files,q=($('fq').value||'').trim().toLowerCase();
+    var open=!!st.folder&&!q;$('fq').hidden=!!st.folder&&!q;
+    $('folderView').hidden=open||!!q;$('folderOpen').hidden=!open&&!q;
+    $('filesTitle').textContent=open?st.folder:(q?'نتائج البحث':'ملفات المواد');
+    $('backBtn').hidden=!!q;
+    if(q){
+      var res=[];SUBJECTS.forEach(function(sj){(files[sj]||[]).forEach(function(f){if((f.n+' '+sj+' '+(f.d||'')).toLowerCase().indexOf(q)>-1)res.push([f,sj])})});
+      $('fileList').innerHTML=res.length?res.map(function(r){return fileRow(r[0],r[1])}).join(''):'<li class="empty">لا توجد نتائج لـ «'+esc(q)+'».</li>';
+      return;
+    }
     if(!open){
-      $('folders').innerHTML=SUBJECTS.map(function(s,i){var n=(files[s]||[]).length;
-        return '<li><button class="folder" type="button" data-s="'+i+'"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><strong>'+esc(s)+'</strong><span>'+(n?n+(n===1?' ملف':' ملفات'):'فارغ')+'</span></button></li>'}).join('');
+      $('folders').innerHTML=SUBJECTS.map(function(s,i){var arr=files[s]||[],n=arr.length,nw=arr.some(isNew);
+        return '<li><button class="folder" type="button" data-s="'+i+'"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><strong>'+esc(s)+(nw?'<span class="newtag">جديد</span>':'')+'</strong><span>'+(n?n+(n===1?' ملف':' ملفات'):'فارغ')+'</span></button></li>'}).join('');
       return;
     }
     var fs=files[st.folder]||[];
-    $('fileList').innerHTML=fs.length?fs.map(function(f){var t=ftype(f);var ext=(f.n.split('.').pop()||'FILE').toUpperCase().slice(0,4);
-      var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext);
-      return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+'</strong>'+(f.d?'<span>'+esc(f.d)+'</span>':'')+'</div><span class="open">فتح</span></a></li>'}).join(''):
-      '<li class="empty">لا توجد ملفات في هذا المجلد بعد.</li>';
+    $('fileList').innerHTML=fs.length?fs.map(function(f){return fileRow(f)}).join(''):'<li class="empty">لا توجد ملفات في هذا المجلد بعد.</li>';
   }
   function renderAnn(){
     var a=gdata().announcements;
@@ -394,7 +407,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function show(p){['schedule','hw','files','timer','news'].forEach(function(k){$('p-'+k).hidden=k!==p});$('today').hidden=p!=='schedule';
     Array.prototype.forEach.call($('tabs').children,function(b){b.setAttribute('aria-selected',b.dataset.p===p)});window.scrollTo(0,0)}
 
-  function openGroup(g){
+  function openGroup(g){$('fq').value='';
     G=g;SUBJECTS=subjectsOf(g);st.day=TODAY_IDX>=0?TODAY_IDX:0;st.filter='all';st.folder=null;
     Array.prototype.forEach.call($('hwFilter').children,function(c){c.setAttribute('aria-pressed',c.dataset.f==='all')});
     try{localStorage.setItem('shuabti-group',g)}catch(e){}
@@ -433,6 +446,12 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   $('bkRestore').onclick=function(){try{var o=JSON.parse($('bk').value);if(!o||typeof o.tasks!=='object')throw 0;
     tasks=o.tasks;st.done=o.done||{};saveTasks();saveDone();$('bkMsg').textContent='تم الاسترجاع.';renderHw()}catch(e){$('bkMsg').textContent='النص غير صحيح، تأكد من لصق النسخة كاملة.'}};
   try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+  $('p-files').addEventListener('click',function(e){var a=e.target.closest('a.file');if(!a)return;
+    var href=a.getAttribute('href'),fl=gdata().files;
+    Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(f){if(f.p===href)seen[seenKey(f)]=1})});
+    try{localStorage.setItem('shuabti-seen',JSON.stringify(seen))}catch(er){}
+    setTimeout(renderFiles,300)});
+  $('fq').addEventListener('input',function(){renderFiles()});
   $('backBtn').onclick=function(){st.folder=null;renderFiles();window.scrollTo(0,0)};
 
   /* timer */

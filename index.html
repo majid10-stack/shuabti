@@ -131,6 +131,10 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 .btn{border:0;background:var(--brand);color:var(--brand-ink);border-radius:10px;padding:9px 16px;font-weight:600}
 .btn.ghost{background:var(--surface);color:var(--muted);border:1px solid var(--line)}
 .del{border:0;background:none;color:var(--warn);font-size:12.5px;padding:4px 0;margin-top:2px}
+.hw.off{background:var(--amber-soft);border-color:var(--amber);border-inline-start:5px solid var(--amber)}
+.offtag{display:inline-block;font-weight:600;font-size:12px;padding:1px 10px;border-radius:999px;background:var(--amber);color:#fff}
+:root[data-theme="dark"] .offtag{color:#1a1200}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .offtag{color:#1a1200}}
 .mine{font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--brand-soft);color:var(--brand)}
 .backup{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}
 .backup summary{font-weight:600;cursor:pointer}
@@ -306,7 +310,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
         dueTxt=dn?'منجز':(left<0?'متأخر '+(-left)+' يوم':(left===0?'ينتهي اليوم':(left===1?'يتبقى يوم':'يتبقى '+left+' أيام')))}
       else dueTxt=dn?'منجز':'بلا موعد';
       var id='hw'+i;
-      return '<li class="hw'+(dn?' done':'')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><div class="b"><label for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta">'+(h.own?'<span class="mine">مهمتي</span>':'<span>'+esc(h.s)+'</span>')+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label>'+(h.own?'<button class="del" type="button" data-del="'+esc(h.id)+'">حذف</button>':'')+'</div></li>'}).join(''):
+      return '<li class="hw'+(dn?' done':'')+(h.own?'':' off')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><div class="b"><label for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta">'+(h.own?'<span class="mine">مهمتي</span>':'<span class="offtag">واجب من '+esc(D.owner||'المسؤول')+'</span><span>'+esc(h.s)+'</span>')+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label>'+(h.own?'<button class="del" type="button" data-del="'+esc(h.id)+'">حذف</button>':'')+'</div></li>'}).join(''):
       '<li class="empty">'+(all.length?'لا توجد مهام في هذا التصنيف.':'لا توجد مهام حالياً. أضف مهمتك بزر «مهمة جديدة»، وستظهر هنا واجبات الشعبة عندما ينشرها المسؤول.')+'</li>';
     renderHeader();
   }

@@ -62,6 +62,7 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .logo small{display:block;color:var(--muted);font-size:12px}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 14px;font-size:13px;color:var(--muted)}
 .chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.sum{margin:-4px 0 12px;font-size:14px;color:var(--muted);font-weight:600}
 .acts{display:flex;gap:6px;flex:none}
 #themeBtn{font-size:16px;padding:3px 12px;line-height:1.5}
 .gpill{font-family:var(--font-display);font-weight:700;color:var(--brand-ink);background:var(--brand);border-radius:999px;padding:1px 12px;font-size:15px;margin-inline-start:8px;vertical-align:middle}
@@ -210,6 +211,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     </section>
     <section id="p-hw" hidden>
       <h2>المهام</h2>
+      <p class="sum" id="hwSum"></p>
       <div class="chips" id="hwFilter">
         <button class="chip" data-f="all" aria-pressed="true">الكل</button>
         <button class="chip" data-f="open" aria-pressed="false">غير منجزة</button>
@@ -340,7 +342,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     $('owner').textContent=D.owner?'الطالب: '+D.owner:'';
     var list=TODAY_IDX>=0?(SCHEDULES[G][TODAY_IDX]||[]):[];var next=list[0];
     var open=allTasks().filter(function(h){return !st.done[h.k]}).length;
-    $('today').innerHTML='<div class="l"><div class="k">اليوم · '+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):'لا توجد محاضرات اليوم')+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div><div class="n">'+open+'<span>مهمة مفتوحة</span></div>';
+    $('today').innerHTML='<div class="l"><div class="k">اليوم · '+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):'لا توجد محاضرات اليوم')+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div>';
+    $('hwSum').textContent=open?'لديك '+open+(open===1?' مهمة مفتوحة':(open<=10?' مهام مفتوحة':' مهمة مفتوحة')):'أنجزت كل مهامك ✓';
     $('hwBadge').textContent=open;$('hwBadge').hidden=!open;
     $('foot').textContent='للاطلاع فقط. الإضافة والتعديل من مسؤول الشعبة'+(D.owner?': '+D.owner:'')+'.';
   }
@@ -384,7 +387,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     $('annList').innerHTML=a.length?a.map(function(x){return '<li class="ann'+(x.pin?' pin':'')+'"><div class="h"><span>'+esc(x.w||D.owner||'')+'</span><span>'+esc(x.d||'')+(x.pin?' · مثبّت':'')+'</span></div><p>'+esc(x.t)+'</p></li>'}).join(''):
       '<li class="empty">لا توجد إعلانات حالياً.</li>';
   }
-  function show(p){['schedule','hw','files','timer','news'].forEach(function(k){$('p-'+k).hidden=k!==p});
+  function show(p){['schedule','hw','files','timer','news'].forEach(function(k){$('p-'+k).hidden=k!==p});$('today').hidden=p!=='schedule';
     Array.prototype.forEach.call($('tabs').children,function(b){b.setAttribute('aria-selected',b.dataset.p===p)});window.scrollTo(0,0)}
 
   function openGroup(g){

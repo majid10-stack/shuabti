@@ -162,6 +162,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 .presets button{border:1.5px solid var(--ck-ac);background:transparent;color:var(--ck-fg);border-radius:999px;padding:4px 14px;font-weight:600;font-size:13px}
 .presets button[aria-pressed="true"]{background:var(--ck-ac);color:#fff}
 .custom{display:flex;gap:8px;align-items:center;font-size:13px}
+.custom label{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px}
+.snd{border:0;background:transparent;color:var(--ck-fg);text-decoration:underline;font-size:13px;opacity:.85}
 .custom input{width:72px;font:inherit;text-align:center;border:1.5px solid var(--ck-ac);background:transparent;color:var(--ck-fg);border-radius:10px;padding:5px}
 .ctl{display:flex;gap:10px}
 .ctl button{border:0;border-radius:14px;padding:11px 26px;font-weight:700;font-size:15px;background:var(--ck-ac);color:#fff}
@@ -247,7 +249,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
         <div class="presets" id="presets">
           <button data-m="15" aria-pressed="false">15 د</button><button data-m="25" aria-pressed="true">25 د</button><button data-m="45" aria-pressed="false">45 د</button>
         </div>
-        <div class="custom"><span>مدة أخرى (دقيقة):</span><input id="cm" type="number" min="1" max="180" inputmode="numeric"></div>
+        <div class="custom"><label>ساعة<input id="ch" type="number" min="0" max="23" inputmode="numeric" placeholder="0"></label><label>دقيقة<input id="cm" type="number" min="0" max="59" inputmode="numeric" placeholder="0"></label><label>ثانية<input id="cs" type="number" min="0" max="59" inputmode="numeric" placeholder="0"></label></div>
+        <button class="snd" id="sndTest" type="button">🔔 تجربة الصوت</button>
         <div class="ctl"><button id="tgo" type="button">ابدأ</button><button class="g" id="trs" type="button">إعادة</button></div>
       </div>
       <p class="foot">إذا قفلت الشاشة يستمر الوقت بالحساب، وتظهر النتيجة عند رجوعك للتطبيق.</p>
@@ -429,9 +432,17 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function saveTm(){try{localStorage.setItem('shuabti-timer',JSON.stringify(tm))}catch(e){}}
   function pad(n){return (n<10?'0':'')+n}
   function remain(){return tm.run?Math.max(0,Math.ceil((tm.end-Date.now())/1000)):tm.left}
-  function beep(){try{var a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=880;g.gain.value=.15;o.start();setTimeout(function(){o.stop()},500)}catch(e){}try{navigator.vibrate&&navigator.vibrate([300,150,300])}catch(e){}}
+  var snd=null;
+  function mkWav(){var sr=8000,n=sr*2,buf=new ArrayBuffer(44+n*2),v=new DataView(buf);
+    function w(o,t){for(var i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))}
+    w(0,'RIFF');v.setUint32(4,36+n*2,true);w(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,'data');v.setUint32(40,n*2,true);
+    for(var i=0;i<n;i++){var t=i/sr,ph=t%.5,on=ph<.25&&t<1.75,f=ph<.125?988:1319,val=on?Math.sin(2*Math.PI*f*t)*Math.min(1,ph*40)*Math.min(1,(.25-ph)*40)*.9:0;v.setInt16(44+i*2,val*32767,true)}
+    var bin='',u=new Uint8Array(buf);for(var j=0;j<u.length;j+=0x8000)bin+=String.fromCharCode.apply(null,u.subarray(j,j+0x8000));
+    return 'data:audio/wav;base64,'+btoa(bin)}
+  function unlock(){try{if(!snd){snd=new Audio(mkWav());snd.preload='auto'}snd.volume=0;var pr=snd.play();if(pr&&pr.then)pr.then(function(){snd.pause();snd.currentTime=0;snd.volume=1}).catch(function(){})}catch(e){}}
+  function beep(){try{if(!snd){snd=new Audio(mkWav())}snd.volume=1;snd.currentTime=0;var pr=snd.play();if(pr&&pr.catch)pr.catch(function(){})}catch(e){}try{navigator.vibrate&&navigator.vibrate([300,150,300,150,300])}catch(e){}}
   function drawTm(){
-    var r=remain();$('tmTxt').textContent=pad(Math.floor(r/60))+':'+pad(r%60);
+    var r=remain();$('tmTxt').textContent=r>=3600?Math.floor(r/3600)+':'+pad(Math.floor(r%3600/60))+':'+pad(r%60):pad(Math.floor(r/60))+':'+pad(r%60);$('tmTxt').parentNode.parentNode.style.fontSize=r>=3600?'38px':'';
     $('pg').style.strokeDashoffset=String(326.7*(1-(tm.dur?r/tm.dur:0)));
     $('tmSt').textContent=tm.run?'جارٍ…':(r===0?'انتهى':(r<tm.dur?'متوقف':'جاهز'));
     $('tgo').textContent=tm.run?'إيقاف':(r<tm.dur&&r>0?'متابعة':'ابدأ');
@@ -443,11 +454,14 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function startTick(){if(!tick)tick=setInterval(drawTm,250)}
   function setDur(sec){tm.run=false;tm.dur=sec;tm.left=sec;$('alarm').hidden=true;saveTm();drawTm()}
   $('picks').addEventListener('click',function(e){var b=e.target.closest('.pick');if(!b)return;tm.clock=b.dataset.c;saveTm();drawTm()});
-  $('presets').addEventListener('click',function(e){var b=e.target.closest('button');if(b){$('cm').value='';setDur(+b.dataset.m*60)}});
-  $('cm').addEventListener('change',function(){var m=Math.max(1,Math.min(180,parseInt($('cm').value,10)||0));if(m){$('cm').value=m;setDur(m*60)}});
+  $('presets').addEventListener('click',function(e){var b=e.target.closest('button');if(b){['ch','cm','cs'].forEach(function(i){$(i).value=''});setDur(+b.dataset.m*60)}});
+  function num(id,mx){var n=Math.max(0,Math.min(mx,parseInt($(id).value,10)||0));return n}
+  function fromFields(){var sec=num('ch',23)*3600+num('cm',59)*60+num('cs',59);if(sec>0)setDur(sec)}
+  ['ch','cm','cs'].forEach(function(id){$(id).addEventListener('change',fromFields)});
+  $('sndTest').onclick=function(){unlock();setTimeout(beep,150)};
   $('tgo').onclick=function(){
     if(tm.run){tm.left=remain();tm.run=false}
-    else{if(tm.left<=0)tm.left=tm.dur;$('alarm').hidden=true;tm.end=Date.now()+tm.left*1000;tm.run=true;startTick()}
+    else{unlock();if(tm.left<=0)tm.left=tm.dur;$('alarm').hidden=true;tm.end=Date.now()+tm.left*1000;tm.run=true;startTick()}
     saveTm();drawTm()};
   $('trs').onclick=function(){setDur(tm.dur)};
   document.addEventListener('visibilitychange',function(){if(!document.hidden)drawTm()});

@@ -124,6 +124,20 @@ nav button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width
 nav button[aria-selected="true"]{color:var(--brand);font-weight:600}
 nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;width:26px;height:3px;border-radius:3px;background:var(--brand)}
 .badge{position:absolute;top:2px;inset-inline-start:calc(50% + 6px);background:var(--warn);color:#fff;font-size:10px;font-weight:700;border-radius:999px;min-width:16px;height:16px;display:grid;place-items:center;padding:0 4px}
+.add{width:100%;display:flex;align-items:center;justify-content:center;gap:6px;border:1px dashed var(--brand);background:var(--brand-soft);color:var(--brand);border-radius:14px;padding:10px;font-weight:600;margin-bottom:12px}
+.form{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:12px}
+.form input,.backup textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;width:100%;direction:rtl}
+.form .row{display:flex;gap:8px}
+.btn{border:0;background:var(--brand);color:var(--brand-ink);border-radius:10px;padding:9px 16px;font-weight:600}
+.btn.ghost{background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+.del{border:0;background:none;color:var(--warn);font-size:12.5px;padding:4px 0;margin-top:2px}
+.mine{font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--brand-soft);color:var(--brand)}
+.backup{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}
+.backup summary{font-weight:600;cursor:pointer}
+.backup p{font-size:13px;color:var(--muted);margin:8px 0}
+.backup textarea{min-height:90px;margin:8px 0;direction:ltr;font-size:12px}
+.backup .row{display:flex;gap:8px;flex-wrap:wrap}
+.msg{font-size:13px;color:var(--ok);margin-top:6px}
 </style>
 
 <div class="gate" id="gate" lang="ar">
@@ -162,13 +176,26 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
       <ul class="list" id="lectures"></ul>
     </section>
     <section id="p-hw" hidden>
-      <h2>الواجبات</h2>
+      <h2>المهام</h2>
       <div class="chips" id="hwFilter">
         <button class="chip" data-f="all" aria-pressed="true">الكل</button>
         <button class="chip" data-f="open" aria-pressed="false">غير منجزة</button>
         <button class="chip" data-f="done" aria-pressed="false">منجزة</button>
       </div>
+      <button class="add" id="addBtn" type="button">+ مهمة جديدة</button>
+      <div class="form" id="taskForm" hidden>
+        <input id="tTitle" type="text" maxlength="120" placeholder="اكتب مهمتك" aria-label="عنوان المهمة">
+        <input id="tDate" type="date" aria-label="الموعد (اختياري)">
+        <div class="row"><button class="btn" id="tSave" type="button">إضافة</button><button class="btn ghost" id="tCancel" type="button">إلغاء</button></div>
+      </div>
       <ul class="list" id="hwList"></ul>
+      <details class="backup">
+        <summary>نسخة احتياطية لمهامي</summary>
+        <p>مهامك الشخصية محفوظة على هذا الهاتف فقط. انسخها واحفظها في ملاحظاتك، وإذا تغير هاتفك ألصقها هنا واضغط «استرجاع».</p>
+        <textarea id="bk" aria-label="نص النسخة الاحتياطية" placeholder="الصق النسخة هنا للاسترجاع"></textarea>
+        <div class="row"><button class="btn" id="bkMake" type="button">نسخ مهامي</button><button class="btn ghost" id="bkRestore" type="button">استرجاع</button></div>
+        <div class="msg" id="bkMsg" role="status"></div>
+      </details>
     </section>
     <section id="p-files" hidden>
       <h2 id="filesTitle">ملفات المواد</h2>
@@ -188,7 +215,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   <nav aria-label="التنقل">
     <div role="tablist" id="tabs">
       <button role="tab" data-p="schedule" aria-selected="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>الجدول</button>
-      <button role="tab" data-p="hw" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>الواجبات<span class="badge" id="hwBadge" hidden>0</span></button>
+      <button role="tab" data-p="hw" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>المهام<span class="badge" id="hwBadge" hidden>0</span></button>
       <button role="tab" data-p="files" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/></svg>الملفات</button>
       <button role="tab" data-p="news" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7z"/><path d="M10 20a2 2 0 004 0"/></svg>الإعلانات</button>
     </div>
@@ -241,6 +268,13 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 
   var G=null,SUBJECTS=[],st={day:0,filter:'all',folder:null,done:{}};
   try{st.done=JSON.parse(localStorage.getItem('shuabti-done')||'{}')||{}}catch(e){}
+  var tasks={};try{tasks=JSON.parse(localStorage.getItem('shuabti-tasks')||'{}')||{}}catch(e){}
+  function saveTasks(){try{localStorage.setItem('shuabti-tasks',JSON.stringify(tasks))}catch(e){}}
+  function mine(){return tasks[G]||[]}
+  function allTasks(){
+    var g=gdata().homework.map(function(h){return {k:hwKey(h),t:h.t,s:h.s,date:h.date,note:h.note,own:false}});
+    var m=mine().map(function(x){return {k:'mine|'+G+'|'+x.id,t:x.t,s:'مهمة شخصية',date:x.date,own:true,id:x.id}});
+    return g.concat(m)}
   function saveDone(){try{localStorage.setItem('shuabti-done',JSON.stringify(st.done))}catch(e){}}
   function gdata(){var g=(D.groups||{})[G]||{};return {homework:g.homework||[],announcements:g.announcements||[],files:g.files||{}}}
   function hwKey(h){return G+'|'+(h.t||'')+'|'+(h.s||'')+'|'+(h.date||'')}
@@ -252,8 +286,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     $('sub').textContent='المرحلة الثانية · شعبة '+G;
     $('owner').textContent=D.owner?'الطالب: '+D.owner:'';
     var list=TODAY_IDX>=0?(SCHEDULES[G][TODAY_IDX]||[]):[];var next=list[0];
-    var open=gd.homework.filter(function(h){return !st.done[hwKey(h)]}).length;
-    $('today').innerHTML='<div class="l"><div class="k">اليوم · '+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):'لا توجد محاضرات اليوم')+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div><div class="n">'+open+'<span>واجب مفتوح</span></div>';
+    var open=allTasks().filter(function(h){return !st.done[h.k]}).length;
+    $('today').innerHTML='<div class="l"><div class="k">اليوم · '+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):'لا توجد محاضرات اليوم')+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div><div class="n">'+open+'<span>مهمة مفتوحة</span></div>';
     $('hwBadge').textContent=open;$('hwBadge').hidden=!open;
     $('foot').textContent='للاطلاع فقط. الإضافة والتعديل من مسؤول الشعبة'+(D.owner?': '+D.owner:'')+'.';
   }
@@ -264,16 +298,16 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
       return '<li class="lec'+(isNow?' now':'')+'"><div class="time"><b>'+l[0]+'</b>حتى '+l[1]+'</div><div class="body"><strong>'+esc(l[2])+(isNow?'<span class="tag">التالية</span>':'')+'</strong><span>'+esc(l[3])+'</span></div></li>'}).join(''):'<li class="empty">لا توجد محاضرات في هذا اليوم.</li>';
   }
   function renderHw(){
-    var all=gdata().homework;
-    var items=all.filter(function(h){var d=!!st.done[hwKey(h)];return st.filter==='all'||(st.filter==='open'?!d:d)});
-    $('hwList').innerHTML=items.length?items.map(function(h){
-      var k=hwKey(h),dn=!!st.done[k],dueTxt='',dateTxt='';
+    var all=allTasks();
+    var items=all.filter(function(h){var d=!!st.done[h.k];return st.filter==='all'||(st.filter==='open'?!d:d)});
+    $('hwList').innerHTML=items.length?items.map(function(h,i){
+      var k=h.k,dn=!!st.done[k],dueTxt='',dateTxt='';
       if(h.date){var left=daysLeft(h.date),p=h.date.split('-');dateTxt=fmt(new Date(+p[0],+p[1]-1,+p[2]));
         dueTxt=dn?'منجز':(left<0?'متأخر '+(-left)+' يوم':(left===0?'ينتهي اليوم':(left===1?'يتبقى يوم':'يتبقى '+left+' أيام')))}
       else dueTxt=dn?'منجز':'بلا موعد';
-      var id='hw'+all.indexOf(h);
-      return '<li class="hw'+(dn?' done':'')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><label class="b" for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta"><span>'+esc(h.s)+'</span>'+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label></li>'}).join(''):
-      '<li class="empty">'+(all.length?'لا توجد واجبات في هذا التصنيف.':'لا توجد واجبات حالياً. ستظهر هنا عندما ينشرها مسؤول الشعبة.')+'</li>';
+      var id='hw'+i;
+      return '<li class="hw'+(dn?' done':'')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><div class="b"><label for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta">'+(h.own?'<span class="mine">مهمتي</span>':'<span>'+esc(h.s)+'</span>')+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label>'+(h.own?'<button class="del" type="button" data-del="'+esc(h.id)+'">حذف</button>':'')+'</div></li>'}).join(''):
+      '<li class="empty">'+(all.length?'لا توجد مهام في هذا التصنيف.':'لا توجد مهام حالياً. أضف مهمتك بزر «مهمة جديدة»، وستظهر هنا واجبات الشعبة عندما ينشرها المسؤول.')+'</li>';
     renderHeader();
   }
   function ftype(f){var e=(f.n.split('.').pop()||'').toLowerCase();return /^(png|jpe?g|gif|webp|avif)$/.test(e)?'img':(/^(doc|docx)$/.test(e)?'doc':'file')}
@@ -324,6 +358,21 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     Array.prototype.forEach.call($('hwFilter').children,function(c){c.setAttribute('aria-pressed',c===b)});renderHw()});
   $('hwList').addEventListener('change',function(e){var k=e.target.dataset.k;if(k==null)return;if(e.target.checked)st.done[k]=1;else delete st.done[k];saveDone();renderHw()});
   $('folders').addEventListener('click',function(e){var b=e.target.closest('.folder');if(!b)return;st.folder=SUBJECTS[+b.dataset.s];renderFiles();window.scrollTo(0,0)});
+  $('addBtn').onclick=function(){$('taskForm').hidden=false;$('addBtn').hidden=true;$('tTitle').focus()};
+  function closeForm(){$('taskForm').hidden=true;$('addBtn').hidden=false;$('tTitle').value='';$('tDate').value=''}
+  $('tCancel').onclick=closeForm;
+  $('tSave').onclick=function(){var t=$('tTitle').value.trim();if(!t){$('tTitle').focus();return}
+    (tasks[G]=tasks[G]||[]).push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),t:t,date:$('tDate').value||''});
+    saveTasks();closeForm();renderHw()};
+  $('hwList').addEventListener('click',function(e){var id=e.target.dataset&&e.target.dataset.del;if(!id)return;
+    if(!confirm('حذف هذه المهمة؟'))return;
+    tasks[G]=mine().filter(function(x){return x.id!==id});delete st.done['mine|'+G+'|'+id];saveTasks();saveDone();renderHw()});
+  $('bkMake').onclick=function(){var txt=JSON.stringify({v:1,tasks:tasks,done:st.done});$('bk').value=txt;
+    var ok=function(){$('bkMsg').textContent='تم النسخ. الصقه في ملاحظاتك أو أرسله لنفسك.'};
+    try{navigator.clipboard.writeText(txt).then(ok,function(){$('bk').select();$('bkMsg').textContent='انسخ النص الظاهر يدوياً.'})}catch(e){$('bk').select();$('bkMsg').textContent='انسخ النص الظاهر يدوياً.'}};
+  $('bkRestore').onclick=function(){try{var o=JSON.parse($('bk').value);if(!o||typeof o.tasks!=='object')throw 0;
+    tasks=o.tasks;st.done=o.done||{};saveTasks();saveDone();$('bkMsg').textContent='تم الاسترجاع.';renderHw()}catch(e){$('bkMsg').textContent='النص غير صحيح، تأكد من لصق النسخة كاملة.'}};
+  try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
   $('backBtn').onclick=function(){st.folder=null;renderFiles();window.scrollTo(0,0)};
 
   var first=hashGroup();

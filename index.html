@@ -335,14 +335,16 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function hwKey(h){return G+'|'+(h.t||'')+'|'+(h.s||'')+'|'+(h.date||'')}
   function daysLeft(date){var p=date.split('-');return Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000)}
 
+  function mins(t){var a=t.split(':');return +a[0]*60+ +a[1]}
+  function curIdx(list){var n=new Date(),m=n.getHours()*60+n.getMinutes();for(var i=0;i<list.length;i++){if(mins(list[i][1])>m)return {i:i,live:mins(list[i][0])<=m}}return {i:-1,live:false}}
   function renderHeader(){
     var gd=gdata();
     $('gpill').textContent='شعبة '+G;
     $('sub').textContent='المرحلة الثانية · شعبة '+G;
     $('owner').textContent=D.owner?'الطالب: '+D.owner:'';
-    var list=TODAY_IDX>=0?(SCHEDULES[G][TODAY_IDX]||[]):[];var next=list[0];
+    var list=TODAY_IDX>=0?(SCHEDULES[G][TODAY_IDX]||[]):[];var cur=curIdx(list),next=cur.i>=0?list[cur.i]:null;
     var open=allTasks().filter(function(h){return !st.done[h.k]}).length;
-    $('today').innerHTML='<div class="l"><div class="k">اليوم · '+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):'لا توجد محاضرات اليوم')+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div>';
+    $('today').innerHTML='<div class="l"><div class="k">'+(next?(cur.live?'الآن':'التالية')+' · ':'اليوم · ')+fmt(today)+'</div><div class="v">'+(next?esc(next[2]):(list.length?'انتهت محاضرات اليوم':'لا توجد محاضرات اليوم'))+'</div><div class="t">'+(next?esc(next[0]+' · '+next[3]):'')+'</div></div>';
     var all=allTasks(),dn=all.length-open;
     $('hwSum').innerHTML='<div class="l"><div class="k">مهامك</div><div class="v">'+(open?'لديك '+open+(open===1?' مهمة مفتوحة':(open<=10?' مهام مفتوحة':' مهمة مفتوحة')):'أنجزت كل مهامك ✓')+'</div><div class="t">'+(all.length?'منجز '+dn+' من '+all.length:'لا توجد مهام بعد')+'</div></div>';
     $('hwBadge').textContent=open;$('hwBadge').hidden=!open;
@@ -351,8 +353,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function renderDays(){
     $('days').innerHTML=DAYS.map(function(d,i){return '<button class="day" data-i="'+i+'" aria-pressed="'+(i===st.day)+'">'+d+'<b>'+addDays(weekStart,i).getDate()+'</b></button>'}).join('');
     var L=SCHEDULES[G][st.day]||[];
-    $('lectures').innerHTML=L.length?L.map(function(l,i){var isNow=st.day===TODAY_IDX&&i===0;
-      return '<li class="lec'+(isNow?' now':'')+'"><div class="time"><b>'+l[0]+'</b>حتى '+l[1]+'</div><div class="body"><strong>'+esc(l[2])+(isNow?'<span class="tag">التالية</span>':'')+'</strong><span>'+esc(l[3])+'</span></div></li>'}).join(''):'<li class="empty">لا توجد محاضرات في هذا اليوم.</li>';
+    $('lectures').innerHTML=L.length?L.map(function(l,i){var isNow=st.day===TODAY_IDX&&i===curIdx(L).i;
+      return '<li class="lec'+(isNow?' now':'')+'"><div class="time"><b>'+l[0]+'</b>حتى '+l[1]+'</div><div class="body"><strong>'+esc(l[2])+(isNow?'<span class="tag">'+(curIdx(L).live?'الآن':'التالية')+'</span>':'')+'</strong><span>'+esc(l[3])+'</span></div></li>'}).join(''):'<li class="empty">لا توجد محاضرات في هذا اليوم.</li>';
   }
   function renderHw(){
     var all=allTasks();
@@ -480,6 +482,9 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   try{var th=localStorage.getItem('shuabti-theme');if(th==='dark'||th==='light')document.documentElement.dataset.theme=th}catch(e){}
   $('themeBtn').onclick=function(){var n=isDark()?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('shuabti-theme',n)}catch(e){}paintTheme()};
   paintTheme();
+
+  setInterval(function(){if(G){renderHeader();renderDays()}},30000);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&G){renderHeader();renderDays()}});
 
   var first=hashGroup();
   if(!first){var s=null;try{s=localStorage.getItem('shuabti-group')}catch(e){}

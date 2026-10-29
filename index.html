@@ -175,6 +175,20 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 .ctl button{border:0;border-radius:14px;padding:11px 26px;font-weight:700;font-size:15px;background:var(--ck-ac);color:#fff}
 .ctl button.g{background:transparent;color:var(--ck-fg);border:1.5px solid var(--ck-ac)}
 .alarm{background:var(--amber-soft);border:1px solid var(--amber);color:var(--ink);border-radius:14px;padding:12px;margin-bottom:12px;font-weight:600;text-align:center}
+.owner{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sh{background:var(--surface);color:var(--ink);width:100%;max-width:460px;max-height:88vh;overflow:auto;border-radius:22px 22px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px}
+.sh .row{display:flex;justify-content:space-between;align-items:center;font-size:17px}
+.sh .x{border:0;background:var(--bg);border-radius:50%;width:32px;height:32px;font-size:16px}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.sh label.l{font-size:12.5px;color:var(--muted);margin-top:4px;display:block}
+.sh input,.sh select,.sh textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;direction:rtl}
+.sh .chk{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:6px}
+.sh .chk input{width:20px;height:20px;accent-color:var(--brand)}
+.lec .gone{margin-inline-start:auto;align-self:center}
+.exl .time b{font-size:20px}
 </style>
 
 <div class="gate" id="gate" lang="ar">
@@ -201,17 +215,20 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
         <div class="mark" aria-hidden="true">ش</div>
         <div><h1>شعبتي<span class="gpill" id="gpill"></span></h1><small id="sub"></small></div>
       </div>
-      <div class="acts"><button class="chip" id="themeBtn" type="button" aria-label="تبديل الوضع الداكن والفاتح">🌙</button><button class="chip" id="changeG" type="button">تغيير الشعبة</button></div>
+      <div class="acts"><button class="chip" id="admBtn" type="button" hidden>✏️ المسؤول</button><button class="chip" id="themeBtn" type="button" aria-label="تبديل الوضع الداكن والفاتح">🌙</button><button class="chip" id="changeG" type="button">تغيير الشعبة</button></div>
     </div>
     <div class="offl" id="offl" role="status" hidden>أنت تتصفح النسخة المحفوظة 📌</div>
     <p class="owner" id="owner"></p>
     <div class="today" id="today"></div>
+    <div class="today" id="examCard" hidden></div>
   </header>
   <main>
     <section id="p-schedule">
       <h2>جدول المحاضرات</h2>
       <div class="days" id="days"></div>
       <ul class="list" id="lectures"></ul>
+      <h2 style="margin-top:22px" id="examH" hidden>جدول الامتحانات</h2>
+      <ul class="list" id="examList"></ul>
     </section>
     <section id="p-hw" hidden>
       <h2>المهام</h2>
@@ -282,8 +299,20 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   </nav>
 </div>
 
+<div class="sheet" id="sheet" hidden>
+  <div class="sh" role="dialog" aria-label="لوحة المسؤول">
+    <div class="row"><b>لوحة المسؤول</b><button class="x" id="shClose" type="button" aria-label="إغلاق">✕</button></div>
+    <div class="seg" id="shType"><button data-t="exam" class="on" type="button">امتحان</button><button data-t="hw" type="button">واجب</button><button data-t="ann" type="button">إعلان</button></div>
+    <label class="l">الشعبة (يمكن اختيار أكثر من شعبة)</label>
+    <div class="seg" id="shG"><button data-g="A" type="button">A</button><button data-g="B" type="button">B</button><button data-g="C" type="button">C</button></div>
+    <div id="shFields"></div>
+    <button class="btn" id="shPub" type="button" style="border:0;background:var(--brand);color:var(--brand-ink);border-radius:12px;padding:12px;font-weight:700;margin-top:8px">نشر للطلاب</button>
+    <div class="msg" id="shMsg" role="status"></div>
+    <button class="del" id="shOut" type="button">تسجيل الخروج من اللوحة</button>
+  </div>
+</div>
 <script data-goatcounter="https://shuabti-majid.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script id="data" type="application/json">{"owner": "ماجد أحمد الشمري", "groups": {"A": {"homework": [{"t": "هل الدم فقط بلون الأحمر؟ وهل توجد ألوان أخرى؟ ولماذا؟", "s": "الفسلجة (مختبر)", "date": "2026-11-03", "note": "التسليم في محاضرة المختبر القادمة"}], "announcements": [], "files": {"الفيزياء الذرية (مختبر)": [{"n": "تجربة الذرية الرابعة.pdf", "p": "atomic-lab-4.pdf", "d": "مختبر الفيزياء الذرية", "a": "2026-10-28"}]}}, "B": {"homework": [], "announcements": [], "files": {}}, "C": {"homework": [], "announcements": [], "files": {}}}}</script>
+<script id="data" type="application/json">{"owner": "ماجد أحمد الشمري", "groups": {"A": {"homework": [{"t": "هل الدم فقط بلون الأحمر؟ وهل توجد ألوان أخرى؟ ولماذا؟", "s": "الفسلجة (مختبر)", "date": "2026-11-03", "note": "التسليم في محاضرة المختبر القادمة", "id": "hw1"}], "announcements": [], "files": {"الفيزياء الذرية (مختبر)": [{"n": "تجربة الذرية الرابعة.pdf", "p": "atomic-lab-4.pdf", "d": "مختبر الفيزياء الذرية", "a": "2026-10-28"}]}, "exams": []}, "B": {"homework": [], "announcements": [], "files": {}, "exams": []}, "C": {"homework": [], "announcements": [], "files": {}, "exams": []}}}</script>
 <script>
 (function(){
   var D={owner:'',groups:{}};
@@ -333,11 +362,11 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function saveTasks(){try{localStorage.setItem('shuabti-tasks',JSON.stringify(tasks))}catch(e){}}
   function mine(){return tasks[G]||[]}
   function allTasks(){
-    var g=gdata().homework.map(function(h){return {k:hwKey(h),t:h.t,s:h.s,date:h.date,note:h.note,own:false}});
+    var g=gdata().homework.map(function(h){return {k:hwKey(h),t:h.t,s:h.s,date:h.date,note:h.note,own:false,gid:h.id}});
     var m=mine().map(function(x){return {k:'mine|'+G+'|'+x.id,t:x.t,s:'مهمة شخصية',date:x.date,own:true,id:x.id}});
     return g.concat(m)}
   function saveDone(){try{localStorage.setItem('shuabti-done',JSON.stringify(st.done))}catch(e){}}
-  function gdata(){var g=(D.groups||{})[G]||{};return {homework:g.homework||[],announcements:g.announcements||[],files:g.files||{}}}
+  function gdata(){var g=(D.groups||{})[G]||{};return {homework:g.homework||[],announcements:g.announcements||[],files:g.files||{},exams:g.exams||[]}}
   function hwKey(h){return G+'|'+(h.t||'')+'|'+(h.s||'')+'|'+(h.date||'')}
   function daysLeft(date){var p=date.split('-');return Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000)}
 
@@ -371,7 +400,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
         dueTxt=dn?'منجز':(left<0?'متأخر '+(-left)+' يوم':(left===0?'ينتهي اليوم':(left===1?'يتبقى يوم':'يتبقى '+left+' أيام')))}
       else dueTxt=dn?'منجز':'بلا موعد';
       var id='hw'+i;
-      return '<li class="hw'+(dn?' done':'')+(h.own?'':' off')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><div class="b"><label for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta">'+(h.own?'<span class="mine">مهمتي</span>':'<span class="offtag">واجب من '+esc(D.owner||'المسؤول')+'</span><span>'+esc(h.s)+'</span>')+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label>'+(h.own?'<button class="del" type="button" data-del="'+esc(h.id)+'">حذف</button>':'')+'</div></li>'}).join(''):
+      return '<li class="hw'+(dn?' done':'')+(h.own?'':' off')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><div class="b"><label for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta">'+(h.own?'<span class="mine">مهمتي</span>':'<span class="offtag">واجب من '+esc(D.owner||'المسؤول')+'</span><span>'+esc(h.s)+'</span>')+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label>'+(h.own?'<button class="del" type="button" data-del="'+esc(h.id)+'">حذف</button>':(isAdmin()&&h.gid?'<button class="del" type="button" data-adel="hw|'+esc(h.gid)+'">حذف (مسؤول)</button>':''))+'</div></li>'}).join(''):
       '<li class="empty">'+(all.length?'لا توجد مهام في هذا التصنيف.':'لا توجد مهام حالياً. أضف مهمتك بزر «مهمة جديدة»، وستظهر هنا واجبات الشعبة عندما ينشرها المسؤول.')+'</li>';
     renderHeader();
   }
@@ -403,22 +432,100 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   }
   function renderAnn(){
     var a=gdata().announcements;
-    $('annList').innerHTML=a.length?a.map(function(x){return '<li class="ann'+(x.pin?' pin':'')+'"><div class="h"><span>'+esc(x.w||D.owner||'')+'</span><span>'+esc(x.d||'')+(x.pin?' · مثبّت':'')+'</span></div><p>'+esc(x.t)+'</p></li>'}).join(''):
+    $('annList').innerHTML=a.length?a.map(function(x){return '<li class="ann'+(x.pin?' pin':'')+'"><div class="h"><span>'+esc(x.w||D.owner||'')+'</span><span>'+esc(x.d||'')+(x.pin?' · مثبّت':'')+'</span></div><p>'+esc(x.t)+'</p>'+(isAdmin()&&x.id?'<button class="del" type="button" data-adel="ann|'+esc(x.id)+'">حذف (مسؤول)</button>':'')+'</li>'}).join(''):
       '<li class="empty">لا توجد إعلانات حالياً.</li>';
   }
-  function show(p){['schedule','hw','files','timer','news'].forEach(function(k){$('p-'+k).hidden=k!==p});$('today').hidden=p!=='schedule';
+  function show(p){['schedule','hw','files','timer','news'].forEach(function(k){$('p-'+k).hidden=k!==p});st.tab=p;syncCards();
     Array.prototype.forEach.call($('tabs').children,function(b){b.setAttribute('aria-selected',b.dataset.p===p)});window.scrollTo(0,0)}
+
+  function isAdmin(){try{return !!localStorage.getItem('shuabti-admin-token')}catch(e){return false}}
+  function tok(){try{return localStorage.getItem('shuabti-admin-token')||''}catch(e){return ''}}
+  function syncCards(){$('today').hidden=st.tab!=='schedule';$('examCard').hidden=st.tab!=='schedule'||!st.hasExam}
+  function dstr(d){var p=d.split('-');return fmt(new Date(+p[0],+p[1]-1,+p[2]))}
+  function inTxt(n){return n<=0?'اليوم':(n===1?'غداً':(n===2?'بعد يومين':'بعد '+n+(n<=10?' أيام':' يوماً')))}
+  function renderExams(){
+    var up=gdata().exams.filter(function(e){return e.date&&daysLeft(e.date)>=0}).sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0});
+    st.hasExam=up.length>0;
+    if(up.length){var e=up[0];$('examCard').innerHTML='<div class="l"><div class="k">الامتحان القادم</div><div class="v">'+esc(e.s)+' · '+inTxt(daysLeft(e.date))+'</div><div class="t">'+esc(dstr(e.date)+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</div></div>'}
+    $('examH').hidden=!up.length;
+    $('examList').innerHTML=up.map(function(e){var p=e.date.split('-');
+      return '<li class="lec exl"><div class="time"><b>'+(+p[2])+'</b>'+MONTHS[+p[1]-1]+'</div><div class="body"><strong>'+esc(e.s)+'<span class="tag">'+inTxt(daysLeft(e.date))+'</span></strong><span>'+esc(FULLDAYS[new Date(+p[0],+p[1]-1,+p[2]).getDay()]+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</span>'+(isAdmin()&&e.id?'<br><button class="del" type="button" data-adel="exam|'+esc(e.id)+'">حذف (مسؤول)</button>':'')+'</div></li>'}).join('');
+    syncCards();
+  }
+  function rerender(){renderHeader();renderDays();renderHw();renderFiles();renderAnn();renderExams()}
+
+  /* admin: edits data.json in the GitHub repo through the API (token stays on this phone) */
+  var REPO='majid10-stack/shuabti',API='https://api.github.com/repos/'+REPO+'/contents/data.json';
+  function hdr(){return {'Authorization':'Bearer '+tok(),'Accept':'application/vnd.github+json'}}
+  function b64(x){return btoa(unescape(encodeURIComponent(x)))}
+  function unb64(x){return decodeURIComponent(escape(atob(x.replace(/\n/g,''))))}
+  function ghGet(){return fetch(API+'?ref=main&t='+Date.now(),{headers:hdr(),cache:'no-store'}).then(function(r){
+    if(r.status===404)throw new Error('ملف data.json غير موجود في GitHub. ارفعه أولاً.');
+    if(r.status===401||r.status===403)throw new Error('المفتاح غير صالح أو منتهي.');
+    if(!r.ok)throw new Error('تعذر الاتصال ('+r.status+')');
+    return r.json()}).then(function(j){return {sha:j.sha,data:JSON.parse(unb64(j.content))}})}
+  function ghPut(data,sha,msg){var h=hdr();h['Content-Type']='application/json';
+    return fetch(API,{method:'PUT',headers:h,body:JSON.stringify({message:msg,content:b64(JSON.stringify(data,null,1)),sha:sha,branch:'main'})}).then(function(r){
+      if(r.status===409||r.status===422)throw new Error('تعارض في الحفظ، حاول مرة أخرى.');
+      if(!r.ok)throw new Error('فشل الحفظ ('+r.status+')');return r.json()})}
+  function mutate(fn,msg){return ghGet().then(function(cur){fn(cur.data);return ghPut(cur.data,cur.sha,msg).then(function(){D=cur.data;rerender()})})}
+  function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,5)}
+  var adm={type:'exam',groups:{}};
+  function optsHtml(list){return list.map(function(x){return '<option>'+esc(x)+'</option>'}).join('')}
+  function lectureSubjects(){return subjectsOf('A').filter(function(x){return x.indexOf('(مختبر)')<0})}
+  function paintSheet(){
+    Array.prototype.forEach.call($('shType').children,function(b){b.classList.toggle('on',b.dataset.t===adm.type)});
+    Array.prototype.forEach.call($('shG').children,function(b){b.classList.toggle('on',!!adm.groups[b.dataset.g])});
+    var f='';
+    if(adm.type==='exam')f='<label class="l">المادة</label><select id="fS">'+optsHtml(lectureSubjects())+'</select><label class="l">تاريخ الامتحان</label><input id="fD" type="date"><label class="l">الوقت (اختياري)</label><input id="fT" type="text" placeholder="مثال: 9:00 صباحاً"><label class="l">القاعة (اختياري)</label><input id="fP" type="text" placeholder="مثال: قاعة 5">';
+    else if(adm.type==='hw')f='<label class="l">نص الواجب</label><textarea id="fX" rows="3" placeholder="اكتب الواجب"></textarea><label class="l">المادة</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">موعد التسليم (اختياري)</label><input id="fD" type="date"><label class="l">ملاحظة (اختياري)</label><input id="fN" type="text">';
+    else f='<label class="l">نص الإعلان</label><textarea id="fX" rows="4" placeholder="اكتب الإعلان"></textarea><label class="chk"><input id="fPin" type="checkbox"> تثبيت الإعلان</label>';
+    $('shFields').innerHTML=f;$('shMsg').textContent='';
+  }
+  function openSheet(){adm.groups={};adm.groups[G||'A']=true;adm.type='exam';$('sheet').hidden=false;paintSheet()}
+  function paintAdmin(){$('admBtn').hidden=!isAdmin()||!G}
+  function adminLogin(){
+    if(isAdmin()){if(G)openSheet();return}
+    var t=prompt('أدخل المفتاح السري للمسؤول');if(!t)return;t=t.trim();
+    fetch('https://api.github.com/repos/'+REPO,{headers:{'Authorization':'Bearer '+t,'Accept':'application/vnd.github+json'}}).then(function(r){
+      if(!r.ok)throw 0;try{localStorage.setItem('shuabti-admin-token',t)}catch(e){}
+      paintAdmin();if(G){rerender();openSheet()}else alert('تم تفعيل لوحة المسؤول. اختر شعبة ثم اضغط «✏️ المسؤول».')
+    }).catch(function(){alert('المفتاح غير صحيح')})}
+  function holdTo(el){var tm=null;
+    function start(){tm=setTimeout(adminLogin,800)}function stop(){clearTimeout(tm)}
+    el.addEventListener('touchstart',start,{passive:true});el.addEventListener('touchend',stop);el.addEventListener('touchmove',stop);el.addEventListener('touchcancel',stop);
+    el.addEventListener('mousedown',start);el.addEventListener('mouseup',stop);el.addEventListener('mouseleave',stop);el.addEventListener('contextmenu',function(e){e.preventDefault()})}
+  holdTo($('owner'));holdTo($('gateOwner'));
+  $('admBtn').onclick=function(){openSheet()};
+  $('shClose').onclick=function(){$('sheet').hidden=true};
+  $('shType').addEventListener('click',function(e){var b=e.target.closest('button');if(b){adm.type=b.dataset.t;paintSheet()}});
+  $('shG').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var g=b.dataset.g;if(adm.groups[g])delete adm.groups[g];else adm.groups[g]=1;paintSheet()});
+  $('shOut').onclick=function(){if(!confirm('تسجيل الخروج من لوحة المسؤول على هذا الهاتف؟'))return;try{localStorage.removeItem('shuabti-admin-token')}catch(e){}$('sheet').hidden=true;paintAdmin();rerender()};
+  $('shPub').onclick=function(){
+    var gs=Object.keys(adm.groups);if(!gs.length){$('shMsg').textContent='اختر شعبة واحدة على الأقل.';return}
+    var v=function(id){var e=$(id);return e?e.value.trim():''},item,key,label;
+    if(adm.type==='exam'){if(!v('fD')){$('shMsg').textContent='اختر تاريخ الامتحان.';return}item={s:v('fS'),date:v('fD'),time:v('fT'),place:v('fP')};key='exams';label='امتحان '+item.s}
+    else if(adm.type==='hw'){if(!v('fX')){$('shMsg').textContent='اكتب نص الواجب.';return}item={t:v('fX'),s:v('fS'),date:v('fD'),note:v('fN')};key='homework';label='واجب'}
+    else{if(!v('fX')){$('shMsg').textContent='اكتب نص الإعلان.';return}item={t:v('fX'),d:today.getDate()+' '+MONTHS[today.getMonth()],w:D.owner,pin:!!$('fPin').checked};key='announcements';label='إعلان'}
+    $('shPub').disabled=true;$('shMsg').textContent='جارٍ النشر…';
+    mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});var it={};Object.keys(item).forEach(function(k){it[k]=item[k]});it.id=uid();(gr[key]=gr[key]||[]).push(it)})},'إضافة '+label).then(function(){
+      $('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.';$('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.'
+    }).catch(function(e){$('shMsg').textContent=(e&&e.message)||'فشل النشر';$('shPub').disabled=false})};
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-adel]');if(!b||!isAdmin())return;
+    var parts=b.dataset.adel.split('|'),kind=parts[0],id=parts[1],key=kind==='exam'?'exams':(kind==='hw'?'homework':'announcements');
+    if(!confirm('حذف هذا العنصر من شعبة '+G+'؟'))return;var g=G;
+    mutate(function(data){var gr=data.groups[g]||{};gr[key]=(gr[key]||[]).filter(function(x){return x.id!==id})},'حذف').catch(function(er){alert((er&&er.message)||'فشل الحذف')})});
 
   function openGroup(g){$('fq').value='';
     G=g;SUBJECTS=subjectsOf(g);st.day=TODAY_IDX>=0?TODAY_IDX:0;st.filter='all';st.folder=null;
     Array.prototype.forEach.call($('hwFilter').children,function(c){c.setAttribute('aria-pressed',c.dataset.f==='all')});
     try{localStorage.setItem('shuabti-group',g)}catch(e){}
     $('gate').hidden=true;$('app').hidden=false;
-    renderHeader();renderDays();renderHw();renderFiles();renderAnn();show('schedule');
+    renderHeader();renderDays();renderHw();renderFiles();renderAnn();renderExams();paintAdmin();show('schedule');
   }
   function openGate(){
     G=null;try{localStorage.removeItem('shuabti-group')}catch(e){}
-    $('app').hidden=true;$('gate').hidden=false;window.scrollTo(0,0);
+    $('app').hidden=true;$('gate').hidden=false;$('admBtn').hidden=true;window.scrollTo(0,0);
   }
   function hashGroup(){var h=(location.hash||'').replace('#','').toUpperCase();return GROUPS.indexOf(h)>-1?h:null}
   function route(){var g=hashGroup();if(g)openGroup(g);else openGate()}
@@ -505,7 +612,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   $('themeBtn').onclick=function(){var n=isDark()?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('shuabti-theme',n)}catch(e){}paintTheme()};
   paintTheme();
 
-  setInterval(function(){if(G){renderHeader();renderDays()}},30000);
+  setInterval(function(){if(G){renderHeader();renderDays();renderExams()}},30000);
   document.addEventListener('visibilitychange',function(){if(!document.hidden&&G){renderHeader();renderDays()}});
 
   function paintNet(){$('offl').hidden=navigator.onLine!==false}
@@ -516,6 +623,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   if(!first){var s=null;try{s=localStorage.getItem('shuabti-group')}catch(e){}
     if(s&&GROUPS.indexOf(s)>-1){try{history.replaceState(null,'','#'+s)}catch(e){location.hash=s;first=s}first=s}}
   if(first)openGroup(first);else openGate();
+  try{fetch('data.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+    if(j&&j.groups){D=j;$('gateOwner').textContent=D.owner?'الطالب: '+D.owner:'';if(G)rerender()}}).catch(function(){})}catch(e){}
 })();
 </script>
 

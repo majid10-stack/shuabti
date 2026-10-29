@@ -22,19 +22,43 @@
      }
     ]
    },
-   "exams": []
+   "exams": [
+    {
+     "s": "الفسلجة",
+     "date": "2026-11-01",
+     "time": "9:00ص",
+     "place": "-",
+     "id": "mvtg6hodpf4"
+    }
+   ]
   },
   "B": {
    "homework": [],
    "announcements": [],
    "files": {},
-   "exams": []
+   "exams": [
+    {
+     "s": "الفسلجة",
+     "date": "2026-11-01",
+     "time": "9:00ص",
+     "place": "-",
+     "id": "mvtg6hodq6m"
+    }
+   ]
   },
   "C": {
    "homework": [],
    "announcements": [],
    "files": {},
-   "exams": []
+   "exams": [
+    {
+     "s": "الفسلجة",
+     "date": "2026-11-01",
+     "time": "9:00ص",
+     "place": "-",
+     "id": "mvtg6hodbkc"
+    }
+   ]
   }
  }
 }

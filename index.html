@@ -71,6 +71,7 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .acts{display:flex;gap:6px;flex:none}
 .btn2{display:block;width:100%;border:0;background:var(--brand);color:var(--brand-ink);border-radius:12px;padding:12px;font-weight:700;margin-top:8px}
 .btn2.alt{background:var(--amber);color:#fff}
+.fdate{display:block;font-size:12px;color:var(--muted)}
 .abtns{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
 .adminchip{font-size:12px;padding:2px 12px}
 .logo h1{white-space:nowrap}
@@ -418,10 +419,13 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function ftype(f){var e=(f.n.split('.').pop()||'').toLowerCase();return /^(png|jpe?g|gif|webp|avif)$/.test(e)?'img':(/^(doc|docx)$/.test(e)?'doc':'file')}
   var seen={};try{seen=JSON.parse(localStorage.getItem('shuabti-seen')||'{}')||{}}catch(e){}
   function seenKey(f){return G+'|'+f.p}
+  function shortDate(a){var p=a.split('-'),d=new Date(+p[0],+p[1]-1,+p[2]);return d.getDate()+' '+MONTHS[d.getMonth()]+(d.getFullYear()!==today.getFullYear()?' '+d.getFullYear():'')}
   function isNew(f){return !seen[seenKey(f)]}
+  function fkey(f){return f.u||(f.a?Date.parse(f.a):0)}
+  function newestFirst(list){return list.map(function(x,i){return {x:x,i:i}}).sort(function(a,b){var d=fkey(b.x)-fkey(a.x);return d||a.i-b.i}).map(function(o){return o.x})}
   function fileRow(f,sub){var t=ftype(f);var ext=(f.n.split('.').pop()||'FILE').toUpperCase().slice(0,4);
     var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext);
-    return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+'</div><span class="open">فتح</span></a>'+(isAdmin()?fbtns(f.p):'')+'</li>'}
+    return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+(f.a?'<span class="fdate">رُفع في '+esc(shortDate(f.a))+'</span>':'')+'</div><span class="open">فتح</span></a>'+(isAdmin()?fbtns(f.p):'')+'</li>'}
   function renderFiles(){
     var files=gdata().files,q=($('fq').value||'').trim().toLowerCase();
     var open=!!st.folder&&!q;$('fq').hidden=!!st.folder&&!q;
@@ -430,7 +434,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     $('backBtn').hidden=!!q;
     if(q){
       var res=[];SUBJECTS.forEach(function(sj){(files[sj]||[]).forEach(function(f){if((f.n+' '+sj+' '+(f.d||'')).toLowerCase().indexOf(q)>-1)res.push([f,sj])})});
-      $('fileList').innerHTML=res.length?res.map(function(r){return fileRow(r[0],r[1])}).join(''):'<li class="empty">لا توجد نتائج لـ «'+esc(q)+'».</li>';
+      $('fileList').innerHTML=res.length?res.sort(function(a,b){return fkey(b[0])-fkey(a[0])}).map(function(r){return fileRow(r[0],r[1])}).join(''):'<li class="empty">لا توجد نتائج لـ «'+esc(q)+'».</li>';
       return;
     }
     if(!open){
@@ -439,7 +443,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
       return;
     }
     var fs=files[st.folder]||[];
-    $('fileList').innerHTML=fs.length?fs.map(function(f){return fileRow(f)}).join(''):'<li class="empty">لا توجد ملفات في هذا المجلد بعد.</li>';
+    $('fileList').innerHTML=fs.length?newestFirst(fs).map(function(f){return fileRow(f)}).join(''):'<li class="empty">لا توجد ملفات في هذا المجلد بعد.</li>';
   }
   function renderAnn(){
     var a=gdata().announcements;
@@ -496,7 +500,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     else if(adm.type==='hw')f='<label class="l">نص الواجب</label><textarea id="fX" rows="3" placeholder="اكتب الواجب"></textarea><label class="l">المادة</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">موعد التسليم (اختياري)</label><input id="fD" type="date"><label class="l">ملاحظة (اختياري)</label><input id="fN" type="text">';
     else if(adm.type==='file'){
       if(adm.edit)f='<label class="l">الاسم الذي يظهر للطلاب</label><input id="fN" type="text"><label class="l">وصف (اختياري)</label><input id="fDesc" type="text">';
-      else f='<label class="l">المجلد (المادة)</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">اختر الملف (أو عدة ملفات) · حتى 25 ميغابايت للملف</label><input id="fF" type="file" multiple><label class="l">الاسم الذي يظهر للطلاب (اختياري، لملف واحد فقط)</label><input id="fN" type="text"><label class="l">وصف (اختياري)</label><input id="fDesc" type="text">'}
+      else f='<label class="l">المجلد (المادة)</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">اختر الملف (أو عدة ملفات) · حتى 25 ميغابايت للملف</label><input id="fF" type="file" multiple><label class="l">الاسم الذي يظهر للطلاب (اختياري، وعند عدة ملفات يُرقَّم تلقائياً)</label><input id="fN" type="text"><label class="l">وصف (اختياري)</label><input id="fDesc" type="text">'}
     else f='<label class="l">نص الإعلان</label><textarea id="fX" rows="4" placeholder="اكتب الإعلان"></textarea><label class="chk"><input id="fPin" type="checkbox"> تثبيت الإعلان</label>';
     $('shFields').innerHTML=f;$('shMsg').textContent='';
     var ed=!!adm.edit;$('shType').hidden=ed;$('shG').hidden=ed;$('shGl').hidden=ed;$('shPub').hidden=ed;$('shEditBtns').hidden=!ed;
@@ -552,12 +556,12 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     var inp=$('fF'),files=inp&&inp.files?Array.prototype.slice.call(inp.files):[];
     if(!files.length){$('shMsg').textContent='اختر ملفاً أولاً.';return}
     for(var i=0;i<files.length;i++){if(files[i].size>25*1024*1024){$('shMsg').textContent='الملف «'+files[i].name+'» أكبر من 25 ميغابايت.';return}}
-    var subj=$('fS').value,desc=$('fDesc').value.trim(),custom=files.length===1?$('fN').value.trim():'';
+    var subj=$('fS').value,desc=$('fDesc').value.trim(),nm=$('fN').value.trim(),stamp=Date.now();
     $('shPub').disabled=true;var added=[],chain=Promise.resolve();
     files.forEach(function(f,i){chain=chain.then(function(){$('shMsg').textContent='جارٍ رفع الملف '+(i+1)+' من '+files.length+'…';
-      return readB64(f).then(function(b){var path='f/'+uid()+'.'+fileExt(f.name);return putFile(path,b,'رفع ملف').then(function(){added.push({n:custom||f.name,p:path,d:desc,a:iso(today)})})})})});
+      return readB64(f).then(function(b){var path='f/'+uid()+'.'+fileExt(f.name);return putFile(path,b,'رفع ملف').then(function(){added.push({n:files.length===1?(nm||f.name):(nm?nm+' '+(i+1):f.name),p:path,d:desc,a:iso(today),u:stamp})})})})});
     chain.then(function(){$('shMsg').textContent='جارٍ ربط الملفات بالشعب…';
-      return mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});gr.files=gr.files||{};var arr=(gr.files[subj]=gr.files[subj]||[]);added.forEach(function(x){arr.push({n:x.n,p:x.p,d:x.d,a:x.a})})})},'إضافة ملفات')
+      return mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});gr.files=gr.files||{};var arr=(gr.files[subj]=gr.files[subj]||[]);added.forEach(function(x){arr.push({n:x.n,p:x.p,d:x.d,a:x.a,u:x.u})})})},'إضافة ملفات')
     }).then(function(){$('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم الرفع ✓ سيظهر للطلاب خلال دقيقتين أو ثلاث.'}).catch(function(e){$('shPub').disabled=false;$('shMsg').textContent=(e&&e.message)||'فشل الرفع'})}
   function startEditFile(p){
     var found=null;var fl=gdata().files;Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){if(x.p===p)found=x})});if(!found)return;

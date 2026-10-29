@@ -66,6 +66,7 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .fsearch{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;direction:rtl}
 .newtag{display:inline-block;font-size:11px;font-weight:700;padding:1px 9px;border-radius:99px;background:var(--warn);color:#fff;margin-inline-start:6px;vertical-align:middle}
 .offl{background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber);font-weight:700;font-size:13px;text-align:center;border-radius:12px;padding:8px 12px}
+.mark{touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .actcol{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none}
 .acts{display:flex;gap:6px;flex:none}
 .btn2{display:block;width:100%;border:0;background:var(--brand);color:var(--brand-ink);border-radius:12px;padding:12px;font-weight:700;margin-top:8px}
@@ -499,7 +500,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function openSheet(){adm.edit=null;adm.groups={};adm.groups[G||'A']=true;adm.type='exam';$('sheet').hidden=false;paintSheet()}
   function paintAdmin(){$('admBtn').hidden=!isAdmin()||!G}
   function adminLogin(){
-    if(isAdmin()){if(G)openSheet();return}
+    if(isAdmin()){if(G)openSheet();else alert('أنت مسجل كمسؤول على هذا الهاتف. ادخل أي شعبة وستجد زر ✏️ المسؤول في الأعلى.');return}
     var t=prompt('أدخل المفتاح السري للمسؤول');if(!t)return;t=t.trim();
     fetch('https://api.github.com/repos/'+REPO,{headers:{'Authorization':'Bearer '+t,'Accept':'application/vnd.github+json'}}).then(function(r){
       if(!r.ok)throw 0;try{localStorage.setItem('shuabti-admin-token',t)}catch(e){}
@@ -509,7 +510,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     function start(){tm=setTimeout(adminLogin,800)}function stop(){clearTimeout(tm)}
     el.addEventListener('touchstart',start,{passive:true});el.addEventListener('touchend',stop);el.addEventListener('touchmove',stop);el.addEventListener('touchcancel',stop);
     el.addEventListener('mousedown',start);el.addEventListener('mouseup',stop);el.addEventListener('mouseleave',stop);el.addEventListener('contextmenu',function(e){e.preventDefault()})}
-  holdTo($('owner'));holdTo($('gateOwner'));
+  function tripleTap(el){var n=0,t=null;el.addEventListener('click',function(){n++;clearTimeout(t);if(n>=3){n=0;adminLogin();return}t=setTimeout(function(){n=0},700)})}
+  Array.prototype.forEach.call(document.querySelectorAll('.mark'),tripleTap);
   $('admBtn').onclick=function(){openSheet()};
   $('shClose').onclick=function(){$('sheet').hidden=true};
   $('shType').addEventListener('click',function(e){var b=e.target.closest('button');if(b){adm.type=b.dataset.t;paintSheet()}});

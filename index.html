@@ -66,7 +66,16 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .fsearch{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;direction:rtl}
 .newtag{display:inline-block;font-size:11px;font-weight:700;padding:1px 9px;border-radius:99px;background:var(--warn);color:#fff;margin-inline-start:6px;vertical-align:middle}
 .offl{background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber);font-weight:700;font-size:13px;text-align:center;border-radius:12px;padding:8px 12px}
+.actcol{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none}
 .acts{display:flex;gap:6px;flex:none}
+.btn2{display:block;width:100%;border:0;background:var(--brand);color:var(--brand-ink);border-radius:12px;padding:12px;font-weight:700;margin-top:8px}
+.btn2.alt{background:var(--amber);color:#fff}
+.abtns{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
+.adminchip{font-size:12px;padding:2px 12px}
+.logo h1{white-space:nowrap}
+.today.exam{background:#A86A00;color:#fff}
+:root[data-theme="dark"] .today.exam{background:#E5B042;color:#1a1200}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .today.exam{background:#E5B042;color:#1a1200}}
 #themeBtn{font-size:16px;padding:3px 12px;line-height:1.5}
 .gpill{font-family:var(--font-display);font-weight:700;color:var(--brand-ink);background:var(--brand);border-radius:999px;padding:1px 12px;font-size:15px;margin-inline-start:8px;vertical-align:middle}
 .today{background:var(--brand);color:var(--brand-ink);border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
@@ -215,12 +224,12 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
         <div class="mark" aria-hidden="true">ش</div>
         <div><h1>شعبتي<span class="gpill" id="gpill"></span></h1><small id="sub"></small></div>
       </div>
-      <div class="acts"><button class="chip" id="admBtn" type="button" hidden>✏️ المسؤول</button><button class="chip" id="themeBtn" type="button" aria-label="تبديل الوضع الداكن والفاتح">🌙</button><button class="chip" id="changeG" type="button">تغيير الشعبة</button></div>
+      <div class="actcol"><div class="acts"><button class="chip" id="themeBtn" type="button" aria-label="تبديل الوضع الداكن والفاتح">🌙</button><button class="chip" id="changeG" type="button">تغيير الشعبة</button></div><button class="chip adminchip" id="admBtn" type="button" hidden>✏️ المسؤول</button></div>
     </div>
     <div class="offl" id="offl" role="status" hidden>أنت تتصفح النسخة المحفوظة 📌</div>
     <p class="owner" id="owner"></p>
     <div class="today" id="today"></div>
-    <div class="today" id="examCard" hidden></div>
+    <div class="today exam" id="examCard" hidden></div>
   </header>
   <main>
     <section id="p-schedule">
@@ -303,10 +312,11 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   <div class="sh" role="dialog" aria-label="لوحة المسؤول">
     <div class="row"><b>لوحة المسؤول</b><button class="x" id="shClose" type="button" aria-label="إغلاق">✕</button></div>
     <div class="seg" id="shType"><button data-t="exam" class="on" type="button">امتحان</button><button data-t="hw" type="button">واجب</button><button data-t="ann" type="button">إعلان</button></div>
-    <label class="l">الشعبة (يمكن اختيار أكثر من شعبة)</label>
+    <label class="l" id="shGl">الشعبة (يمكن اختيار أكثر من شعبة)</label>
     <div class="seg" id="shG"><button data-g="A" type="button">A</button><button data-g="B" type="button">B</button><button data-g="C" type="button">C</button></div>
     <div id="shFields"></div>
     <button class="btn" id="shPub" type="button" style="border:0;background:var(--brand);color:var(--brand-ink);border-radius:12px;padding:12px;font-weight:700;margin-top:8px">نشر للطلاب</button>
+    <div id="shEditBtns" hidden><button class="btn2" id="shSaveOne" type="button">حفظ التعديل في شعبة <span id="shGname"></span> فقط</button><button class="btn2 alt" id="shSaveAll" type="button">حفظ التعديل في كل الشعب</button><button class="del" id="shCancelEdit" type="button">إلغاء التعديل</button></div>
     <div class="msg" id="shMsg" role="status"></div>
     <button class="del" id="shOut" type="button">تسجيل الخروج من اللوحة</button>
   </div>
@@ -400,7 +410,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
         dueTxt=dn?'منجز':(left<0?'متأخر '+(-left)+' يوم':(left===0?'ينتهي اليوم':(left===1?'يتبقى يوم':'يتبقى '+left+' أيام')))}
       else dueTxt=dn?'منجز':'بلا موعد';
       var id='hw'+i;
-      return '<li class="hw'+(dn?' done':'')+(h.own?'':' off')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><div class="b"><label for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta">'+(h.own?'<span class="mine">مهمتي</span>':'<span class="offtag">واجب من '+esc(D.owner||'المسؤول')+'</span><span>'+esc(h.s)+'</span>')+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label>'+(h.own?'<button class="del" type="button" data-del="'+esc(h.id)+'">حذف</button>':(isAdmin()&&h.gid?'<button class="del" type="button" data-adel="hw|'+esc(h.gid)+'">حذف (مسؤول)</button>':''))+'</div></li>'}).join(''):
+      return '<li class="hw'+(dn?' done':'')+(h.own?'':' off')+'"><input type="checkbox" id="'+id+'" data-k="'+esc(k)+'"'+(dn?' checked':'')+' aria-label="تحديد كمنجز"><div class="b"><label for="'+id+'"><strong>'+esc(h.t)+'</strong>'+(h.note?'<span class="note">'+esc(h.note)+'</span>':'')+'<span class="meta">'+(h.own?'<span class="mine">مهمتي</span>':'<span class="offtag">واجب من '+esc(D.owner||'المسؤول')+'</span><span>'+esc(h.s)+'</span>')+(dateTxt?'<span>'+esc(dateTxt)+'</span>':'')+'<span class="due">'+dueTxt+'</span></span></label>'+(h.own?'<button class="del" type="button" data-del="'+esc(h.id)+'">حذف</button>':(isAdmin()&&h.gid?abtns('hw',h.gid):''))+'</div></li>'}).join(''):
       '<li class="empty">'+(all.length?'لا توجد مهام في هذا التصنيف.':'لا توجد مهام حالياً. أضف مهمتك بزر «مهمة جديدة»، وستظهر هنا واجبات الشعبة عندما ينشرها المسؤول.')+'</li>';
     renderHeader();
   }
@@ -432,7 +442,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   }
   function renderAnn(){
     var a=gdata().announcements;
-    $('annList').innerHTML=a.length?a.map(function(x){return '<li class="ann'+(x.pin?' pin':'')+'"><div class="h"><span>'+esc(x.w||D.owner||'')+'</span><span>'+esc(x.d||'')+(x.pin?' · مثبّت':'')+'</span></div><p>'+esc(x.t)+'</p>'+(isAdmin()&&x.id?'<button class="del" type="button" data-adel="ann|'+esc(x.id)+'">حذف (مسؤول)</button>':'')+'</li>'}).join(''):
+    $('annList').innerHTML=a.length?a.map(function(x){return '<li class="ann'+(x.pin?' pin':'')+'"><div class="h"><span>'+esc(x.w||D.owner||'')+'</span><span>'+esc(x.d||'')+(x.pin?' · مثبّت':'')+'</span></div><p>'+esc(x.t)+'</p>'+(isAdmin()&&x.id?abtns('ann',x.id):'')+'</li>'}).join(''):
       '<li class="empty">لا توجد إعلانات حالياً.</li>';
   }
   function show(p){['schedule','hw','files','timer','news'].forEach(function(k){$('p-'+k).hidden=k!==p});st.tab=p;syncCards();
@@ -441,6 +451,9 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function isAdmin(){try{return !!localStorage.getItem('shuabti-admin-token')}catch(e){return false}}
   function tok(){try{return localStorage.getItem('shuabti-admin-token')||''}catch(e){return ''}}
   function syncCards(){$('today').hidden=st.tab!=='schedule';$('examCard').hidden=st.tab!=='schedule'||!st.hasExam}
+  function abtns(k,id){var v=k+'|'+esc(id);return '<div class="abtns"><button class="del" type="button" data-adel="'+v+'">حذف</button><button class="del" type="button" data-aall="'+v+'">حذف من كل الشعب</button><button class="del" type="button" data-aedit="'+v+'">تعديل</button></div>'}
+  function keyOf(k){return k==='exam'?'exams':(k==='hw'?'homework':'announcements')}
+  function sigOf(k,x){return k==='exam'?[x.s,x.date,x.time||'',x.place||''].join('|'):(k==='hw'?[x.t,x.s||'',x.date||'',x.note||''].join('|'):[x.t,x.d||''].join('|'))}
   function dstr(d){var p=d.split('-');return fmt(new Date(+p[0],+p[1]-1,+p[2]))}
   function inTxt(n){return n<=0?'اليوم':(n===1?'غداً':(n===2?'بعد يومين':'بعد '+n+(n<=10?' أيام':' يوماً')))}
   function renderExams(){
@@ -449,7 +462,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     if(up.length){var e=up[0];$('examCard').innerHTML='<div class="l"><div class="k">الامتحان القادم</div><div class="v">'+esc(e.s)+' · '+inTxt(daysLeft(e.date))+'</div><div class="t">'+esc(dstr(e.date)+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</div></div>'}
     $('examH').hidden=!up.length;
     $('examList').innerHTML=up.map(function(e){var p=e.date.split('-');
-      return '<li class="lec exl"><div class="time"><b>'+(+p[2])+'</b>'+MONTHS[+p[1]-1]+'</div><div class="body"><strong>'+esc(e.s)+'<span class="tag">'+inTxt(daysLeft(e.date))+'</span></strong><span>'+esc(FULLDAYS[new Date(+p[0],+p[1]-1,+p[2]).getDay()]+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</span>'+(isAdmin()&&e.id?'<br><button class="del" type="button" data-adel="exam|'+esc(e.id)+'">حذف (مسؤول)</button>':'')+'</div></li>'}).join('');
+      return '<li class="lec exl"><div class="time"><b>'+(+p[2])+'</b>'+MONTHS[+p[1]-1]+'</div><div class="body"><strong>'+esc(e.s)+'<span class="tag">'+inTxt(daysLeft(e.date))+'</span></strong><span>'+esc(FULLDAYS[new Date(+p[0],+p[1]-1,+p[2]).getDay()]+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</span>'+(isAdmin()&&e.id?'<br>'+abtns('exam',e.id):'')+'</div></li>'}).join('');
     syncCards();
   }
   function rerender(){renderHeader();renderDays();renderHw();renderFiles();renderAnn();renderExams()}
@@ -481,8 +494,9 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     else if(adm.type==='hw')f='<label class="l">نص الواجب</label><textarea id="fX" rows="3" placeholder="اكتب الواجب"></textarea><label class="l">المادة</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">موعد التسليم (اختياري)</label><input id="fD" type="date"><label class="l">ملاحظة (اختياري)</label><input id="fN" type="text">';
     else f='<label class="l">نص الإعلان</label><textarea id="fX" rows="4" placeholder="اكتب الإعلان"></textarea><label class="chk"><input id="fPin" type="checkbox"> تثبيت الإعلان</label>';
     $('shFields').innerHTML=f;$('shMsg').textContent='';
+    var ed=!!adm.edit;$('shType').hidden=ed;$('shG').hidden=ed;$('shGl').hidden=ed;$('shPub').hidden=ed;$('shEditBtns').hidden=!ed;
   }
-  function openSheet(){adm.groups={};adm.groups[G||'A']=true;adm.type='exam';$('sheet').hidden=false;paintSheet()}
+  function openSheet(){adm.edit=null;adm.groups={};adm.groups[G||'A']=true;adm.type='exam';$('sheet').hidden=false;paintSheet()}
   function paintAdmin(){$('admBtn').hidden=!isAdmin()||!G}
   function adminLogin(){
     if(isAdmin()){if(G)openSheet();return}
@@ -501,20 +515,47 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   $('shType').addEventListener('click',function(e){var b=e.target.closest('button');if(b){adm.type=b.dataset.t;paintSheet()}});
   $('shG').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var g=b.dataset.g;if(adm.groups[g])delete adm.groups[g];else adm.groups[g]=1;paintSheet()});
   $('shOut').onclick=function(){if(!confirm('تسجيل الخروج من لوحة المسؤول على هذا الهاتف؟'))return;try{localStorage.removeItem('shuabti-admin-token')}catch(e){}$('sheet').hidden=true;paintAdmin();rerender()};
+  function readItem(isEdit){
+    var v=function(id){var e=$(id);return e?e.value.trim():''},item,key,label;
+    if(adm.type==='exam'){if(!v('fD')){$('shMsg').textContent='اختر تاريخ الامتحان.';return null}item={s:v('fS'),date:v('fD'),time:v('fT'),place:v('fP')};key='exams';label='امتحان '+item.s}
+    else if(adm.type==='hw'){if(!v('fX')){$('shMsg').textContent='اكتب نص الواجب.';return null}item={t:v('fX'),s:v('fS'),date:v('fD'),note:v('fN')};key='homework';label='واجب'}
+    else{if(!v('fX')){$('shMsg').textContent='اكتب نص الإعلان.';return null}item={t:v('fX'),pin:!!$('fPin').checked};if(!isEdit){item.d=today.getDate()+' '+MONTHS[today.getMonth()];item.w=D.owner}key='announcements';label='إعلان'}
+    return {item:item,key:key,label:label}}
   $('shPub').onclick=function(){
     var gs=Object.keys(adm.groups);if(!gs.length){$('shMsg').textContent='اختر شعبة واحدة على الأقل.';return}
-    var v=function(id){var e=$(id);return e?e.value.trim():''},item,key,label;
-    if(adm.type==='exam'){if(!v('fD')){$('shMsg').textContent='اختر تاريخ الامتحان.';return}item={s:v('fS'),date:v('fD'),time:v('fT'),place:v('fP')};key='exams';label='امتحان '+item.s}
-    else if(adm.type==='hw'){if(!v('fX')){$('shMsg').textContent='اكتب نص الواجب.';return}item={t:v('fX'),s:v('fS'),date:v('fD'),note:v('fN')};key='homework';label='واجب'}
-    else{if(!v('fX')){$('shMsg').textContent='اكتب نص الإعلان.';return}item={t:v('fX'),d:today.getDate()+' '+MONTHS[today.getMonth()],w:D.owner,pin:!!$('fPin').checked};key='announcements';label='إعلان'}
+    var r=readItem(false);if(!r)return;var item=r.item,key=r.key;
     $('shPub').disabled=true;$('shMsg').textContent='جارٍ النشر…';
-    mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});var it={};Object.keys(item).forEach(function(k){it[k]=item[k]});it.id=uid();(gr[key]=gr[key]||[]).push(it)})},'إضافة '+label).then(function(){
-      $('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.';$('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.'
+    mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});var it={};Object.keys(item).forEach(function(k){it[k]=item[k]});it.id=uid();(gr[key]=gr[key]||[]).push(it)})},'إضافة '+r.label).then(function(){
+      $('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.'
     }).catch(function(e){$('shMsg').textContent=(e&&e.message)||'فشل النشر';$('shPub').disabled=false})};
-  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-adel]');if(!b||!isAdmin())return;
-    var parts=b.dataset.adel.split('|'),kind=parts[0],id=parts[1],key=kind==='exam'?'exams':(kind==='hw'?'homework':'announcements');
-    if(!confirm('حذف هذا العنصر من شعبة '+G+'؟'))return;var g=G;
-    mutate(function(data){var gr=data.groups[g]||{};gr[key]=(gr[key]||[]).filter(function(x){return x.id!==id})},'حذف').catch(function(er){alert((er&&er.message)||'فشل الحذف')})});
+  function startEdit(kind,id){
+    var it=(gdata()[keyOf(kind)]||[]).filter(function(x){return x.id===id})[0];if(!it)return;
+    adm.edit={kind:kind,id:id,sig:sigOf(kind,it),g0:G};adm.type=kind;$('sheet').hidden=false;paintSheet();
+    var set=function(i,val){var e=$(i);if(e)e.value=val||''};
+    if(kind==='exam'){set('fS',it.s);set('fD',it.date);set('fT',it.time);set('fP',it.place)}
+    else if(kind==='hw'){set('fX',it.t);set('fS',it.s);set('fD',it.date);set('fN',it.note)}
+    else{set('fX',it.t);$('fPin').checked=!!it.pin}
+    $('shGname').textContent=G}
+  function saveEdit(all){
+    var ed=adm.edit;if(!ed)return;var r=readItem(true);if(!r)return;
+    $('shMsg').textContent='جارٍ الحفظ…';
+    mutate(function(data){Object.keys(data.groups).forEach(function(g){if(!all&&g!==ed.g0)return;
+      (data.groups[g][r.key]||[]).forEach(function(x){if((g===ed.g0&&x.id===ed.id)||(all&&sigOf(ed.kind,x)===ed.sig)){Object.keys(r.item).forEach(function(k){x[k]=r.item[k]})}})})},'تعديل '+r.label).then(function(){
+      adm.edit=null;$('sheet').hidden=true;$('shMsg').textContent=''
+    }).catch(function(e){$('shMsg').textContent=(e&&e.message)||'فشل الحفظ'})}
+  $('shSaveOne').onclick=function(){saveEdit(false)};
+  $('shSaveAll').onclick=function(){saveEdit(true)};
+  $('shCancelEdit').onclick=function(){adm.edit=null;$('sheet').hidden=true};
+  document.addEventListener('click',function(e){if(!isAdmin()||!e.target.closest)return;
+    var d=e.target.closest('[data-adel]'),al=e.target.closest('[data-aall]'),ed=e.target.closest('[data-aedit]'),b=d||al||ed;if(!b)return;
+    var parts=(b.dataset.adel||b.dataset.aall||b.dataset.aedit).split('|'),kind=parts[0],id=parts[1],key=keyOf(kind),g0=G;
+    if(ed){startEdit(kind,id);return}
+    if(!confirm(al?'حذف هذا العنصر من كل الشعب؟':'حذف هذا العنصر من شعبة '+g0+' فقط؟'))return;
+    mutate(function(data){
+      var cur=((data.groups[g0]||{})[key]||[]).filter(function(x){return x.id===id})[0];var sig=cur?sigOf(kind,cur):null;
+      Object.keys(data.groups).forEach(function(g){var arr=data.groups[g][key]||[];
+        data.groups[g][key]=arr.filter(function(x){if(g===g0&&x.id===id)return false;if(al&&sig&&sigOf(kind,x)===sig)return false;return true})})
+    },al?'حذف من كل الشعب':'حذف').catch(function(er){alert((er&&er.message)||'فشل الحذف')})});
 
   function openGroup(g){$('fq').value='';
     G=g;SUBJECTS=subjectsOf(g);st.day=TODAY_IDX>=0?TODAY_IDX:0;st.filter='all';st.folder=null;

@@ -72,6 +72,16 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .btn2{display:block;width:100%;border:0;background:var(--brand);color:var(--brand-ink);border-radius:12px;padding:12px;font-weight:700;margin-top:8px}
 .btn2.alt{background:var(--amber);color:#fff}
 .fdate{display:block;font-size:12px;color:var(--muted)}
+.facts{display:flex;margin-top:4px}
+.savebtn{border:1px solid var(--brand);background:var(--brand-soft);color:var(--brand);border-radius:10px;padding:5px 12px;font-size:12.5px;font-weight:600}
+.savebtn:disabled{opacity:.6}
+.fgrp{list-style:none}
+.fgh{display:flex;gap:10px;align-items:center;width:100%;text-align:right;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;color:var(--ink)}
+.fgh .tg{display:flex;gap:4px;flex:none}
+.fgh .tg img,.fgh .tg .ext{width:38px;height:38px;border-radius:8px;object-fit:cover;font-size:10px}
+.fgh .b{min-width:0;flex:1}.fgh strong{display:block;font-weight:600;overflow-wrap:anywhere}.fgh .b span{font-size:12.5px;color:var(--muted)}
+.fgh .chev{font-size:18px;color:var(--muted);flex:none}
+.fgl{list-style:none;margin:8px 0 0;padding:0;padding-inline-start:14px;display:flex;flex-direction:column;gap:10px}
 .abtns{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
 .adminchip{font-size:12px;padding:2px 12px}
 .logo h1{white-space:nowrap}
@@ -368,7 +378,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   var $=function(id){return document.getElementById(id)};
   function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
 
-  var G=null,SUBJECTS=[],st={day:0,filter:'all',folder:null,done:{}};
+  var G=null,SUBJECTS=[],st={openGrp:{},day:0,filter:'all',folder:null,done:{}};
   try{st.done=JSON.parse(localStorage.getItem('shuabti-done')||'{}')||{}}catch(e){}
   var tasks={};try{tasks=JSON.parse(localStorage.getItem('shuabti-tasks')||'{}')||{}}catch(e){}
   function saveTasks(){try{localStorage.setItem('shuabti-tasks',JSON.stringify(tasks))}catch(e){}}
@@ -416,16 +426,28 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
       '<li class="empty">'+(all.length?'لا توجد مهام في هذا التصنيف.':'لا توجد مهام حالياً. أضف مهمتك بزر «مهمة جديدة»، وستظهر هنا واجبات الشعبة عندما ينشرها المسؤول.')+'</li>';
     renderHeader();
   }
-  function ftype(f){var e=(f.n.split('.').pop()||'').toLowerCase();return /^(png|jpe?g|gif|webp|avif)$/.test(e)?'img':(/^(doc|docx)$/.test(e)?'doc':'file')}
+  function pext(f){return ((f.p||'').split('.').pop()||'').toLowerCase()}
+  function ftype(f){var e=pext(f);return /^(png|jpe?g|gif|webp|avif)$/.test(e)?'img':(/^(doc|docx)$/.test(e)?'doc':'file')}
   var seen={};try{seen=JSON.parse(localStorage.getItem('shuabti-seen')||'{}')||{}}catch(e){}
   function seenKey(f){return G+'|'+f.p}
   function shortDate(a){var p=a.split('-'),d=new Date(+p[0],+p[1]-1,+p[2]);return d.getDate()+' '+MONTHS[d.getMonth()]+(d.getFullYear()!==today.getFullYear()?' '+d.getFullYear():'')}
   function isNew(f){return !seen[seenKey(f)]}
   function fkey(f){return f.u||(f.a?Date.parse(f.a):0)}
   function newestFirst(list){return list.map(function(x,i){return {x:x,i:i}}).sort(function(a,b){var d=fkey(b.x)-fkey(a.x);return d||a.i-b.i}).map(function(o){return o.x})}
-  function fileRow(f,sub){var t=ftype(f);var ext=(f.n.split('.').pop()||'FILE').toUpperCase().slice(0,4);
+  function fileRow(f,sub){var t=ftype(f);var ext=(pext(f)||'FILE').toUpperCase().slice(0,4);
     var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext);
-    return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+(f.a?'<span class="fdate">رُفع في '+esc(shortDate(f.a))+'</span>':'')+'</div><span class="open">فتح</span></a>'+(isAdmin()?fbtns(f.p):'')+'</li>'}
+    return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+(f.a?'<span class="fdate">رُفع في '+esc(shortDate(f.a))+'</span>':'')+'</div><span class="open">فتح</span></a><div class="facts"><button class="savebtn" type="button" data-save="'+esc(f.p)+'">⬇︎ حفظ في الملفات</button></div>'+(isAdmin()?fbtns(f.p):'')+'</li>'}
+  function gbtns(u){var v=esc(String(u));return '<div class="abtns"><button class="del" type="button" data-gdel="'+v+'">حذف المجموعة</button><button class="del" type="button" data-gall="'+v+'">حذف المجموعة من كل الشعب</button></div>'}
+  function groupHtml(grp){
+    var u=grp[0].u,open=!!st.openGrp[u],allImg=grp.every(function(f){return ftype(f)==='img'}),nw=grp.some(isNew);
+    var m=grp.map(function(f){return /^(.*?)\s+\d+$/.exec(f.n)}),same=m.every(function(x){return x&&x[1]&&x[1]===m[0][1]});
+    var word=allImg?' صور':' ملفات',title=same?m[0][1]:(grp.length+word);
+    var th=grp.slice(0,3).map(function(f){return ftype(f)==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':'<div class="ext">'+esc(pext(f).toUpperCase().slice(0,4))+'</div>'}).join('');
+    return '<li class="fgrp"><button class="fgh" type="button" data-grp="'+esc(String(u))+'" aria-expanded="'+open+'"><div class="tg">'+th+'</div><div class="b"><strong>'+esc(title)+(nw?'<span class="newtag">جديد</span>':'')+'</strong><span>'+grp.length+word+(grp[0].a?' · رُفعت في '+esc(shortDate(grp[0].a)):'')+'</span></div><span class="chev">'+(open?'⌃':'⌄')+'</span></button>'+(isAdmin()?gbtns(u):'')+(open?'<ul class="fgl">'+grp.map(function(f){return fileRow(f)}).join('')+'</ul>':'')+'</li>'}
+  function folderHtml(fs){var list=newestFirst(fs),out=[],i=0;
+    while(i<list.length){var f=list[i],j=i+1;if(f.u){while(j<list.length&&list[j].u===f.u)j++}
+      var grp=list.slice(i,j);out.push(grp.length>1?groupHtml(grp):fileRow(f));i=j}
+    return out.join('')}
   function renderFiles(){
     var files=gdata().files,q=($('fq').value||'').trim().toLowerCase();
     var open=!!st.folder&&!q;$('fq').hidden=!!st.folder&&!q;
@@ -443,7 +465,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
       return;
     }
     var fs=files[st.folder]||[];
-    $('fileList').innerHTML=fs.length?newestFirst(fs).map(function(f){return fileRow(f)}).join(''):'<li class="empty">لا توجد ملفات في هذا المجلد بعد.</li>';
+    $('fileList').innerHTML=fs.length?folderHtml(fs):'<li class="empty">لا توجد ملفات في هذا المجلد بعد.</li>';
   }
   function renderAnn(){
     var a=gdata().announcements;
@@ -563,6 +585,33 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     chain.then(function(){$('shMsg').textContent='جارٍ ربط الملفات بالشعب…';
       return mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});gr.files=gr.files||{};var arr=(gr.files[subj]=gr.files[subj]||[]);added.forEach(function(x){arr.push({n:x.n,p:x.p,d:x.d,a:x.a,u:x.u})})})},'إضافة ملفات')
     }).then(function(){$('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم الرفع ✓ سيظهر للطلاب خلال دقيقتين أو ثلاث.'}).catch(function(e){$('shPub').disabled=false;$('shMsg').textContent=(e&&e.message)||'فشل الرفع'})}
+  var fcache={};
+  function mimeOf(n){var e=n;return ({pdf:'application/pdf',jpg:'image/jpeg',jpeg:'image/jpeg',png:'image/png',gif:'image/gif',webp:'image/webp',doc:'application/msword',docx:'application/vnd.openxmlformats-officedocument.wordprocessingml.document',ppt:'application/vnd.ms-powerpoint',pptx:'application/vnd.openxmlformats-officedocument.presentationml.presentation',xls:'application/vnd.ms-excel',xlsx:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',txt:'text/plain',zip:'application/zip'})[e]||'application/octet-stream'}
+  function saveName(f){var pe=(f.p.split('.').pop()||'').toLowerCase(),ne=(f.n.split('.').pop()||'').toLowerCase();return ne===pe?f.n:f.n+'.'+pe}
+  function findFile(p){var r=null,fl=gdata().files;Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){if(x.p===p)r=x})});return r}
+  function doShare(file,b,label){
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      return navigator.share({files:[file]}).then(function(){b.textContent=label}).catch(function(err){if(err&&err.name==='AbortError'){b.textContent=label;return}throw err})}
+    var u=URL.createObjectURL(file),a=document.createElement('a');a.href=u;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);b.textContent=label;return Promise.resolve()}
+  $('p-files').addEventListener('click',function(e){
+    var g=e.target.closest('[data-grp]');if(g){var u=g.dataset.grp;st.openGrp[u]=!st.openGrp[u];renderFiles();return}
+    var b=e.target.closest('[data-save]');if(!b)return;e.preventDefault();
+    var p=b.dataset.save,f=findFile(p);if(!f)return;var label='⬇︎ حفظ في الملفات';
+    if(fcache[p]){doShare(fcache[p],b,label).catch(function(){b.textContent='تعذر الحفظ';setTimeout(function(){b.textContent=label},2000)});return}
+    b.textContent='جارٍ التجهيز…';b.disabled=true;
+    fetch(p).then(function(r){if(!r.ok)throw 0;return r.blob()}).then(function(bl){
+      var file=new File([bl],saveName(f),{type:(bl.type&&bl.type.indexOf('text/html')<0)?bl.type:mimeOf(pext(f))});fcache[p]=file;b.disabled=false;
+      return doShare(file,b,label).catch(function(){b.textContent='جاهز ✓ اضغط مرة ثانية للحفظ'})
+    }).catch(function(){b.disabled=false;b.textContent='تعذر التحميل، تحقق من الإنترنت';setTimeout(function(){b.textContent=label},2500)})});
+  document.addEventListener('click',function(e){if(!isAdmin()||!e.target.closest)return;
+    var d=e.target.closest('[data-gdel]'),al=e.target.closest('[data-gall]'),b=d||al;if(!b)return;
+    var u=b.dataset.gdel||b.dataset.gall,g0=G,orphans=[];
+    if(!confirm(al?'حذف كل ملفات هذه المجموعة من كل الشعب؟':'حذف كل ملفات هذه المجموعة من شعبة '+g0+'؟'))return;
+    mutate(function(data){var paths=[],still={};
+      Object.keys(data.groups).forEach(function(g){var fl=data.groups[g].files||{};Object.keys(fl).forEach(function(sj){fl[sj]=fl[sj].filter(function(x){if(String(x.u)===u&&(al||g===g0)){paths.push(x.p);return false}return true})})});
+      Object.keys(data.groups).forEach(function(g){var fl=data.groups[g].files||{};Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){still[x.p]=1})})});
+      orphans=paths.filter(function(x,i){return paths.indexOf(x)===i&&!still[x]})},al?'حذف مجموعة من كل الشعب':'حذف مجموعة').then(function(){
+      return orphans.filter(function(x){return !/^https?:/.test(x)}).reduce(function(c,x){return c.then(function(){return delBlob(x)})},Promise.resolve())}).catch(function(er){alert((er&&er.message)||'فشل الحذف')})});
   function startEditFile(p){
     var found=null;var fl=gdata().files;Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){if(x.p===p)found=x})});if(!found)return;
     adm.edit={kind:'file',p:p,g0:G};adm.type='file';$('sheet').hidden=false;paintSheet();$('fN').value=found.n||'';$('fDesc').value=found.d||'';$('shGname').textContent=G}

@@ -312,7 +312,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
 <div class="sheet" id="sheet" hidden>
   <div class="sh" role="dialog" aria-label="لوحة المسؤول">
     <div class="row"><b>لوحة المسؤول</b><button class="x" id="shClose" type="button" aria-label="إغلاق">✕</button></div>
-    <div class="seg" id="shType"><button data-t="exam" class="on" type="button">امتحان</button><button data-t="hw" type="button">واجب</button><button data-t="ann" type="button">إعلان</button></div>
+    <div class="seg" id="shType"><button data-t="exam" class="on" type="button">امتحان</button><button data-t="hw" type="button">واجب</button><button data-t="ann" type="button">إعلان</button><button data-t="file" type="button">ملف</button></div>
     <label class="l" id="shGl">الشعبة (يمكن اختيار أكثر من شعبة)</label>
     <div class="seg" id="shG"><button data-g="A" type="button">A</button><button data-g="B" type="button">B</button><button data-g="C" type="button">C</button></div>
     <div id="shFields"></div>
@@ -421,7 +421,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function isNew(f){return !seen[seenKey(f)]}
   function fileRow(f,sub){var t=ftype(f);var ext=(f.n.split('.').pop()||'FILE').toUpperCase().slice(0,4);
     var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext);
-    return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+'</div><span class="open">فتح</span></a></li>'}
+    return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+'</div><span class="open">فتح</span></a>'+(isAdmin()?fbtns(f.p):'')+'</li>'}
   function renderFiles(){
     var files=gdata().files,q=($('fq').value||'').trim().toLowerCase();
     var open=!!st.folder&&!q;$('fq').hidden=!!st.folder&&!q;
@@ -453,6 +453,7 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
   function tok(){try{return localStorage.getItem('shuabti-admin-token')||''}catch(e){return ''}}
   function syncCards(){$('today').hidden=st.tab!=='schedule';$('examCard').hidden=st.tab!=='schedule'||!st.hasExam}
   function abtns(k,id){var v=k+'|'+esc(id);return '<div class="abtns"><button class="del" type="button" data-adel="'+v+'">حذف</button><button class="del" type="button" data-aall="'+v+'">حذف من كل الشعب</button><button class="del" type="button" data-aedit="'+v+'">تعديل</button></div>'}
+  function fbtns(p){var v=esc(p);return '<div class="abtns"><button class="del" type="button" data-fdel="'+v+'">حذف</button><button class="del" type="button" data-fall="'+v+'">حذف من كل الشعب</button><button class="del" type="button" data-fedit="'+v+'">تعديل</button></div>'}
   function keyOf(k){return k==='exam'?'exams':(k==='hw'?'homework':'announcements')}
   function sigOf(k,x){return k==='exam'?[x.s,x.date,x.time||'',x.place||''].join('|'):(k==='hw'?[x.t,x.s||'',x.date||'',x.note||''].join('|'):[x.t,x.d||''].join('|'))}
   function dstr(d){var p=d.split('-');return fmt(new Date(+p[0],+p[1]-1,+p[2]))}
@@ -493,6 +494,9 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     var f='';
     if(adm.type==='exam')f='<label class="l">المادة</label><select id="fS">'+optsHtml(lectureSubjects())+'</select><label class="l">تاريخ الامتحان</label><input id="fD" type="date"><label class="l">الوقت (اختياري)</label><input id="fT" type="text" placeholder="مثال: 9:00 صباحاً"><label class="l">القاعة (اختياري)</label><input id="fP" type="text" placeholder="مثال: قاعة 5">';
     else if(adm.type==='hw')f='<label class="l">نص الواجب</label><textarea id="fX" rows="3" placeholder="اكتب الواجب"></textarea><label class="l">المادة</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">موعد التسليم (اختياري)</label><input id="fD" type="date"><label class="l">ملاحظة (اختياري)</label><input id="fN" type="text">';
+    else if(adm.type==='file'){
+      if(adm.edit)f='<label class="l">الاسم الذي يظهر للطلاب</label><input id="fN" type="text"><label class="l">وصف (اختياري)</label><input id="fDesc" type="text">';
+      else f='<label class="l">المجلد (المادة)</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">اختر الملف (أو عدة ملفات) · حتى 25 ميغابايت للملف</label><input id="fF" type="file" multiple><label class="l">الاسم الذي يظهر للطلاب (اختياري، لملف واحد فقط)</label><input id="fN" type="text"><label class="l">وصف (اختياري)</label><input id="fDesc" type="text">'}
     else f='<label class="l">نص الإعلان</label><textarea id="fX" rows="4" placeholder="اكتب الإعلان"></textarea><label class="chk"><input id="fPin" type="checkbox"> تثبيت الإعلان</label>';
     $('shFields').innerHTML=f;$('shMsg').textContent='';
     var ed=!!adm.edit;$('shType').hidden=ed;$('shG').hidden=ed;$('shGl').hidden=ed;$('shPub').hidden=ed;$('shEditBtns').hidden=!ed;
@@ -521,15 +525,52 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     var v=function(id){var e=$(id);return e?e.value.trim():''},item,key,label;
     if(adm.type==='exam'){if(!v('fD')){$('shMsg').textContent='اختر تاريخ الامتحان.';return null}item={s:v('fS'),date:v('fD'),time:v('fT'),place:v('fP')};key='exams';label='امتحان '+item.s}
     else if(adm.type==='hw'){if(!v('fX')){$('shMsg').textContent='اكتب نص الواجب.';return null}item={t:v('fX'),s:v('fS'),date:v('fD'),note:v('fN')};key='homework';label='واجب'}
+    else if(adm.type==='file'){if(!v('fN')){$('shMsg').textContent='اكتب اسم الملف.';return null}item={n:v('fN'),d:v('fDesc')};key='files';label='ملف'}
     else{if(!v('fX')){$('shMsg').textContent='اكتب نص الإعلان.';return null}item={t:v('fX'),pin:!!$('fPin').checked};if(!isEdit){item.d=today.getDate()+' '+MONTHS[today.getMonth()];item.w=D.owner}key='announcements';label='إعلان'}
     return {item:item,key:key,label:label}}
   $('shPub').onclick=function(){
+    if(adm.type==='file'){publishFiles();return}
     var gs=Object.keys(adm.groups);if(!gs.length){$('shMsg').textContent='اختر شعبة واحدة على الأقل.';return}
     var r=readItem(false);if(!r)return;var item=r.item,key=r.key;
     $('shPub').disabled=true;$('shMsg').textContent='جارٍ النشر…';
     mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});var it={};Object.keys(item).forEach(function(k){it[k]=item[k]});it.id=uid();(gr[key]=gr[key]||[]).push(it)})},'إضافة '+r.label).then(function(){
       $('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.'
     }).catch(function(e){$('shMsg').textContent=(e&&e.message)||'فشل النشر';$('shPub').disabled=false})};
+  var APIB='https://api.github.com/repos/'+REPO+'/contents/';
+  function iso(d){function z(n){return (n<10?'0':'')+n}return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())}
+  function fileExt(n){var m=/\.([A-Za-z0-9]{1,8})$/.exec(n);return m?m[1].toLowerCase():'bin'}
+  function readB64(file){return new Promise(function(res,rej){var fr=new FileReader();fr.onload=function(){var x=String(fr.result);res(x.slice(x.indexOf(',')+1))};fr.onerror=function(){rej(new Error('تعذر قراءة الملف'))};fr.readAsDataURL(file)})}
+  function putFile(path,b,msg){var h=hdr();h['Content-Type']='application/json';
+    return fetch(APIB+path,{method:'PUT',headers:h,body:JSON.stringify({message:msg,content:b,branch:'main'})}).then(function(r){
+      if(r.status===401||r.status===403)throw new Error('المفتاح غير صالح أو منتهي.');
+      if(r.status===422)throw new Error('تعذر رفع الملف (422).');
+      if(!r.ok)throw new Error('فشل رفع الملف ('+r.status+')');return r.json()})}
+  function delBlob(path){return fetch(APIB+path+'?ref=main&t='+Date.now(),{headers:hdr(),cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+    var h=hdr();h['Content-Type']='application/json';return fetch(APIB+path,{method:'DELETE',headers:h,body:JSON.stringify({message:'حذف ملف',sha:j.sha,branch:'main'})})}).catch(function(){})}
+  function publishFiles(){
+    var gs=Object.keys(adm.groups);if(!gs.length){$('shMsg').textContent='اختر شعبة واحدة على الأقل.';return}
+    var inp=$('fF'),files=inp&&inp.files?Array.prototype.slice.call(inp.files):[];
+    if(!files.length){$('shMsg').textContent='اختر ملفاً أولاً.';return}
+    for(var i=0;i<files.length;i++){if(files[i].size>25*1024*1024){$('shMsg').textContent='الملف «'+files[i].name+'» أكبر من 25 ميغابايت.';return}}
+    var subj=$('fS').value,desc=$('fDesc').value.trim(),custom=files.length===1?$('fN').value.trim():'';
+    $('shPub').disabled=true;var added=[],chain=Promise.resolve();
+    files.forEach(function(f,i){chain=chain.then(function(){$('shMsg').textContent='جارٍ رفع الملف '+(i+1)+' من '+files.length+'…';
+      return readB64(f).then(function(b){var path='f/'+uid()+'.'+fileExt(f.name);return putFile(path,b,'رفع ملف').then(function(){added.push({n:custom||f.name,p:path,d:desc,a:iso(today)})})})})});
+    chain.then(function(){$('shMsg').textContent='جارٍ ربط الملفات بالشعب…';
+      return mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});gr.files=gr.files||{};var arr=(gr.files[subj]=gr.files[subj]||[]);added.forEach(function(x){arr.push({n:x.n,p:x.p,d:x.d,a:x.a})})})},'إضافة ملفات')
+    }).then(function(){$('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم الرفع ✓ سيظهر للطلاب خلال دقيقتين أو ثلاث.'}).catch(function(e){$('shPub').disabled=false;$('shMsg').textContent=(e&&e.message)||'فشل الرفع'})}
+  function startEditFile(p){
+    var found=null;var fl=gdata().files;Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){if(x.p===p)found=x})});if(!found)return;
+    adm.edit={kind:'file',p:p,g0:G};adm.type='file';$('sheet').hidden=false;paintSheet();$('fN').value=found.n||'';$('fDesc').value=found.d||'';$('shGname').textContent=G}
+  document.addEventListener('click',function(e){if(!isAdmin()||!e.target.closest)return;
+    var d=e.target.closest('[data-fdel]'),al=e.target.closest('[data-fall]'),ed=e.target.closest('[data-fedit]'),b=d||al||ed;if(!b)return;
+    var p=b.dataset.fdel||b.dataset.fall||b.dataset.fedit,g0=G;
+    if(ed){startEditFile(p);return}
+    if(!confirm(al?'حذف هذا الملف من كل الشعب؟':'حذف هذا الملف من شعبة '+g0+' فقط؟'))return;
+    var orphan=false;
+    mutate(function(data){var left=0;Object.keys(data.groups).forEach(function(g){var fl=data.groups[g].files||{};Object.keys(fl).forEach(function(sj){
+      fl[sj]=fl[sj].filter(function(x){return !(x.p===p&&(al||g===g0))});left+=fl[sj].filter(function(x){return x.p===p}).length})});orphan=(left===0)},al?'حذف ملف من كل الشعب':'حذف ملف').then(function(){
+      if(orphan&&!/^https?:/.test(p))delBlob(p)}).catch(function(er){alert((er&&er.message)||'فشل الحذف')})});
   function startEdit(kind,id){
     var it=(gdata()[keyOf(kind)]||[]).filter(function(x){return x.id===id})[0];if(!it)return;
     adm.edit={kind:kind,id:id,sig:sigOf(kind,it),g0:G};adm.type=kind;$('sheet').hidden=false;paintSheet();
@@ -540,6 +581,8 @@ nav button[aria-selected="true"]::before{content:"";position:absolute;top:-7px;w
     $('shGname').textContent=G}
   function saveEdit(all){
     var ed=adm.edit;if(!ed)return;var r=readItem(true);if(!r)return;
+    if(ed.kind==='file'){$('shMsg').textContent='جارٍ الحفظ…';
+      mutate(function(data){Object.keys(data.groups).forEach(function(g){if(!all&&g!==ed.g0)return;var fl=data.groups[g].files||{};Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){if(x.p===ed.p){x.n=r.item.n;x.d=r.item.d}})})})},'تعديل ملف').then(function(){adm.edit=null;$('sheet').hidden=true;$('shMsg').textContent=''}).catch(function(e){$('shMsg').textContent=(e&&e.message)||'فشل الحفظ'});return}
     $('shMsg').textContent='جارٍ الحفظ…';
     mutate(function(data){Object.keys(data.groups).forEach(function(g){if(!all&&g!==ed.g0)return;
       (data.groups[g][r.key]||[]).forEach(function(x){if((g===ed.g0&&x.id===ed.id)||(all&&sigOf(ed.kind,x)===ed.sig)){Object.keys(r.item).forEach(function(k){x[k]=r.item[k]})}})})},'تعديل '+r.label).then(function(){

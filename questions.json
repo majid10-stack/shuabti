@@ -22,7 +22,14 @@
           "20 to 50 nanometers",
           "100 nanometers"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "ما هو السمك التقريبي لغشاء الخلية؟",
+         "oa": [
+          "من 1 إلى 3 نانومتر",
+          "من 7.5 إلى 10 نانومتر",
+          "من 20 إلى 50 نانومتر",
+          "100 نانومتر"
+         ]
         },
         {
          "q": "Which part of the phospholipid molecule is soluble in water?",
@@ -32,7 +39,14 @@
           "Hydrophilic head",
           "Glycerol backbone only"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "أي جزء من جزيء الفوسفوليبيد يكون قابلاً للذوبان في الماء؟",
+         "oa": [
+          "الذيل الكاره للماء",
+          "سلسلة الأحماض الدهنية",
+          "الرأس المحب للماء",
+          "الجلسرين فقط"
+         ]
         },
         {
          "q": "Fill in the blank: Transport that requires no energy and moves molecules due to gradient differences is called __________ transport.",
@@ -42,7 +56,14 @@
           "Endocytosis",
           "Exocytosis"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: النقل الذي لا يتطلب طاقة وتتحرك فيه الجزيئات بسبب فروق التدرج يسمى نقلاً __________.",
+         "oa": [
+          "نشطاً",
+          "سلبياً",
+          "الإدخال الخلوي",
+          "الإخراج الخلوي"
+         ]
         },
         {
          "q": "Prokaryotic cells lack membrane-bound organelles and their DNA is located in the region called:",
@@ -52,7 +73,14 @@
           "Mitochondria",
           "Golgi apparatus"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "الخلايا بدائية النواة تفتقر إلى عضيات محاطة بغشاء، ويقع الدنا (DNA) فيها في منطقة تسمى:",
+         "oa": [
+          "نواة حقيقية",
+          "النيوكليويد (المنطقة النووية)",
+          "المايتوكوندريا",
+          "جهاز غولجي"
+         ]
         },
         {
          "q": "The process known scientifically as \"cell eating\" involving the intake of solid material is:",
@@ -62,7 +90,14 @@
           "Osmosis",
           "Diffusion"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "العملية المعروفة علمياً بـ«أكل الخلية» والتي تتضمن ابتلاع مواد صلبة هي:",
+         "oa": [
+          "شرب الخلية",
+          "البلعمة",
+          "الاسموزية",
+          "الانتشار"
+         ]
         },
         {
          "q": "Fill in the blank: The sodium-potassium pump is a primary biological example of __________ transport.",
@@ -72,7 +107,14 @@
           "Facilitated",
           "Simple"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: مضخة الصوديوم والبوتاسيوم مثال حيوي أساسي على النقل __________.",
+         "oa": [
+          "السلبي",
+          "النشط",
+          "المسهل",
+          "البسيط"
+         ]
         },
         {
          "q": "Fill in the blank: A solution where solutes are greater outside the cell causing fluid to flow out is called a __________ solution.",
@@ -82,7 +124,14 @@
           "Hypertonic",
           "Balanced"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "أكمل الفراغ: المحلول الذي تكون فيه المواد المذابة أكثر خارج الخلية مما يسبب تدفق السائل إلى الخارج يسمى محلولاً __________.",
+         "oa": [
+          "منخفض التوتر",
+          "متساوي التوتر",
+          "عالي التوتر",
+          "متوازناً"
+         ]
         },
         {
          "q": "Which cellular organelle is responsible for generating chemical energy (ATP) in eukaryotic cells?",
@@ -92,7 +141,14 @@
           "Lysosome",
           "Cell wall"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أي عضية خلوية مسؤولة عن توليد الطاقة الكيميائية (ATP) في الخلايا حقيقية النواة؟",
+         "oa": [
+          "الرايبوسوم",
+          "المايتوكوندريا",
+          "الجسم الحال (الليزوسوم)",
+          "جدار الخلية"
+         ]
         },
         {
          "q": "Receptor-mediated endocytosis is also commonly known as:",
@@ -102,7 +158,14 @@
           "Active pumping",
           "Fluid transport"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "يُعرف الإدخال الخلوي الوسيط بالمستقبلات أيضاً باسم:",
+         "oa": [
+          "الإدخال الخلوي الوسيط بالكلاثرين",
+          "الانتشار البسيط",
+          "الضخ النشط",
+          "نقل السوائل"
+         ]
         },
         {
          "q": "Fill in the blank: Exocytosis is considered functionally to be the __________ of endocytosis.",
@@ -112,7 +175,14 @@
           "Copy",
           "Part"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: يُعتبر الإخراج الخلوي وظيفياً __________ للإدخال الخلوي.",
+         "oa": [
+          "استمراراً",
+          "عكساً",
+          "نسخة",
+          "جزءاً"
+         ]
         },
         {
          "q": "Which of the following is considered a type of passive transport?",
@@ -122,7 +192,14 @@
           "Osmosis",
           "Sodium-potassium pump"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "أي مما يلي يُعد نوعاً من النقل السلبي؟",
+         "oa": [
+          "البلعمة",
+          "شرب الخلية",
+          "الاسموزية",
+          "مضخة الصوديوم والبوتاسيوم"
+         ]
         },
         {
          "q": "Fill in the blank: The process known scientifically as \"cell drinking\" is called __________.",
@@ -132,7 +209,14 @@
           "Exocytosis",
           "Osmosis"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: العملية المعروفة علمياً بـ«شرب الخلية» تسمى __________.",
+         "oa": [
+          "البلعمة",
+          "شرب الخلية (الكشب)",
+          "الإخراج الخلوي",
+          "الاسموزية"
+         ]
         },
         {
          "q": "What is the fundamental composition of the basic lipid bilayer in cell membranes?",
@@ -142,7 +226,14 @@
           "Nucleic acids",
           "Free fatty acids"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "ما التركيب الأساسي للطبقة الدهنية المزدوجة في أغشية الخلايا؟",
+         "oa": [
+          "جزيئات الفوسفوليبيد",
+          "سلاسل الكربوهيدرات",
+          "الأحماض النووية",
+          "الأحماض الدهنية الحرة"
+         ]
         },
         {
          "q": "Fill in the blank: When solutes are equal inside and outside of the cell, the solution is __________.",
@@ -152,7 +243,14 @@
           "Hypertonic",
           "Concentrated"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: عندما تتساوى المواد المذابة داخل الخلية وخارجها يكون المحلول __________.",
+         "oa": [
+          "منخفض التوتر",
+          "متساوي التوتر",
+          "عالي التوتر",
+          "مركزاً"
+         ]
         },
         {
          "q": "Which of the following transport mechanisms requires cellular energy in the form of ATP?",
@@ -162,7 +260,14 @@
           "Active transport",
           "Facilitated diffusion"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "أي من آليات النقل التالية تتطلب طاقة خلوية على شكل ATP؟",
+         "oa": [
+          "الانتشار البسيط",
+          "الاسموزية",
+          "النقل النشط",
+          "الانتشار المسهل"
+         ]
         },
         {
          "q": "Fill in the blank: The region of a prokaryotic cell where the single circular chromosome is located is the __________.",
@@ -172,7 +277,14 @@
           "Cytoplasm",
           "Ribosome"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: المنطقة في الخلية بدائية النواة التي يوجد فيها الكروموسوم الدائري الوحيد هي __________.",
+         "oa": [
+          "النواة",
+          "النيوكليويد",
+          "السايتوبلازم",
+          "الرايبوسوم"
+         ]
         },
         {
          "q": "Which of the following is a characteristic feature of all living cells?",
@@ -182,7 +294,14 @@
           "Endoplasmic reticulum",
           "Golgi apparatus"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "أي مما يلي صفة مميزة لجميع الخلايا الحية؟",
+         "oa": [
+          "غشاء محيط",
+          "المايتوكوندريا",
+          "الشبكة الإندوبلازمية",
+          "جهاز غولجي"
+         ]
         },
         {
          "q": "Fill in the blank: In facilitated diffusion, transport channels are usually composed of __________.",
@@ -192,7 +311,14 @@
           "Carbohydrates",
           "Nucleic acids"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: في الانتشار المسهل تتكون القنوات الناقلة عادةً من __________.",
+         "oa": [
+          "الدهون",
+          "البروتينات",
+          "الكربوهيدرات",
+          "الأحماض النووية"
+         ]
         },
         {
          "q": "What term describes the fluid contents of the cell contained within a thick fluid?",
@@ -202,7 +328,14 @@
           "Serum",
           "Matrix"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "ما المصطلح الذي يصف محتويات الخلية السائلة الموجودة ضمن سائل سميك؟",
+         "oa": [
+          "البروتوبلازم",
+          "البلازما النووية",
+          "المصل",
+          "الماتريكس (المادة الأساس)"
+         ]
         },
         {
          "q": "Fill in the blank: Eukaryotic cells typically divide by a process known as __________.",
@@ -212,7 +345,14 @@
           "Budding",
           "Spore formation"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: تنقسم الخلايا حقيقية النواة عادةً بعملية تعرف باسم __________.",
+         "oa": [
+          "الانشطار الثنائي",
+          "الانقسام المتساوي (الخيطي)",
+          "التبرعم",
+          "تكوين الأبواغ"
+         ]
         },
         {
          "q": "Which end of the phospholipid molecule is soluble only in fats and is non-polar?",
@@ -222,7 +362,14 @@
           "Phosphate group",
           "Glycerol unit"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أي طرف من جزيء الفوسفوليبيد يذوب في الدهون فقط وهو غير قطبي؟",
+         "oa": [
+          "الرأس المحب للماء",
+          "الذيل الكاره للماء",
+          "مجموعة الفوسفات",
+          "وحدة الجلسرين"
+         ]
         },
         {
          "q": "Fill in the blank: The movement of molecules to equalize concentration across a space is called __________.",
@@ -232,7 +379,14 @@
           "Synthesis",
           "Filtration"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "أكمل الفراغ: حركة الجزيئات لتحقيق تساوي التركيز عبر حيز ما تسمى __________.",
+         "oa": [
+          "الانتشار",
+          "الضخ النشط",
+          "التصنيع",
+          "الترشيح"
+         ]
         },
         {
          "q": "Which of the following is a characteristic of prokaryotic cells?",
@@ -242,7 +396,14 @@
           "Smaller ribosome size",
           "Multicellular structure"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "أي مما يلي من صفات الخلايا بدائية النواة؟",
+         "oa": [
+          "وجود نواة حقيقية",
+          "وجود المايتوكوندريا",
+          "صغر حجم الرايبوسومات",
+          "تركيب متعدد الخلايا"
+         ]
         },
         {
          "q": "Fill in the blank: Bulk transport processes that move large materials into cells are collectively called __________.",
@@ -252,7 +413,14 @@
           "Osmosis",
           "Dialysis"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: عمليات النقل الكتلي التي تُدخل مواد كبيرة إلى الخلايا تسمى مجتمعةً __________.",
+         "oa": [
+          "الإخراج الخلوي",
+          "الإدخال الخلوي",
+          "الاسموزية",
+          "الغسل الكلوي (الديلزة)"
+         ]
         },
         {
          "q": "What type of cell division is common in prokaryotes like bacteria?",
@@ -262,7 +430,14 @@
           "Binary fission",
           "Gemmation"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "ما نوع الانقسام الخلوي الشائع في بدائيات النواة مثل البكتيريا؟",
+         "oa": [
+          "الانقسام المتساوي",
+          "الانقسام المنصف",
+          "الانشطار الثنائي",
+          "التبرعم"
+         ]
         },
         {
          "q": "Fill in the blank: In a hypotonic solution, the extracellular fluid has a __________ solute concentration compared to the cell cytoplasm.",
@@ -272,7 +447,14 @@
           "Equal",
           "Zero"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: في المحلول منخفض التوتر يكون تركيز المواد المذابة في السائل خارج الخلية __________ مقارنة بسايتوبلازم الخلية.",
+         "oa": [
+          "أعلى",
+          "أقل",
+          "مساوياً",
+          "صفراً"
+         ]
         },
         {
          "q": "Which structures are present in prokaryotic cells while membrane-bound organelles are absent?",
@@ -282,7 +464,14 @@
           "Lysosomes",
           "Endoplasmic reticulum"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "أي التراكيب موجودة في الخلايا بدائية النواة بينما تغيب العضيات المحاطة بغشاء؟",
+         "oa": [
+          "الرايبوسومات",
+          "أجسام غولجي",
+          "الأجسام الحالّة",
+          "الشبكة الإندوبلازمية"
+         ]
         },
         {
          "q": "Fill in the blank: The protein involved in forming coated pits and vesicles during receptor- mediated endocytosis is __________.",
@@ -292,7 +481,14 @@
           "Keratin",
           "Collagen"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أكمل الفراغ: البروتين المشارك في تكوين الحفر والحويصلات المغلفة أثناء الإدخال الخلوي الوسيط بالمستقبلات هو __________.",
+         "oa": [
+          "الهيموغلوبين",
+          "الكلاثرين",
+          "الكيراتين",
+          "الكولاجين"
+         ]
         },
         {
          "q": "What is the typical size range for eukaryotic cells?",
@@ -302,7 +498,14 @@
           "500 - 1000 μm",
           "1 - 3 nm"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "ما مدى الحجم النموذجي للخلايا حقيقية النواة؟",
+         "oa": [
+          "0.1 - 5 ميكرومتر",
+          "10 - 100 ميكرومتر",
+          "500 - 1000 ميكرومتر",
+          "1 - 3 نانومتر"
+         ]
         },
         {
          "q": "Fill in the blank: The movement of fluid from lower solute concentration across a membrane is known as __________.",
@@ -312,7 +515,14 @@
           "Pinocytosis",
           "Exocytosis"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "أكمل الفراغ: حركة السائل من التركيز الأقل للمواد المذابة عبر غشاء تُعرف بـ __________.",
+         "oa": [
+          "الاسموزية",
+          "النقل النشط",
+          "شرب الخلية",
+          "الإخراج الخلوي"
+         ]
         }
        ]
       },
@@ -324,43 +534,53 @@
        "items": [
         {
          "q": "Prokaryotic cells contain multiple linear chromosomes inside a true nucleus.",
-         "a": false
+         "a": false,
+         "qa": "تحتوي الخلايا بدائية النواة على عدة كروموسومات خطية داخل نواة حقيقية."
         },
         {
          "q": "The cell membrane is a thin, pliable, elastic structure composed mainly of proteins and lipids.",
-         "a": true
+         "a": true,
+         "qa": "غشاء الخلية تركيب رقيق مرن مطاط يتكون أساساً من البروتينات والدهون."
         },
         {
          "q": "Passive transport requires the expenditure of cellular energy (ATP) to move molecules.",
-         "a": false
+         "a": false,
+         "qa": "يتطلب النقل السلبي صرف طاقة خلوية (ATP) لتحريك الجزيئات."
         },
         {
          "q": "Pinocytosis is often described scientifically as \"cell drinking\".",
-         "a": true
+         "a": true,
+         "qa": "يوصف شرب الخلية علمياً بأنه «شرب الخلية»."
         },
         {
          "q": "Active transport moves molecules down their concentration gradient without using energy.",
-         "a": false
+         "a": false,
+         "qa": "ينقل النقل النشط الجزيئات مع تدرج تركيزها دون استخدام طاقة."
         },
         {
          "q": "Eukaryotic cells lack membrane-bound organelles such as mitochondria and endoplasmic reticulum.",
-         "a": false
+         "a": false,
+         "qa": "تفتقر الخلايا حقيقية النواة إلى عضيات محاطة بغشاء مثل المايتوكوندريا والشبكة الإندوبلازمية."
         },
         {
          "q": "Diffusion is a type of passive transport where molecules move to equalize concentration.",
-         "a": true
+         "a": true,
+         "qa": "الانتشار نوع من النقل السلبي تتحرك فيه الجزيئات لتحقيق تساوي التركيز."
         },
         {
          "q": "Exocytosis is considered the reverse process of endocytosis.",
-         "a": true
+         "a": true,
+         "qa": "يُعتبر الإخراج الخلوي العملية العكسية للإدخال الخلوي."
         },
         {
          "q": "The hydrophilic head of a phospholipid molecule is soluble only in fats and lipids.",
-         "a": false
+         "a": false,
+         "qa": "الرأس المحب للماء في جزيء الفوسفوليبيد يذوب في الدهون والشحوم فقط."
         },
         {
          "q": "In facilitated diffusion, transport protein channels help specific molecules or ions cross the membrane without energy.",
-         "a": true
+         "a": true,
+         "qa": "في الانتشار المسهل تساعد قنوات البروتين الناقلة جزيئات أو أيونات محددة على عبور الغشاء دون طاقة."
         }
        ]
       },
@@ -476,35 +696,51 @@
        "items": [
         {
          "q": "Define: Body fluids.",
-         "a": "Liquids originating from inside the bodies of living humans. They include fluids that are excreted or secreted from the body."
+         "a": "Liquids originating from inside the bodies of living humans. They include fluids that are excreted or secreted from the body.",
+         "qa": "عرّف: سوائل الجسم.",
+         "aa": "سوائل تنشأ من داخل أجسام البشر الأحياء، وتشمل السوائل التي تُطرح أو تُفرز من الجسم."
         },
         {
          "q": "Define: Intracellular fluid (ICF).",
-         "a": "The body fluid located within the cell or all cells of an organism, in the cytoplasm of the cell."
+         "a": "The body fluid located within the cell or all cells of an organism, in the cytoplasm of the cell.",
+         "qa": "عرّف: السائل داخل الخلوي.",
+         "aa": "سائل الجسم الموجود داخل الخلية أو داخل جميع خلايا الكائن الحي، في هيولى (سيتوبلازم) الخلية."
         },
         {
          "q": "Define: Extracellular fluid (ECF).",
-         "a": "The body fluid located outside the cell or cells of an organism."
+         "a": "The body fluid located outside the cell or cells of an organism.",
+         "qa": "عرّف: السائل خارج الخلوي.",
+         "aa": "سائل الجسم الموجود خارج الخلية أو خلايا الكائن الحي."
         },
         {
          "q": "Define: Interstitial fluid.",
-         "a": "Also known as intercellular fluid and tissue fluid. It is the fluid between the cells of multi-cellular organisms, which delivers materials to the cells, serves intercellular communication, and removes metabolic waste."
+         "a": "Also known as intercellular fluid and tissue fluid. It is the fluid between the cells of multi-cellular organisms, which delivers materials to the cells, serves intercellular communication, and removes metabolic waste.",
+         "qa": "عرّف: السائل الخلالي.",
+         "aa": "يُعرف أيضاً بالسائل بين الخلايا وسائل الأنسجة، وهو السائل الموجود بين خلايا الكائنات متعددة الخلايا، ويوصل المواد إلى الخلايا ويسهم في التواصل بين الخلايا وإزالة فضلات الاستقلاب."
         },
         {
          "q": "Define: Osmotic pressure.",
-         "a": "The force created by the fluid. Part of it is the oncotic pressure, and it is also called the colloidal osmotic pressure. It pulls the fluid back into the capillary."
+         "a": "The force created by the fluid. Part of it is the oncotic pressure, and it is also called the colloidal osmotic pressure. It pulls the fluid back into the capillary.",
+         "qa": "عرّف: الضغط الأسموزي.",
+         "aa": "هو القوة الناتجة عن السائل؛ وجزء منه هو الضغط الغرواني (الأونكوتي)، ويسمى أيضاً الضغط الأسموزي الغرواني. وهو يسحب السائل عائداً إلى الشعيرة."
         },
         {
          "q": "Define: Hydrostatic pressure.",
-         "a": "The force that drives fluid transport (e.g., capillary hydrostatic pressure, CHP: the hydrostatic pressure that blood exerts against the capillary wall). It pushes the fluid out of the capillary."
+         "a": "The force that drives fluid transport (e.g., capillary hydrostatic pressure, CHP: the hydrostatic pressure that blood exerts against the capillary wall). It pushes the fluid out of the capillary.",
+         "qa": "عرّف: الضغط الهيدروستاتيكي (الساكن).",
+         "aa": "هو القوة التي تدفع انتقال السائل (مثل ضغط الشعيرات الهيدروستاتيكي CHP، وهو الضغط الذي يمارسه الدم على جدار الشعيرة). وهو يدفع السائل إلى خارج الشعيرة."
         },
         {
          "q": "Define: Edema.",
-         "a": "A condition in which fluid accumulates in the interstitial compartment. Sometimes it is due to blockage of lymphatic vessels, a lack of plasma proteins, or sodium retention."
+         "a": "A condition in which fluid accumulates in the interstitial compartment. Sometimes it is due to blockage of lymphatic vessels, a lack of plasma proteins, or sodium retention.",
+         "qa": "عرّف: الوذمة.",
+         "aa": "حالة تتجمع فيها السوائل في الحيز الخلالي، وأحياناً تكون بسبب انسداد الأوعية اللمفية أو نقص بروتينات البلازما أو احتباس الصوديوم."
         },
         {
          "q": "Define: Dehydration.",
-         "a": "A reduced body fluid amount. It can result from reduced water intake or conditions like diarrhea, vomiting, poor fluid intake, bleeding, and increased urine production and sweat."
+         "a": "A reduced body fluid amount. It can result from reduced water intake or conditions like diarrhea, vomiting, poor fluid intake, bleeding, and increased urine production and sweat.",
+         "qa": "عرّف: الجفاف.",
+         "aa": "نقص كمية سوائل الجسم؛ ويمكن أن ينتج عن قلة تناول الماء أو حالات مثل الإسهال والقيء وسوء تناول السوائل والنزف وزيادة إنتاج البول والعرق."
         }
        ]
       },
@@ -519,6 +755,11 @@
          "a": [
           "Intracellular fluid (ICF)",
           "Extracellular fluid (ECF)"
+         ],
+         "qa": "اذكر الحيّزين اللذين يُقسم إليهما سائل الجسم.",
+         "aa": [
+          "السائل داخل الخلوي",
+          "السائل خارج الخلوي"
          ]
         },
         {
@@ -528,6 +769,13 @@
           "Intravascular fluid (plasma)",
           "Lymph",
           "Transcellular fluid"
+         ],
+         "qa": "عدد مكونات السائل خارج الخلوي.",
+         "aa": [
+          "السائل الخلالي (بين الخلايا)",
+          "السائل داخل الأوعية (البلازما)",
+          "اللمف",
+          "السائل عبر الخلوي"
          ]
         },
         {
@@ -538,6 +786,14 @@
           "Digestion: water is an important component of saliva, intestinal and gastric juice.",
           "Maintaining an efficient metabolism of the body.",
           "Lubrication: moistening of tissues and lubricating different joints."
+         ],
+         "qa": "عدد وظائف سوائل الجسم.",
+         "aa": [
+          "النقل: نقل الأكسجين والمغذيات في أنحاء الجسم وإزالة الفضلات منه.",
+          "تنظيم درجة حرارة الجسم.",
+          "الهضم: الماء مكوّن مهم في اللعاب والعصارة المعوية والمعدية.",
+          "المحافظة على استقلاب كفء في الجسم.",
+          "التزليق: ترطيب الأنسجة وتزليق المفاصل المختلفة."
          ]
         },
         {
@@ -546,6 +802,12 @@
           "Electrolytes: sodium, potassium, etc.",
           "Metabolites: urea, glucose, carbon dioxide, oxygen.",
           "Proteins: albumin, hormones, amino acids, antibodies."
+         ],
+         "qa": "عدّد، غير الماء، مجموعات الجزيئات التي يتكوّن منها سائل الجسم مع أمثلة.",
+         "aa": [
+          "الشوارد (الأيونات): الصوديوم والبوتاسيوم وغيرها.",
+          "المستقلبات: اليوريا والغلوكوز وثاني أكسيد الكربون والأكسجين.",
+          "البروتينات: الألبومين والهرمونات والأحماض الأمينية والأجسام المضادة."
          ]
         },
         {
@@ -553,6 +815,11 @@
          "a": [
           "Plasma membrane: separates ICF from the surrounding interstitial fluid.",
           "Blood vessel wall: separates interstitial fluid from plasma."
+         ],
+         "qa": "اذكر الحواجز التي تفصل السائل داخل الخلوي والسائل الخلالي والبلازما.",
+         "aa": [
+          "الغشاء البلازمي: يفصل السائل داخل الخلوي عن السائل الخلالي المحيط.",
+          "جدار الوعاء الدموي: يفصل السائل الخلالي عن البلازما."
          ]
         },
         {
@@ -561,6 +828,12 @@
           "Tissue type: lean tissues have higher fluid content than fat tissues.",
           "Gender: males have more lean tissue and therefore more body fluid.",
           "Age: lean tissue is lost with age and body fluid is lost with it."
+         ],
+         "qa": "اذكر العوامل التي يختلف بها تركيب سائل الجسم في الأنسجة.",
+         "aa": [
+          "نوع النسيج: محتوى الأنسجة الهزيلة (الخالية من الدهن) من السوائل أعلى من الأنسجة الدهنية.",
+          "الجنس: لدى الذكور نسيج هزيل أكثر، ولذلك لديهم سائل جسم أكثر.",
+          "العمر: يفقد النسيج الهزيل مع التقدم في العمر ويفقد سائل الجسم معه."
          ]
         },
         {
@@ -568,6 +841,11 @@
          "a": [
           "Osmotic pressure (including the oncotic pressure)",
           "Hydrostatic pressure"
+         ],
+         "qa": "ما الضغطان اللذان يتحكمان في إعادة توزيع الماء بين حيزات الجسم؟",
+         "aa": [
+          "الضغط الأسموزي (ومنه الضغط الغرواني الأونكوتي)",
+          "الضغط الهيدروستاتيكي (الساكن)"
          ]
         },
         {
@@ -581,6 +859,17 @@
           "Neurotransmitters",
           "Salts",
           "Waste products from the cells"
+         ],
+         "qa": "ماذا يحتوي السائل الخلالي؟",
+         "aa": [
+          "أحماض أمينية",
+          "سكريات",
+          "أحماض دهنية",
+          "إنزيمات مساعدة",
+          "هرمونات",
+          "ناقلات عصبية",
+          "أملاح",
+          "الفضلات الناتجة من الخلايا"
          ]
         },
         {
@@ -590,6 +879,13 @@
           "Not consuming enough water",
           "Diseases causing vomiting and diarrhea",
           "Diabetes"
+         ],
+         "qa": "اذكر الأسباب الشائعة للجفاف.",
+         "aa": [
+          "التعرق المفرط",
+          "عدم شرب كمية كافية من الماء",
+          "أمراض تسبب القيء والإسهال",
+          "السكري"
          ]
         },
         {
@@ -598,6 +894,12 @@
           "Blockage of lymphatic vessels",
           "A lack of plasma proteins",
           "Sodium retention"
+         ],
+         "qa": "اذكر أسباب الوذمة.",
+         "aa": [
+          "انسداد الأوعية اللمفية",
+          "نقص بروتينات البلازما",
+          "احتباس الصوديوم"
          ]
         },
         {
@@ -608,6 +910,14 @@
           "Pulmonary edema",
           "Excess abdominal fluid (ascites)",
           "Edema (swelling) of the ankles and feet"
+         ],
+         "qa": "أعطِ أمثلة على الوذمة في أجزاء مختلفة من الجسم.",
+         "aa": [
+          "وذمة الأنسجة الرخوة",
+          "الوذمة الناتجة عن أمراض الكبد",
+          "الوذمة الرئوية",
+          "زيادة السوائل البطنية (الاستسقاء البطني)",
+          "وذمة (تورّم) الكاحلين والقدمين"
          ]
         },
         {
@@ -620,6 +930,16 @@
           "Edema (swelling) of the ankles and feet",
           "Adult woman: 55%",
           "Seniors: 50–55%"
+         ],
+         "qa": "اذكر نسبة سوائل الجسم في مراحل العمر المختلفة.",
+         "aa": [
+          "مرحلة الجنين: ~95% (أقصى مقدار)",
+          "حديث الولادة: 80%",
+          "الطفل الدارج: 70%",
+          "الطفل: 65%",
+          "رجل بالغ: 60%",
+          "امرأة بالغة: 55%",
+          "كبار السن: 50–55%"
          ]
         }
        ]
@@ -632,48 +952,63 @@
        "items": [
         {
          "q": "Body fluids include fluids that are excreted or secreted from the body.",
-         "a": true
+         "a": true,
+         "qa": "تشمل سوائل الجسم السوائل التي تطرح أو تفرز من الجسم."
         },
         {
          "q": "The plasma membrane separates the interstitial fluid from the plasma.",
          "a": false,
-         "e": "The plasma membrane separates ICF from the interstitial fluid; the blood vessel wall separates the interstitial fluid from plasma."
+         "e": "The plasma membrane separates ICF from the interstitial fluid; the blood vessel wall separates the interstitial fluid from plasma.",
+         "qa": "يفصل الغشاء البلازمي السائل الخلالي عن البلازما.",
+         "ea": "الغشاء البلازمي يفصل السائل داخل الخلوي عن السائل الخلالي، أما جدار الوعاء الدموي فيفصل السائل الخلالي عن البلازما."
         },
         {
          "q": "Lean tissues have a lower fluid content than fat tissues.",
          "a": false,
-         "e": "Lean tissues have a higher fluid content than fat tissues."
+         "e": "Lean tissues have a higher fluid content than fat tissues.",
+         "qa": "محتوى الأنسجة الهزيلة من السوائل أقل من الأنسجة الدهنية.",
+         "ea": "محتوى الأنسجة الهزيلة من السوائل أعلى من الأنسجة الدهنية."
         },
         {
          "q": "Interstitial fluid represents the largest portion of the extracellular fluid compartment.",
-         "a": true
+         "a": true,
+         "qa": "يمثل السائل الخلالي أكبر جزء من حيز السائل خارج الخلوي."
         },
         {
          "q": "Males have more lean tissue and therefore more body fluid.",
-         "a": true
+         "a": true,
+         "qa": "لدى الذكور نسيج هزيل أكثر، ولذلك لديهم سائل جسم أكثر."
         },
         {
          "q": "Plasma proteins diffuse freely through the pores of the blood capillaries together with water.",
          "a": false,
-         "e": "The pores allow water and most dissolved substances to diffuse, except protein."
+         "e": "The pores allow water and most dissolved substances to diffuse, except protein.",
+         "qa": "تنتشر بروتينات البلازما بحرية عبر مسام الشعيرات الدموية مع الماء.",
+         "ea": "تسمح المسام بانتشار الماء ومعظم المواد المذابة ما عدا البروتين."
         },
         {
          "q": "Hydrostatic pressure pushes fluid out of the capillary, while osmotic pressure pulls fluid back into it.",
-         "a": true
+         "a": true,
+         "qa": "يدفع الضغط الهيدروستاتيكي السائل إلى خارج الشعيرة، بينما يسحبه الضغط الأسموزي عائداً إليها."
         },
         {
          "q": "The movement of fluid from the interstitial fluid back into the capillaries is called filtration.",
          "a": false,
-         "e": "It is called reabsorption; filtration is the exit of fluid from the capillary into the interstitial fluid."
+         "e": "It is called reabsorption; filtration is the exit of fluid from the capillary into the interstitial fluid.",
+         "qa": "تسمى حركة السائل من السائل الخلالي عائداً إلى الشعيرات الترشيح.",
+         "ea": "تسمى إعادة الامتصاص؛ أما الترشيح فهو خروج السائل من الشعيرة إلى السائل الخلالي."
         },
         {
          "q": "The maximum body fluid is present at the fetal development stage (~95%).",
-         "a": true
+         "a": true,
+         "qa": "يوجد أقصى مقدار من سائل الجسم في مرحلة نمو الجنين (~95%)."
         },
         {
          "q": "Edema is the term used for a reduced amount of body fluid.",
          "a": false,
-         "e": "A reduced body fluid amount is dehydration; edema is the accumulation of fluid in the interstitial compartment."
+         "e": "A reduced body fluid amount is dehydration; edema is the accumulation of fluid in the interstitial compartment.",
+         "qa": "الوذمة هي المصطلح المستخدم لنقص كمية سوائل الجسم.",
+         "ea": "نقص كمية سوائل الجسم هو الجفاف؛ أما الوذمة فهي تجمّع السوائل في الحيز الخلالي."
         }
        ]
       },
@@ -691,7 +1026,14 @@
           "inside the bodies",
           "the digestive tract only"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "من أين تنشأ سوائل الجسم؟",
+         "oa": [
+          "خارج",
+          "سطح الجلد فقط",
+          "داخل",
+          "الجهاز الهضمي فقط"
+         ]
         },
         {
          "q": "Sodium and potassium are examples of ______ found in body fluid.",
@@ -701,7 +1043,14 @@
           "proteins",
           "antibodies"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "الصوديوم والبوتاسيوم أمثلة على ______ الموجودة في سائل الجسم.",
+         "oa": [
+          "الشوارد (الأيونات)",
+          "المستقلبات",
+          "البروتينات",
+          "الأجسام المضادة"
+         ]
         },
         {
          "q": "Urea, glucose, carbon dioxide and oxygen are examples of which group of molecules in body fluid?",
@@ -711,7 +1060,14 @@
           "hormones",
           "metabolites"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "اليوريا والغلوكوز وثاني أكسيد الكربون والأكسجين أمثلة على أي مجموعة من الجزيئات في سائل الجسم؟",
+         "oa": [
+          "الشوارد",
+          "البروتينات",
+          "الهرمونات",
+          "المستقلبات"
+         ]
         },
         {
          "q": "The composition and amounts of body fluid vary depending on the ______ of the fluid.",
@@ -721,7 +1077,14 @@
           "taste",
           "odour"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "تختلف تركيبة سائل الجسم وكمياته تبعًا لـ______ السائل.",
+         "oa": [
+          "لون",
+          "موقع",
+          "طعم",
+          "رائحة"
+         ]
         },
         {
          "q": "In gastric fluid, which electrolyte has the highest concentration (100–150 mEq/L)?",
@@ -731,7 +1094,14 @@
           "K⁺",
           "all are equal"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "أي شاردة لها التركيز الأعلى في السائل المعدي (100–150 ملي مكافئ/لتر)؟",
+         "oa": [
+          "الكلوريد",
+          "الصوديوم",
+          "البوتاسيوم",
+          "جميعها متساوية"
+         ]
         },
         {
          "q": "Among the fluids in the table, the highest potassium concentration (10–80 mEq/L) is found in ______.",
@@ -741,7 +1111,14 @@
           "burns",
           "diarrhea"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "من بين السوائل في الجدول، يوجد أعلى تركيز للبوتاسيوم (10–80 ملي مكافئ/لتر) في ______.",
+         "oa": [
+          "العرق",
+          "الصفراء",
+          "الحروق",
+          "الإسهال"
+         ]
         },
         {
          "q": "Into how many compartments has body fluid been divided?",
@@ -751,7 +1128,14 @@
           "four",
           "five"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "إلى كم حيّز قُسِّم سائل الجسم؟",
+         "oa": [
+          "ثلاثة",
+          "اثنين",
+          "أربعة",
+          "خمسة"
+         ]
         },
         {
          "q": "Intracellular fluid is the fluid present inside the cell, in the ______ of the cell.",
@@ -761,7 +1145,14 @@
           "interstitial space",
           "cytoplasm"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "السائل داخل الخلوي هو السائل الموجود داخل الخلية، في ______ الخلية.",
+         "oa": [
+          "النواة فقط",
+          "الأوعية الدموية",
+          "الحيّز الخلالي",
+          "هيولى (سيتوبلازم) الخلية"
+         ]
         },
         {
          "q": "Extracellular fluid includes interstitial fluid, plasma, lymph and which other fluid?",
@@ -771,7 +1162,14 @@
           "transcellular",
           "gastric"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "يشمل السائل خارج الخلوي السائل الخلالي والبلازما واللمف وأي سائل آخر؟",
+         "oa": [
+          "داخل الخلوي",
+          "الهيولي",
+          "عبر الخلوي",
+          "المعدي"
+         ]
         },
         {
          "q": "The ______ separates intracellular fluid from the surrounding interstitial fluid.",
@@ -781,7 +1179,14 @@
           "lymphatic duct",
           "capillary pore"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "يفصل ______ السائل داخل الخلوي عن السائل الخلالي المحيط.",
+         "oa": [
+          "الغشاء البلازمي",
+          "جدار الوعاء الدموي",
+          "القناة اللمفية",
+          "مسام الشعيرة"
+         ]
         },
         {
          "q": "Which structure separates interstitial fluid from plasma?",
@@ -791,7 +1196,14 @@
           "nuclear membrane",
           "blood vessel wall"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "ما التركيب الذي يفصل السائل الخلالي عن البلازما؟",
+         "oa": [
+          "الغشاء البلازمي",
+          "جدار الخلية",
+          "الغشاء النووي",
+          "جدار الوعاء الدموي"
+         ]
         },
         {
          "q": "Transcellular fluid fills the spaces of chambers formed from the linings of ______ cells.",
@@ -801,7 +1213,14 @@
           "epithelial",
           "fat"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "يملأ السائل عبر الخلوي فراغات الحجرات المتكوّنة من بطانات الخلايا ______.",
+         "oa": [
+          "العصبية",
+          "العضلية",
+          "الظهارية",
+          "الدهنية"
+         ]
         },
         {
          "q": "What is another name for interstitial fluid?",
@@ -811,7 +1230,14 @@
           "intravascular",
           "transcellular"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "ما الاسم الآخر للسائل الخلالي؟",
+         "oa": [
+          "داخل الخلايا",
+          "بين الخلايا",
+          "داخل الأوعية",
+          "عبر الخلوي"
+         ]
         },
         {
          "q": "Interstitial fluid represents the ______ portion of the ECF compartment.",
@@ -821,7 +1247,14 @@
           "negligible",
           "largest"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "يمثل السائل الخلالي الجزء ______ من حيّز السائل خارج الخلوي.",
+         "oa": [
+          "الأصغر",
+          "الوحيد",
+          "الضئيل",
+          "الأكبر"
+         ]
         },
         {
          "q": "In what form does interstitial fluid present as an extracellular matrix?",
@@ -831,7 +1264,14 @@
           "gaseous",
           "crystalline"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "على أي هيئة يظهر السائل الخلالي كمصفوفة خارج خلوية؟",
+         "oa": [
+          "هلامية",
+          "صلبة",
+          "غازية",
+          "بلورية"
+         ]
         },
         {
          "q": "Plasma and interstitial fluid exchange substances through pores in the ______.",
@@ -841,7 +1281,14 @@
           "blood capillaries",
           "nerve fibres"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "تتبادل البلازما والسائل الخلالي المواد عبر مسام في ______.",
+         "oa": [
+          "الأغشية البلازمية",
+          "العقد اللمفية",
+          "الشعيرات الدموية",
+          "الألياف العصبية"
+         ]
         },
         {
          "q": "Which substance does NOT diffuse through the pores of the capillaries (which allow water and most dissolved substances to pass)?",
@@ -851,7 +1298,14 @@
           "glucose",
           "urea"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أي مادة لا تنتشر عبر مسام الشعيرات (التي تسمح بمرور الماء ومعظم المواد المذابة)؟",
+         "oa": [
+          "الصوديوم",
+          "البروتين",
+          "الغلوكوز",
+          "اليوريا"
+         ]
         },
         {
          "q": "Delivering oxygen and nutrients and removing waste is the ______ function of body fluids.",
@@ -861,7 +1315,14 @@
           "temperature regulation",
           "transportation"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "إيصال الأكسجين والمغذيات وإزالة الفضلات هو وظيفة ______ لسوائل الجسم.",
+         "oa": [
+          "التزليق",
+          "الهضم",
+          "تنظيم الحرارة",
+          "النقل"
+         ]
         },
         {
          "q": "Water is an important component of saliva, intestinal and gastric juice. What do these juices help to do to food?",
@@ -871,7 +1332,14 @@
           "digest",
           "filter"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "الماء مكوّن مهم في اللعاب والعصارة المعوية والمعدية. فماذا تساعد هذه السوائل أن تفعل بالطعام؟",
+         "oa": [
+          "خزن",
+          "تبريد",
+          "هضم",
+          "ترشيح"
+         ]
         },
         {
          "q": "Moistening of tissues and lubricating joints is the ______ function of body fluids.",
@@ -881,7 +1349,14 @@
           "digestion",
           "filtration"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "ترطيب الأنسجة وتزليق المفاصل هو وظيفة ______ لسوائل الجسم.",
+         "oa": [
+          "النقل",
+          "التزليق",
+          "الهضم",
+          "الترشيح"
+         ]
         },
         {
          "q": "How is the fluid content of lean tissues compared with that of fat tissues?",
@@ -891,7 +1366,14 @@
           "zero",
           "higher"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "كيف يكون محتوى الأنسجة الهزيلة من السوائل مقارنةً بالأنسجة الدهنية؟",
+         "oa": [
+          "أقل",
+          "مساوٍ",
+          "صفر",
+          "أعلى"
+         ]
         },
         {
          "q": "Males have more body fluid because they have more ______ tissue.",
@@ -901,7 +1383,14 @@
           "bone",
           "nervous"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "لدى الذكور سائل جسم أكثر لأن لديهم نسيجًا ______ أكثر.",
+         "oa": [
+          "هزيلاً (خالياً من الدهن)",
+          "دهنيًا",
+          "عظميًا",
+          "عصبيًا"
+         ]
         },
         {
          "q": "What happens to body fluid as lean tissue is lost with age?",
@@ -911,7 +1400,14 @@
           "lost",
           "unchanged"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "ما حال سائل الجسم عند فقدان النسيج الهزيل مع التقدم في العمر؟",
+         "oa": [
+          "مكتسبًا",
+          "مضاعفًا",
+          "مفقودًا",
+          "دون تغيّر"
+         ]
         },
         {
          "q": "The maximum body fluid (~95%) is present at the ______ stage.",
@@ -921,7 +1417,14 @@
           "adulthood",
           "old age"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "يوجد أقصى مقدار لسائل الجسم (~95%) في مرحلة ______.",
+         "oa": [
+          "الرضاعة",
+          "نمو الجنين",
+          "البلوغ",
+          "الشيخوخة"
+         ]
         },
         {
          "q": "Body fluid decreases from ~95% in the fetus to ~75% in the infant. What is its percentage in the adult stage?",
@@ -931,7 +1434,14 @@
           "95%",
           "50–60%"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "ينخفض سائل الجسم من ~95% عند الجنين إلى ~75% عند الرضيع. فما نسبته في مرحلة البلوغ؟",
+         "oa": [
+          "20–30%",
+          "80–90%",
+          "95%",
+          "50–60%"
+         ]
         },
         {
          "q": "Redistribution of water between compartments is controlled by osmotic pressure and ______ pressure.",
@@ -941,7 +1451,14 @@
           "intracranial",
           "venous"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "يتحكم في إعادة توزيع الماء بين الحيّزات الضغط الأسموزي والضغط ______.",
+         "oa": [
+          "الهيدروستاتيكي",
+          "الجوي",
+          "داخل القحف",
+          "الوريدي"
+         ]
         },
         {
          "q": "Which pressure is a part of the osmotic pressure?",
@@ -951,7 +1468,14 @@
           "capillary",
           "lymphatic"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أي ضغط يُعد جزءًا من الضغط الأسموزي؟",
+         "oa": [
+          "الهيدروستاتيكي",
+          "الغرواني (الأونكوتي)",
+          "الشعري",
+          "اللمفي"
+         ]
         },
         {
          "q": "Osmotic pressure ______ fluid back into the capillary, while hydrostatic pressure ______ it out.",
@@ -961,7 +1485,14 @@
           "pulls / pushes",
           "pushes / pushes"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "الضغط الأسموزي ______ السائل إلى داخل الشعيرة، بينما الضغط الهيدروستاتيكي ______ السائل إلى خارجها.",
+         "oa": [
+          "يدفع / يسحب",
+          "يسحب / يسحب",
+          "يسحب / يدفع",
+          "يدفع / يدفع"
+         ]
         },
         {
          "q": "What is the movement of fluid out of the capillary into the interstitial fluid called?",
@@ -971,7 +1502,14 @@
           "excretion",
           "filtration"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "ماذا تُسمى حركة السائل من الشعيرة إلى السائل الخلالي؟",
+         "oa": [
+          "إعادة الامتصاص",
+          "الأسموزية",
+          "الإطراح",
+          "الترشيح"
+         ]
         },
         {
          "q": "The return of fluid from the interstitial fluid into the capillaries drives the process of ______.",
@@ -981,7 +1519,14 @@
           "digestion",
           "secretion"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "عودة السائل من السائل الخلالي إلى الشعيرات هي ما يقود عملية ______.",
+         "oa": [
+          "إعادة الامتصاص",
+          "الترشيح",
+          "الهضم",
+          "الإفراز"
+         ]
         },
         {
          "q": "Which system tightly regulates the water/sodium balance in the body?",
@@ -991,7 +1536,14 @@
           "skeletal",
           "respiratory"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "أي جهاز ينظّم توازن الماء/الصوديوم في الجسم بإحكام؟",
+         "oa": [
+          "الهضمي",
+          "العصبي",
+          "الهيكلي",
+          "التنفسي"
+         ]
         },
         {
          "q": "Excess fluid in the body results in ______, whereas a reduced fluid amount is called dehydration.",
@@ -1001,7 +1553,14 @@
           "edema",
           "osmolality"
          ],
-         "a": 2
+         "a": 2,
+         "qa": "تؤدي زيادة السوائل في الجسم إلى ______، بينما يسمى نقص كمية السوائل الجفاف.",
+         "oa": [
+          "الترشيح",
+          "الاستتباب",
+          "الوذمة",
+          "الأسمولية"
+         ]
         },
         {
          "q": "Which type of edema is a major health risk because it compromises gas exchange?",
@@ -1011,7 +1570,14 @@
           "Hand",
           "Abdominal"
          ],
-         "a": 0
+         "a": 0,
+         "qa": "أي نوع من الوذمة يُعد خطراً صحياً كبيراً لأنه يعيق تبادل الغازات؟",
+         "oa": [
+          "الرئوية",
+          "الكاحلية",
+          "اليدوية",
+          "البطنية"
+         ]
         },
         {
          "q": "______ help to manage edema.",
@@ -1021,7 +1587,14 @@
           "Hormones",
           "Diuretics"
          ],
-         "a": 3
+         "a": 3,
+         "qa": "______ تساعد على علاج الوذمة.",
+         "oa": [
+          "الأجسام المضادة",
+          "الشوارد",
+          "الهرمونات",
+          "مدرات البول"
+         ]
         },
         {
          "q": "Body fluid can be a carrier of certain diseases such as HIV-AIDS. Which other disease can it carry?",
@@ -1031,7 +1604,14 @@
           "edema",
           "dehydration"
          ],
-         "a": 1
+         "a": 1,
+         "qa": "يمكن أن يكون سائل الجسم ناقلاً لبعض الأمراض مثل فيروس نقص المناعة المكتسب (الإيدز). فما المرض الآخر الذي قد ينقله؟",
+         "oa": [
+          "السكري",
+          "التهاب الكبد",
+          "الوذمة",
+          "الجفاف"
+         ]
         }
        ]
       }

@@ -3,7 +3,1041 @@
   {
    "id": "s0",
    "title": "الفسلجة",
-   "handouts": []
+   "handouts": [
+    {
+     "id": "h-cell",
+     "title": "Cellular Physiology · فسلجة الخلايا",
+     "sections": [
+      {
+       "id": "cell-mcq",
+       "type": "mcq",
+       "title": "Section 1: Multiple Choice and Fill in the Blank",
+       "ar": "القسم الأول: اختيار من متعدد وفراغات",
+       "items": [
+        {
+         "q": "What is the approximate thickness of the cell membrane?",
+         "o": [
+          "1 to 3 nanometers",
+          "7.5 to 10 nanometers",
+          "20 to 50 nanometers",
+          "100 nanometers"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Which part of the phospholipid molecule is soluble in water?",
+         "o": [
+          "Hydrophobic tail",
+          "Fatty acid chain",
+          "Hydrophilic head",
+          "Glycerol backbone only"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Fill in the blank: Transport that requires no energy and moves molecules due to gradient differences is called __________ transport.",
+         "o": [
+          "Active",
+          "Passive",
+          "Endocytosis",
+          "Exocytosis"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Prokaryotic cells lack membrane-bound organelles and their DNA is located in the region called:",
+         "o": [
+          "True nucleus",
+          "Nucleoid",
+          "Mitochondria",
+          "Golgi apparatus"
+         ],
+         "a": 1
+        },
+        {
+         "q": "The process known scientifically as \"cell eating\" involving the intake of solid material is:",
+         "o": [
+          "Pinocytosis",
+          "Phagocytosis",
+          "Osmosis",
+          "Diffusion"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Fill in the blank: The sodium-potassium pump is a primary biological example of __________ transport.",
+         "o": [
+          "Passive",
+          "Active",
+          "Facilitated",
+          "Simple"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Fill in the blank: A solution where solutes are greater outside the cell causing fluid to flow out is called a __________ solution.",
+         "o": [
+          "Hypotonic",
+          "Isotonic",
+          "Hypertonic",
+          "Balanced"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Which cellular organelle is responsible for generating chemical energy (ATP) in eukaryotic cells?",
+         "o": [
+          "Ribosome",
+          "Mitochondria",
+          "Lysosome",
+          "Cell wall"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Receptor-mediated endocytosis is also commonly known as:",
+         "o": [
+          "Clathrin-mediated endocytosis",
+          "Simple diffusion",
+          "Active pumping",
+          "Fluid transport"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Fill in the blank: Exocytosis is considered functionally to be the __________ of endocytosis.",
+         "o": [
+          "Continuation",
+          "Reverse",
+          "Copy",
+          "Part"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Which of the following is considered a type of passive transport?",
+         "o": [
+          "Phagocytosis",
+          "Pinocytosis",
+          "Osmosis",
+          "Sodium-potassium pump"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Fill in the blank: The process known scientifically as \"cell drinking\" is called __________.",
+         "o": [
+          "Phagocytosis",
+          "Pinocytosis",
+          "Exocytosis",
+          "Osmosis"
+         ],
+         "a": 1
+        },
+        {
+         "q": "What is the fundamental composition of the basic lipid bilayer in cell membranes?",
+         "o": [
+          "Phospholipid molecules",
+          "Carbohydrate chains",
+          "Nucleic acids",
+          "Free fatty acids"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Fill in the blank: When solutes are equal inside and outside of the cell, the solution is __________.",
+         "o": [
+          "Hypotonic",
+          "Isotonic",
+          "Hypertonic",
+          "Concentrated"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Which of the following transport mechanisms requires cellular energy in the form of ATP?",
+         "o": [
+          "Simple diffusion",
+          "Osmosis",
+          "Active transport",
+          "Facilitated diffusion"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Fill in the blank: The region of a prokaryotic cell where the single circular chromosome is located is the __________.",
+         "o": [
+          "Nucleus",
+          "Nucleoid",
+          "Cytoplasm",
+          "Ribosome"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Which of the following is a characteristic feature of all living cells?",
+         "o": [
+          "A surrounding membrane",
+          "Mitochondria",
+          "Endoplasmic reticulum",
+          "Golgi apparatus"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Fill in the blank: In facilitated diffusion, transport channels are usually composed of __________.",
+         "o": [
+          "Lipids",
+          "Proteins",
+          "Carbohydrates",
+          "Nucleic acids"
+         ],
+         "a": 1
+        },
+        {
+         "q": "What term describes the fluid contents of the cell contained within a thick fluid?",
+         "o": [
+          "Protoplasm",
+          "Nucleoplasm",
+          "Serum",
+          "Matrix"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Fill in the blank: Eukaryotic cells typically divide by a process known as __________.",
+         "o": [
+          "Binary fission",
+          "Mitosis",
+          "Budding",
+          "Spore formation"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Which end of the phospholipid molecule is soluble only in fats and is non-polar?",
+         "o": [
+          "Hydrophilic head",
+          "Hydrophobic tail",
+          "Phosphate group",
+          "Glycerol unit"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Fill in the blank: The movement of molecules to equalize concentration across a space is called __________.",
+         "o": [
+          "Diffusion",
+          "Active pumping",
+          "Synthesis",
+          "Filtration"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Which of the following is a characteristic of prokaryotic cells?",
+         "o": [
+          "Presence of true nucleus",
+          "Presence of mitochondria",
+          "Smaller ribosome size",
+          "Multicellular structure"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Fill in the blank: Bulk transport processes that move large materials into cells are collectively called __________.",
+         "o": [
+          "Exocytosis",
+          "Endocytosis",
+          "Osmosis",
+          "Dialysis"
+         ],
+         "a": 1
+        },
+        {
+         "q": "What type of cell division is common in prokaryotes like bacteria?",
+         "o": [
+          "Mitosis",
+          "Meiosis",
+          "Binary fission",
+          "Gemmation"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Fill in the blank: In a hypotonic solution, the extracellular fluid has a __________ solute concentration compared to the cell cytoplasm.",
+         "o": [
+          "Higher",
+          "Lower",
+          "Equal",
+          "Zero"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Which structures are present in prokaryotic cells while membrane-bound organelles are absent?",
+         "o": [
+          "Ribosomes",
+          "Golgi bodies",
+          "Lysosomes",
+          "Endoplasmic reticulum"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Fill in the blank: The protein involved in forming coated pits and vesicles during receptor- mediated endocytosis is __________.",
+         "o": [
+          "Hemoglobin",
+          "Clathrin",
+          "Keratin",
+          "Collagen"
+         ],
+         "a": 1
+        },
+        {
+         "q": "What is the typical size range for eukaryotic cells?",
+         "o": [
+          "0.1 - 5 μm",
+          "10 - 100 μm",
+          "500 - 1000 μm",
+          "1 - 3 nm"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Fill in the blank: The movement of fluid from lower solute concentration across a membrane is known as __________.",
+         "o": [
+          "Osmosis",
+          "Active transport",
+          "Pinocytosis",
+          "Exocytosis"
+         ],
+         "a": 0
+        }
+       ]
+      },
+      {
+       "id": "cell-tf",
+       "type": "tf",
+       "title": "Section 2: True or False",
+       "ar": "القسم الثاني: صح وخطأ",
+       "items": [
+        {
+         "q": "Prokaryotic cells contain multiple linear chromosomes inside a true nucleus.",
+         "a": false
+        },
+        {
+         "q": "The cell membrane is a thin, pliable, elastic structure composed mainly of proteins and lipids.",
+         "a": true
+        },
+        {
+         "q": "Passive transport requires the expenditure of cellular energy (ATP) to move molecules.",
+         "a": false
+        },
+        {
+         "q": "Pinocytosis is often described scientifically as \"cell drinking\".",
+         "a": true
+        },
+        {
+         "q": "Active transport moves molecules down their concentration gradient without using energy.",
+         "a": false
+        },
+        {
+         "q": "Eukaryotic cells lack membrane-bound organelles such as mitochondria and endoplasmic reticulum.",
+         "a": false
+        },
+        {
+         "q": "Diffusion is a type of passive transport where molecules move to equalize concentration.",
+         "a": true
+        },
+        {
+         "q": "Exocytosis is considered the reverse process of endocytosis.",
+         "a": true
+        },
+        {
+         "q": "The hydrophilic head of a phospholipid molecule is soluble only in fats and lipids.",
+         "a": false
+        },
+        {
+         "q": "In facilitated diffusion, transport protein channels help specific molecules or ions cross the membrane without energy.",
+         "a": true
+        }
+       ]
+      },
+      {
+       "id": "cell-def",
+       "type": "def",
+       "title": "Section 3: Key Definitions",
+       "ar": "القسم الثالث: التعاريف المهمة",
+       "items": [
+        {
+         "q": "Define: Osmosis",
+         "qa": "عرّف: الاسموزية",
+         "a": "A special form of diffusion where fluid flows from a lower solute concentration, often involving the movement of water into or out of the cell across a selectively permeable membrane.",
+         "aa": "شكل خاص من الانتشار يتدفق فيه السائل من تركيز مذاب أقل، وغالباً يتضمن حركة الماء إلى داخل أو خارج الخلية عبر غشاء نفاذ اختيارياً."
+        },
+        {
+         "q": "Define: Phagocytosis",
+         "qa": "عرّف: البلعمة / أكل الخلية",
+         "a": "Cell eating; a specialized type of endocytosis that involves the intake of solid material, food particles, or pathogens into the cell.",
+         "aa": "أكل الخلية؛ نوع متخصص من الإدخال الخلوي يتضمن ابتلاع مواد صلبة، أو جزيئات طعام، أو مسببات الأمراض إلى داخل الخلية."
+        },
+        {
+         "q": "Define: Pinocytosis",
+         "qa": "عرّف: شرب الخلية",
+         "a": "Cell drinking; a type of endocytosis that involves the intake of extracellular molecules dissolved in fluid.",
+         "aa": "شرب الخلية؛ نوع من الإدخال الخلوي يتضمن امتصاص الجزيئات خارج الخلية المذابة في السوائل."
+        },
+        {
+         "q": "Define: Facilitated Diffusion",
+         "qa": "عرّف: الانتشار المسهل",
+         "a": "A passive transport process where specific transport protein channels help molecules or ions enter or leave the cell without consuming cellular energy.",
+         "aa": "عملية نقل سلبي تساعد فيها قنوات بروتينية ناقلة محددة الجزيئات أو الأيونات على دخول أو خروج الخلية دون استهلاك طاقة خلوية."
+        },
+        {
+         "q": "Define: Active Transport",
+         "qa": "عرّف: النقل النشط",
+         "a": "Molecular movement across the cell membrane that requires chemical energy (ATP) because it transports substances against their concentration gradient.",
+         "aa": "حركة جزيئية عبر غشاء الخلية تتطلب طاقة كيميائية (ATP) لأنها تنقل المواد عكس تدرج التركيز الخاص بها."
+        },
+        {
+         "q": "Define: Exocytosis",
+         "qa": "عرّف: الإخراج الخلوي",
+         "a": "The cellular process by which material is discharged as secretory vesicles move to the cell surface, fuse with the plasma membrane, and expel their contents.",
+         "aa": "العملية الخلوية التي يتم من خلالها إفراز المواد عندما تتحرك الحويصلات الإفرازية نحو سطح الخلية، وتندمج مع الغشاء البلازمي، وتطرد محتوياتها."
+        }
+       ]
+      },
+      {
+       "id": "cell-enum",
+       "type": "enum",
+       "title": "Section 4: Enumeration",
+       "ar": "القسم الرابع: التعدادات الرئيسة",
+       "items": [
+        {
+         "q": "Enumerate the characteristics of all cells.",
+         "qa": "عدّد خصائص جميع الخلايا",
+         "a": [
+          "A surrounding membrane (غشاء محيط)",
+          "Protoplasm - cell contents in thick fluid (بروتوبلازم - محتويات الخلية في سائل سميك)",
+          "Organelles - structures for cell function (عضيات - تراكيب لوظائف الخلية)",
+          "Control center with DNA (مركز التحكم مع الحمض النووي)"
+         ]
+        },
+        {
+         "q": "Enumerate the types of transport (molecule movement and cells).",
+         "qa": "عدّد أنواع النقل",
+         "a": [
+          "Passive Transport (النقل السلبي)",
+          "Active Transport (النقل النشط)",
+          "Bulk Transport (النقل الجماعي / الكتلي)"
+         ]
+        },
+        {
+         "q": "Enumerate the types of passive transport.",
+         "qa": "عدّد أنواع النقل السلبي",
+         "a": [
+          "Diffusion (الانتشار)",
+          "Osmosis (الاسموزية)",
+          "Facilitated diffusion (الانتشار المسهل)"
+         ]
+        },
+        {
+         "q": "Enumerate the tonicity types (solution differences and cells).",
+         "qa": "عدّد أنواع التوتر (اختلافات المحاليل وخلايا الدم)",
+         "a": [
+          "Hypotonic solution (محلول منخفض التوتر)",
+          "Isotonic solution (محلول متساوي التوتر)",
+          "Hypertonic solution (محلول عالي التوتر)"
+         ]
+        },
+        {
+         "q": "Enumerate the types of endocytosis.",
+         "qa": "عدّد أنواع الإدخال الخلوي",
+         "a": [
+          "Phagocytosis - cell eating (البلعمة - أكل الخلية)",
+          "Pinocytosis - cell drinking (شرب الخلية)",
+          "Receptor-mediated endocytosis (الإدخال الخلوي الوسيط بالمستقبلات)"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "h-fluids",
+     "title": "Physiology of Body Fluids · فسيولوجيا سوائل الجسم",
+     "sections": [
+      {
+       "id": "fl-def",
+       "type": "def",
+       "title": "Section 1: Definitions",
+       "ar": "القسم الأول: التعاريف",
+       "items": [
+        {
+         "q": "Define: Body fluids.",
+         "a": "Liquids originating from inside the bodies of living humans. They include fluids that are excreted or secreted from the body."
+        },
+        {
+         "q": "Define: Intracellular fluid (ICF).",
+         "a": "The body fluid located within the cell or all cells of an organism, in the cytoplasm of the cell."
+        },
+        {
+         "q": "Define: Extracellular fluid (ECF).",
+         "a": "The body fluid located outside the cell or cells of an organism."
+        },
+        {
+         "q": "Define: Interstitial fluid.",
+         "a": "Also known as intercellular fluid and tissue fluid. It is the fluid between the cells of multi-cellular organisms, which delivers materials to the cells, serves intercellular communication, and removes metabolic waste."
+        },
+        {
+         "q": "Define: Osmotic pressure.",
+         "a": "The force created by the fluid. Part of it is the oncotic pressure, and it is also called the colloidal osmotic pressure. It pulls the fluid back into the capillary."
+        },
+        {
+         "q": "Define: Hydrostatic pressure.",
+         "a": "The force that drives fluid transport (e.g., capillary hydrostatic pressure, CHP: the hydrostatic pressure that blood exerts against the capillary wall). It pushes the fluid out of the capillary."
+        },
+        {
+         "q": "Define: Edema.",
+         "a": "A condition in which fluid accumulates in the interstitial compartment. Sometimes it is due to blockage of lymphatic vessels, a lack of plasma proteins, or sodium retention."
+        },
+        {
+         "q": "Define: Dehydration.",
+         "a": "A reduced body fluid amount. It can result from reduced water intake or conditions like diarrhea, vomiting, poor fluid intake, bleeding, and increased urine production and sweat."
+        }
+       ]
+      },
+      {
+       "id": "fl-enum",
+       "type": "enum",
+       "title": "Section 2: Enumeration",
+       "ar": "القسم الثاني: التعداد",
+       "items": [
+        {
+         "q": "Name the two compartments into which body fluid is divided.",
+         "a": [
+          "Intracellular fluid (ICF)",
+          "Extracellular fluid (ECF)"
+         ]
+        },
+        {
+         "q": "Enumerate the components of the extracellular fluid.",
+         "a": [
+          "Interstitial fluid",
+          "Intravascular fluid (plasma)",
+          "Lymph",
+          "Transcellular fluid"
+         ]
+        },
+        {
+         "q": "List the functions of body fluids.",
+         "a": [
+          "Transportation: delivering oxygen and nutrients throughout the body and removing waste from it.",
+          "Body temperature regulation.",
+          "Digestion: water is an important component of saliva, intestinal and gastric juice.",
+          "Maintaining an efficient metabolism of the body.",
+          "Lubrication: moistening of tissues and lubricating different joints."
+         ]
+        },
+        {
+         "q": "Besides water, name the groups of molecules that compose body fluid, with examples.",
+         "a": [
+          "Electrolytes: sodium, potassium, etc.",
+          "Metabolites: urea, glucose, carbon dioxide, oxygen.",
+          "Proteins: albumin, hormones, amino acids, antibodies."
+         ]
+        },
+        {
+         "q": "Name the barriers that separate ICF, interstitial fluid and plasma.",
+         "a": [
+          "Plasma membrane: separates ICF from the surrounding interstitial fluid.",
+          "Blood vessel wall: separates interstitial fluid from plasma."
+         ]
+        },
+        {
+         "q": "Mention the factors by which the body fluid composition of tissue varies.",
+         "a": [
+          "Tissue type: lean tissues have higher fluid content than fat tissues.",
+          "Gender: males have more lean tissue and therefore more body fluid.",
+          "Age: lean tissue is lost with age and body fluid is lost with it."
+         ]
+        },
+        {
+         "q": "Which two pressures control the redistribution of water between the body compartments?",
+         "a": [
+          "Osmotic pressure (including the oncotic pressure)",
+          "Hydrostatic pressure"
+         ]
+        },
+        {
+         "q": "What does the interstitial fluid contain?",
+         "a": [
+          "Amino acids",
+          "Sugars",
+          "Fatty acids",
+          "Coenzymes",
+          "Hormones",
+          "Neurotransmitters",
+          "Salts",
+          "Waste products from the cells"
+         ]
+        },
+        {
+         "q": "Mention the common causes of dehydration.",
+         "a": [
+          "Excessive sweating",
+          "Not consuming enough water",
+          "Diseases causing vomiting and diarrhea",
+          "Diabetes"
+         ]
+        },
+        {
+         "q": "Mention the causes of edema.",
+         "a": [
+          "Blockage of lymphatic vessels",
+          "A lack of plasma proteins",
+          "Sodium retention"
+         ]
+        },
+        {
+         "q": "Give examples of edema in different parts of the body.",
+         "a": [
+          "Soft tissue edema",
+          "Liver disease-induced edema",
+          "Pulmonary edema",
+          "Excess abdominal fluid (ascites)",
+          "Edema (swelling) of the ankles and feet"
+         ]
+        },
+        {
+         "q": "State the percentage of body fluid at different stages of life.",
+         "a": [
+          "Fetal stage: ~95% (the maximum)",
+          "Newborn: 80%",
+          "Toddler: 70%",
+          "Child: 65%",
+          "Edema (swelling) of the ankles and feet",
+          "Adult woman: 55%",
+          "Seniors: 50–55%"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "fl-tf",
+       "type": "tf",
+       "title": "Section 3: True or False",
+       "ar": "القسم الثالث: صح أو خطأ",
+       "items": [
+        {
+         "q": "Body fluids include fluids that are excreted or secreted from the body.",
+         "a": true
+        },
+        {
+         "q": "The plasma membrane separates the interstitial fluid from the plasma.",
+         "a": false,
+         "e": "The plasma membrane separates ICF from the interstitial fluid; the blood vessel wall separates the interstitial fluid from plasma."
+        },
+        {
+         "q": "Lean tissues have a lower fluid content than fat tissues.",
+         "a": false,
+         "e": "Lean tissues have a higher fluid content than fat tissues."
+        },
+        {
+         "q": "Interstitial fluid represents the largest portion of the extracellular fluid compartment.",
+         "a": true
+        },
+        {
+         "q": "Males have more lean tissue and therefore more body fluid.",
+         "a": true
+        },
+        {
+         "q": "Plasma proteins diffuse freely through the pores of the blood capillaries together with water.",
+         "a": false,
+         "e": "The pores allow water and most dissolved substances to diffuse, except protein."
+        },
+        {
+         "q": "Hydrostatic pressure pushes fluid out of the capillary, while osmotic pressure pulls fluid back into it.",
+         "a": true
+        },
+        {
+         "q": "The movement of fluid from the interstitial fluid back into the capillaries is called filtration.",
+         "a": false,
+         "e": "It is called reabsorption; filtration is the exit of fluid from the capillary into the interstitial fluid."
+        },
+        {
+         "q": "The maximum body fluid is present at the fetal development stage (~95%).",
+         "a": true
+        },
+        {
+         "q": "Edema is the term used for a reduced amount of body fluid.",
+         "a": false,
+         "e": "A reduced body fluid amount is dehydration; edema is the accumulation of fluid in the interstitial compartment."
+        }
+       ]
+      },
+      {
+       "id": "fl-mcq",
+       "type": "mcq",
+       "title": "Section 4: Multiple Choice and Fill in the Blank",
+       "ar": "القسم الرابع: اختيارات وفراغات",
+       "items": [
+        {
+         "q": "Where do body fluids originate?",
+         "o": [
+          "outside the bodies",
+          "the skin surface only",
+          "inside the bodies",
+          "the digestive tract only"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Sodium and potassium are examples of ______ found in body fluid.",
+         "o": [
+          "electrolytes",
+          "metabolites",
+          "proteins",
+          "antibodies"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Urea, glucose, carbon dioxide and oxygen are examples of which group of molecules in body fluid?",
+         "o": [
+          "electrolytes",
+          "proteins",
+          "hormones",
+          "metabolites"
+         ],
+         "a": 3
+        },
+        {
+         "q": "The composition and amounts of body fluid vary depending on the ______ of the fluid.",
+         "o": [
+          "colour",
+          "location",
+          "taste",
+          "odour"
+         ],
+         "a": 1
+        },
+        {
+         "q": "In gastric fluid, which electrolyte has the highest concentration (100–150 mEq/L)?",
+         "o": [
+          "Cl⁻",
+          "Na⁺",
+          "K⁺",
+          "all are equal"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Among the fluids in the table, the highest potassium concentration (10–80 mEq/L) is found in ______.",
+         "o": [
+          "sweat",
+          "bile",
+          "burns",
+          "diarrhea"
+         ],
+         "a": 3
+        },
+        {
+         "q": "Into how many compartments has body fluid been divided?",
+         "o": [
+          "three",
+          "two",
+          "four",
+          "five"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Intracellular fluid is the fluid present inside the cell, in the ______ of the cell.",
+         "o": [
+          "nucleus only",
+          "blood vessels",
+          "interstitial space",
+          "cytoplasm"
+         ],
+         "a": 3
+        },
+        {
+         "q": "Extracellular fluid includes interstitial fluid, plasma, lymph and which other fluid?",
+         "o": [
+          "intracellular",
+          "cytoplasmic",
+          "transcellular",
+          "gastric"
+         ],
+         "a": 2
+        },
+        {
+         "q": "The ______ separates intracellular fluid from the surrounding interstitial fluid.",
+         "o": [
+          "plasma membrane",
+          "blood vessel wall",
+          "lymphatic duct",
+          "capillary pore"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Which structure separates interstitial fluid from plasma?",
+         "o": [
+          "plasma membrane",
+          "cell wall",
+          "nuclear membrane",
+          "blood vessel wall"
+         ],
+         "a": 3
+        },
+        {
+         "q": "Transcellular fluid fills the spaces of chambers formed from the linings of ______ cells.",
+         "o": [
+          "nerve",
+          "muscle",
+          "epithelial",
+          "fat"
+         ],
+         "a": 2
+        },
+        {
+         "q": "What is another name for interstitial fluid?",
+         "o": [
+          "intracellular",
+          "intercellular",
+          "intravascular",
+          "transcellular"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Interstitial fluid represents the ______ portion of the ECF compartment.",
+         "o": [
+          "smallest",
+          "only",
+          "negligible",
+          "largest"
+         ],
+         "a": 3
+        },
+        {
+         "q": "In what form does interstitial fluid present as an extracellular matrix?",
+         "o": [
+          "gel-like",
+          "solid",
+          "gaseous",
+          "crystalline"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Plasma and interstitial fluid exchange substances through pores in the ______.",
+         "o": [
+          "plasma membranes",
+          "lymph nodes",
+          "blood capillaries",
+          "nerve fibres"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Which substance does NOT diffuse through the pores of the capillaries (which allow water and most dissolved substances to pass)?",
+         "o": [
+          "sodium",
+          "protein",
+          "glucose",
+          "urea"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Delivering oxygen and nutrients and removing waste is the ______ function of body fluids.",
+         "o": [
+          "lubrication",
+          "digestion",
+          "temperature regulation",
+          "transportation"
+         ],
+         "a": 3
+        },
+        {
+         "q": "Water is an important component of saliva, intestinal and gastric juice. What do these juices help to do to food?",
+         "o": [
+          "store",
+          "cool",
+          "digest",
+          "filter"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Moistening of tissues and lubricating joints is the ______ function of body fluids.",
+         "o": [
+          "transportation",
+          "lubrication",
+          "digestion",
+          "filtration"
+         ],
+         "a": 1
+        },
+        {
+         "q": "How is the fluid content of lean tissues compared with that of fat tissues?",
+         "o": [
+          "lower",
+          "equal",
+          "zero",
+          "higher"
+         ],
+         "a": 3
+        },
+        {
+         "q": "Males have more body fluid because they have more ______ tissue.",
+         "o": [
+          "lean",
+          "fat",
+          "bone",
+          "nervous"
+         ],
+         "a": 0
+        },
+        {
+         "q": "What happens to body fluid as lean tissue is lost with age?",
+         "o": [
+          "gained",
+          "doubled",
+          "lost",
+          "unchanged"
+         ],
+         "a": 2
+        },
+        {
+         "q": "The maximum body fluid (~95%) is present at the ______ stage.",
+         "o": [
+          "infancy",
+          "fetal development",
+          "adulthood",
+          "old age"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Body fluid decreases from ~95% in the fetus to ~75% in the infant. What is its percentage in the adult stage?",
+         "o": [
+          "20–30%",
+          "80–90%",
+          "95%",
+          "50–60%"
+         ],
+         "a": 3
+        },
+        {
+         "q": "Redistribution of water between compartments is controlled by osmotic pressure and ______ pressure.",
+         "o": [
+          "hydrostatic",
+          "atmospheric",
+          "intracranial",
+          "venous"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Which pressure is a part of the osmotic pressure?",
+         "o": [
+          "hydrostatic",
+          "oncotic",
+          "capillary",
+          "lymphatic"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Osmotic pressure ______ fluid back into the capillary, while hydrostatic pressure ______ it out.",
+         "o": [
+          "pushes / pulls",
+          "pulls / pulls",
+          "pulls / pushes",
+          "pushes / pushes"
+         ],
+         "a": 2
+        },
+        {
+         "q": "What is the movement of fluid out of the capillary into the interstitial fluid called?",
+         "o": [
+          "reabsorption",
+          "osmosis",
+          "excretion",
+          "filtration"
+         ],
+         "a": 3
+        },
+        {
+         "q": "The return of fluid from the interstitial fluid into the capillaries drives the process of ______.",
+         "o": [
+          "reabsorption",
+          "filtration",
+          "digestion",
+          "secretion"
+         ],
+         "a": 0
+        },
+        {
+         "q": "Which system tightly regulates the water/sodium balance in the body?",
+         "o": [
+          "digestive",
+          "nervous",
+          "skeletal",
+          "respiratory"
+         ],
+         "a": 1
+        },
+        {
+         "q": "Excess fluid in the body results in ______, whereas a reduced fluid amount is called dehydration.",
+         "o": [
+          "filtration",
+          "homeostasis",
+          "edema",
+          "osmolality"
+         ],
+         "a": 2
+        },
+        {
+         "q": "Which type of edema is a major health risk because it compromises gas exchange?",
+         "o": [
+          "Pulmonary",
+          "Ankle",
+          "Hand",
+          "Abdominal"
+         ],
+         "a": 0
+        },
+        {
+         "q": "______ help to manage edema.",
+         "o": [
+          "Antibodies",
+          "Electrolytes",
+          "Hormones",
+          "Diuretics"
+         ],
+         "a": 3
+        },
+        {
+         "q": "Body fluid can be a carrier of certain diseases such as HIV-AIDS. Which other disease can it carry?",
+         "o": [
+          "diabetes",
+          "hepatitis",
+          "edema",
+          "dehydration"
+         ],
+         "a": 1
+        }
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "s1",

@@ -739,7 +739,7 @@ nav button{font-size:10.5px}
       if(qs.done){if(it.e)h+='<div class="qexp" dir="auto">'+esc(it.e)+'</div>';h+=nx}
     }else{
       if(!qs.rev)h+='<button class="qb" type="button" data-qrev>اعرض الجواب</button>';
-      else{var a=it.a;h+='<div class="qans" dir="auto"><b>الجواب</b>'+(Array.isArray(a)?'<ol>'+a.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>':'<div>'+esc(a)+'</div>')+'</div>';
+      else{var a=it.a;h+='<div class="qans"><b>الجواب</b>'+(Array.isArray(a)?'<ol dir="auto">'+a.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>':'<div dir="auto">'+esc(a)+'</div>'+(it.aa?'<div dir="auto" style="margin-top:6px;color:var(--muted)">'+esc(it.aa)+'</div>':''))+'</div>';
         if(!qs.done)h+='<div class="qrow"><button class="qb" type="button" data-qknow="1">عرفتها ✓</button><button class="qb bad" type="button" data-qknow="0">لم أعرفها ✗</button></div>'}}
     return h}
   function qresult(){

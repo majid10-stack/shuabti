@@ -545,7 +545,7 @@ nav button{font-size:10.5px}
         if(ms<=0){c.innerHTML='<div class="hm" style="direction:rtl;font-size:22px">حان وقت الامتحان</div>';ex.classList.remove('urgent');clearInterval(cdT);return}
         var s=Math.floor(ms/1000),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),sc=s%60,p=function(x){return (x<10?'0':'')+x};
         ex.classList.toggle('urgent',ms<172800000);
-        c.innerHTML='<div class="dd"><b>'+d+'</b><span>'+(d===1?'يوم':d===2?'يومان':d<=10?'أيام':'يوماً')+'</span></div><div class="hm">'+p(h)+':'+p(m)+':'+p(sc)+'<small>ساعة : دقيقة : ثانية</small></div>'};
+        c.innerHTML='<div class="dd"><b>'+d+'</b><span>'+(d===1?'يوم':d===2?'يومان':d<=10?'أيام':'يوماً')+'</span></div><div class="hm">'+p(h)+':'+p(m)+':'+p(sc)+'</div>'};
       tick();cdT=setInterval(tick,1000)}
     $('examH').hidden=!up.length;
     $('examList').innerHTML=up.map(function(e){var p=e.date.split('-');

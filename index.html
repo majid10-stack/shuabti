@@ -85,6 +85,20 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .abtns{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
 .adminchip{font-size:12px;padding:2px 12px}
 .logo h1{white-space:nowrap}
+.today.exam{flex-direction:column;align-items:stretch}
+.today.exam .l{width:100%}
+.cdn{display:flex;align-items:center;gap:12px;margin-top:10px}
+.cdn .dd{background:rgba(255,255,255,.2);border-radius:14px;padding:6px 14px;text-align:center;line-height:1.1;flex:none}
+.cdn .dd b{display:block;font-size:30px;font-variant-numeric:tabular-nums}
+.cdn .dd span{font-size:11px;opacity:.85}
+.cdn .hm{flex:1;text-align:center;direction:ltr;font-size:34px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.5px;font-family:var(--font-display)}
+.cdn .hm small{display:block;font-size:10.5px;font-weight:400;opacity:.8;letter-spacing:0;direction:rtl}
+.today.exam.urgent{background:#8F3B12}
+:root[data-theme="dark"] .today.exam.urgent{background:#F0935A;color:#1a0a00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .today.exam.urgent{background:#F0935A;color:#1a0a00}}
+.today.exam .dd{background:rgba(255,255,255,.2)}
+:root[data-theme="dark"] .today.exam .dd{background:rgba(0,0,0,.14)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .today.exam .dd{background:rgba(0,0,0,.14)}}
 .today.exam{background:#A86A00;color:#fff}
 :root[data-theme="dark"] .today.exam{background:#E5B042;color:#1a1200}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .today.exam{background:#E5B042;color:#1a1200}}
@@ -518,10 +532,21 @@ nav button{font-size:10.5px}
   function sigOf(k,x){return k==='exam'?[x.s,x.date,x.time||'',x.place||''].join('|'):(k==='hw'?[x.t,x.s||'',x.date||'',x.note||''].join('|'):[x.t,x.d||''].join('|'))}
   function dstr(d){var p=d.split('-');return fmt(new Date(+p[0],+p[1]-1,+p[2]))}
   function inTxt(n){return n<=0?'اليوم':(n===1?'غداً':(n===2?'بعد يومين':'بعد '+n+(n<=10?' أيام':' يوماً')))}
+  var cdT=null;
+  function examTarget(e){var p=e.date.split('-'),h=8,mi=0,tx=e.time||'',m=tx.match(/(\d{1,2})(?:[:.٫](\d{2}))?/);
+    if(m){h=+m[1];mi=m[2]?+m[2]:0;var pm=/مساء|عصر|ظهر|pm|م\b/i.test(tx),am=/صباح|am/i.test(tx);if(pm&&h<12)h+=12;if(am&&h===12)h=0}
+    return new Date(+p[0],+p[1]-1,+p[2],h,mi,0).getTime()}
   function renderExams(){
     var up=gdata().exams.filter(function(e){return e.date&&daysLeft(e.date)>=0}).sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0});
     st.hasExam=up.length>0;
-    if(up.length){var e=up[0];$('examCard').innerHTML='<div class="l"><div class="k">الامتحان القادم</div><div class="v">'+esc(e.s)+' · '+inTxt(daysLeft(e.date))+'</div><div class="t">'+esc(dstr(e.date)+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</div></div>'}
+    clearInterval(cdT);
+    if(up.length){var e=up[0],tg=examTarget(e);$('examCard').innerHTML='<div class="l"><div class="k">الامتحان القادم</div><div class="v">'+esc(e.s)+'</div><div class="t">'+esc(dstr(e.date)+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</div></div><div class="cdn" id="cdn"></div>';
+      var tick=function(){var ms=tg-Date.now(),c=$('cdn'),ex=$('examCard');if(!c)return;
+        if(ms<=0){c.innerHTML='<div class="hm" style="direction:rtl;font-size:22px">حان وقت الامتحان</div>';ex.classList.remove('urgent');clearInterval(cdT);return}
+        var s=Math.floor(ms/1000),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),sc=s%60,p=function(x){return (x<10?'0':'')+x};
+        ex.classList.toggle('urgent',ms<172800000);
+        c.innerHTML='<div class="dd"><b>'+d+'</b><span>'+(d===1?'يوم':d===2?'يومان':d<=10?'أيام':'يوماً')+'</span></div><div class="hm">'+p(h)+':'+p(m)+':'+p(sc)+'<small>ساعة : دقيقة : ثانية</small></div>'};
+      tick();cdT=setInterval(tick,1000)}
     $('examH').hidden=!up.length;
     $('examList').innerHTML=up.map(function(e){var p=e.date.split('-');
       return '<li class="lec exl"><div class="time"><b>'+(+p[2])+'</b>'+MONTHS[+p[1]-1]+'</div><div class="body"><strong>'+esc(e.s)+'<span class="tag">'+inTxt(daysLeft(e.date))+'</span></strong><span>'+esc(FULLDAYS[new Date(+p[0],+p[1]-1,+p[2]).getDay()]+(e.time?' · '+e.time:'')+(e.place?' · '+e.place:''))+'</span>'+(isAdmin()&&e.id?'<br>'+abtns('exam',e.id):'')+'</div></li>'}).join('');

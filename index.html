@@ -120,6 +120,7 @@ h2{font-family:var(--font-display);font-size:19px;margin:0 0 12px;font-weight:70
 .hw strong{display:block;font-weight:600;overflow-wrap:anywhere}
 .hw.done strong{text-decoration:line-through;color:var(--muted)}
 .hw .meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--muted);margin-top:2px}
+#qPrev,#qList .note{font-size:13px;color:var(--muted);margin:4px 0}
 .hw .note{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 .due{font-weight:600;color:var(--warn)}
 .hw.done .due{color:var(--ok)}
@@ -356,7 +357,7 @@ nav button{font-size:10.5px}
 <div class="sheet" id="sheet" hidden>
   <div class="sh" role="dialog" aria-label="لوحة المسؤول">
     <div class="row"><b>لوحة المسؤول</b><button class="x" id="shClose" type="button" aria-label="إغلاق">✕</button></div>
-    <div class="seg" id="shType"><button data-t="exam" class="on" type="button">امتحان</button><button data-t="hw" type="button">واجب</button><button data-t="ann" type="button">إعلان</button><button data-t="file" type="button">ملف</button></div>
+    <div class="seg" id="shType"><button data-t="exam" class="on" type="button">امتحان</button><button data-t="hw" type="button">واجب</button><button data-t="ann" type="button">إعلان</button><button data-t="file" type="button">ملف</button><button data-t="q" type="button">أسئلة</button></div>
     <label class="l" id="shGl">الشعبة (يمكن اختيار أكثر من شعبة)</label>
     <div class="seg" id="shG"><button data-g="A" type="button">A</button><button data-g="B" type="button">B</button><button data-g="C" type="button">C</button></div>
     <div id="shFields"></div>
@@ -556,9 +557,10 @@ nav button{font-size:10.5px}
     else if(adm.type==='file'){
       if(adm.edit)f='<label class="l">الاسم الذي يظهر للطلاب</label><input id="fN" type="text"><label class="l">وصف (اختياري)</label><input id="fDesc" type="text">';
       else f='<label class="l">المجلد (المادة)</label><select id="fS">'+optsHtml(subjectsOf('A'))+'</select><label class="l">اختر الملف (أو عدة ملفات) · حتى 25 ميغابايت للملف</label><input id="fF" type="file" multiple><label class="l">الاسم الذي يظهر للطلاب (اختياري، وعند عدة ملفات يُرقَّم تلقائياً)</label><input id="fN" type="text"><label class="l">وصف (اختياري)</label><input id="fDesc" type="text">'}
+    else if(adm.type==='q')f=qFields();
     else f='<label class="l">نص الإعلان</label><textarea id="fX" rows="4" placeholder="اكتب الإعلان"></textarea><label class="chk"><input id="fPin" type="checkbox"> تثبيت الإعلان</label>';
     $('shFields').innerHTML=f;$('shMsg').textContent='';
-    var ed=!!adm.edit;$('shType').hidden=ed;$('shG').hidden=ed;$('shGl').hidden=ed;$('shPub').hidden=ed;$('shEditBtns').hidden=!ed;
+    var ed=!!adm.edit,isq=adm.type==='q';$('shType').hidden=ed;$('shG').hidden=ed||isq;$('shGl').hidden=ed||isq;$('shPub').hidden=ed;$('shEditBtns').hidden=!ed;
   }
   function openSheet(){adm.edit=null;adm.groups={};adm.groups[G||'A']=true;adm.type='exam';$('sheet').hidden=false;paintSheet()}
   function paintAdmin(){$('admBtn').hidden=!isAdmin()||!G}
@@ -588,6 +590,7 @@ nav button{font-size:10.5px}
     else{if(!v('fX')){$('shMsg').textContent='اكتب نص الإعلان.';return null}item={t:v('fX'),pin:!!$('fPin').checked};if(!isEdit){item.d=today.getDate()+' '+MONTHS[today.getMonth()];item.w=D.owner}key='announcements';label='إعلان'}
     return {item:item,key:key,label:label}}
   $('shPub').onclick=function(){
+    if(adm.type==='q'){publishQ();return}
     if(adm.type==='file'){publishFiles();return}
     var gs=Object.keys(adm.groups);if(!gs.length){$('shMsg').textContent='اختر شعبة واحدة على الأقل.';return}
     var r=readItem(false);if(!r)return;var item=r.item,key=r.key;
@@ -595,6 +598,60 @@ nav button{font-size:10.5px}
     mutate(function(data){gs.forEach(function(g){var gr=(data.groups[g]=data.groups[g]||{homework:[],announcements:[],files:{},exams:[]});var it={};Object.keys(item).forEach(function(k){it[k]=item[k]});it.id=uid();(gr[key]=gr[key]||[]).push(it)})},'إضافة '+r.label).then(function(){
       $('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.'
     }).catch(function(e){$('shMsg').textContent=(e&&e.message)||'فشل النشر';$('shPub').disabled=false})};
+
+  /* admin: question bank (questions.json) */
+  var QAPI='https://api.github.com/repos/'+REPO+'/contents/questions.json',qadm={si:0,pend:null};
+  function qGet(){return fetch(QAPI+'?ref=main&t='+Date.now(),{headers:hdr(),cache:'no-store'}).then(function(r){
+    if(r.status===401||r.status===403)throw new Error('المفتاح غير صالح أو منتهي.');
+    if(!r.ok)throw new Error('تعذر الاتصال ('+r.status+')');return r.json()}).then(function(j){return {sha:j.sha,data:JSON.parse(unb64(j.content))}})}
+  function qPut(data,sha,msg){var h=hdr();h['Content-Type']='application/json';
+    return fetch(QAPI,{method:'PUT',headers:h,body:JSON.stringify({message:msg,content:b64(JSON.stringify(data,null,1)),sha:sha,branch:'main'})}).then(function(r){
+      if(r.status===409||r.status===422)throw new Error('تعارض في الحفظ، حاول مرة أخرى.');
+      if(!r.ok)throw new Error('فشل الحفظ ('+r.status+')');return r.json()})}
+  function qmutate(fn,msg){return qGet().then(function(cur){fn(cur.data);return qPut(cur.data,cur.sha,msg).then(function(){
+    try{localStorage.setItem('shuabti-qbcache2',JSON.stringify(cur.data))}catch(e){}QB=qnorm(JSON.parse(JSON.stringify(cur.data)));qs={v:'home'};qdraw()})})}
+  function qFields(){
+    var subs=(QB&&QB.subjects)||[];if(qadm.si>=subs.length)qadm.si=0;
+    var f='<label class="l">المادة (المجلد)</label><select id="qS">'+subs.map(function(s,i){return '<option value="'+i+'"'+(i===qadm.si?' selected':'')+'>'+esc(s.title)+'</option>'}).join('')+'</select>';
+    f+='<label class="l">ملف الملزمة (.json) الذي أرسلته لك</label><input id="qF" type="file" accept=".json,application/json"><div id="qPrev" class="note"></div>';
+    var hs=(subs[qadm.si]&&subs[qadm.si].handouts)||[];
+    f+='<label class="l">الملازم الموجودة في هذه المادة</label><div id="qList">'+(hs.length?hs.map(function(h,i){return '<div class="abtns" style="align-items:center;justify-content:space-between;gap:6px"><span dir="auto" style="flex:1;min-width:0">'+esc(h.title)+'</span><button class="del" type="button" data-qren="'+i+'">✏️ الاسم</button><button class="del" type="button" data-qdel="'+i+'">🗑 حذف</button></div>'}).join(''):'<div class="note">لا توجد ملازم بعد.</div>')+'</div>';
+    return f}
+  function qCheck(j){
+    var h=j&&(j.handout||j);if(!h||typeof h.title!=='string'||!h.title.trim()||!Array.isArray(h.sections)||!h.sections.length)throw new Error('الملف ليس ملزمة أسئلة صحيحة.');
+    h.sections.forEach(function(s,si){if(!s.title||!/^(mcq|tf|def|enum)$/.test(s.type)||!Array.isArray(s.items)||!s.items.length)throw new Error('خطأ في القسم رقم '+(si+1));
+      s.items.forEach(function(it,ii){if(!it.q)throw new Error('سؤال بلا نص في القسم '+(si+1));
+        if(s.type==='mcq'&&(!Array.isArray(it.o)||it.o.length<2||typeof it.a!=='number'||it.a<0||it.a>=it.o.length))throw new Error('خيارات/إجابة غير صحيحة في السؤال '+(ii+1)+' من القسم '+(si+1));
+        if(s.type==='tf'&&typeof it.a!=='boolean')throw new Error('إجابة صح/خطأ غير صحيحة في السؤال '+(ii+1));
+        if((s.type==='def'||s.type==='enum')&&(it.a==null||it.a===''))throw new Error('جواب ناقص في السؤال '+(ii+1)+' من القسم '+(si+1))})});
+    return h}
+  var QT={mcq:'اختيار من متعدد',tf:'صح/خطأ',def:'تعريفات',enum:'عدّد'};
+  $('shFields').addEventListener('change',function(e){
+    if(e.target.id==='qS'){qadm.si=+e.target.value;paintSheet();return}
+    if(e.target.id==='qF'){var f=e.target.files&&e.target.files[0],pv=$('qPrev');qadm.pend=null;if(!f){pv.textContent='';return}
+      f.text().then(function(txt){var h=qCheck(JSON.parse(txt));qadm.pend=h;
+        pv.textContent='تم التعرف على «'+h.title+'»: '+h.sections.map(function(s){return s.items.length+' '+QT[s.type]}).join(' · ');$('shMsg').textContent=''
+      }).catch(function(err){qadm.pend=null;pv.textContent='';$('shMsg').textContent=(err&&err.message&&!(err instanceof SyntaxError))?err.message:'تعذر قراءة الملف. تأكد أنه ملف الملزمة (.json).'})}});
+  $('shFields').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b||adm.type!=='q')return;
+    var ren=b.dataset.qren,del=b.dataset.qdel,si=qadm.si;
+    if(ren===undefined&&del===undefined)return;
+    var hs=QB.subjects[si].handouts,i=+(ren!==undefined?ren:del),h=hs[i],hid=h.id;
+    if(ren!==undefined){var nn=prompt('الاسم الجديد للملزمة:',h.title);if(!nn||!nn.trim()||nn.trim()===h.title)return;nn=nn.trim();
+      $('shMsg').textContent='جارٍ الحفظ…';
+      qmutate(function(d){var x=d.subjects[si].handouts.filter(function(y){return y.id===hid})[0];if(x)x.title=nn},'تعديل اسم ملزمة').then(function(){paintSheet();$('shMsg').textContent='تم تعديل الاسم ✓'}).catch(function(er){$('shMsg').textContent=(er&&er.message)||'فشل الحفظ'})}
+    else{if(!confirm('حذف الملزمة «'+h.title+'» نهائياً؟'))return;$('shMsg').textContent='جارٍ الحذف…';
+      qmutate(function(d){d.subjects[si].handouts=d.subjects[si].handouts.filter(function(y){return y.id!==hid})},'حذف ملزمة').then(function(){paintSheet();$('shMsg').textContent='تم الحذف ✓'}).catch(function(er){$('shMsg').textContent=(er&&er.message)||'فشل الحذف'})}});
+  function publishQ(){
+    var h=qadm.pend;if(!h){$('shMsg').textContent='اختر ملف الملزمة أولاً.';return}
+    var si=qadm.si,hid='h'+uid(),nh=JSON.parse(JSON.stringify(h));nh.id=hid;
+    nh.sections.forEach(function(s,i){s.id=hid+'-'+(s.id||('s'+i))});
+    var old=((QB.subjects[si].handouts)||[]).filter(function(x){return x.title===nh.title})[0];
+    if(old&&!confirm('توجد ملزمة بنفس الاسم «'+nh.title+'». هل تستبدلها؟'))return;
+    $('shPub').disabled=true;$('shMsg').textContent='جارٍ النشر…';
+    qmutate(function(d){var s=d.subjects[si];s.handouts=(s.handouts||[]).filter(function(x){return x.title!==nh.title});s.handouts.push(nh)},'إضافة ملزمة أسئلة').then(function(){
+      qadm.pend=null;$('shPub').disabled=false;paintSheet();$('shMsg').textContent='تم النشر ✓ سيظهر للطلاب خلال دقيقتين.'
+    }).catch(function(e){$('shMsg').textContent=(e&&e.message)||'فشل النشر';$('shPub').disabled=false})}
   var APIB='https://api.github.com/repos/'+REPO+'/contents/';
   function iso(d){function z(n){return (n<10?'0':'')+n}return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())}
   function fileExt(n){var m=/\.([A-Za-z0-9]{1,8})$/.exec(n);return m?m[1].toLowerCase():'bin'}

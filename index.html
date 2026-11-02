@@ -81,6 +81,23 @@ header{padding-top:18px;display:flex;flex-direction:column;gap:14px}
 .fgh .tg img,.fgh .tg .ext{width:38px;height:38px;border-radius:8px;object-fit:cover;font-size:10px}
 .fgh .b{min-width:0;flex:1}.fgh strong{display:block;font-weight:600;overflow-wrap:anywhere}.fgh .b span{font-size:12.5px;color:var(--muted)}
 .fgh .chev{font-size:18px;color:var(--muted);flex:none}
+.gbox{background:var(--surface);border:1px solid var(--gbl);border-radius:16px;overflow:hidden}
+.gbox .fgh{border:0;border-radius:0;background:transparent}
+.frs{list-style:none;margin:0;padding:0;background:var(--gbs);border-top:1px solid var(--gbl)}
+.fr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:10px 14px;border-bottom:1px solid var(--gbl)}
+.fr:last-child{border-bottom:0}
+.fr .frl{display:flex;align-items:center;gap:10px;flex:1;min-width:0;color:inherit;text-decoration:none}
+.fr .ext{width:36px;height:36px;border-radius:9px;font-size:10px;background:var(--gb);color:var(--gbi)}
+.fr .b{min-width:0;flex:1}.fr strong{display:block;font-weight:600;font-size:15px;overflow-wrap:anywhere}.fr .b span{font-size:12px;color:var(--muted)}
+.fr .open{color:var(--gb);font-weight:700;font-size:14px;flex:none}
+.fr .savebtn{background:var(--surface);border-color:var(--gb);color:var(--gb);flex:none}
+.fr .ra,.gadm{display:flex;flex-wrap:wrap;gap:4px 16px;width:100%}
+.fr .ra{padding-inline-start:46px}
+.gadm{padding:8px 14px 10px;background:var(--brand-soft);border-top:1px solid var(--line)}
+.ed{border:0;background:none;color:var(--brand);font-size:12.5px;padding:4px 0}
+:root{--gb:#1F5FA8;--gbi:#fff;--gbs:#E3EEFA;--gbl:#1F5FA855}
+:root[data-theme="dark"]{--gb:#6AA6EE;--gbi:#0b1a2b;--gbs:#13253B;--gbl:#6AA6EE44}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--gb:#6AA6EE;--gbi:#0b1a2b;--gbs:#13253B;--gbl:#6AA6EE44}}
 .fgl{list-style:none;margin:8px 0 0;padding:0;padding-inline-start:14px;display:flex;flex-direction:column;gap:10px}
 .abtns{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
 .adminchip{font-size:12px;padding:2px 12px}
@@ -486,12 +503,17 @@ nav button{font-size:10.5px}
     var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext);
     return '<li><a class="file" href="'+esc(f.p)+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+(isNew(f)?'<span class="newtag">جديد</span>':'')+'</strong>'+((sub||f.d)?'<span>'+esc(sub||f.d)+'</span>':'')+(f.a?'<span class="fdate">رُفع في '+esc(shortDate(f.a))+'</span>':'')+'</div><span class="open">فتح</span></a><div class="facts"><button class="savebtn" type="button" data-save="'+esc(f.p)+'">⬇︎ حفظ في الملفات</button></div>'+(isAdmin()?fbtns(f.p):'')+'</li>'}
   function gbtns(u){var v=esc(String(u));return '<div class="abtns"><button class="del" type="button" data-gdel="'+v+'">حذف المجموعة</button><button class="del" type="button" data-gall="'+v+'">حذف المجموعة من كل الشعب</button></div>'}
+  function rowHtml(f){var t=ftype(f),ext=(pext(f)||'FILE').toUpperCase().slice(0,4);
+    var icon=t==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':esc(ext),v=esc(f.p);
+    return '<li class="fr"><a class="frl" href="'+v+'" target="_blank" rel="noopener"><div class="ext'+(t==='doc'?' doc':'')+'">'+icon+'</div><div class="b"><strong>'+esc(f.n)+'</strong>'+(f.d?'<span>'+esc(f.d)+'</span>':'')+'</div><span class="open">فتح</span></a><button class="savebtn" type="button" data-save="'+v+'" data-label="⬇︎ حفظ">⬇︎ حفظ</button>'+(isAdmin()?'<div class="ra"><button class="ed" type="button" data-fedit="'+v+'">✏️ تعديل الاسم</button><button class="del" type="button" data-fdel="'+v+'">حذف</button><button class="del" type="button" data-fall="'+v+'">حذف من كل الشعب</button></div>':'')+'</li>'}
   function groupHtml(grp){
     var u=grp[0].u,open=!!st.openGrp[u],allImg=grp.every(function(f){return ftype(f)==='img'}),nw=grp.some(isNew);
     var m=grp.map(function(f){return /^(.*?)\s+\d+$/.exec(f.n)}),same=m.every(function(x){return x&&x[1]&&x[1]===m[0][1]});
-    var word=allImg?' صور':' ملفات',title=same?m[0][1]:(grp.length+word);
+    var word=allImg?' صور':' ملفات',gt=''; grp.forEach(function(f){if(!gt&&f.gt)gt=f.gt});
+    var title=gt||(same?m[0][1]:(grp.length+word));
     var th=grp.slice(0,3).map(function(f){return ftype(f)==='img'?'<img src="'+esc(f.p)+'" alt="" loading="lazy">':'<div class="ext">'+esc(pext(f).toUpperCase().slice(0,4))+'</div>'}).join('');
-    return '<li class="fgrp"><button class="fgh" type="button" data-grp="'+esc(String(u))+'" aria-expanded="'+open+'"><div class="tg">'+th+'</div><div class="b"><strong>'+esc(title)+(nw?'<span class="newtag">جديد</span>':'')+'</strong><span>'+grp.length+word+(grp[0].a?' · رُفعت في '+esc(shortDate(grp[0].a)):'')+'</span></div><span class="chev">'+(open?'⌃':'⌄')+'</span></button>'+(isAdmin()?gbtns(u):'')+(open?'<ul class="fgl">'+grp.map(function(f){return fileRow(f)}).join('')+'</ul>':'')+'</li>'}
+    var v=esc(String(u));
+    return '<li class="fgrp"><div class="gbox"><button class="fgh" type="button" data-grp="'+v+'" aria-expanded="'+open+'"><div class="tg">'+th+'</div><div class="b"><strong>'+esc(title)+(nw?'<span class="newtag">جديد</span>':'')+'</strong><span>'+grp.length+word+(grp[0].a?' · رُفعت في '+esc(shortDate(grp[0].a)):'')+'</span></div><span class="chev">'+(open?'⌃':'⌄')+'</span></button>'+(open?'<ul class="frs">'+grp.map(rowHtml).join('')+'</ul>':'')+(isAdmin()?'<div class="gadm"><button class="ed" type="button" data-gren="'+v+'" data-cur="'+esc(title)+'">✏️ تعديل اسم المجموعة</button><button class="del" type="button" data-gdel="'+v+'">حذف المجموعة</button><button class="del" type="button" data-gall="'+v+'">حذف من كل الشعب</button></div>':'')+'</div></li>'}
   function folderHtml(fs){var list=newestFirst(fs),out=[],i=0;
     while(i<list.length){var f=list[i],j=i+1;if(f.u){while(j<list.length&&list[j].u===f.u)j++}
       var grp=list.slice(i,j);out.push(grp.length>1?groupHtml(grp):fileRow(f));i=j}
@@ -711,7 +733,7 @@ nav button{font-size:10.5px}
   $('p-files').addEventListener('click',function(e){
     var g=e.target.closest('[data-grp]');if(g){var u=g.dataset.grp;st.openGrp[u]=!st.openGrp[u];renderFiles();return}
     var b=e.target.closest('[data-save]');if(!b)return;e.preventDefault();
-    var p=b.dataset.save,f=findFile(p);if(!f)return;var label='⬇︎ حفظ في الملفات';
+    var p=b.dataset.save,f=findFile(p);if(!f)return;var label=b.dataset.label||'⬇︎ حفظ في الملفات';
     if(fcache[p]){doShare(fcache[p],b,label).catch(function(){b.textContent='تعذر الحفظ';setTimeout(function(){b.textContent=label},2000)});return}
     b.textContent='جارٍ التجهيز…';b.disabled=true;
     fetch(p).then(function(r){if(!r.ok)throw 0;return r.blob()}).then(function(bl){
@@ -727,6 +749,10 @@ nav button{font-size:10.5px}
       Object.keys(data.groups).forEach(function(g){var fl=data.groups[g].files||{};Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){still[x.p]=1})})});
       orphans=paths.filter(function(x,i){return paths.indexOf(x)===i&&!still[x]})},al?'حذف مجموعة من كل الشعب':'حذف مجموعة').then(function(){
       return orphans.filter(function(x){return !/^https?:/.test(x)}).reduce(function(c,x){return c.then(function(){return delBlob(x)})},Promise.resolve())}).catch(function(er){alert((er&&er.message)||'فشل الحذف')})});
+  document.addEventListener('click',function(e){if(!isAdmin()||!e.target.closest)return;
+    var b=e.target.closest('[data-gren]');if(!b)return;var u=b.dataset.gren;
+    var nv=prompt('اسم المجموعة الذي يظهر للطلاب:',b.dataset.cur||'');if(nv===null)return;nv=nv.trim();
+    mutate(function(data){Object.keys(data.groups).forEach(function(g){var fl=data.groups[g].files||{};Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){if(String(x.u)===u){if(nv)x.gt=nv;else delete x.gt}})})})},'تعديل اسم مجموعة').catch(function(er){alert((er&&er.message)||'فشل الحفظ')})});
   function startEditFile(p){
     var found=null;var fl=gdata().files;Object.keys(fl).forEach(function(sj){fl[sj].forEach(function(x){if(x.p===p)found=x})});if(!found)return;
     adm.edit={kind:'file',p:p,g0:G};adm.type='file';$('sheet').hidden=false;paintSheet();$('fN').value=found.n||'';$('fDesc').value=found.d||'';$('shGname').textContent=G}

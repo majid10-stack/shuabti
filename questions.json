@@ -2456,6 +2456,859 @@
       }
      ],
      "id": "hmw2m2vnqyke"
+    },
+    {
+     "title": "Pressure in the Human Body · الضغط في جسم الإنسان",
+     "sections": [
+      {
+       "id": "hmw2mi7v9kze-def",
+       "type": "def",
+       "title": "Section 1: Definitions",
+       "ar": "القسم الأول: التعاريف",
+       "items": [
+        {
+         "q": "Define: Pressure.",
+         "qa": "عرّف: الضغط.",
+         "a": "The force per unit area in a gas or a liquid (and it is called stress in a solid).",
+         "aa": "هو القوة المؤثرة على وحدة المساحة في الغاز أو السائل (ويسمى الإجهاد في المادة الصلبة)."
+        },
+        {
+         "q": "Define: Blood pressure.",
+         "qa": "عرّف: ضغط الدم.",
+         "a": "The force that blood exerts against the area of the blood vessel walls. It is a measure of the force that the heart uses to pump blood around the body.",
+         "aa": "هو القوة التي يؤثر بها الدم على مساحة جدران الأوعية الدموية، وهو مقياس للقوة التي يستعملها القلب لضخ الدم في أنحاء الجسم."
+        },
+        {
+         "q": "Define: Total pressure on the body.",
+         "qa": "عرّف: الضغط الكلي على الجسم.",
+         "a": "The sum of the external pressure and the internal pressure: Total pressure = external pressure + internal pressure.",
+         "aa": "هو مجموع الضغط الخارجي والضغط الداخلي: الضغط الكلي = الضغط الخارجي + الضغط الداخلي."
+        },
+        {
+         "q": "Define: Manometer.",
+         "qa": "عرّف: المانومتر.",
+         "a": "An instrument that measures pressure by determining the height of a column of liquid that produces a pressure equal to the pressure being measured. A common type is a U-shaped tube containing a fluid.",
+         "aa": "جهاز يقيس الضغط بتحديد ارتفاع عمود السائل الذي يولّد ضغطًا مساويًا للضغط المراد قياسه، ونوعه الشائع أنبوب على شكل U يحتوي سائلًا."
+        },
+        {
+         "q": "Define: Systolic blood pressure.",
+         "qa": "عرّف: ضغط الدم الانقباضي.",
+         "a": "The pressure created on the blood vessels when the heart beats and pushes blood through the arteries, normally around 120 mmHg.",
+         "aa": "الضغط الناتج على الأوعية الدموية عندما ينبض القلب ويدفع الدم عبر الشرايين، وهو عادة نحو 120 ملم زئبق."
+        },
+        {
+         "q": "Define: Diastolic blood pressure.",
+         "qa": "عرّف: ضغط الدم الانبساطي.",
+         "a": "The pressure in the arteries when the heart rests between beats, usually around 80 mmHg.",
+         "aa": "الضغط في الشرايين عندما يرتاح القلب بين النبضات، وهو عادة نحو 80 ملم زئبق."
+        },
+        {
+         "q": "Define: Hypertension.",
+         "qa": "عرّف: ارتفاع ضغط الدم.",
+         "a": "A reading greater than 140 for the systolic pressure and greater than 90 for the diastolic pressure (high blood pressure).",
+         "aa": "قراءة أكبر من 140 للضغط الانقباضي وأكبر من 90 للضغط الانبساطي (ضغط الدم المرتفع)."
+        },
+        {
+         "q": "Define: Hypotension.",
+         "qa": "عرّف: انخفاض ضغط الدم.",
+         "a": "A reading less than 90 for the systolic pressure and less than 60 for the diastolic pressure (low blood pressure).",
+         "aa": "قراءة أقل من 90 للضغط الانقباضي وأقل من 60 للضغط الانبساطي (ضغط الدم المنخفض)."
+        }
+       ]
+      },
+      {
+       "id": "hmw2mi7v9kze-enum",
+       "type": "enum",
+       "title": "Section 2: Enumeration",
+       "ar": "القسم الثاني: التعداد",
+       "items": [
+        {
+         "q": "Name the two pressures that make up the total pressure on the body.",
+         "qa": "اذكر الضغطين اللذين يكوّنان الضغط الكلي على الجسم.",
+         "a": [
+          "External pressure",
+          "Internal pressure"
+         ],
+         "aa": [
+          "الضغط الخارجي",
+          "الضغط الداخلي"
+         ]
+        },
+        {
+         "q": "What do the symbols in the equation P = ρgh represent?",
+         "qa": "ماذا تمثل الرموز في المعادلة P = ρgh؟",
+         "a": [
+          "P: the pressure under a column of liquid",
+          "ρ: the density of the liquid",
+          "g: the acceleration due to gravity",
+          "h: the height of the column"
+         ],
+         "aa": [
+          "P: الضغط تحت عمود السائل",
+          "ρ: كثافة السائل",
+          "g: التعجيل الناتج عن الجاذبية",
+          "h: ارتفاع العمود"
+         ]
+        },
+        {
+         "q": "List the blood pressure categories given in the table (systolic / diastolic).",
+         "qa": "عدّد فئات ضغط الدم في الجدول (الانقباضي / الانبساطي).",
+         "a": [
+          "Normal blood pressure: < 120 / < 80",
+          "Normal range: 100–120 / 60–80",
+          "Hypertension (high blood pressure): > 140 / > 90",
+          "Hypotension (low blood pressure): < 90 / < 60"
+         ],
+         "aa": [
+          "ضغط الدم الطبيعي: أقل من 120 / أقل من 80",
+          "المدى الطبيعي: 100–120 / 60–80",
+          "ارتفاع الضغط: أكبر من 140 / أكبر من 90",
+          "انخفاض الضغط: أقل من 90 / أقل من 60"
+         ]
+        },
+        {
+         "q": "Name the parts of the instrument used to measure blood pressure.",
+         "qa": "اذكر أجزاء الجهاز المستعمل لقياس ضغط الدم.",
+         "a": [
+          "A pressure cuff on the upper arm",
+          "A gauge",
+          "A stethoscope placed over the brachial artery at the elbow"
+         ],
+         "aa": [
+          "كُمّ الضغط على أعلى الذراع",
+          "مقياس الضغط",
+          "سمّاعة طبية موضوعة فوق الشريان العضدي عند المرفق"
+         ]
+        },
+        {
+         "q": "Arrange the steps of measuring blood pressure with the cuff.",
+         "qa": "رتّب خطوات قياس ضغط الدم بالكُمّ.",
+         "a": [
+          "The cuff is inflated and blocks the arterial blood flow to the arm",
+          "The air is released gradually from the cuff",
+          "When the cuff pressure drops below the systolic pressure, the artery causes a sound that can be heard through the stethoscope",
+          "The point at which the sounds die out indicates the diastolic pressure"
+         ],
+         "aa": [
+          "يُنفخ الكُمّ فيسدّ جريان الدم الشرياني إلى الذراع",
+          "يُحرَّر الهواء من الكُمّ تدريجيًا",
+          "عندما ينخفض ضغط الكُمّ عن الضغط الانقباضي يُحدث الشريان صوتًا يُسمع بالسماعة",
+          "النقطة التي تختفي عندها الأصوات تدل على الضغط الانبساطي"
+         ]
+        },
+        {
+         "q": "List the standard values used in the measurements of the example.",
+         "qa": "عدّد القيم القياسية المستعملة في الأمثلة.",
+         "a": [
+          "Distance heart–head: about 0.5 m",
+          "Distance heart–feet: about 1.3 m",
+          "Density of mercury: 13.6 g/cm³",
+          "Density of blood: 1.04 g/cm³"
+         ],
+         "aa": [
+          "المسافة بين القلب والرأس: نحو 0.5 م",
+          "المسافة بين القلب والقدمين: نحو 1.3 م",
+          "كثافة الزئبق: 13.6 غم/سم³",
+          "كثافة الدم: 1.04 غم/سم³"
+         ]
+        },
+        {
+         "q": "How does the pressure differ in the foot and in the head of a standing person?",
+         "qa": "كيف يختلف الضغط في القدم وفي الرأس عند الشخص الواقف؟",
+         "a": [
+          "Foot: the pressure at the heart + the column of blood",
+          "Head: the pressure at the heart − the column of blood"
+         ],
+         "aa": [
+          "القدم: الضغط عند القلب + عمود الدم",
+          "الرأس: الضغط عند القلب − عمود الدم"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "hmw2mi7v9kze-tf",
+       "type": "tf",
+       "title": "Section 3: True or False",
+       "ar": "القسم الثالث: صح أو خطأ",
+       "items": [
+        {
+         "q": "Pressure is the force per unit area in a gas or a liquid.",
+         "qa": "الضغط هو القوة على وحدة المساحة في الغاز أو السائل.",
+         "a": true
+        },
+        {
+         "q": "Blood pressure results when the blood flow is met by resistance from the vessel walls.",
+         "qa": "ينتج ضغط الدم عندما يواجه جريان الدم مقاومة من جدران الأوعية.",
+         "a": true
+        },
+        {
+         "q": "The typical air pressure on the entire body is 1 atm = 760 mmHg.",
+         "qa": "ضغط الهواء النموذجي على الجسم كله هو 1 ضغط جوي = 760 ملم زئبق.",
+         "a": true
+        },
+        {
+         "q": "The most common method of indicating pressure in medicine is by the height of a column of water.",
+         "qa": "الطريقة الأشيع للتعبير عن الضغط في الطب هي ارتفاع عمود من الماء.",
+         "a": false,
+         "e": "It is the height of a column of mercury (Hg).",
+         "ea": "هي ارتفاع عمود من الزئبق (Hg)."
+        },
+        {
+         "q": "For a diver at a water depth of 30 m, the external pressure is about 2210 mmHg.",
+         "qa": "عند غطاس على عمق 30 م من الماء يكون الضغط الخارجي نحو 2210 ملم زئبق.",
+         "a": true
+        },
+        {
+         "q": "A manometer commonly consists of a U-shaped tube containing a fluid.",
+         "qa": "يتكون المانومتر عادة من أنبوب على شكل U يحتوي سائلًا.",
+         "a": true
+        },
+        {
+         "q": "In a manometer, P = P₀ + ρgh, where P₀ is the atmospheric pressure.",
+         "qa": "في المانومتر، P = P₀ + ρgh حيث P₀ هو الضغط الجوي.",
+         "a": true
+        },
+        {
+         "q": "The systolic blood pressure is the pressure in the arteries when the heart rests between beats.",
+         "qa": "الضغط الانقباضي هو الضغط في الشرايين عندما يرتاح القلب بين النبضات.",
+         "a": false,
+         "e": "That is the diastolic blood pressure. The systolic pressure is created when the heart beats.",
+         "ea": "هذا هو الضغط الانبساطي، أما الانقباضي فيتولد عندما ينبض القلب."
+        },
+        {
+         "q": "Hypertension is a reading greater than 140 for the systolic and greater than 90 for the diastolic pressure.",
+         "qa": "ارتفاع الضغط هو قراءة أكبر من 140 للانقباضي وأكبر من 90 للانبساطي.",
+         "a": true
+        },
+        {
+         "q": "Hypotension is a reading greater than 140 for the systolic pressure.",
+         "qa": "انخفاض الضغط هو قراءة أكبر من 140 للضغط الانقباضي.",
+         "a": false,
+         "e": "Hypotension is a reading less than 90 for the systolic and less than 60 for the diastolic pressure.",
+         "ea": "انخفاض الضغط قراءة أقل من 90 للانقباضي وأقل من 60 للانبساطي."
+        },
+        {
+         "q": "During blood pressure measurement, the point at which the sounds die out indicates the systolic pressure.",
+         "qa": "عند قياس ضغط الدم، النقطة التي تختفي عندها الأصوات تدل على الضغط الانقباضي.",
+         "a": false,
+         "e": "It indicates the diastolic pressure.",
+         "ea": "تدل على الضغط الانبساطي."
+        },
+        {
+         "q": "In a standing person, the pressure in the head equals the pressure at the heart plus the column of blood.",
+         "qa": "عند الشخص الواقف يساوي الضغط في الرأس الضغط عند القلب زائدًا عمود الدم.",
+         "a": false,
+         "e": "The pressure in the head equals the pressure at the heart minus the column of blood.",
+         "ea": "الضغط في الرأس يساوي الضغط عند القلب ناقصًا عمود الدم."
+        }
+       ]
+      },
+      {
+       "id": "hmw2mi7v9kze-mcq",
+       "type": "mcq",
+       "title": "Section 4: Multiple Choice and Fill in the Blank",
+       "ar": "القسم الرابع: اختيارات وفراغات",
+       "items": [
+        {
+         "q": "______ is defined as the force per unit area in a gas or a liquid.",
+         "qa": "______ هو القوة على وحدة المساحة في الغاز أو السائل.",
+         "o": [
+          "Pressure",
+          "Density",
+          "Velocity",
+          "Resistance"
+         ],
+         "a": 0,
+         "oa": [
+          "الضغط",
+          "الكثافة",
+          "السرعة",
+          "المقاومة"
+         ]
+        },
+        {
+         "q": "In a solid, the force per unit area is called:",
+         "qa": "تسمى القوة على وحدة المساحة في المادة الصلبة:",
+         "o": [
+          "Pressure",
+          "Stress",
+          "Density",
+          "Gravity"
+         ],
+         "a": 1,
+         "oa": [
+          "الضغط",
+          "الإجهاد",
+          "الكثافة",
+          "الجاذبية"
+         ]
+        },
+        {
+         "q": "Blood pressure is the force that blood exerts against:",
+         "qa": "ضغط الدم هو القوة التي يؤثر بها الدم على:",
+         "o": [
+          "the skin of the arm",
+          "the lungs",
+          "the bones",
+          "the walls of the blood vessels"
+         ],
+         "a": 3,
+         "oa": [
+          "جلد الذراع",
+          "الرئتين",
+          "العظام",
+          "جدران الأوعية الدموية"
+         ]
+        },
+        {
+         "q": "Blood pressure results when the blood flow is met by resistance from:",
+         "qa": "ينتج ضغط الدم عندما يواجه جريان الدم مقاومة من:",
+         "o": [
+          "the vessel walls",
+          "the lungs",
+          "the skin",
+          "the bones"
+         ],
+         "a": 0,
+         "oa": [
+          "جدران الأوعية",
+          "الرئتين",
+          "الجلد",
+          "العظام"
+         ]
+        },
+        {
+         "q": "______ is a measure of the force that your heart uses to pump blood around your body.",
+         "qa": "______ هو مقياس للقوة التي يستعملها قلبك لضخ الدم في جسمك.",
+         "o": [
+          "Air pressure",
+          "Stress",
+          "Atmospheric pressure",
+          "Blood pressure"
+         ],
+         "a": 3,
+         "oa": [
+          "ضغط الهواء",
+          "الإجهاد",
+          "الضغط الجوي",
+          "ضغط الدم"
+         ]
+        },
+        {
+         "q": "The total pressure on the body equals:",
+         "qa": "الضغط الكلي على الجسم يساوي:",
+         "o": [
+          "external pressure + internal pressure",
+          "external pressure − internal pressure",
+          "the internal pressure only",
+          "the external pressure only"
+         ],
+         "a": 0,
+         "oa": [
+          "الضغط الخارجي + الضغط الداخلي",
+          "الضغط الخارجي − الضغط الداخلي",
+          "الضغط الداخلي فقط",
+          "الضغط الخارجي فقط"
+         ]
+        },
+        {
+         "q": "The typical blood pressure for a healthy adult ranges between about ______.",
+         "qa": "ضغط الدم النموذجي للبالغ السليم يتراوح بين نحو ______.",
+         "o": [
+          "100 and 120 mmHg",
+          "760 and 880 mmHg",
+          "60 and 80 mmHg",
+          "140 and 160 mmHg"
+         ],
+         "a": 0,
+         "oa": [
+          "100 و120 ملم زئبق",
+          "760 و880 ملم زئبق",
+          "60 و80 ملم زئبق",
+          "140 و160 ملم زئبق"
+         ]
+        },
+        {
+         "q": "The typical air pressure on the entire body is 1 atm = ______ mmHg.",
+         "qa": "ضغط الهواء النموذجي على الجسم كله هو 1 ضغط جوي = ______ ملم زئبق.",
+         "o": [
+          "76",
+          "760",
+          "7600",
+          "120"
+         ],
+         "a": 1,
+         "oa": [
+          "76",
+          "760",
+          "7600",
+          "120"
+         ]
+        },
+        {
+         "q": "The total blood pressure of a man at the typical air pressure is about:",
+         "qa": "الضغط الكلي للدم لرجل عند ضغط الهواء النموذجي يبلغ نحو:",
+         "o": [
+          "120 mmHg",
+          "760 mmHg",
+          "880 mmHg",
+          "2330 mmHg"
+         ],
+         "a": 2,
+         "oa": [
+          "120 ملم زئبق",
+          "760 ملم زئبق",
+          "880 ملم زئبق",
+          "2330 ملم زئبق"
+         ]
+        },
+        {
+         "q": "The most common method of indicating pressure in medicine is by the height of a column of ______.",
+         "qa": "أشيع طريقة للتعبير عن الضغط في الطب هي ارتفاع عمود من ______.",
+         "o": [
+          "mercury (Hg)",
+          "water",
+          "oil",
+          "blood"
+         ],
+         "a": 0,
+         "oa": [
+          "الزئبق (Hg)",
+          "الماء",
+          "الزيت",
+          "الدم"
+         ]
+        },
+        {
+         "q": "The pressure under a column of liquid is calculated from:",
+         "qa": "يُحسب الضغط تحت عمود السائل من:",
+         "o": [
+          "P = ρgh",
+          "P = ρ / gh",
+          "P = ρ + g + h",
+          "P = gh / ρ"
+         ],
+         "a": 0,
+         "oa": [
+          "P = ρgh",
+          "P = ρ / gh",
+          "P = ρ + g + h",
+          "P = gh / ρ"
+         ]
+        },
+        {
+         "q": "In P = ρgh, the symbol ρ is the ______ of the liquid.",
+         "qa": "في المعادلة P = ρgh الرمز ρ هو ______ السائل.",
+         "o": [
+          "weight",
+          "volume",
+          "density",
+          "temperature"
+         ],
+         "a": 2,
+         "oa": [
+          "وزن",
+          "حجم",
+          "كثافة",
+          "درجة حرارة"
+         ]
+        },
+        {
+         "q": "In P = ρgh, the letter g represents:",
+         "qa": "في المعادلة P = ρgh يمثل الحرف g:",
+         "o": [
+          "the acceleration due to gravity",
+          "the height of the column",
+          "the density of the liquid",
+          "the pressure"
+         ],
+         "a": 0,
+         "oa": [
+          "التعجيل الناتج عن الجاذبية",
+          "ارتفاع العمود",
+          "كثافة السائل",
+          "الضغط"
+         ]
+        },
+        {
+         "q": "______ mmHg is the external pressure for a diver at a water depth of 30 m.",
+         "qa": "______ ملم زئبق هو الضغط الخارجي لغطاس على عمق 30 م من الماء.",
+         "o": [
+          "294",
+          "2210",
+          "760",
+          "2330"
+         ],
+         "a": 1,
+         "oa": [
+          "294",
+          "2210",
+          "760",
+          "2330"
+         ]
+        },
+        {
+         "q": "The total blood pressure of a diver at a depth of 30 m is about:",
+         "qa": "الضغط الكلي للدم لغطاس على عمق 30 م يبلغ نحو:",
+         "o": [
+          "880 mmHg",
+          "2210 mmHg",
+          "2330 mmHg",
+          "760 mmHg"
+         ],
+         "a": 2,
+         "oa": [
+          "880 ملم زئبق",
+          "2210 ملم زئبق",
+          "2330 ملم زئبق",
+          "760 ملم زئبق"
+         ]
+        },
+        {
+         "q": "The instrument that measures pressure by the height of a column of liquid is called:",
+         "qa": "يسمى الجهاز الذي يقيس الضغط بارتفاع عمود السائل:",
+         "o": [
+          "Stethoscope",
+          "Thermometer",
+          "Cuff",
+          "Manometer"
+         ],
+         "a": 3,
+         "oa": [
+          "السماعة الطبية",
+          "المحرار",
+          "كُمّ الضغط",
+          "المانومتر"
+         ]
+        },
+        {
+         "q": "A common type of manometer is a ______-shaped tube containing a fluid.",
+         "qa": "النوع الشائع من المانومتر أنبوب على شكل ______ يحتوي سائلًا.",
+         "o": [
+          "V",
+          "U",
+          "L",
+          "S"
+         ],
+         "a": 1,
+         "oa": [
+          "V",
+          "U",
+          "L",
+          "S"
+         ]
+        },
+        {
+         "q": "In a manometer, the levels in the arms change until the difference in the levels is equal to ______.",
+         "qa": "في المانومتر تتغير المستويات في الذراعين حتى يصبح فرق المستويين مساويًا لـ ______.",
+         "o": [
+          "zero",
+          "the volume of the fluid",
+          "the pressure being measured",
+          "the density only"
+         ],
+         "a": 2,
+         "oa": [
+          "صفر",
+          "حجم السائل",
+          "الضغط المراد قياسه",
+          "الكثافة فقط"
+         ]
+        },
+        {
+         "q": "In the manometer equation P = P₀ + ρgh, P₀ is:",
+         "qa": "في معادلة المانومتر P = P₀ + ρgh، يمثل P₀:",
+         "o": [
+          "the atmospheric pressure",
+          "the blood pressure",
+          "the density",
+          "the height"
+         ],
+         "a": 0,
+         "oa": [
+          "الضغط الجوي",
+          "ضغط الدم",
+          "الكثافة",
+          "الارتفاع"
+         ]
+        },
+        {
+         "q": "______ blood pressure is created when the heart beats and pushes blood through the arteries, normally around 120 mmHg.",
+         "qa": "ضغط الدم ______ ينتج عندما ينبض القلب ويدفع الدم عبر الشرايين، وهو عادة نحو 120 ملم زئبق.",
+         "o": [
+          "Diastolic",
+          "Atmospheric",
+          "Venous",
+          "Systolic"
+         ],
+         "a": 3,
+         "oa": [
+          "الانبساطي",
+          "الجوي",
+          "الوريدي",
+          "الانقباضي"
+         ]
+        },
+        {
+         "q": "The pressure in the arteries when the heart rests between beats is called the:",
+         "qa": "يسمى الضغط في الشرايين عندما يرتاح القلب بين النبضات:",
+         "o": [
+          "Systolic pressure",
+          "Venous pressure",
+          "Atmospheric pressure",
+          "Diastolic pressure"
+         ],
+         "a": 3,
+         "oa": [
+          "الضغط الانقباضي",
+          "الضغط الوريدي",
+          "الضغط الجوي",
+          "الضغط الانبساطي"
+         ]
+        },
+        {
+         "q": "The diastolic blood pressure is usually around ______ mmHg.",
+         "qa": "ضغط الدم الانبساطي يكون عادة نحو ______ ملم زئبق.",
+         "o": [
+          "60",
+          "120",
+          "80",
+          "140"
+         ],
+         "a": 2,
+         "oa": [
+          "60",
+          "120",
+          "80",
+          "140"
+         ]
+        },
+        {
+         "q": "A reading greater than 140 for the systolic and greater than 90 for the diastolic pressure is known as:",
+         "qa": "تُعرف القراءة الأكبر من 140 للانقباضي والأكبر من 90 للانبساطي بـ:",
+         "o": [
+          "Hypotension",
+          "Hypertension",
+          "Normal pressure",
+          "Diastole"
+         ],
+         "a": 1,
+         "oa": [
+          "انخفاض الضغط",
+          "ارتفاع الضغط",
+          "الضغط الطبيعي",
+          "الانبساط"
+         ]
+        },
+        {
+         "q": "A reading less than 90 for the systolic and less than 60 for the diastolic pressure is known as:",
+         "qa": "تُعرف القراءة الأقل من 90 للانقباضي والأقل من 60 للانبساطي بـ:",
+         "o": [
+          "Hypertension",
+          "Normal range",
+          "Hypotension",
+          "Systole"
+         ],
+         "a": 2,
+         "oa": [
+          "ارتفاع الضغط",
+          "المدى الطبيعي",
+          "انخفاض الضغط",
+          "الانقباض"
+         ]
+        },
+        {
+         "q": "According to the table, the normal range of blood pressure is:",
+         "qa": "بحسب الجدول، المدى الطبيعي لضغط الدم هو:",
+         "o": [
+          "100–120 systolic and 60–80 diastolic",
+          "140–160 systolic and 90–100 diastolic",
+          "below 90 systolic and below 60 diastolic",
+          "below 60 systolic and below 40 diastolic"
+         ],
+         "a": 0,
+         "oa": [
+          "100–120 انقباضي و60–80 انبساطي",
+          "140–160 انقباضي و90–100 انبساطي",
+          "أقل من 90 انقباضي وأقل من 60 انبساطي",
+          "أقل من 60 انقباضي وأقل من 40 انبساطي"
+         ]
+        },
+        {
+         "q": "Blood pressure is measured with a pressure cuff and gauge on the upper arm and a ______ placed over the brachial artery at the elbow.",
+         "qa": "يُقاس ضغط الدم بكُمّ ومقياس على أعلى الذراع و______ موضوعة فوق الشريان العضدي عند المرفق.",
+         "o": [
+          "thermometer",
+          "speedometer",
+          "microscope",
+          "stethoscope"
+         ],
+         "a": 3,
+         "oa": [
+          "محرار",
+          "عدّاد سرعة",
+          "مجهر",
+          "سمّاعة طبية"
+         ]
+        },
+        {
+         "q": "In the measurement of blood pressure, the arterial blood flow to the arm is blocked by:",
+         "qa": "في قياس ضغط الدم يُسدّ جريان الدم الشرياني إلى الذراع بواسطة:",
+         "o": [
+          "the stethoscope",
+          "the gauge",
+          "an inflated cuff",
+          "the elbow"
+         ],
+         "a": 2,
+         "oa": [
+          "السماعة الطبية",
+          "المقياس",
+          "كُمّ منفوخ",
+          "المرفق"
+         ]
+        },
+        {
+         "q": "As the air is gradually released, the pressure in the cuff drops below the systolic pressure and the artery causes a ______ that can be heard.",
+         "qa": "عندما يُحرَّر الهواء تدريجيًا ينخفض ضغط الكُمّ عن الانقباضي فيُحدث الشريان ______ يمكن سماعه.",
+         "o": [
+          "light",
+          "sound",
+          "color",
+          "heat"
+         ],
+         "a": 1,
+         "oa": [
+          "ضوءًا",
+          "صوتًا",
+          "لونًا",
+          "حرارة"
+         ]
+        },
+        {
+         "q": "The point at which the sounds die out indicates the:",
+         "qa": "النقطة التي تختفي عندها الأصوات تدل على:",
+         "o": [
+          "systolic pressure",
+          "atmospheric pressure",
+          "total pressure",
+          "diastolic pressure"
+         ],
+         "a": 3,
+         "oa": [
+          "الضغط الانقباضي",
+          "الضغط الجوي",
+          "الضغط الكلي",
+          "الضغط الانبساطي"
+         ]
+        },
+        {
+         "q": "The pressure in the circulatory system varies throughout the body because of ______ forces.",
+         "qa": "يتفاوت الضغط في الجهاز الدوري عبر الجسم بسبب قوى ______.",
+         "o": [
+          "magnetic",
+          "nuclear",
+          "electric",
+          "gravitational"
+         ],
+         "a": 3,
+         "oa": [
+          "مغناطيسية",
+          "نووية",
+          "كهربائية",
+          "الجاذبية"
+         ]
+        },
+        {
+         "q": "In a standing person, the pressure in the foot equals the pressure at the heart ______ the pressure of the column of blood.",
+         "qa": "عند الشخص الواقف، يساوي الضغط في القدم الضغط عند القلب ______ ضغط عمود الدم.",
+         "o": [
+          "minus",
+          "divided by",
+          "times",
+          "plus"
+         ],
+         "a": 3,
+         "oa": [
+          "ناقصًا",
+          "مقسومًا على",
+          "مضروبًا في",
+          "زائدًا"
+         ]
+        },
+        {
+         "q": "In a standing person, the pressure in the head equals the pressure at the heart:",
+         "qa": "عند الشخص الواقف، يساوي الضغط في الرأس الضغط عند القلب:",
+         "o": [
+          "plus the column of blood",
+          "times the column of blood",
+          "minus the column of blood",
+          "divided by the column of blood"
+         ],
+         "a": 2,
+         "oa": [
+          "زائدًا عمود الدم",
+          "مضروبًا في عمود الدم",
+          "ناقصًا عمود الدم",
+          "مقسومًا على عمود الدم"
+         ]
+        },
+        {
+         "q": "In the standard measurements, the distance between the heart and the head is about ______ m.",
+         "qa": "في القياسات القياسية تبلغ المسافة بين القلب والرأس نحو ______ م.",
+         "o": [
+          "1.3",
+          "0.5",
+          "2.6",
+          "13.6"
+         ],
+         "a": 1,
+         "oa": [
+          "1.3",
+          "0.5",
+          "2.6",
+          "13.6"
+         ]
+        },
+        {
+         "q": "In the standard measurements, the density of mercury is ______ g/cm³ and the density of blood is 1.04 g/cm³.",
+         "qa": "في القياسات القياسية كثافة الزئبق ______ غم/سم³ وكثافة الدم 1.04 غم/سم³.",
+         "o": [
+          "1.04",
+          "1",
+          "13.6",
+          "0.5"
+         ],
+         "a": 2,
+         "oa": [
+          "1.04",
+          "1",
+          "13.6",
+          "0.5"
+         ]
+        },
+        {
+         "q": "Mercury is about ______ times as dense as blood.",
+         "qa": "الزئبق أكثف من الدم بنحو ______ مرة.",
+         "o": [
+          "5",
+          "13",
+          "2",
+          "100"
+         ],
+         "a": 1,
+         "oa": [
+          "5",
+          "13",
+          "2",
+          "100"
+         ]
+        }
+       ]
+      }
+     ],
+     "id": "hmw2mi7v9kze"
     }
    ]
   },

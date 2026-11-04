@@ -3309,6 +3309,981 @@
       }
      ],
      "id": "hmw2mi7v9kze"
+    },
+    {
+     "title": "Physics of Nervous System · فيزياء الجهاز العصبي",
+     "sections": [
+      {
+       "id": "hmw2nll8u1nw-def",
+       "type": "def",
+       "title": "Section 1: Definitions",
+       "ar": "القسم الأول: التعاريف",
+       "items": [
+        {
+         "q": "Define: Neuron.",
+         "qa": "عرّف: العصبون (الخلية العصبية).",
+         "a": "A nerve cell specialized for the reception, interpretation, and transmission of electrical messages.",
+         "aa": "خلية عصبية متخصصة في استقبال الرسائل الكهربائية وتفسيرها ونقلها."
+        },
+        {
+         "q": "Define: Resting potential.",
+         "qa": "عرّف: جهد الراحة.",
+         "a": "The usual potential difference across the cell membrane (-70 mV) when there is no unusual neural activity (no impulse to transmit).",
+         "aa": "فرق الجهد المعتاد عبر غشاء الخلية (-70 ملي فولت) عندما لا يكون هناك نشاط عصبي غير اعتيادي (لا توجد نبضة لنقلها)."
+        },
+        {
+         "q": "Define: Polarized state.",
+         "qa": "عرّف: الحالة المستقطبة.",
+         "a": "The state in which the membrane stays at the resting potential (-ve charges inside and +ve charges outside) until a stimulus comes along.",
+         "aa": "الحالة التي يبقى فيها الغشاء عند جهد الراحة (شحنات سالبة في الداخل وموجبة في الخارج) إلى أن يظهر مؤثر (منبّه)."
+        },
+        {
+         "q": "Define: Depolarization.",
+         "qa": "عرّف: إزالة الاستقطاب.",
+         "a": "An increase in the membrane potential from -70 mV (such as -60 mV), due to the net flow of +ve charges into the cell or -ve charges to outside the cell.",
+         "aa": "زيادة في جهد الغشاء من -70 ملي فولت (مثل -60 ملي فولت)، وتنتج عن الصافي من تدفق الشحنات الموجبة إلى داخل الخلية أو الشحنات السالبة إلى خارجها."
+        },
+        {
+         "q": "Define: Hyperpolarization.",
+         "qa": "عرّف: فرط الاستقطاب.",
+         "a": "A decrease in the membrane potential from -70 mV (such as -80 mV), due to the net flow of -ve charges into the cell or +ve charges to outside the cell.",
+         "aa": "انخفاض في جهد الغشاء من -70 ملي فولت (مثل -80 ملي فولت)، وينتج عن الصافي من تدفق الشحنات السالبة إلى داخل الخلية أو الشحنات الموجبة إلى خارجها."
+        },
+        {
+         "q": "Define: Repolarization.",
+         "qa": "عرّف: إعادة الاستقطاب.",
+         "a": "The process that usually returns the membrane potential back to the resting potential.",
+         "aa": "العملية التي تعيد جهد الغشاء عادةً إلى جهد الراحة."
+        },
+        {
+         "q": "Define: Action potential.",
+         "qa": "عرّف: جهد الفعل.",
+         "a": "The large momentary change in the resting potential at the point of stimulation, which propagates along the axon; it is the major method of transmission of signals within the body.",
+         "aa": "التغير اللحظي الكبير في جهد الراحة عند نقطة التنبيه، وينتشر على طول المحور العصبي، وهو الوسيلة الرئيسية لنقل الإشارات داخل الجسم."
+        },
+        {
+         "q": "Define: Electrocardiogram (ECG).",
+         "qa": "عرّف: تخطيط القلب الكهربائي (ECG).",
+         "a": "The measurement of the electrical signals associated with the pulsation of the heart muscle.",
+         "aa": "قياس الإشارات الكهربائية المرتبطة بنبض عضلة القلب."
+        }
+       ]
+      },
+      {
+       "id": "hmw2nll8u1nw-enum",
+       "type": "enum",
+       "title": "Section 2: Enumeration",
+       "ar": "القسم الثاني: التعداد",
+       "items": [
+        {
+         "q": "Name the four major electrical events of the normal heart cycle.",
+         "qa": "اذكر الأحداث الكهربائية الأربعة الرئيسية لدورة القلب الطبيعية.",
+         "a": [
+          "Atrial depolarization: produces the P wave",
+          "Atrial repolarization: rarely seen and unlabeled",
+          "Ventricular depolarization: produces the QRS complex",
+          "Ventricular repolarization: produces the T wave"
+         ],
+         "aa": [
+          "إزالة استقطاب الأذينين: تنتج الموجة P",
+          "إعادة استقطاب الأذينين: نادرًا ما تُرى وهي غير مُعنونة",
+          "إزالة استقطاب البطينين: تنتج المعقد QRS",
+          "إعادة استقطاب البطينين: تنتج الموجة T"
+         ]
+        },
+        {
+         "q": "List the technologies used to measure neural signals and what each one measures.",
+         "qa": "عدّد تقنيات قياس الإشارات العصبية وما تقيسه كل منها.",
+         "a": [
+          "EEG: electrical activity of the brain",
+          "EOG: potential changes due to eye movement",
+          "ERG: electrical activity of the retina",
+          "EMG: electrical activity of the muscles"
+         ],
+         "aa": [
+          "EEG: النشاط الكهربائي للدماغ",
+          "EOG: تغيّرات الجهد الناتجة عن حركة العين",
+          "ERG: النشاط الكهربائي للشبكية",
+          "EMG: النشاط الكهربائي للعضلات"
+         ]
+        },
+        {
+         "q": "Name the organs whose activities are examined by detecting neural signals.",
+         "qa": "اذكر الأعضاء التي تُفحص أنشطتها بالكشف عن الإشارات العصبية.",
+         "a": [
+          "Brain",
+          "Heart",
+          "Eye",
+          "Muscles"
+         ],
+         "aa": [
+          "الدماغ",
+          "القلب",
+          "العين",
+          "العضلات"
+         ]
+        },
+        {
+         "q": "Arrange the path of the electrical signal in one heart cycle.",
+         "qa": "رتّب مسار الإشارة الكهربائية في دورة قلب واحدة.",
+         "a": [
+          "The SA node (pacemaker) in the right atrium starts the signal",
+          "Depolarization of both atria; they contract and pump blood into the ventricles",
+          "Repolarization of the atria follows",
+          "The signal passes into the AV node",
+          "Depolarization of both ventricles; they contract and force blood into the pulmonary and general circulations",
+          "The ventricles repolarize, then the sequence begins again"
+         ],
+         "aa": [
+          "تبدأ الإشارة من العقدة SA (ناظمة الخطى) في الأذين الأيمن",
+          "إزالة استقطاب الأذينين فينقبضان ويضخان الدم إلى البطينين",
+          "يتبع ذلك إعادة استقطاب الأذينين",
+          "تمر الإشارة إلى العقدة AV",
+          "إزالة استقطاب البطينين فينقبضان ويدفعان الدم إلى الدورتين الرئوية والعامة",
+          "يعيد البطينان استقطابهما ثم يبدأ التسلسل من جديد"
+         ]
+        },
+        {
+         "q": "Give the membrane potential values mentioned in the lecture.",
+         "qa": "اذكر قيم جهد الغشاء المذكورة في المحاضرة.",
+         "a": [
+          "Resting potential: -70 mV",
+          "Intracellular medium (at rest): -70 mV",
+          "Extracellular potential (at rest): 0 V",
+          "Depolarization example: -60 mV",
+          "Hyperpolarization example: -80 mV"
+         ],
+         "aa": [
+          "جهد الراحة: -70 ملي فولت",
+          "الوسط داخل الخلية (في الراحة): -70 ملي فولت",
+          "الجهد خارج الخلية (في الراحة): 0 فولت",
+          "مثال إزالة الاستقطاب: -60 ملي فولت",
+          "مثال فرط الاستقطاب: -80 ملي فولت"
+         ]
+        },
+        {
+         "q": "State the charge flows that cause depolarization and hyperpolarization.",
+         "qa": "بيّن تدفقات الشحنات التي تسبب إزالة الاستقطاب وفرط الاستقطاب.",
+         "a": [
+          "Depolarization: net flow of +ve charges into the cell",
+          "or net flow of -ve charges to outside the cell",
+          "Hyperpolarization: net flow of -ve charges into the cell",
+          "or net flow of +ve charges to outside the cell"
+         ],
+         "aa": [
+          "إزالة الاستقطاب: تدفق صافٍ للشحنات الموجبة إلى داخل الخلية",
+          "أو تدفق صافٍ للشحنات السالبة إلى خارج الخلية",
+          "فرط الاستقطاب: تدفق صافٍ للشحنات السالبة إلى داخل الخلية",
+          "أو تدفق صافٍ للشحنات الموجبة إلى خارج الخلية"
+         ]
+        },
+        {
+         "q": "List the basic facts about the electrical system of the nervous system.",
+         "qa": "عدّد الحقائق الأساسية عن المنظومة الكهربائية في الجهاز العصبي.",
+         "a": [
+          "All body functions are controlled by the electrical system",
+          "Nerve signals to and from the brain involve electrical currents",
+          "There are billions of electrical signals in the nervous system",
+          "The source of the signals is the electrochemical potential in nerve cells",
+          "The basic structural unit is the neuron"
+         ],
+         "aa": [
+          "تتحكم المنظومة الكهربائية في جميع وظائف الجسم",
+          "تنطوي الإشارات العصبية من الدماغ وإليه على تيارات كهربائية",
+          "توجد مليارات الإشارات الكهربائية في الجهاز العصبي",
+          "مصدر الإشارات هو الجهد الكهروكيميائي في الخلايا العصبية",
+          "الوحدة البنيوية الأساسية هي العصبون"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "hmw2nll8u1nw-tf",
+       "type": "tf",
+       "title": "Section 3: True or False",
+       "ar": "القسم الثالث: صح أو خطأ",
+       "items": [
+        {
+         "q": "All body functions are controlled by the electrical system.",
+         "qa": "تتحكم المنظومة الكهربائية في جميع وظائف الجسم.",
+         "a": true
+        },
+        {
+         "q": "The basic structural unit of the nervous system is the neuron.",
+         "qa": "الوحدة البنيوية الأساسية للجهاز العصبي هي العصبون.",
+         "a": true
+        },
+        {
+         "q": "The source of the electrical signals is the electrochemical potential in the nerve cells.",
+         "qa": "مصدر الإشارات الكهربائية هو الجهد الكهروكيميائي في الخلايا العصبية.",
+         "a": true
+        },
+        {
+         "q": "The conductivity of the neuron depends on the membrane of the dendrites.",
+         "qa": "تعتمد توصيلية العصبون على غشاء التفرعات الشجيرية.",
+         "a": false,
+         "e": "It depends on the membrane of the axon.",
+         "ea": "تعتمد على غشاء المحور العصبي."
+        },
+        {
+         "q": "The resting potential of the neuron is +70 mV.",
+         "qa": "جهد الراحة للعصبون هو +70 ملي فولت.",
+         "a": false,
+         "e": "The resting potential is -70 mV.",
+         "ea": "جهد الراحة هو -70 ملي فولت."
+        },
+        {
+         "q": "At rest, there are -ve charges on the inside of the cell membrane and +ve charges on the outside.",
+         "qa": "في الراحة توجد شحنات سالبة على الجهة الداخلية لغشاء الخلية وشحنات موجبة على الجهة الخارجية.",
+         "a": true
+        },
+        {
+         "q": "At rest, the extracellular potential is -70 mV.",
+         "qa": "في الراحة يكون الجهد خارج الخلية -70 ملي فولت.",
+         "a": false,
+         "e": "The extracellular potential is 0 V; the intracellular medium is at -70 mV.",
+         "ea": "الجهد خارج الخلية هو 0 فولت، أما الوسط داخل الخلية فعند -70 ملي فولت."
+        },
+        {
+         "q": "A change in the membrane potential from -70 mV to -60 mV is known as hyperpolarization.",
+         "qa": "يُعرف تغير جهد الغشاء من -70 إلى -60 ملي فولت بفرط الاستقطاب.",
+         "a": false,
+         "e": "It is known as depolarization.",
+         "ea": "يُعرف بإزالة الاستقطاب."
+        },
+        {
+         "q": "Hyperpolarization is due to the net flow of -ve charges into the cell or +ve charges to outside the cell.",
+         "qa": "ينتج فرط الاستقطاب عن الصافي من تدفق الشحنات السالبة إلى داخل الخلية أو الشحنات الموجبة إلى خارجها.",
+         "a": true
+        },
+        {
+         "q": "The action potential propagates along the axon.",
+         "qa": "ينتشر جهد الفعل على طول المحور العصبي.",
+         "a": true
+        },
+        {
+         "q": "EEG is a diagnostic test that measures the electrical activity of the muscles.",
+         "qa": "EEG فحص تشخيصي يقيس النشاط الكهربائي للعضلات.",
+         "a": false,
+         "e": "EEG measures the electrical activity of the brain; EMG measures that of the muscles.",
+         "ea": "يقيس EEG النشاط الكهربائي للدماغ، أما EMG فيقيس نشاط العضلات."
+        },
+        {
+         "q": "EOG is used to record the potential changes due to eye movement.",
+         "qa": "يُستعمل EOG لتسجيل تغيّرات الجهد الناتجة عن حركة العين.",
+         "a": true
+        },
+        {
+         "q": "The pacemaker (SA node) is located in the left atrium.",
+         "qa": "تقع ناظمة الخطى (العقدة SA) في الأذين الأيسر.",
+         "a": false,
+         "e": "It is located in the right atrium.",
+         "ea": "تقع في الأذين الأيمن."
+        },
+        {
+         "q": "The electrical signal from the SA node passes into the AV node, which initiates the depolarization of the ventricles.",
+         "qa": "تمر الإشارة الكهربائية من العقدة SA إلى العقدة AV التي تبدأ إزالة الاستقطاب في البطينين.",
+         "a": true
+        },
+        {
+         "q": "The ventricular repolarization produces the QRS complex.",
+         "qa": "تنتج إعادة استقطاب البطينين المعقد QRS.",
+         "a": false,
+         "e": "It produces the T wave; the QRS complex is produced by the ventricular depolarization.",
+         "ea": "تنتج الموجة T، أما المعقد QRS فتنتجه إزالة استقطاب البطينين."
+        }
+       ]
+      },
+      {
+       "id": "hmw2nll8u1nw-mcq",
+       "type": "mcq",
+       "title": "Section 4: Multiple Choice and Fill in the Blank",
+       "ar": "القسم الرابع: اختيارات وفراغات",
+       "items": [
+        {
+         "q": "All body functions are controlled by the ______ system.",
+         "qa": "تتحكم المنظومة ______ في جميع وظائف الجسم.",
+         "o": [
+          "mechanical",
+          "thermal",
+          "magnetic",
+          "electrical"
+         ],
+         "a": 3,
+         "oa": [
+          "الميكانيكية",
+          "الحرارية",
+          "المغناطيسية",
+          "الكهربائية"
+         ]
+        },
+        {
+         "q": "All nerve signals to and from the brain involve the flow of ______.",
+         "qa": "تنطوي جميع الإشارات العصبية من الدماغ وإليه على تدفق ______.",
+         "o": [
+          "sound waves",
+          "electrical currents",
+          "light waves",
+          "heat"
+         ],
+         "a": 1,
+         "oa": [
+          "موجات صوتية",
+          "تيارات كهربائية",
+          "موجات ضوئية",
+          "حرارة"
+         ]
+        },
+        {
+         "q": "The number of electrical signals in the human nervous system is:",
+         "qa": "عدد الإشارات الكهربائية في الجهاز العصبي البشري:",
+         "o": [
+          "hundreds",
+          "billions",
+          "tens",
+          "thousands"
+         ],
+         "a": 1,
+         "oa": [
+          "مئات",
+          "مليارات",
+          "عشرات",
+          "آلاف"
+         ]
+        },
+        {
+         "q": "The source of the electrical signals in the nervous system is:",
+         "qa": "مصدر الإشارات الكهربائية في الجهاز العصبي هو:",
+         "o": [
+          "the electrochemical potential in the nerve cells",
+          "the thermal energy of the muscles",
+          "the gravitational force",
+          "the magnetic field of the brain"
+         ],
+         "a": 0,
+         "oa": [
+          "الجهد الكهروكيميائي في الخلايا العصبية",
+          "الطاقة الحرارية للعضلات",
+          "قوة الجاذبية",
+          "المجال المغناطيسي للدماغ"
+         ]
+        },
+        {
+         "q": "The basic structural unit of the nervous system is the:",
+         "qa": "الوحدة البنيوية الأساسية للجهاز العصبي هي:",
+         "o": [
+          "red blood cell",
+          "atrium",
+          "muscle fiber",
+          "neuron"
+         ],
+         "a": 3,
+         "oa": [
+          "كرية الدم الحمراء",
+          "الأذين",
+          "الليف العضلي",
+          "العصبون"
+         ]
+        },
+        {
+         "q": "The neuron is a nerve cell specialized for the reception, interpretation, and transmission of:",
+         "qa": "العصبون خلية عصبية متخصصة في استقبال وتفسير ونقل:",
+         "o": [
+          "hormones only",
+          "nutrients",
+          "oxygen",
+          "electrical messages"
+         ],
+         "a": 3,
+         "oa": [
+          "الهرمونات فقط",
+          "المواد الغذائية",
+          "الأكسجين",
+          "الرسائل الكهربائية"
+         ]
+        },
+        {
+         "q": "The conductivity of the neuron depends on the membrane of the ______.",
+         "qa": "تعتمد توصيلية العصبون على غشاء ______.",
+         "o": [
+          "retina",
+          "nucleus",
+          "axon",
+          "ventricle"
+         ],
+         "a": 2,
+         "oa": [
+          "الشبكية",
+          "النواة",
+          "المحور العصبي",
+          "البطين"
+         ]
+        },
+        {
+         "q": "The neuron operates mainly on the basis of an electrical ______ difference between the interior and exterior of the membrane.",
+         "qa": "يعمل العصبون أساسًا على أساس فرق ______ كهربائي بين الجانب الداخلي والخارجي للغشاء.",
+         "o": [
+          "potential",
+          "density",
+          "temperature",
+          "pressure"
+         ],
+         "a": 0,
+         "oa": [
+          "جهد",
+          "كثافة",
+          "حرارة",
+          "ضغط"
+         ]
+        },
+        {
+         "q": "The potential difference across the membrane is caused by different concentrations of ______ on either side.",
+         "qa": "ينشأ فرق الجهد عبر الغشاء عن اختلاف تركيز ______ على جانبيه.",
+         "o": [
+          "neutral atoms",
+          "negative and positive charged ions",
+          "blood cells",
+          "water molecules only"
+         ],
+         "a": 1,
+         "oa": [
+          "الذرات المتعادلة",
+          "الأيونات سالبة وموجبة الشحنة",
+          "خلايا الدم",
+          "جزيئات الماء فقط"
+         ]
+        },
+        {
+         "q": "In the resting state, the charges on the inside and outside of the cell membrane are:",
+         "qa": "في حالة الراحة تكون الشحنات على الجهة الداخلية والخارجية لغشاء الخلية:",
+         "o": [
+          "+ve inside and -ve outside",
+          "+ve on both sides",
+          "-ve inside and +ve outside",
+          "-ve on both sides"
+         ],
+         "a": 2,
+         "oa": [
+          "موجبة في الداخل وسالبة في الخارج",
+          "موجبة على الجانبين",
+          "سالبة في الداخل وموجبة في الخارج",
+          "سالبة على الجانبين"
+         ]
+        },
+        {
+         "q": "The resting potential of the neuron is ______.",
+         "qa": "جهد الراحة للعصبون هو ______.",
+         "o": [
+          "0 mV",
+          "-70 mV",
+          "+70 mV",
+          "-80 mV"
+         ],
+         "a": 1,
+         "oa": [
+          "0 ملي فولت",
+          "-70 ملي فولت",
+          "+70 ملي فولت",
+          "-80 ملي فولت"
+         ]
+        },
+        {
+         "q": "At rest, the intracellular medium is at:",
+         "qa": "في الراحة يكون الوسط داخل الخلية عند:",
+         "o": [
+          "-70 mV",
+          "+70 mV",
+          "-60 mV",
+          "0 V"
+         ],
+         "a": 0,
+         "oa": [
+          "-70 ملي فولت",
+          "+70 ملي فولت",
+          "-60 ملي فولت",
+          "0 فولت"
+         ]
+        },
+        {
+         "q": "At rest, the extracellular potential is at:",
+         "qa": "في الراحة يكون الجهد خارج الخلية عند:",
+         "o": [
+          "0 V",
+          "-80 mV",
+          "+40 mV",
+          "-70 mV"
+         ],
+         "a": 0,
+         "oa": [
+          "0 فولت",
+          "-80 ملي فولت",
+          "+40 ملي فولت",
+          "-70 ملي فولت"
+         ]
+        },
+        {
+         "q": "The resting potential is the usual potential difference when there is ______.",
+         "qa": "جهد الراحة هو فرق الجهد المعتاد عندما يكون ______.",
+         "o": [
+          "an action potential",
+          "no unusual neural activity",
+          "hyperpolarization",
+          "a strong stimulus"
+         ],
+         "a": 1,
+         "oa": [
+          "هناك جهد فعل",
+          "لا يوجد نشاط عصبي غير اعتيادي",
+          "هناك فرط استقطاب",
+          "هناك مؤثر قوي"
+         ]
+        },
+        {
+         "q": "The polarized state remains until:",
+         "qa": "تبقى الحالة المستقطبة إلى أن:",
+         "o": [
+          "the muscle relaxes",
+          "the heart stops",
+          "the blood flows",
+          "a stimulus comes along"
+         ],
+         "a": 3,
+         "oa": [
+          "تسترخي العضلة",
+          "يتوقف القلب",
+          "يجري الدم",
+          "يظهر مؤثر (منبّه)"
+         ]
+        },
+        {
+         "q": "An increase in the membrane potential from -70 mV (such as -60 mV) is known as:",
+         "qa": "تُعرف الزيادة في جهد الغشاء من -70 ملي فولت (مثل -60 ملي فولت) بـ:",
+         "o": [
+          "depolarization",
+          "the resting potential",
+          "hyperpolarization",
+          "repolarization"
+         ],
+         "a": 0,
+         "oa": [
+          "إزالة الاستقطاب",
+          "جهد الراحة",
+          "فرط الاستقطاب",
+          "إعادة الاستقطاب"
+         ]
+        },
+        {
+         "q": "A decrease in the membrane potential from -70 mV (such as -80 mV) is called ______.",
+         "qa": "يُسمى الانخفاض في جهد الغشاء من -70 ملي فولت (مثل -80 ملي فولت) ______.",
+         "o": [
+          "depolarization",
+          "the polarized state",
+          "hyperpolarization",
+          "repolarization"
+         ],
+         "a": 2,
+         "oa": [
+          "إزالة الاستقطاب",
+          "الحالة المستقطبة",
+          "فرط الاستقطاب",
+          "إعادة الاستقطاب"
+         ]
+        },
+        {
+         "q": "______ usually returns the membrane potential back to the resting potential.",
+         "qa": "______ تعيد جهد الغشاء عادةً إلى جهد الراحة.",
+         "o": [
+          "Repolarization",
+          "Hyperpolarization",
+          "Depolarization",
+          "Stimulation"
+         ],
+         "a": 0,
+         "oa": [
+          "إعادة الاستقطاب",
+          "فرط الاستقطاب",
+          "إزالة الاستقطاب",
+          "التنبيه"
+         ]
+        },
+        {
+         "q": "Depolarization is due to the net flow of:",
+         "qa": "تنتج إزالة الاستقطاب عن الصافي من تدفق:",
+         "o": [
+          "-ve charges into the cell only",
+          "+ve charges to outside the cell only",
+          "-ve charges into the cell or +ve charges to outside the cell",
+          "+ve charges into the cell or -ve charges to outside the cell"
+         ],
+         "a": 3,
+         "oa": [
+          "الشحنات السالبة إلى داخل الخلية فقط",
+          "الشحنات الموجبة إلى خارج الخلية فقط",
+          "الشحنات السالبة إلى داخل الخلية أو الموجبة إلى خارجها",
+          "الشحنات الموجبة إلى داخل الخلية أو السالبة إلى خارجها"
+         ]
+        },
+        {
+         "q": "Hyperpolarization is due to the net flow of:",
+         "qa": "ينتج فرط الاستقطاب عن الصافي من تدفق:",
+         "o": [
+          "+ve charges into the cell or -ve charges to outside the cell",
+          "-ve charges into the cell or +ve charges to outside the cell",
+          "+ve charges into the cell only",
+          "-ve charges to outside the cell only"
+         ],
+         "a": 1,
+         "oa": [
+          "الشحنات الموجبة إلى داخل الخلية أو السالبة إلى خارجها",
+          "الشحنات السالبة إلى داخل الخلية أو الموجبة إلى خارجها",
+          "الشحنات الموجبة إلى داخل الخلية فقط",
+          "الشحنات السالبة إلى خارج الخلية فقط"
+         ]
+        },
+        {
+         "q": "When the neuron is stimulated, a large ______ change in the resting potential occurs at the point of stimulation.",
+         "qa": "عندما يُنبَّه العصبون يحدث تغيّر ______ كبير في جهد الراحة عند نقطة التنبيه.",
+         "o": [
+          "permanent",
+          "magnetic",
+          "momentary",
+          "slow"
+         ],
+         "a": 2,
+         "oa": [
+          "دائم",
+          "مغناطيسي",
+          "لحظي",
+          "بطيء"
+         ]
+        },
+        {
+         "q": "The potential change that occurs at the point of stimulation is called the:",
+         "qa": "يُسمى التغير في الجهد الذي يحدث عند نقطة التنبيه:",
+         "o": [
+          "pacemaker",
+          "polarized state",
+          "resting potential",
+          "action potential"
+         ],
+         "a": 3,
+         "oa": [
+          "ناظمة الخطى",
+          "الحالة المستقطبة",
+          "جهد الراحة",
+          "جهد الفعل"
+         ]
+        },
+        {
+         "q": "The action potential propagates along the ______.",
+         "qa": "ينتشر جهد الفعل على طول ______.",
+         "o": [
+          "axon",
+          "retina",
+          "atrium",
+          "muscle"
+         ],
+         "a": 0,
+         "oa": [
+          "المحور العصبي",
+          "الشبكية",
+          "الأذين",
+          "العضلة"
+         ]
+        },
+        {
+         "q": "The major method of transmission of signals within the body is the:",
+         "qa": "الوسيلة الرئيسية لنقل الإشارات داخل الجسم هي:",
+         "o": [
+          "repolarization wave",
+          "polarized state",
+          "action potential",
+          "resting potential"
+         ],
+         "a": 2,
+         "oa": [
+          "موجة إعادة الاستقطاب",
+          "الحالة المستقطبة",
+          "جهد الفعل",
+          "جهد الراحة"
+         ]
+        },
+        {
+         "q": "Detection of neural signals allows examining the activities of the brain, heart, eye, and ______.",
+         "qa": "يتيح الكشف عن الإشارات العصبية فحص أنشطة الدماغ والقلب والعين و______.",
+         "o": [
+          "bones",
+          "muscles",
+          "skin",
+          "hair"
+         ],
+         "a": 1,
+         "oa": [
+          "العظام",
+          "العضلات",
+          "الجلد",
+          "الشعر"
+         ]
+        },
+        {
+         "q": "______ is a diagnostic test that measures the electrical activity of the brain.",
+         "qa": "______ فحص تشخيصي يقيس النشاط الكهربائي للدماغ.",
+         "o": [
+          "ERG",
+          "EEG",
+          "EMG",
+          "ECG"
+         ],
+         "a": 1,
+         "oa": [
+          "ERG",
+          "EEG",
+          "EMG",
+          "ECG"
+         ]
+        },
+        {
+         "q": "EOG is used to record the potential changes due to:",
+         "qa": "يُستعمل EOG لتسجيل تغيّرات الجهد الناتجة عن:",
+         "o": [
+          "muscle contraction",
+          "the heartbeat",
+          "eye movement",
+          "brain activity"
+         ],
+         "a": 2,
+         "oa": [
+          "انقباض العضلات",
+          "نبض القلب",
+          "حركة العين",
+          "النشاط الدماغي"
+         ]
+        },
+        {
+         "q": "ERG measures the electrical activity of the ______.",
+         "qa": "يقيس ERG النشاط الكهربائي لـ ______.",
+         "o": [
+          "muscles",
+          "heart",
+          "brain",
+          "retina"
+         ],
+         "a": 3,
+         "oa": [
+          "العضلات",
+          "القلب",
+          "الدماغ",
+          "الشبكية"
+         ]
+        },
+        {
+         "q": "EMG measures the electrical activity of the ______.",
+         "qa": "يقيس EMG النشاط الكهربائي لـ ______.",
+         "o": [
+          "muscles",
+          "brain",
+          "eye",
+          "retina"
+         ],
+         "a": 0,
+         "oa": [
+          "العضلات",
+          "الدماغ",
+          "العين",
+          "الشبكية"
+         ]
+        },
+        {
+         "q": "ECG represents the measurement of the electrical signals associated with the pulsation of the:",
+         "qa": "يمثّل ECG قياس الإشارات الكهربائية المرتبطة بنبض:",
+         "o": [
+          "brain cells",
+          "heart muscle",
+          "skeletal muscles",
+          "retina"
+         ],
+         "a": 1,
+         "oa": [
+          "خلايا الدماغ",
+          "عضلة القلب",
+          "العضلات الهيكلية",
+          "الشبكية"
+         ]
+        },
+        {
+         "q": "The electrical signal that controls the rhythmical action of the heart is initiated in the:",
+         "qa": "تبدأ الإشارة الكهربائية التي تتحكم في النشاط الإيقاعي للقلب في:",
+         "o": [
+          "left ventricle",
+          "right ventricle",
+          "right atrium",
+          "left atrium"
+         ],
+         "a": 2,
+         "oa": [
+          "البطين الأيسر",
+          "البطين الأيمن",
+          "الأذين الأيمن",
+          "الأذين الأيسر"
+         ]
+        },
+        {
+         "q": "The special muscle cells that spontaneously initiate the heart signal are the:",
+         "qa": "الخلايا العضلية الخاصة التي تبدأ إشارة القلب تلقائيًا هي:",
+         "o": [
+          "sinoatrial (SA) node",
+          "bundle branches",
+          "atrioventricular (AV) node",
+          "Purkinje fibers"
+         ],
+         "a": 0,
+         "oa": [
+          "العقدة الجيبية الأذينية (SA)",
+          "فروع الحزمة",
+          "العقدة الأذينية البطينية (AV)",
+          "ألياف بركنجي"
+         ]
+        },
+        {
+         "q": "The signal from the SA node initiates the depolarization of the nerves and muscles of:",
+         "qa": "تبدأ الإشارة من العقدة SA إزالة الاستقطاب في أعصاب وعضلات:",
+         "o": [
+          "the left atrium only",
+          "both atria",
+          "both ventricles",
+          "the right ventricle only"
+         ],
+         "a": 1,
+         "oa": [
+          "الأذين الأيسر فقط",
+          "كلا الأذينين",
+          "كلا البطينين",
+          "البطين الأيمن فقط"
+         ]
+        },
+        {
+         "q": "After the atria contract, they pump blood into the ______.",
+         "qa": "بعد انقباض الأذينين يضخان الدم إلى ______.",
+         "o": [
+          "kidneys",
+          "brain",
+          "ventricles",
+          "retina"
+         ],
+         "a": 2,
+         "oa": [
+          "الكليتين",
+          "الدماغ",
+          "البطينين",
+          "الشبكية"
+         ]
+        },
+        {
+         "q": "After the SA node, the electrical signal passes into the ______.",
+         "qa": "بعد العقدة SA تمر الإشارة الكهربائية إلى ______.",
+         "o": [
+          "AV node",
+          "retina",
+          "brain",
+          "axon"
+         ],
+         "a": 0,
+         "oa": [
+          "العقدة AV",
+          "الشبكية",
+          "الدماغ",
+          "المحور العصبي"
+         ]
+        },
+        {
+         "q": "The AV node initiates the depolarization of the:",
+         "qa": "تبدأ العقدة AV إزالة الاستقطاب في:",
+         "o": [
+          "the right atrium only",
+          "the retina",
+          "both atria",
+          "right and left ventricles"
+         ],
+         "a": 3,
+         "oa": [
+          "الأذين الأيمن فقط",
+          "الشبكية",
+          "الأذينين",
+          "البطينين الأيمن والأيسر"
+         ]
+        },
+        {
+         "q": "When the ventricles contract, they force blood into the:",
+         "qa": "عندما ينقبض البطينان يدفعان الدم إلى:",
+         "o": [
+          "the SA node",
+          "the brain only",
+          "pulmonary and general circulations",
+          "both atria only"
+         ],
+         "a": 2,
+         "oa": [
+          "العقدة SA",
+          "الدماغ فقط",
+          "الدورتين الرئوية والعامة",
+          "الأذينين فقط"
+         ]
+        },
+        {
+         "q": "The atrial depolarization produces the ______.",
+         "qa": "تنتج إزالة استقطاب الأذينين ______.",
+         "o": [
+          "T wave",
+          "QRS complex",
+          "PR segment",
+          "P wave"
+         ],
+         "a": 3,
+         "oa": [
+          "الموجة T",
+          "المعقد QRS",
+          "المقطع PR",
+          "الموجة P"
+         ]
+        },
+        {
+         "q": "The ventricular depolarization produces the ______.",
+         "qa": "تنتج إزالة استقطاب البطينين ______.",
+         "o": [
+          "P wave",
+          "T wave",
+          "ST segment",
+          "QRS complex"
+         ],
+         "a": 3,
+         "oa": [
+          "الموجة P",
+          "الموجة T",
+          "المقطع ST",
+          "المعقد QRS"
+         ]
+        },
+        {
+         "q": "The ventricular repolarization produces the ______.",
+         "qa": "تنتج إعادة استقطاب البطينين ______.",
+         "o": [
+          "PR interval",
+          "P wave",
+          "T wave",
+          "QRS complex"
+         ],
+         "a": 2,
+         "oa": [
+          "الفترة PR",
+          "الموجة P",
+          "الموجة T",
+          "المعقد QRS"
+         ]
+        }
+       ]
+      }
+     ],
+     "id": "hmw2nll8u1nw"
     }
    ]
   },

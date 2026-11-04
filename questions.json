@@ -1637,7 +1637,827 @@
   {
    "id": "s4",
    "title": "الفيزياء الحياتية",
-   "handouts": []
+   "handouts": [
+    {
+     "title": "Sound and Hearing System · الصوت وجهاز السمع",
+     "sections": [
+      {
+       "id": "hmw2m2vnqyke-def",
+       "type": "def",
+       "title": "Section 1: Definitions",
+       "ar": "القسم الأول: التعاريف",
+       "items": [
+        {
+         "q": "Define: Sound wave.",
+         "qa": "عرّف: الموجة الصوتية.",
+         "a": "A mechanical disturbance in a gas, liquid, or solid that travels outward from the source.",
+         "aa": "اضطراب ميكانيكي في غاز أو سائل أو مادة صلبة ينتقل مبتعدًا عن المصدر."
+        },
+        {
+         "q": "Define: Audible sound.",
+         "qa": "عرّف: الصوت المسموع.",
+         "a": "The sound within the range of the human ear: 20 Hz to 20 kHz.",
+         "aa": "الصوت الواقع ضمن مدى أذن الإنسان: من 20 هرتز إلى 20 كيلوهرتز."
+        },
+        {
+         "q": "Define: Infrasound.",
+         "qa": "عرّف: الموجات تحت الصوتية.",
+         "a": "Sound whose frequency is below the audible range.",
+         "aa": "الموجات التي يكون ترددها أقل من المدى المسموع."
+        },
+        {
+         "q": "Define: Ultrasound.",
+         "qa": "عرّف: الموجات فوق الصوتية.",
+         "a": "Sound whose frequency is above the audible range.",
+         "aa": "الموجات التي يكون ترددها أعلى من المدى المسموع."
+        },
+        {
+         "q": "Define: Compression and rarefaction.",
+         "qa": "عرّف: التضاغط والتخلخل.",
+         "a": "Compression is a local increase in pressure, and rarefaction is a local decrease in pressure, relative to atmospheric pressure, caused by the vibration of the sound source.",
+         "aa": "التضاغط زيادة موضعية في الضغط، والتخلخل نقصان موضعي في الضغط، بالنسبة إلى الضغط الجوي، وتسببهما اهتزازات مصدر الصوت."
+        },
+        {
+         "q": "Define: Reflection law.",
+         "qa": "عرّف: قانون الانعكاس.",
+         "a": "The angle of reflection equals the angle of incidence (θ reflected = θ incident).",
+         "aa": "زاوية الانعكاس تساوي زاوية السقوط."
+        },
+        {
+         "q": "Define: Refraction law (Snell's law).",
+         "qa": "عرّف: قانون الانكسار (قانون سنل).",
+         "a": "The ratio of the sine of the angle of incidence to the sine of the angle of refraction is constant.",
+         "aa": "النسبة بين جيب زاوية السقوط وجيب زاوية الانكسار ثابتة."
+        },
+        {
+         "q": "Define: Refractive index (n).",
+         "qa": "عرّف: معامل الانكسار (n).",
+         "a": "The constant ratio of the sine of the angle of incidence to the sine of the angle of refraction: n = sin θi / sin θr.",
+         "aa": "النسبة الثابتة بين جيب زاوية السقوط وجيب زاوية الانكسار: n = sin θi / sin θr."
+        },
+        {
+         "q": "Define: Auditory cortex.",
+         "qa": "عرّف: القشرة السمعية.",
+         "a": "The part of the brain that decodes and interprets the signals from the auditory nerves.",
+         "aa": "جزء الدماغ الذي يفك شفرة الإشارات القادمة من الأعصاب السمعية ويفسّرها."
+        }
+       ]
+      },
+      {
+       "id": "hmw2m2vnqyke-enum",
+       "type": "enum",
+       "title": "Section 2: Enumeration",
+       "ar": "القسم الثاني: التعداد",
+       "items": [
+        {
+         "q": "Name the three ways in which sound is a major method of communication.",
+         "qa": "اذكر الطرق الثلاث التي يكون بها الصوت وسيلة رئيسية للتواصل.",
+         "a": [
+          "Speech",
+          "Listening",
+          "Stimulation (music)"
+         ],
+         "aa": [
+          "الكلام",
+          "الاستماع",
+          "التحفيز (الموسيقى)"
+         ]
+        },
+        {
+         "q": "List the frequency ranges given in the handout.",
+         "qa": "عدّد المدايات الترددية المذكورة في الملزمة.",
+         "a": [
+          "Range of human voice: 64 Hz to 205 Hz",
+          "Range of human ear (audible sound): 20 Hz to 20 kHz",
+          "Below the audible range: infrasound",
+          "Above the audible range: ultrasound"
+         ],
+         "aa": [
+          "مدى صوت الإنسان: من 64 إلى 205 هرتز",
+          "مدى أذن الإنسان (الصوت المسموع): من 20 هرتز إلى 20 كيلوهرتز",
+          "أقل من المدى المسموع: الموجات تحت الصوتية",
+          "أعلى من المدى المسموع: الموجات فوق الصوتية"
+         ]
+        },
+        {
+         "q": "What does the sense of hearing involve?",
+         "qa": "ماذا تتضمن حاسة السمع؟",
+         "a": [
+          "The mechanical system that stimulates the hair cells in the cochlea",
+          "The sensors that produce the action potentials in the auditory nerves",
+          "The auditory cortex of the brain"
+         ],
+         "aa": [
+          "النظام الميكانيكي الذي يحفّز الخلايا الشعرية في القوقعة",
+          "المستشعرات التي تولّد جهود الفعل في الأعصاب السمعية",
+          "القشرة السمعية في الدماغ"
+         ]
+        },
+        {
+         "q": "Name the three main parts of the human ear.",
+         "qa": "اذكر الأجزاء الثلاثة الرئيسية لأذن الإنسان.",
+         "a": [
+          "Outer ear (external ear)",
+          "Middle ear",
+          "Inner ear"
+         ],
+         "aa": [
+          "الأذن الخارجية",
+          "الأذن الوسطى",
+          "الأذن الداخلية"
+         ]
+        },
+        {
+         "q": "Name the three ossicles (tiny bones) of the middle ear.",
+         "qa": "اذكر العظيمات الصغيرة الثلاث في الأذن الوسطى.",
+         "a": [
+          "Malleus",
+          "Incus",
+          "Stapes"
+         ],
+         "aa": [
+          "المطرقة",
+          "السندان",
+          "الركاب"
+         ]
+        },
+        {
+         "q": "Arrange the path of sound through the ear until it becomes meaningful sound.",
+         "qa": "رتّب مسار الصوت في الأذن حتى يتحول إلى صوت ذي معنى.",
+         "a": [
+          "The pinna collects the sound waves",
+          "The waves are funneled into the ear canals",
+          "The sound waves make the eardrum vibrate",
+          "The vibrations move through the ossicles (malleus, incus, stapes) of the middle ear",
+          "The vibrations are transferred to the cochlea of the inner ear",
+          "The fluids in the cochlea move and stimulate the hair cells",
+          "The hair cells generate nerve impulses that travel along the auditory nerve",
+          "The auditory cortex of the brain interprets the information as sound"
+         ],
+         "aa": [
+          "صيوان الأذن يجمع الموجات الصوتية",
+          "تُوجَّه الموجات إلى قنوات الأذن",
+          "تجعل الموجات الصوتية طبلة الأذن تهتز",
+          "تنتقل الاهتزازات عبر العظيمات (المطرقة والسندان والركاب) في الأذن الوسطى",
+          "تنتقل الاهتزازات إلى قوقعة الأذن الداخلية",
+          "تتحرك السوائل في القوقعة فتحفّز الخلايا الشعرية",
+          "تولّد الخلايا الشعرية نبضات عصبية تنتقل عبر العصب السمعي",
+          "تفسّر القشرة السمعية في الدماغ المعلومات على أنها صوت"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "hmw2m2vnqyke-tf",
+       "type": "tf",
+       "title": "Section 3: True or False",
+       "ar": "القسم الثالث: صح أو خطأ",
+       "items": [
+        {
+         "q": "Sound is a major method of communication.",
+         "qa": "الصوت وسيلة رئيسية للتواصل.",
+         "a": true
+        },
+        {
+         "q": "The range of the human ear (audible sound) is 20 Hz to 20 kHz.",
+         "qa": "مدى أذن الإنسان (الصوت المسموع) من 20 هرتز إلى 20 كيلوهرتز.",
+         "a": true
+        },
+        {
+         "q": "Infrasound has a frequency above the audible range.",
+         "qa": "الموجات تحت الصوتية ترددها أعلى من المدى المسموع.",
+         "a": false,
+         "e": "Infrasound has a frequency below the audible range. Ultrasound is the one above it.",
+         "ea": "الموجات تحت الصوتية ترددها أقل من المدى المسموع، أما فوق الصوتية فأعلى منه."
+        },
+        {
+         "q": "A sound wave can travel through a gas, a liquid, or a solid.",
+         "qa": "تنتقل الموجة الصوتية في الغاز أو السائل أو المادة الصلبة.",
+         "a": true
+        },
+        {
+         "q": "The relationship between the speed, frequency and wavelength of sound is v = λ f.",
+         "qa": "العلاقة بين سرعة الصوت وترددها وطولها الموجي هي v = λ f.",
+         "a": true
+        },
+        {
+         "q": "According to the reflection law, the angle of reflection is always larger than the angle of incidence.",
+         "qa": "بحسب قانون الانعكاس، زاوية الانعكاس دائمًا أكبر من زاوية السقوط.",
+         "a": false,
+         "e": "The angle of reflection equals the angle of incidence.",
+         "ea": "زاوية الانعكاس تساوي زاوية السقوط."
+        },
+        {
+         "q": "The refractive index is n = sin θi / sin θr.",
+         "qa": "معامل الانكسار هو n = sin θi / sin θr.",
+         "a": true
+        },
+        {
+         "q": "The middle ear is the part that contains the cochlea.",
+         "qa": "الأذن الوسطى هي الجزء الذي يحتوي القوقعة.",
+         "a": false,
+         "e": "The cochlea is in the inner ear. The middle ear contains the ossicles.",
+         "ea": "القوقعة في الأذن الداخلية، أما الأذن الوسطى فتحتوي العظيمات."
+        },
+        {
+         "q": "The Eustachian tube connects the middle ear with the pharynx and equalizes the pressure on either side of the eardrum.",
+         "qa": "تربط قناة أوستاكيوس الأذن الوسطى بالبلعوم وتعادل الضغط على جانبي طبلة الأذن.",
+         "a": true
+        },
+        {
+         "q": "The stapes is the first bone of the chain that receives vibrations from the eardrum.",
+         "qa": "الركاب هو أول عظمة في السلسلة تستقبل الاهتزازات من طبلة الأذن.",
+         "a": false,
+         "e": "The chain starts with the malleus and ends with the stapes, which passes the vibrations to the cochlea.",
+         "ea": "السلسلة تبدأ بالمطرقة وتنتهي بالركاب الذي ينقل الاهتزازات إلى القوقعة."
+        },
+        {
+         "q": "Hair cells at the base of the cochlea are responsible for high frequencies.",
+         "qa": "الخلايا الشعرية عند قاعدة القوقعة مسؤولة عن الترددات العالية.",
+         "a": true
+        },
+        {
+         "q": "Hair cells at the apex of the cochlea are responsible for high frequencies.",
+         "qa": "الخلايا الشعرية عند قمة القوقعة مسؤولة عن الترددات العالية.",
+         "a": false,
+         "e": "Hair cells at the apex are responsible for low frequencies.",
+         "ea": "الخلايا الشعرية عند القمة مسؤولة عن الترددات المنخفضة."
+        }
+       ]
+      },
+      {
+       "id": "hmw2m2vnqyke-mcq",
+       "type": "mcq",
+       "title": "Section 4: Multiple Choice and Fill in the Blank",
+       "ar": "القسم الرابع: اختيارات وفراغات",
+       "items": [
+        {
+         "q": "The range of the human voice is ______.",
+         "qa": "مدى صوت الإنسان هو ______.",
+         "o": [
+          "20 Hz to 20 kHz",
+          "64 Hz to 205 Hz",
+          "205 Hz to 20 kHz",
+          "1 Hz to 64 Hz"
+         ],
+         "a": 1,
+         "oa": [
+          "من 20 هرتز إلى 20 كيلوهرتز",
+          "من 64 إلى 205 هرتز",
+          "من 205 هرتز إلى 20 كيلوهرتز",
+          "من 1 إلى 64 هرتز"
+         ]
+        },
+        {
+         "q": "What is the range of the human ear (audible sound)?",
+         "qa": "ما هو مدى أذن الإنسان (الصوت المسموع)؟",
+         "o": [
+          "64 Hz to 205 Hz",
+          "20 Hz to 205 Hz",
+          "20 Hz to 20 kHz",
+          "64 Hz to 20 kHz"
+         ],
+         "a": 2,
+         "oa": [
+          "من 64 إلى 205 هرتز",
+          "من 20 إلى 205 هرتز",
+          "من 20 هرتز إلى 20 كيلوهرتز",
+          "من 64 هرتز إلى 20 كيلوهرتز"
+         ]
+        },
+        {
+         "q": "Frequencies below the audible range are called ______.",
+         "qa": "تسمى الترددات الأقل من المدى المسموع ______.",
+         "o": [
+          "Ultrasound",
+          "Infrasound",
+          "Audible sound",
+          "Compression"
+         ],
+         "a": 1,
+         "oa": [
+          "فوق الصوتية",
+          "تحت الصوتية",
+          "الصوت المسموع",
+          "التضاغط"
+         ]
+        },
+        {
+         "q": "Frequencies above the audible range are called:",
+         "qa": "تسمى الترددات الأعلى من المدى المسموع:",
+         "o": [
+          "Infrasound",
+          "Rarefaction",
+          "Ultrasound",
+          "Refraction"
+         ],
+         "a": 2,
+         "oa": [
+          "تحت الصوتية",
+          "التخلخل",
+          "فوق الصوتية",
+          "الانكسار"
+         ]
+        },
+        {
+         "q": "A sound wave is a ______ disturbance that travels outward from the source.",
+         "qa": "الموجة الصوتية اضطراب ______ ينتقل مبتعدًا عن المصدر.",
+         "o": [
+          "electrical",
+          "mechanical",
+          "magnetic",
+          "chemical"
+         ],
+         "a": 1,
+         "oa": [
+          "كهربائي",
+          "ميكانيكي",
+          "مغناطيسي",
+          "كيميائي"
+         ]
+        },
+        {
+         "q": "A local increase in pressure produced by a vibrating loudspeaker is called ______.",
+         "qa": "تسمى الزيادة الموضعية في الضغط الناتجة عن اهتزاز مكبّر الصوت ______.",
+         "o": [
+          "Rarefaction",
+          "Refraction",
+          "Compression",
+          "Reflection"
+         ],
+         "a": 2,
+         "oa": [
+          "التخلخل",
+          "الانكسار",
+          "التضاغط",
+          "الانعكاس"
+         ]
+        },
+        {
+         "q": "A local decrease in pressure produced by a vibrating loudspeaker is called:",
+         "qa": "تسمى النقصان الموضعي في الضغط الناتج عن اهتزاز مكبّر الصوت:",
+         "o": [
+          "Compression",
+          "Rarefaction",
+          "Reflection",
+          "Funneling"
+         ],
+         "a": 1,
+         "oa": [
+          "التضاغط",
+          "التخلخل",
+          "الانعكاس",
+          "التوجيه القمعي"
+         ]
+        },
+        {
+         "q": "Compressions and rarefactions are changes in pressure relative to ______.",
+         "qa": "التضاغط والتخلخل تغيّران في الضغط بالنسبة إلى ______.",
+         "o": [
+          "the cochlear pressure",
+          "the atmospheric pressure",
+          "the blood pressure",
+          "the eardrum"
+         ],
+         "a": 1,
+         "oa": [
+          "ضغط القوقعة",
+          "الضغط الجوي",
+          "ضغط الدم",
+          "طبلة الأذن"
+         ]
+        },
+        {
+         "q": "The relationship between speed v, frequency f and wavelength λ of a sound wave is:",
+         "qa": "العلاقة بين السرعة v والتردد f والطول الموجي λ للموجة الصوتية هي:",
+         "o": [
+          "v = f / λ",
+          "v = λ / f",
+          "v = λ f",
+          "v = λ + f"
+         ],
+         "a": 2,
+         "oa": [
+          "v = f / λ",
+          "v = λ / f",
+          "v = λ f",
+          "v = λ + f"
+         ]
+        },
+        {
+         "q": "The geometric laws of sound involve ______.",
+         "qa": "تتعلق القوانين الهندسية للصوت بـ ______.",
+         "o": [
+          "reflection and refraction",
+          "absorption and emission",
+          "diffusion and osmosis",
+          "compression only"
+         ],
+         "a": 0,
+         "oa": [
+          "الانعكاس والانكسار",
+          "الامتصاص والانبعاث",
+          "الانتشار والأسموزية",
+          "التضاغط فقط"
+         ]
+        },
+        {
+         "q": "According to the reflection law:",
+         "qa": "بحسب قانون الانعكاس:",
+         "o": [
+          "the angle of reflection equals the angle of incidence",
+          "the angle of reflection is double the angle of incidence",
+          "the angle of incidence is zero",
+          "the sine of the angles is constant"
+         ],
+         "a": 0,
+         "oa": [
+          "زاوية الانعكاس تساوي زاوية السقوط",
+          "زاوية الانعكاس ضعف زاوية السقوط",
+          "زاوية السقوط تساوي صفرًا",
+          "جيب الزاويتين ثابت"
+         ]
+        },
+        {
+         "q": "Snell's law states that the ratio of the sine of the angle of incidence to the sine of the angle of refraction is ______.",
+         "qa": "ينص قانون سنل على أن النسبة بين جيب زاوية السقوط وجيب زاوية الانكسار ______.",
+         "o": [
+          "variable",
+          "zero",
+          "constant",
+          "equal to 1 always"
+         ],
+         "a": 2,
+         "oa": [
+          "متغيرة",
+          "صفر",
+          "ثابتة",
+          "تساوي 1 دائمًا"
+         ]
+        },
+        {
+         "q": "The constant in Snell's law is called the ______.",
+         "qa": "يسمى الثابت في قانون سنل ______.",
+         "o": [
+          "wavelength",
+          "refractive index",
+          "frequency",
+          "velocity"
+         ],
+         "a": 1,
+         "oa": [
+          "الطول الموجي",
+          "معامل الانكسار",
+          "التردد",
+          "السرعة"
+         ]
+        },
+        {
+         "q": "The refractive index n equals:",
+         "qa": "معامل الانكسار n يساوي:",
+         "o": [
+          "sin θi × sin θr",
+          "sin θi / sin θr",
+          "sin θr / sin θi",
+          "θi + θr"
+         ],
+         "a": 1,
+         "oa": [
+          "sin θi × sin θr",
+          "sin θi / sin θr",
+          "sin θr / sin θi",
+          "θi + θr"
+         ]
+        },
+        {
+         "q": "The ear is a converter of very weak mechanical waves in air into ______.",
+         "qa": "الأذن محوّل يحوّل الموجات الميكانيكية الضعيفة جدًا في الهواء إلى ______.",
+         "o": [
+          "chemical reactions",
+          "heat",
+          "electrical pulses in the auditory nerve",
+          "light signals"
+         ],
+         "a": 2,
+         "oa": [
+          "تفاعلات كيميائية",
+          "حرارة",
+          "نبضات كهربائية في العصب السمعي",
+          "إشارات ضوئية"
+         ]
+        },
+        {
+         "q": "The human ear consists of:",
+         "qa": "تتكوّن أذن الإنسان من:",
+         "o": [
+          "outer, middle and inner ear",
+          "outer and inner ear only",
+          "pinna and cochlea only",
+          "middle ear and cortex"
+         ],
+         "a": 0,
+         "oa": [
+          "الأذن الخارجية والوسطى والداخلية",
+          "الخارجية والداخلية فقط",
+          "الصيوان والقوقعة فقط",
+          "الأذن الوسطى والقشرة"
+         ]
+        },
+        {
+         "q": "The function of the outer and middle ear is to transform sound from a wave in air into a wave in:",
+         "qa": "وظيفة الأذنين الخارجية والوسطى تحويل الصوت من موجة في الهواء إلى موجة في:",
+         "o": [
+          "the bones",
+          "the fluids of the inner ear",
+          "the skin",
+          "the brain cortex"
+         ],
+         "a": 1,
+         "oa": [
+          "العظام",
+          "سوائل الأذن الداخلية",
+          "الجلد",
+          "قشرة الدماغ"
+         ]
+        },
+        {
+         "q": "The middle ear communicates with the pharynx through the ______.",
+         "qa": "تتصل الأذن الوسطى بالبلعوم عن طريق ______.",
+         "o": [
+          "ear canal",
+          "auditory nerve",
+          "Eustachian tube",
+          "cochlea"
+         ],
+         "a": 2,
+         "oa": [
+          "قناة الأذن",
+          "العصب السمعي",
+          "قناة أوستاكيوس",
+          "القوقعة"
+         ]
+        },
+        {
+         "q": "The Eustachian tube allows the pressure on either side of the eardrum to be equalized to ______.",
+         "qa": "تسمح قناة أوستاكيوس بتعادل الضغط على جانبي طبلة الأذن مع ______.",
+         "o": [
+          "blood pressure",
+          "atmospheric pressure",
+          "cochlear pressure",
+          "zero pressure"
+         ],
+         "a": 1,
+         "oa": [
+          "ضغط الدم",
+          "الضغط الجوي",
+          "ضغط القوقعة",
+          "ضغط صفر"
+         ]
+        },
+        {
+         "q": "Sound waves are collected by the ______.",
+         "qa": "تُجمَّع الموجات الصوتية بواسطة ______.",
+         "o": [
+          "eardrum",
+          "stapes",
+          "pinna",
+          "cochlea"
+         ],
+         "a": 2,
+         "oa": [
+          "طبلة الأذن",
+          "الركاب",
+          "صيوان الأذن",
+          "القوقعة"
+         ]
+        },
+        {
+         "q": "After the pinna collects the sound waves, they are funneled into the:",
+         "qa": "بعد أن يجمع الصيوان الموجات الصوتية تُوجَّه إلى:",
+         "o": [
+          "ear canals",
+          "cochlea",
+          "auditory cortex",
+          "ossicles"
+         ],
+         "a": 0,
+         "oa": [
+          "قنوات الأذن",
+          "القوقعة",
+          "القشرة السمعية",
+          "العظيمات"
+         ]
+        },
+        {
+         "q": "The sound waves make which structure vibrate after entering the ear canal?",
+         "qa": "ما التركيب الذي تجعله الموجات الصوتية يهتز بعد دخولها قناة الأذن؟",
+         "o": [
+          "The stapes",
+          "The eardrum",
+          "The auditory nerve",
+          "The hair cells"
+         ],
+         "a": 1,
+         "oa": [
+          "الركاب",
+          "طبلة الأذن",
+          "العصب السمعي",
+          "الخلايا الشعرية"
+         ]
+        },
+        {
+         "q": "The ossicles are the:",
+         "qa": "العظيمات (ossicles) هي:",
+         "o": [
+          "chain of tiny bones in the middle ear",
+          "hair cells of the cochlea",
+          "nerves of the inner ear",
+          "folds of the pinna"
+         ],
+         "a": 0,
+         "oa": [
+          "سلسلة العظيمات الصغيرة في الأذن الوسطى",
+          "الخلايا الشعرية في القوقعة",
+          "أعصاب الأذن الداخلية",
+          "ثنايا الصيوان"
+         ]
+        },
+        {
+         "q": "Which of the following is NOT one of the ossicles?",
+         "qa": "أي مما يلي ليس من العظيمات؟",
+         "o": [
+          "Malleus",
+          "Incus",
+          "Stapes",
+          "Cochlea"
+         ],
+         "a": 3,
+         "oa": [
+          "المطرقة",
+          "السندان",
+          "الركاب",
+          "القوقعة"
+         ]
+        },
+        {
+         "q": "The ossicles transfer the sound vibrations into the ______.",
+         "qa": "تنقل العظيمات الاهتزازات الصوتية إلى ______.",
+         "o": [
+          "pinna",
+          "cochlea of the inner ear",
+          "ear canal",
+          "pharynx"
+         ],
+         "a": 1,
+         "oa": [
+          "صيوان الأذن",
+          "قوقعة الأذن الداخلية",
+          "قناة الأذن",
+          "البلعوم"
+         ]
+        },
+        {
+         "q": "When the stapes vibrates, it makes the fluids in the cochlea move in a:",
+         "qa": "عندما يهتز الركاب فإنه يجعل السوائل في القوقعة تتحرك بشكل:",
+         "o": [
+          "wave-like manner",
+          "random manner only",
+          "circular manner only",
+          "it stops the fluids"
+         ],
+         "a": 0,
+         "oa": [
+          "موجي",
+          "عشوائي فقط",
+          "دائري فقط",
+          "يوقف السوائل"
+         ]
+        },
+        {
+         "q": "The movement of the fluids in the cochlea stimulates the ______.",
+         "qa": "حركة السوائل في القوقعة تحفّز ______.",
+         "o": [
+          "eardrum",
+          "hair cells",
+          "pinna",
+          "Eustachian tube"
+         ],
+         "a": 1,
+         "oa": [
+          "طبلة الأذن",
+          "الخلايا الشعرية",
+          "صيوان الأذن",
+          "قناة أوستاكيوس"
+         ]
+        },
+        {
+         "q": "The hair cells in the cochlea are tuned to respond to different sounds based on their ______.",
+         "qa": "تُضبط الخلايا الشعرية في القوقعة لتستجيب لأصوات مختلفة بناءً على ______.",
+         "o": [
+          "pitch or frequency",
+          "color",
+          "temperature",
+          "weight"
+         ],
+         "a": 0,
+         "oa": [
+          "درجة الصوت أو التردد",
+          "اللون",
+          "درجة الحرارة",
+          "الوزن"
+         ]
+        },
+        {
+         "q": "Hair cells located at the base of the cochlea are responsible for:",
+         "qa": "الخلايا الشعرية الموجودة عند قاعدة القوقعة مسؤولة عن:",
+         "o": [
+          "low frequencies",
+          "high frequencies",
+          "no frequencies",
+          "all the frequencies equally"
+         ],
+         "a": 1,
+         "oa": [
+          "الترددات المنخفضة",
+          "الترددات العالية",
+          "لا ترددات",
+          "كل الترددات بالتساوي"
+         ]
+        },
+        {
+         "q": "Hair cells located at the apex of the cochlea are responsible for ______.",
+         "qa": "الخلايا الشعرية الموجودة عند قمة القوقعة مسؤولة عن ______.",
+         "o": [
+          "high frequencies",
+          "low frequencies",
+          "the pressure only",
+          "the reflection of sound"
+         ],
+         "a": 1,
+         "oa": [
+          "الترددات العالية",
+          "الترددات المنخفضة",
+          "الضغط فقط",
+          "انعكاس الصوت"
+         ]
+        },
+        {
+         "q": "When a hair cell detects the pitch or frequency, it generates:",
+         "qa": "عندما تكشف الخلية الشعرية درجة الصوت أو التردد فإنها تولّد:",
+         "o": [
+          "nerve impulses",
+          "heat",
+          "light",
+          "sound waves"
+         ],
+         "a": 0,
+         "oa": [
+          "نبضات عصبية",
+          "حرارة",
+          "ضوءًا",
+          "موجات صوتية"
+         ]
+        },
+        {
+         "q": "The nerve impulses from the hair cells travel along the ______.",
+         "qa": "تنتقل النبضات العصبية من الخلايا الشعرية عبر ______.",
+         "o": [
+          "auditory nerve",
+          "Eustachian tube",
+          "ear canal",
+          "ossicles"
+         ],
+         "a": 0,
+         "oa": [
+          "العصب السمعي",
+          "قناة أوستاكيوس",
+          "قناة الأذن",
+          "العظيمات"
+         ]
+        },
+        {
+         "q": "Which part of the brain interprets the nerve impulses as sound?",
+         "qa": "أي جزء من الدماغ يفسّر النبضات العصبية على أنها صوت؟",
+         "o": [
+          "Auditory cortex",
+          "Cochlea",
+          "Eardrum",
+          "Pinna"
+         ],
+         "a": 0,
+         "oa": [
+          "القشرة السمعية",
+          "القوقعة",
+          "طبلة الأذن",
+          "صيوان الأذن"
+         ]
+        }
+       ]
+      }
+     ],
+     "id": "hmw2m2vnqyke"
+    }
+   ]
   },
   {
    "id": "s5",

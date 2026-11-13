@@ -4305,7 +4305,403 @@
   {
    "id": "s8",
    "title": "الفيزياء الذرية",
-   "handouts": []
+   "handouts": [
+    {
+     "title": "Atomic Structure, Spectral Series & the Bohr Model · التركيب الذري والسلاسل الطيفية ونموذج بور",
+     "sections": [
+      {
+       "id": "hmwez7o0lor3-sa",
+       "type": "def",
+       "title": "Section 1: Short Answer (15)",
+       "ar": "القسم الأول: أسئلة قصيرة (15)",
+       "items": [
+        {
+         "q": "What is spectroscopy?",
+         "qa": "ما هو علم الطيف (السبكترسكوبي)؟",
+         "a": "A branch of physics that deals with the study of the radiation absorbed, reflected, emitted, or scattered by a substance.",
+         "aa": "فرع من فروع الفيزياء يُعنى بدراسة الإشعاع الذي تمتصه مادة ما أو تعكسه أو تبعثه أو تشتّته."
+        },
+        {
+         "q": "Besides photons, which other particles are involved in spectroscopy?",
+         "qa": "ما الجسيمات الأخرى، إضافةً إلى الفوتونات، التي يشملها علم الطيف؟",
+         "a": "Particles such as neutrons and protons, which are used to investigate matter.",
+         "aa": "جسيمات مثل النيوترونات والبروتونات، التي تُستخدم في استقصاء خواص المادة."
+        },
+        {
+         "q": "What atomic model did J.J. Thomson suggest in 1898?",
+         "qa": "ما النموذج الذري الذي اقترحه ج. ج. طومسون عام 1898؟",
+         "a": "Atoms are just positively charged lumps of matter with electrons embedded in them like raisins in a fruitcake.",
+         "aa": "أن الذرات ما هي إلا كتل من المادة موجبة الشحنة، تتغلغل فيها الإلكترونات (مغروسة فيها) كما تنتشر حبّات الزبيب في كعكة الفاكهة."
+        },
+        {
+         "q": "What are alpha particles?",
+         "qa": "ما هي جسيمات ألفا؟",
+         "a": "Helium atoms that have lost two electrons, leaving them with a charge of (+2e).",
+         "aa": "ذرات هيليوم فقدت إلكترونين فأصبحت شحنتها (+2e)."
+        },
+        {
+         "q": "Describe Rutherford's apparatus.",
+         "qa": "صِف جهاز رذرفورد.",
+         "a": "Radium is placed in a cavity at the end of a narrow tunnel in a lead block; the beam of α-particles is directed at a thin gold foil; a zinc sulfide screen on the other side of the foil, with a microscope, is used to see the flashes.",
+         "aa": "يوضع الراديوم في تجويف عند نهاية نفق ضيّق داخل كتلة من الرصاص؛ وتُوجَّه حزمة جسيمات (ألفا) نحو رقاقة رقيقة من الذهب؛ وتوضع على الجانب الآخر من الرقاقة شاشة كبريتيد الخارصين ومعها مجهر لمشاهدة الومضات."
+        },
+        {
+         "q": "According to the Thomson model, what was expected for α-particles hitting the gold foil, and what was actually found?",
+         "qa": "وفقًا لنموذج طومسون، ماذا كان متوقعًا لجسيمات ألفا التي تصطدم برقاقة الذهب، وماذا وُجد فعلًا؟",
+         "a": "It was expected that they would go right through the foil. Most were not deviated by much, but a few were scattered through very large angles, and some were even scattered in the backward direction.",
+         "aa": "كان من المتوقع أن تنفذ من الرقاقة مباشرةً. لكن معظمها لم ينحرف كثيرًا، بينما تشتّت عدد قليل منها بزوايا كبيرة جدًا، وتشتّت بعضها حتى في الاتجاه الخلفي."
+        },
+        {
+         "q": "What did Rutherford assume about the structure of the atom?",
+         "qa": "ماذا افترض رذرفورد عن تركيب الذرة؟",
+         "a": "The positive, massive part of the atom is concentrated in a very small volume at the center (the nucleus), surrounded by a cloud of electrons, which makes the entire atom electrically neutral.",
+         "aa": "أن الجزء الموجب الضخم الكتلة من الذرة مركّز في حجم صغير جدًا في مركزها (النواة)، تحيط به سحابة من الإلكترونات تجعل الذرة بأكملها متعادلة كهربائيًا."
+        },
+        {
+         "q": "Who discovered the first spectral series, and when?",
+         "qa": "من اكتشف أول سلسلة طيفية، ومتى؟",
+         "a": "J.J. Balmer discovered it in 1885, in the hydrogen spectrum (the Balmer series).",
+         "aa": "اكتشفها ج. ج. بالمر عام 1885 في طيف الهيدروجين (سلسلة بالمر)."
+        },
+        {
+         "q": "How do the lines of the Balmer series behave as the wavelength decreases?",
+         "qa": "كيف تتصرف خطوط سلسلة بالمر مع تناقص الطول الموجي؟",
+         "a": "The lines are found closer together and weaker in intensity until there are no further separate lines, just a continuous spectrum.",
+         "aa": "تصبح الخطوط أكثر تقاربًا وأضعف شدّةً إلى أن لا توجد خطوط منفصلة أخرى، بل طيف مستمر فقط."
+        },
+        {
+         "q": "What are the radii of the first three permitted electron orbits in hydrogen (in Å)?",
+         "qa": "ما أنصاف أقطار المدارات الإلكترونية الثلاثة الأولى المسموح بها في الهيدروجين (بوحدة Å)؟",
+         "a": "rn = (0.529) n² Å, so r1 = 0.529 Å, r2 = 2.11 Å, r3 = 4.76 Å.",
+         "aa": "rn = (0.529) n² Å، وعليه r1 = 0.529 Å و r2 = 2.11 Å و r3 = 4.76 Å."
+        },
+        {
+         "q": "In which regions of the spectrum do the Balmer, Lyman, and the other hydrogen series fall?",
+         "qa": "في أي مناطق من الطيف تقع سلسلة بالمر وسلسلة ليمان وبقية سلاسل الهيدروجين؟",
+         "a": "Balmer: the visible region. Lyman: the ultraviolet region. Paschen, Brackett and Pfund: the infrared region (three series).",
+         "aa": "بالمر: المنطقة المرئية. ليمان: المنطقة فوق البنفسجية. باشن وبراكيت وبفوند: المنطقة تحت الحمراء (ثلاث سلاسل)."
+        },
+        {
+         "q": "In Bohr's model, what provides the centripetal force on the orbiting electron? Write the relation.",
+         "qa": "في نموذج بور، ما الذي يوفّر القوة المركزية المؤثرة في الإلكترون الدائر؟ اكتب العلاقة.",
+         "a": "The electrostatic force of attraction of the nuclear charge: Fe = Fc, i.e. (1/4πε0)(Ze·e/r²) = mev²/r.",
+         "aa": "قوة الجذب الكهروستاتيكية الناشئة عن شحنة النواة: Fe = Fc، أي (1/4πε0)(Ze·e/r²) = mev²/r."
+        },
+        {
+         "q": "State Bohr's first postulate.",
+         "qa": "اذكر فرضية بور الأولى.",
+         "a": "Only those orbits occur for which the angular momentum of the planetary electron is an integral multiple of (h/2π): mevr = n h/2π = nħ, where n is any integer and h is Planck's constant.",
+         "aa": "لا تتحقق إلا المدارات التي يكون فيها الزخم الزاوي للإلكترون الكوكبي مضاعفًا صحيحًا للمقدار (h/2π): mevr = n h/2π = nħ، حيث n عدد صحيح و h ثابت بلانك."
+        },
+        {
+         "q": "State Bohr's second postulate.",
+         "qa": "اذكر فرضية بور الثانية.",
+         "a": "No electron radiates energy as long as it remains in one of the orbital energy states; radiation occurs only when an electron goes from a higher energy state to a lower one, and the energy of the quantum of radiation, hν, equals the energy difference of the states.",
+         "aa": "لا يُشعّ أي إلكترون طاقةً ما دام باقيًا في إحدى حالات الطاقة المدارية؛ ولا يحدث الإشعاع إلا عندما ينتقل الإلكترون من حالة طاقة أعلى إلى حالة أدنى، وتكون طاقة كمّ الإشعاع hν مساويةً لفرق الطاقة بين الحالتين."
+        },
+        {
+         "q": "What is the binding energy, and what is its value for n = 1 in the hydrogen atom?",
+         "qa": "ما هي طاقة الربط، وما قيمتها عند n = 1 في ذرة الهيدروجين؟",
+         "a": "The energy required to remove an electron from a particular state to infinity; it is numerically equal to En. For n = 1 it is 13.6 eV (21.76×10⁻¹⁹ J).",
+         "aa": "الطاقة اللازمة لنزع إلكترون من حالة معيّنة إلى ما لا نهاية، وهي تساوي عدديًا En. وعند n = 1 تساوي 13.6 eV (21.76×10⁻¹⁹ J)."
+        }
+       ]
+      },
+      {
+       "id": "hmwez7o0lor3-tf",
+       "type": "tf",
+       "title": "Section 2: True / False (25)",
+       "ar": "القسم الثاني: صح أو خطأ (25)",
+       "items": [
+        {
+         "q": "Strictly speaking, the term radiation only deals with photons (electromagnetic radiation).",
+         "qa": "بالمعنى الدقيق، يقتصر مصطلح «الإشعاع» على الفوتونات (الإشعاع الكهرومغناطيسي).",
+         "a": true
+        },
+        {
+         "q": "Spectroscopy deals only with photons and never involves other types of particles.",
+         "qa": "يتعامل علم الطيف مع الفوتونات فقط ولا يشمل أنواعًا أخرى من الجسيمات.",
+         "a": false,
+         "e": "It also involves other particles, such as neutrons and protons.",
+         "ea": "بل يشمل أيضًا أنواعًا أخرى من الجسيمات، مثل النيوترونات والبروتونات."
+        },
+        {
+         "q": "In 1898 J.J. Thomson suggested that atoms are positively charged lumps of matter with electrons embedded in them.",
+         "qa": "اقترح ج. ج. طومسون عام 1898 أن الذرات كتل من المادة موجبة الشحنة مغروسة فيها الإلكترونات.",
+         "a": true
+        },
+        {
+         "q": "Alpha particles are helium atoms that have lost two electrons, leaving a charge of (+2e).",
+         "qa": "جسيمات ألفا هي ذرات هيليوم فقدت إلكترونين فأصبحت شحنتها (+2e).",
+         "a": true
+        },
+        {
+         "q": "In a vacuum, alpha particles lose their energy quickly and travel only a short distance.",
+         "qa": "في الفراغ تفقد جسيمات ألفا طاقتها بسرعة وتقطع مسافة قصيرة فقط.",
+         "a": false,
+         "e": "In a vacuum they travel long distances without losing energy.",
+         "ea": "ففي الفراغ تقطع مسافات طويلة دون أن تفقد طاقتها."
+        },
+        {
+         "q": "In air, alpha particles can travel a few centimeters before they are stopped.",
+         "qa": "تستطيع جسيمات ألفا أن تقطع في الهواء بضعة سنتيمترات قبل أن تتوقف.",
+         "a": true
+        },
+        {
+         "q": "In Rutherford's apparatus, the radium was placed in a cavity in a block of gold.",
+         "qa": "في جهاز رذرفورد وُضع الراديوم في تجويف داخل كتلة من الذهب.",
+         "a": false,
+         "e": "It was placed in a cavity in a lead block; gold was used as the thin foil.",
+         "ea": "وُضع في تجويف داخل كتلة من الرصاص؛ أما الذهب فاستُخدم رقاقةً رقيقة."
+        },
+        {
+         "q": "A zinc sulfide screen gives off a visible flash of light when struck by α-particles.",
+         "qa": "تُصدر شاشة كبريتيد الخارصين ومضة ضوئية مرئية عندما تصطدم بها جسيمات (ألفا).",
+         "a": true
+        },
+        {
+         "q": "According to the Thomson model, the α-particles were expected to go right through the foil.",
+         "qa": "وفقًا لنموذج طومسون، كان من المتوقع أن تنفذ جسيمات (ألفا) من الرقاقة مباشرةً.",
+         "a": true
+        },
+        {
+         "q": "All the α-particles were scattered through very large angles.",
+         "qa": "تشتّتت جميع جسيمات (ألفا) بزوايا كبيرة جدًا.",
+         "a": false,
+         "e": "Most were not deviated by much; only a few were scattered through very large angles.",
+         "ea": "معظمها لم ينحرف كثيرًا؛ وتشتّت عدد قليل فقط بزوايا كبيرة جدًا."
+        },
+        {
+         "q": "Some of the α-particles were even scattered in the backward direction.",
+         "qa": "تشتّت بعض جسيمات (ألفا) حتى في الاتجاه الخلفي.",
+         "a": true
+        },
+        {
+         "q": "Rutherford assumed that the positive, massive part of the atom is concentrated in a very small volume at its center.",
+         "qa": "افترض رذرفورد أن الجزء الموجب الضخم الكتلة من الذرة مركّز في حجم صغير جدًا في مركزها.",
+         "a": true
+        },
+        {
+         "q": "The first spectral series was discovered by Balmer in 1885 in the hydrogen spectrum.",
+         "qa": "اكتُشفت أول سلسلة طيفية على يد بالمر عام 1885 في طيف الهيدروجين.",
+         "a": true
+        },
+        {
+         "q": "The Hα line is the line with the shortest wavelength (4863 Å) in the Balmer series.",
+         "qa": "الخط Hα هو الخط ذو أقصر طول موجي (4863 Å) في سلسلة بالمر.",
+         "a": false,
+         "e": "Hα has the longest wavelength, 6563 Å; 4863 Å is the Hβ line.",
+         "ea": "الخط Hα له أطول طول موجي وهو 6563 Å؛ أما 4863 Å فهو الخط Hβ."
+        },
+        {
+         "q": "As the wavelength decreases, the Balmer lines are found closer together and weaker in intensity.",
+         "qa": "مع تناقص الطول الموجي تصبح خطوط بالمر أكثر تقاربًا وأضعف شدّةً.",
+         "a": true
+        },
+        {
+         "q": "The Balmer series is confined to the ultraviolet region of the hydrogen spectrum.",
+         "qa": "تنحصر سلسلة بالمر في المنطقة فوق البنفسجية من طيف الهيدروجين.",
+         "a": false,
+         "e": "It is confined to the visible region; the Lyman series is the one in the ultraviolet.",
+         "ea": "تنحصر في المنطقة المرئية؛ أما سلسلة ليمان فهي التي تقع في المنطقة فوق البنفسجية."
+        },
+        {
+         "q": "The Lyman series falls in the ultraviolet region.",
+         "qa": "تقع سلسلة ليمان في المنطقة فوق البنفسجية.",
+         "a": true
+        },
+        {
+         "q": "The Hβ line corresponds to n = 3.",
+         "qa": "يقابل الخط Hβ القيمة n = 3.",
+         "a": false,
+         "e": "Hβ corresponds to n = 4; Hα corresponds to n = 3.",
+         "ea": "يقابل Hβ القيمة n = 4؛ أما Hα فيقابل n = 3."
+        },
+        {
+         "q": "In Bohr's model, the centripetal force on the orbiting electron is the electrostatic force of attraction of the nuclear charge.",
+         "qa": "في نموذج بور، القوة المركزية المؤثرة في الإلكترون الدائر هي قوة الجذب الكهروستاتيكية الناشئة عن شحنة النواة.",
+         "a": true
+        },
+        {
+         "q": "Bohr's first postulate states that the angular momentum of the electron is an integral multiple of h/2π.",
+         "qa": "تنص فرضية بور الأولى على أن الزخم الزاوي للإلكترون مضاعف صحيح للمقدار h/2π.",
+         "a": true
+        },
+        {
+         "q": "The radius of the first Bohr orbit of hydrogen is 2.116 Å.",
+         "qa": "نصف قطر مدار بور الأول في الهيدروجين يساوي 2.116 Å.",
+         "a": false,
+         "e": "It is 0.529 Å; 2.116 Å is the radius of the second orbit.",
+         "ea": "يساوي 0.529 Å؛ أما 2.116 Å فهو نصف قطر المدار الثاني."
+        },
+        {
+         "q": "The total energy of the electron in the H-atom is the sum of its kinetic and potential energies.",
+         "qa": "الطاقة الكلية للإلكترون في ذرة الهيدروجين هي مجموع طاقتيه الحركية والكامنة.",
+         "a": true
+        },
+        {
+         "q": "The minus sign in the potential energy follows from the choice of Ep = 0 at r = ∞.",
+         "qa": "تنتج الإشارة السالبة في طاقة الوضع عن اختيار Ep = 0 عند r = ∞.",
+         "a": true
+        },
+        {
+         "q": "According to Bohr, an electron continuously radiates energy while it remains in one of the orbital energy states.",
+         "qa": "وفقًا لبور، يُشعّ الإلكترون طاقةً باستمرار ما دام في إحدى حالات الطاقة المدارية.",
+         "a": false,
+         "e": "No electron radiates energy as long as it remains in one of the orbital energy states; radiation occurs only when it goes from a higher state to a lower one.",
+         "ea": "لا يُشعّ أي إلكترون طاقةً ما دام باقيًا في إحدى حالات الطاقة المدارية؛ ولا يحدث الإشعاع إلا عند انتقاله من حالة أعلى إلى حالة أدنى."
+        },
+        {
+         "q": "The constant factor of the Bohr formula is the Rydberg constant.",
+         "qa": "العامل الثابت في صيغة بور هو ثابت ريدبرغ.",
+         "a": true
+        }
+       ]
+      },
+      {
+       "id": "hmwez7o0lor3-fb",
+       "type": "def",
+       "title": "Section 3: Fill in the Blanks (22)",
+       "ar": "القسم الثالث: أكمل الفراغات (22)",
+       "items": [
+        {
+         "q": "Spectroscopy is a branch of ________ that studies the radiation absorbed, reflected, emitted, or scattered by a substance.",
+         "qa": "علم الطيف فرع من فروع ________ يُعنى بدراسة الإشعاع الذي تمتصه مادة ما أو تعكسه أو تبعثه أو تشتّته.",
+         "a": "physics",
+         "aa": "الفيزياء"
+        },
+        {
+         "q": "In 1898, the British physicist ________ suggested the raisins-in-fruitcake model of the atom.",
+         "qa": "في عام 1898 اقترح الفيزيائي البريطاني ________ نموذج الزبيب في كعكة الفاكهة للذرة.",
+         "a": "J.J. Thomson",
+         "aa": "ج. ج. طومسون"
+        },
+        {
+         "q": "Geiger and Marsden used ________ particles emitted by certain radioactive elements.",
+         "qa": "استخدم غايغر ومارسدن جسيمات ________ المنبعثة من بعض العناصر المشعّة.",
+         "a": "alpha (α)",
+         "aa": "ألفا (α)"
+        },
+        {
+         "q": "An alpha particle has a charge of ________.",
+         "qa": "شحنة جسيم ألفا تساوي ________.",
+         "a": "(+2e)",
+         "aa": "(+2e)"
+        },
+        {
+         "q": "In Rutherford's apparatus, the radium was placed in a cavity in a block of ________.",
+         "qa": "في جهاز رذرفورد وُضع الراديوم في تجويف داخل كتلة من ________.",
+         "a": "lead",
+         "aa": "الرصاص"
+        },
+        {
+         "q": "The α-particle beam was directed at a thin ________ foil.",
+         "qa": "وُجِّهت حزمة جسيمات (ألفا) نحو رقاقة رقيقة من ________.",
+         "a": "gold",
+         "aa": "الذهب"
+        },
+        {
+         "q": "A ________ screen gives off a visible flash of light when struck by α-particles.",
+         "qa": "تُصدر شاشة ________ ومضة ضوئية مرئية عندما تصطدم بها جسيمات (ألفا).",
+         "a": "zinc sulfide",
+         "aa": "كبريتيد الخارصين"
+        },
+        {
+         "q": "The positive, massive part at the center of the atom is now called the ________.",
+         "qa": "يُسمّى الجزء الموجب الضخم الكتلة في مركز الذرة الآن ________.",
+         "a": "nucleus",
+         "aa": "النواة"
+        },
+        {
+         "q": "The nucleus is surrounded by a cloud of ________, which makes the entire atom electrically neutral.",
+         "qa": "تحيط بالنواة سحابة من ________ تجعل الذرة بأكملها متعادلة كهربائيًا.",
+         "a": "electrons",
+         "aa": "الإلكترونات"
+        },
+        {
+         "q": "The first spectral series was discovered by Balmer in the year ________.",
+         "qa": "اكتُشفت أول سلسلة طيفية على يد بالمر في عام ________.",
+         "a": "1885",
+         "aa": "1885"
+        },
+        {
+         "q": "The line with the longest wavelength, 6563 Å, in the Balmer series is designated ________.",
+         "qa": "يُرمز للخط ذي أطول طول موجي، 6563 Å، في سلسلة بالمر بالرمز ________.",
+         "a": "Hα",
+         "aa": "Hα"
+        },
+        {
+         "q": "The Hα line corresponds to n = 3, and the Hβ line corresponds to n = ________.",
+         "qa": "يقابل الخط Hα القيمة n = 3، ويقابل الخط Hβ القيمة n = ________.",
+         "a": "4",
+         "aa": "4"
+        },
+        {
+         "q": "The Rydberg constant has the value R = ________ m⁻¹.",
+         "qa": "ثابت ريدبرغ له القيمة R = ________ m⁻¹.",
+         "a": "1.097×10⁷",
+         "aa": "1.097×10⁷"
+        },
+        {
+         "q": "The Balmer series is confined to the ________ region of the hydrogen spectrum.",
+         "qa": "تنحصر سلسلة بالمر في المنطقة ________ من طيف الهيدروجين.",
+         "a": "visible",
+         "aa": "المرئية"
+        },
+        {
+         "q": "The Lyman series falls in the ________ region.",
+         "qa": "تقع سلسلة ليمان في المنطقة ________.",
+         "a": "ultraviolet",
+         "aa": "فوق البنفسجية"
+        },
+        {
+         "q": "In the infrared region, ________ spectral series have been found.",
+         "qa": "في المنطقة تحت الحمراء عُثر على ________ سلاسل طيفية.",
+         "a": "three (Paschen, Brackett, Pfund)",
+         "aa": "ثلاث (باشن، براكيت، بفوند)"
+        },
+        {
+         "q": "In Bohr's model, the electron moves in a circular orbit of radius (r) around a massive nucleus of positive charge ________.",
+         "qa": "في نموذج بور يدور الإلكترون في مدار دائري نصف قطره (r) حول نواة ضخمة الكتلة شحنتها الموجبة ________.",
+         "a": "Ze",
+         "aa": "Ze"
+        },
+        {
+         "q": "The symbol (ħ) is called ________.",
+         "qa": "يُسمّى الرمز (ħ) ________.",
+         "a": "h-bar",
+         "aa": "ثابت بلانك المختزل (h-bar)"
+        },
+        {
+         "q": "The integer (n) is called the total or ________ quantum number.",
+         "qa": "يُسمّى العدد الصحيح (n) العدد الكمّي الكلّي أو ________.",
+         "a": "principal (principle)",
+         "aa": "الرئيسي"
+        },
+        {
+         "q": "The radius of the first Bohr orbit in hydrogen is ________ Å.",
+         "qa": "نصف قطر مدار بور الأول في الهيدروجين يساوي ________ Å.",
+         "a": "0.529",
+         "aa": "0.529"
+        },
+        {
+         "q": "The binding energy of the electron in the hydrogen atom at n = 1 is ________ eV.",
+         "qa": "طاقة الربط للإلكترون في ذرة الهيدروجين عند n = 1 تساوي ________ eV.",
+         "a": "13.6",
+         "aa": "13.6"
+        },
+        {
+         "q": "The electrostatic force between the proton and the electron at the first Bohr radius is Fe = ________ N.",
+         "qa": "القوة الكهروستاتيكية بين البروتون والإلكترون عند نصف قطر مدار بور الأول تساوي Fe = ________ N.",
+         "a": "8.23×10⁻⁸",
+         "aa": "8.23×10⁻⁸"
+        }
+       ]
+      }
+     ],
+     "id": "hmwez7o0lor3"
+    }
+   ]
   },
   {
    "id": "s9",

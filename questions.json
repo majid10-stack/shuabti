@@ -4700,6 +4700,406 @@
       }
      ],
      "id": "hmwez7o0lor3"
+    },
+    {
+     "title": "Chapter One (Special Relativity) · الفصل الأول (النسبية الخاصة)",
+     "sections": [
+      {
+       "id": "hmwez8npkwln-sa",
+       "type": "def",
+       "title": "Section 1: Short Answer (15)",
+       "ar": "القسم الأول: أسئلة قصيرة (15)",
+       "items": [
+        {
+         "q": "In the light clock, what travels between the two mirrors, and at what speed?",
+         "qa": "في الساعة الضوئية، ما الذي ينتقل بين المرآتين وبأي سرعة؟",
+         "a": "A light pulse travels from the lower mirror to the upper mirror and returns to the lower mirror, at the speed of light c.",
+         "aa": "تنتقل نبضة ضوئية من المرآة السفلية إلى المرآة العلوية ثم تعود إلى السفلية، بسرعة الضوء c."
+        },
+        {
+         "q": "Why does the earth observer see the light pulse follow a zigzag path?",
+         "qa": "لماذا يرى المراقب على الأرض نبضة الضوء تسري في مسار متعرّج؟",
+         "a": "Because the spaceship carrying the clock is moving, so the pulse has a horizontal displacement (vt/2) in addition to the vertical one while going between the mirrors.",
+         "aa": "لأن المركبة الفضائية التي تحمل الساعة تتحرك، فيكون للنبضة إزاحة أفقية (vt/2) إضافةً إلى الإزاحة العمودية أثناء انتقالها بين المرآتين."
+        },
+        {
+         "q": "What is the expression of t0 in terms of L0 and c?",
+         "qa": "ما تعبير الزمن t0 بدلالة L0 و c؟",
+         "a": "t0 = 2L0/c, the time the pulse needs to go up and come back, measured in the clock's own frame (e.g. 2 m / 3×10⁸ m/s = 0.67×10⁻⁸ s for a 1 m stick).",
+         "aa": "t0 = 2L0/c، وهو الزمن الذي تحتاجه النبضة للصعود والعودة مقيسًا في إطار الساعة نفسها (مثلًا 2 م / 3×10⁸ م/ث = 0.67×10⁻⁸ ث لعصا طولها متر)."
+        },
+        {
+         "q": "Write the time-dilation relation and explain its symbols.",
+         "qa": "اكتب علاقة تمدد الزمن واشرح رموزها.",
+         "a": "t = t0/√(1 − v²/c²); t0 is the time in the clock's rest frame, t is the time measured by the earth observer, v is the speed of the spaceship and c is the speed of light.",
+         "aa": "t = t0/√(1 − v²/c²)؛ حيث t0 الزمن في إطار سكون الساعة، و t الزمن الذي يقيسه المراقب على الأرض، و v سرعة المركبة، و c سرعة الضوء."
+        },
+        {
+         "q": "State the first hypothesis of special relativity.",
+         "qa": "اذكر الفرضية الأولى للنسبية الخاصة.",
+         "a": "The laws of physics can be written with the same form in all reference frames moving with constant velocity relative to one another; there is no special universal (characteristic) reference frame.",
+         "aa": "يمكن كتابة قوانين الفيزياء بالصيغة نفسها في جميع الأطر المرجعية التي تتحرك بسرعة ثابتة بعضها بالنسبة إلى بعض، ولا يوجد إطار مرجعي كوني مميِّز."
+        },
+        {
+         "q": "State the second hypothesis of special relativity.",
+         "qa": "اذكر الفرضية الثانية للنسبية الخاصة.",
+         "a": "The speed of light in space has the same value in all reference frames, regardless of their relative velocity.",
+         "aa": "سرعة الضوء في الفضاء لها القيمة نفسها في جميع الأطر المرجعية بصرف النظر عن السرعة النسبية."
+        },
+        {
+         "q": "Write the length-contraction relation.",
+         "qa": "اكتب علاقة انكماش الطول.",
+         "a": "L = L0√(1 − v²/c²), equivalently L0 = L/√(1 − v²/c²); L0 is the length in the rest frame and L is the length measured by the observer.",
+         "aa": "L = L0√(1 − v²/c²)، أي L0 = L/√(1 − v²/c²)؛ حيث L0 الطول في إطار السكون و L الطول كما يقيسه المراقب."
+        },
+        {
+         "q": "In the length-contraction derivation, what is the total time t and how does it lead to the result?",
+         "qa": "في اشتقاق انكماش الطول، ما الزمن الكلي t وكيف يقودنا إلى النتيجة؟",
+         "a": "t = L/(c + v) + L/(c − v) = 2Lc/(c² − v²) = (2L/c)/(1 − v²/c²); equating it with the time-dilation result gives L = L0√(1 − v²/c²).",
+         "aa": "t = L/(c + v) + L/(c − v) = 2Lc/(c² − v²) = (2L/c)/(1 − v²/c²)؛ وبمساواته بنتيجة تمدد الزمن نحصل على L = L0√(1 − v²/c²)."
+        },
+        {
+         "q": "In the relativity-of-mass experiment, what are the frames S and S′ and how do they move?",
+         "qa": "في تجربة نسبية الكتلة، ما الإطاران S و S′ وكيف يتحركان؟",
+         "a": "They are two reference frames; S′ moves relative to S with velocity V along the +x direction. Ball A is at rest in S and ball B is at rest in S′, and the two balls collide elastically.",
+         "aa": "هما إطاران مرجعيان؛ يتحرك S′ بالنسبة إلى S بسرعة V باتجاه +x. الكرة A ساكنة في S والكرة B ساكنة في S′، وتتصادم الكرتان تصادمًا مرنًا."
+        },
+        {
+         "q": "Which conservation law relates the masses and velocities of balls A and B, and what is the final result?",
+         "qa": "أي قانون حفظ يربط بين كتلتي الكرتين A و B وسرعتيهما، وما النتيجة النهائية؟",
+         "a": "Conservation of momentum, mAVA = mBVB, which leads to m = m0/√(1 − v²/c²).",
+         "aa": "قانون حفظ كمية الحركة، mAVA = mBVB، ويقود إلى m = m0/√(1 − v²/c²)."
+        },
+        {
+         "q": "Why does a meson with a half-life of 2×10⁻⁶ s reach the earth's surface?",
+         "qa": "لماذا يصل مزيون نصف عمره 2×10⁻⁶ ث إلى سطح الأرض؟",
+         "a": "Without relativity it would travel only about 600 m (y = vt0). Because of time dilation its half-life is longer for the earth observer (equivalently, the distance is contracted in the meson's frame), so it can cover a much larger distance.",
+         "aa": "بدون النسبية لا يقطع إلا نحو 600 م (y = vt0). لكن بسبب تمدد الزمن يطول نصف عمره بالنسبة للمراقب على الأرض (أو بالمثل تنكمش المسافة في إطار المزيون)، فيقطع مسافة أكبر بكثير."
+        },
+        {
+         "q": "Write the relativistic kinetic energy and the relation between total, rest and kinetic energy.",
+         "qa": "اكتب طاقة الحركة النسبية والعلاقة بين الطاقة الكلية وطاقة السكون وطاقة الحركة.",
+         "a": "T = mc² − m0c²; with E = mc² and E0 = m0c², we get E = E0 + T.",
+         "aa": "T = mc² − m0c²؛ وبما أن E = mc² و E0 = m0c² فإن E = E0 + T."
+        },
+        {
+         "q": "What is meant by rest energy?",
+         "qa": "ماذا يُقصد بطاقة السكون؟",
+         "a": "The energy of a particle at rest (T = 0), E0 = m0c², where m0 is its rest mass.",
+         "aa": "هي طاقة الجسيم وهو ساكن (T = 0)، أي E0 = m0c²، حيث m0 كتلة السكون."
+        },
+        {
+         "q": "What does the kinetic energy become when v is much smaller than c, and which approximation proves it?",
+         "qa": "إلى ماذا تؤول طاقة الحركة عندما تكون v أقل بكثير من c، وما التقريب المستخدم لإثبات ذلك؟",
+         "a": "It becomes ½mv²; it is proved with the binomial approximation (1 ± x)ⁿ ≈ 1 ± nx for x < 1.",
+         "aa": "تصبح ½mv²؛ ويُثبت ذلك بتقريب ذات الحدين (1 ± x)ⁿ ≈ 1 ± nx عندما x < 1."
+        },
+        {
+         "q": "What is the relation between energy and mass, and between the conservation of energy and the conservation of matter?",
+         "qa": "ما العلاقة بين الطاقة والكتلة، وبين قانوني حفظ الطاقة وحفظ المادة؟",
+         "a": "Energy and mass are two quantities depending on each other (1 kg ↔ 9×10¹⁶ J); the two conservation laws are really one law, since mass can be created or destroyed only if an equivalent amount of energy is created or destroyed at the same time.",
+         "aa": "الطاقة والكتلة كميتان تعتمد إحداهما على الأخرى (1 كغم ↔ 9×10¹⁶ جول)؛ وقانونا حفظ الطاقة وحفظ المادة هما في الحقيقة قانون واحد، إذ لا تُخلق الكتلة أو تفنى إلا بخلق أو فناء مقدار مكافئ من الطاقة في الوقت نفسه."
+        }
+       ]
+      },
+      {
+       "id": "hmwez8npkwln-tf",
+       "type": "tf",
+       "title": "Section 2: True / False (26)",
+       "ar": "القسم الثاني: صح أو خطأ (26)",
+       "items": [
+        {
+         "q": "The speed of light has the same value in all reference frames.",
+         "qa": "سرعة الضوء لها القيمة نفسها في جميع الأطر المرجعية.",
+         "a": true
+        },
+        {
+         "q": "The earth observer sees the light pulse in the moving clock travel along a straight vertical line.",
+         "qa": "يرى المراقب على الأرض نبضة الضوء في الساعة المتحركة تسري على خط رأسي مستقيم.",
+         "a": false,
+         "e": "He sees a zigzag path.",
+         "ea": "يراها تسري في مسار متعرّج."
+        },
+        {
+         "q": "The time t measured by the earth observer is shorter than t0.",
+         "qa": "الزمن t الذي يقيسه المراقب على الأرض أقصر من t0.",
+         "a": false,
+         "e": "t is longer than t0, since t = t0/√(1 − v²/c²).",
+         "ea": "t أطول من t0، لأن t = t0/√(1 − v²/c²)."
+        },
+        {
+         "q": "The time-dilation relation is t = t0/√(1 − v²/c²).",
+         "qa": "علاقة تمدد الزمن هي t = t0/√(1 − v²/c²).",
+         "a": true
+        },
+        {
+         "q": "t0 is the time measured in the rest frame of the clock (the spaceship).",
+         "qa": "الزمن t0 هو الزمن المقيس في إطار سكون الساعة (المركبة الفضائية).",
+         "a": true
+        },
+        {
+         "q": "In the light clock, t0 = 2L0/c.",
+         "qa": "في الساعة الضوئية، t0 = 2L0/c.",
+         "a": true
+        },
+        {
+         "q": "The first hypothesis says the laws of physics have the same form in all frames moving with constant velocity relative to one another.",
+         "qa": "تنص الفرضية الأولى على أن قوانين الفيزياء لها الصيغة نفسها في جميع الأطر التي تتحرك بسرعة ثابتة بعضها بالنسبة إلى بعض.",
+         "a": true
+        },
+        {
+         "q": "According to the first hypothesis, there is a special universal reference frame.",
+         "qa": "وفق الفرضية الأولى يوجد إطار مرجعي كوني مميِّز.",
+         "a": false,
+         "e": "There is no characteristic universal reference frame.",
+         "ea": "لا يوجد إطار مرجعي كوني مميِّز."
+        },
+        {
+         "q": "The speed of light depends on the relative velocity between the observer and the source.",
+         "qa": "تعتمد سرعة الضوء على السرعة النسبية بين المراقب والمصدر.",
+         "a": false,
+         "e": "It has the same value regardless of the relative velocity.",
+         "ea": "لها القيمة نفسها بصرف النظر عن السرعة النسبية."
+        },
+        {
+         "q": "Relativistic effects become noticeable when the velocity of the particle is near the velocity of light.",
+         "qa": "تظهر التأثيرات النسبية عندما تقترب سرعة الجسيم من سرعة الضوء.",
+         "a": true
+        },
+        {
+         "q": "The length-contraction relation is L = L0√(1 − v²/c²).",
+         "qa": "علاقة انكماش الطول هي L = L0√(1 − v²/c²).",
+         "a": true
+        },
+        {
+         "q": "The length L measured for a moving body is greater than its rest length L0.",
+         "qa": "الطول L المقيس لجسم متحرك أكبر من طوله في السكون L0.",
+         "a": false,
+         "e": "L is smaller than L0 (contraction).",
+         "ea": "L أصغر من L0 (انكماش)."
+        },
+        {
+         "q": "In the derivation, the total time is t = L/(c + v) + L/(c − v).",
+         "qa": "في الاشتقاق، الزمن الكلي هو t = L/(c + v) + L/(c − v).",
+         "a": true
+        },
+        {
+         "q": "The time expression t = 2Lc/(c² − v²) can be written as (2L/c)/(1 − v²/c²).",
+         "qa": "يمكن كتابة التعبير t = 2Lc/(c² − v²) على الصورة (2L/c)/(1 − v²/c²).",
+         "a": true
+        },
+        {
+         "q": "In the relativity-of-mass experiment, the collision between A and B is elastic.",
+         "qa": "في تجربة نسبية الكتلة يكون التصادم بين A و B مرنًا.",
+         "a": true
+        },
+        {
+         "q": "The frame S′ moves relative to S along the y direction.",
+         "qa": "يتحرك الإطار S′ بالنسبة إلى S باتجاه المحور y.",
+         "a": false,
+         "e": "S′ moves along the +x direction.",
+         "ea": "يتحرك S′ باتجاه المحور +x."
+        },
+        {
+         "q": "The observer in S sees the collision point at y = ½Y.",
+         "qa": "يرى المراقب في الإطار S نقطة التصادم عند y = ½Y.",
+         "a": true
+        },
+        {
+         "q": "The conservation of momentum gives mAVA = mBVB.",
+         "qa": "يعطي قانون حفظ كمية الحركة mAVA = mBVB.",
+         "a": true
+        },
+        {
+         "q": "The travel time of B seen from S equals T0, the same as seen from S′.",
+         "qa": "زمن حركة الكرة B كما يُرى من S يساوي T0 نفسه كما يُرى من S′.",
+         "a": false,
+         "e": "From S it is T = T0/√(1 − v²/c²).",
+         "ea": "من S يكون T = T0/√(1 − v²/c²)."
+        },
+        {
+         "q": "The moving mass is given by m = m0/√(1 − v²/c²), so it is larger than the rest mass.",
+         "qa": "الكتلة المتحركة تساوي m = m0/√(1 − v²/c²)، لذا فهي أكبر من كتلة السكون.",
+         "a": true
+        },
+        {
+         "q": "The half-life of the meson at rest is 2×10⁻⁶ s.",
+         "qa": "نصف عمر المزيون في حالة السكون هو 2×10⁻⁶ ث.",
+         "a": true
+        },
+        {
+         "q": "Without relativistic effects, the meson would travel about 600 m before decaying.",
+         "qa": "بدون التأثيرات النسبية يقطع المزيون نحو 600 م قبل أن يضمحل.",
+         "a": true
+        },
+        {
+         "q": "For the earth observer, the half-life of the moving meson is shorter than its half-life at rest.",
+         "qa": "بالنسبة للمراقب على الأرض، نصف عمر المزيون المتحرك أقصر من نصف عمره في السكون.",
+         "a": false,
+         "e": "It is longer, due to time dilation.",
+         "ea": "أطول بسبب تمدد الزمن."
+        },
+        {
+         "q": "The work needed to move a body from rest is T = ∫F·ds, and F = d(mv)/dt.",
+         "qa": "الشغل اللازم لتحريك جسم من السكون هو T = ∫F·ds، و F = d(mv)/dt.",
+         "a": true
+        },
+        {
+         "q": "The total energy of a particle is E = mc², and E = E0 + T.",
+         "qa": "الطاقة الكلية للجسيم E = mc²، و E = E0 + T.",
+         "a": true
+        },
+        {
+         "q": "Energy and mass are two independent quantities with no relation between them.",
+         "qa": "الطاقة والكتلة كميتان مستقلتان لا علاقة بينهما.",
+         "a": false,
+         "e": "Each depends on the other (E = mc²).",
+         "ea": "كل منهما تعتمد على الأخرى (E = mc²)."
+        }
+       ]
+      },
+      {
+       "id": "hmwez8npkwln-fb",
+       "type": "def",
+       "title": "Section 3: Fill in the Blanks (22)",
+       "ar": "القسم الثالث: أكمل الفراغات (22)",
+       "items": [
+        {
+         "q": "In the light clock, the pulse moves with a speed of ________ between the two mirrors.",
+         "qa": "في الساعة الضوئية تتحرك النبضة بسرعة ________ بين المرآتين.",
+         "a": "c (the speed of light)",
+         "aa": "c (سرعة الضوء)"
+        },
+        {
+         "q": "For a 1 m stick, t0 = 2 m / (3×10⁸ m/s) = ________ s, which is the time of one round trip.",
+         "qa": "لعصا طولها 1 م: t0 = 2 م / (3×10⁸ م/ث) = ________ ث، وهو زمن رحلة واحدة (ذهابًا وإيابًا).",
+         "a": "0.67×10⁻⁸",
+         "aa": "0.67×10⁻⁸"
+        },
+        {
+         "q": "Because the spaceship is moving, the earth observer sees the light pulse along a ________ path.",
+         "qa": "لأن المركبة الفضائية تتحرك، يرى المراقب على الأرض نبضة الضوء في مسار ________.",
+         "a": "zigzag",
+         "aa": "متعرّج (زجزاجي)"
+        },
+        {
+         "q": "In the light triangle, the horizontal distance is ________ while the total distance is ct/2.",
+         "qa": "في مثلث مسار الضوء، المسافة الأفقية هي ________ بينما المسافة الكلية ct/2.",
+         "a": "vt/2",
+         "aa": "vt/2"
+        },
+        {
+         "q": "The relation ________ = t0/√(1 − v²/c²) gives the time measured by the earth observer.",
+         "qa": "العلاقة ________ = t0/√(1 − v²/c²) تعطي الزمن الذي يقيسه المراقب على الأرض.",
+         "a": "t",
+         "aa": "t"
+        },
+        {
+         "q": "The ________ hypothesis says that the laws of physics have the same form in all frames moving with constant velocity.",
+         "qa": "الفرضية ________ تنص على أن قوانين الفيزياء لها الصيغة نفسها في جميع الأطر التي تتحرك بسرعة ثابتة.",
+         "a": "first",
+         "aa": "الأولى"
+        },
+        {
+         "q": "According to the second hypothesis, the speed of light has the same value in all frames regardless of the ________.",
+         "qa": "وفق الفرضية الثانية، لسرعة الضوء القيمة نفسها في جميع الأطر بصرف النظر عن ________.",
+         "a": "relative velocity",
+         "aa": "السرعة النسبية"
+        },
+        {
+         "q": "The relation L = ________ gives the contracted length, where L0 is the rest length.",
+         "qa": "العلاقة L = ________ تعطي الطول المنكمش، حيث L0 طول السكون.",
+         "a": "L0√(1 − v²/c²)",
+         "aa": "L0√(1 − v²/c²)"
+        },
+        {
+         "q": "In the length-contraction derivation, the total time is t = L/(c + v) + ________, as in eq. (4).",
+         "qa": "في اشتقاق انكماش الطول، الزمن الكلي t = L/(c + v) + ________، كما في المعادلة (4).",
+         "a": "L/(c − v)",
+         "aa": "L/(c − v)"
+        },
+        {
+         "q": "________ = 2Lc/(c² − v²) = (2L/c)/(1 − v²/c²) is the time measured by the earth observer.",
+         "qa": "________ = 2Lc/(c² − v²) = (2L/c)/(1 − v²/c²) هو الزمن الذي يقيسه المراقب على الأرض.",
+         "a": "t",
+         "aa": "t"
+        },
+        {
+         "q": "In the mass experiment, the frame S′ moves along the ________ direction relative to S.",
+         "qa": "في تجربة الكتلة يتحرك الإطار S′ باتجاه ________ بالنسبة إلى S.",
+         "a": "+x",
+         "aa": "+x"
+        },
+        {
+         "q": "The observer in S sees the collision point at y = ________ when the distance between the balls is Y.",
+         "qa": "يرى المراقب في S نقطة التصادم عند y = ________ عندما تكون المسافة بين الكرتين Y.",
+         "a": "½Y",
+         "aa": "½Y"
+        },
+        {
+         "q": "The law of conservation of ________ is used to relate the masses and velocities of A and B.",
+         "qa": "يُستخدم قانون حفظ ________ للربط بين كتلتي A و B وسرعتيهما.",
+         "a": "momentum",
+         "aa": "كمية الحركة"
+        },
+        {
+         "q": "________ = m0/√(1 − v²/c²) gives the moving mass in terms of the rest mass m0.",
+         "qa": "________ = m0/√(1 − v²/c²) تعطي الكتلة المتحركة بدلالة كتلة السكون m0.",
+         "a": "m",
+         "aa": "m"
+        },
+        {
+         "q": "The half-life of the meson at rest is t0 = ________ s, which is very short.",
+         "qa": "نصف عمر المزيون في السكون t0 = ________ ث، وهو قصير جدًا.",
+         "a": "2×10⁻⁶",
+         "aa": "2×10⁻⁶"
+        },
+        {
+         "q": "Without relativity, the meson travels y = vt0 ≈ ________ m before it decays.",
+         "qa": "بدون النسبية يقطع المزيون المسافة y = vt0 ≈ ________ م قبل أن يضمحل.",
+         "a": "600",
+         "aa": "600"
+        },
+        {
+         "q": "The relativistic force is F = d/dt(________), where the mass m depends on velocity.",
+         "qa": "القوة النسبية F = d/dt(________)، حيث تعتمد الكتلة m على السرعة.",
+         "a": "mv",
+         "aa": "mv"
+        },
+        {
+         "q": "The relativistic kinetic energy T = ________ − ________ is the difference between the total energy and the rest energy.",
+         "qa": "طاقة الحركة النسبية T = ________ − ________ هي الفرق بين الطاقة الكلية وطاقة السكون.",
+         "a": "mc² − m0c²",
+         "aa": "mc² − m0c²"
+        },
+        {
+         "q": "The energy of a particle at rest, E0 = ________, is called the rest energy.",
+         "qa": "طاقة الجسيم وهو ساكن E0 = ________ تسمى طاقة السكون.",
+         "a": "m0c²",
+         "aa": "m0c²"
+        },
+        {
+         "q": "The total energy is E = E0 + ________, where the second term is the kinetic energy.",
+         "qa": "الطاقة الكلية E = E0 + ________، حيث الحد الثاني هو طاقة الحركة.",
+         "a": "T",
+         "aa": "T"
+        },
+        {
+         "q": "A mass of 1 kg is equivalent to ________ J of energy.",
+         "qa": "كتلة مقدارها 1 كغم تكافئ ________ جول من الطاقة.",
+         "a": "9×10¹⁶",
+         "aa": "9×10¹⁶"
+        },
+        {
+         "q": "For x < 1, the binomial approximation gives (1 ± x)ⁿ ≈ ________ for small x.",
+         "qa": "عندما x < 1 يعطي تقريب ذات الحدين (1 ± x)ⁿ ≈ ________ للقيم الصغيرة لـ x.",
+         "a": "1 ± nx",
+         "aa": "1 ± nx"
+        }
+       ]
+      }
+     ],
+     "id": "hmwez8npkwln"
     }
    ]
   },

@@ -5,6 +5,7 @@
 #chat .tb{display:flex;align-items:center;gap:10px;padding:6px 12px;background:var(--surface);border-bottom:1px solid var(--line);padding-top:max(10px,env(safe-area-inset-top))}
 #chat .back{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:5px 12px;font-size:14px;color:var(--ink)}
 #chat .tb b{font-family:var(--font-display);font-size:16px}
+.mbd{inset-inline-start:auto!important;inset-inline-end:-6px;background:#1d4ed8!important}
 .bdg{position:absolute;top:-6px;inset-inline-start:-6px;min-width:20px;height:20px;border-radius:99px;background:var(--warn);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center;padding:0 5px;font-family:var(--font-body);line-height:1}
 #chatChip{position:relative}
 #chatHost{flex:1;min-height:0;display:block;--mine:#0E5A4E;--mine-ink:#fff;--other:#fff;--bad:#B3261E;--bad-soft:#FBE3E1;--ok:#2E7D4F;--admin:#B97A06;--admin-soft:#F8EBCB;--ar:var(--font-body);font-family:var(--font-body)}
@@ -311,7 +312,7 @@ nav button{font-size:10.5px}
       <div class="actcol"><div class="acts"><button class="chip" id="themeBtn" type="button" aria-label="تبديل الوضع الداكن والفاتح">🌙</button><button class="chip" id="changeG" type="button">تغيير الشعبة</button></div><button class="chip adminchip" id="admBtn" type="button" hidden>✏️ المسؤول</button></div>
     </div>
     <div class="offl" id="offl" role="status" hidden>أنت تتصفح النسخة المحفوظة 📌</div>
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><p class="owner" id="owner"></p><button class="chip" id="chatChip" type="button" style="font-weight:600;color:var(--brand);border-color:var(--brand)">💬 دردشة<span class="bdg" id="chBdg1" hidden></span></button></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><p class="owner" id="owner"></p><button class="chip" id="chatChip" type="button" style="font-weight:600;color:var(--brand);border-color:var(--brand)">💬 دردشة<span class="bdg" id="chBdg1" hidden></span><span class="bdg mbd" id="chMen1" hidden></span></button></div>
     <div class="today" id="today"></div>
     <div class="today exam" id="examCard" hidden></div>
   </header>
@@ -985,8 +986,8 @@ nav button{font-size:10.5px}
 
 <div id="chat" hidden lang="ar"><div class="tb"><button class="back" id="chBack" type="button">رجوع إلى شعبتي →</button><b>دردشة الشعبة</b></div><div id="chatHost"></div></div>
 <script>(function(){var s=document.getElementById("chat"),h=document.getElementById("chatHost");
-var root=h.attachShadow({mode:"open"});root.innerHTML="<style>\n/* Layout: one phone column. Login card first, then a full-height chat room with header, scrolling messages, composer. */\n*{box-sizing:border-box}\n:host{display:block}.wrap{height:100%}\n.wrap{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ar);font-size:16px;line-height:1.55;\n  padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px));padding-block:6px}\nbutton,input{font:inherit;color:inherit}\nbutton{cursor:pointer}\n:focus-visible{outline:3px solid var(--brand);outline-offset:2px}\n.app{max-width:480px;margin:0 auto;height:100%;display:flex;flex-direction:column;gap:6px;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}\n.app>.card,.app>.demo{flex:none}\n.demo{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.72rem;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:3px 10px}\n.demo label{display:flex;align-items:center;gap:6px;cursor:pointer}\n.demo input{width:18px;height:18px;accent-color:var(--admin)}\n.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:14px}\nh1{margin:0;font-size:1.4rem;line-height:1.3}\n.sub{margin:0;color:var(--muted);font-size:.92rem}\n.logo{width:48px;height:48px;border-radius:14px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-size:1.6rem;font-weight:700}\n.field{display:grid;gap:6px}\n.field>span{font-size:.88rem;font-weight:600}\n.in{min-height:48px;padding:0 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);width:100%}\n.in:focus{border-color:var(--brand);outline:none}\n.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}\n.seg button{min-height:48px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);font-weight:700;font-size:1rem}\n.seg button[aria-pressed=\"true\"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}\n.btn{min-height:50px;border:0;border-radius:12px;background:var(--brand);color:var(--brand-ink);font-weight:700;padding:0 20px}\n.btn:disabled{opacity:.45;cursor:default}\n.err{background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:8px 12px;font-size:.9rem;font-weight:600}\n.rules{background:var(--brand-soft);border-radius:12px;padding:10px 12px;font-size:.86rem;line-height:1.6}\n.nl{display:grid;gap:8px;max-height:46vh;overflow-y:auto}\n.nr{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:6px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);text-align:right;width:100%}\n.nr[disabled]{opacity:.55;cursor:default}\n.tag{font-size:.72rem;font-weight:700;border-radius:99px;padding:2px 10px;white-space:nowrap}\n.tag.f{background:var(--brand-soft);color:var(--brand)}.tag.t{background:var(--bad-soft);color:var(--bad)}.tag.m{background:var(--brand);color:var(--brand-ink)}\n.row2{display:flex;gap:8px}.row2 .in{flex:1;min-width:0}\n.hint{font-size:.78rem;color:var(--muted);margin:0}\n.hint code{background:var(--bg);padding:1px 6px;border-radius:6px;direction:ltr;unicode-bidi:embed;font-family:ui-monospace,monospace}\n/* chat */\n.room{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}\n.top{display:flex;align-items:center;gap:10px;padding:6px 12px;border-bottom:1px solid var(--line)}\n.top .logo{width:32px;height:32px;border-radius:10px;font-size:1rem}\n.top .t{flex:1;min-width:0}\n.top b{display:block;line-height:1.2}\n.top small{color:var(--muted);font-size:.78rem}\n.pill{font-size:.72rem;font-weight:700;border-radius:99px;padding:2px 10px;background:var(--admin-soft);color:var(--admin);white-space:nowrap}\n.ghost{min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:.85rem}\n.list{flex:1;min-height:0;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}\n.day{align-self:center;font-size:.75rem;color:var(--muted);background:var(--surface);border-radius:99px;padding:2px 12px}\n.m{max-width:90%;display:grid;gap:3px}\n.m.me{align-self:flex-start}\n.m.ot{align-self:flex-end}\n.m .who{font-size:.76rem;color:var(--muted);display:flex;gap:6px;align-items:center}\n.m .who i{font-style:normal;background:var(--brand-soft);color:var(--brand);border-radius:6px;padding:0 6px;font-size:.7rem;font-weight:700}\n.bub{padding:8px 12px;border-radius:14px;background:var(--other);border:1px solid var(--line);word-break:break-word}\n.me .bub{background:var(--mine);color:var(--mine-ink);border-color:var(--mine)}\n.foot{display:flex;gap:10px;align-items:center;font-size:.72rem;color:var(--muted)}\n.del{border:0;background:none;color:var(--bad);font-size:.78rem;font-weight:600;padding:2px 0;min-height:28px}\n.del.adm{color:var(--admin)}\n.ask{display:flex;gap:8px;align-items:center;font-size:.78rem}\n.ask button{min-height:30px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-weight:600}\n.ask .y{background:var(--bad);color:#fff;border-color:var(--bad)}\n.note{align-self:center;font-size:.76rem;color:var(--muted)}\n.send{display:flex;gap:8px;padding:8px;border-top:1px solid var(--line);background:var(--surface)}\n.send .in{min-height:42px}\n.send .btn{min-height:42px;padding:0 18px}\n@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}\n.m{touch-action:pan-y}\n.m.fl .bub{outline:3px solid var(--brand);outline-offset:1px}\n.quote{display:grid;gap:0;border-inline-start:3px solid var(--brand);background:rgba(127,127,127,.14);border-radius:8px;padding:3px 8px;margin-bottom:6px;font-size:.8rem;cursor:pointer}\n.quote b{font-size:.76rem}\n.quote span{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.me .quote{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.7)}\n.rp{border:0;background:none;color:var(--brand);font-size:.78rem;font-weight:600;padding:2px 0;min-height:28px}\n.replybar{display:flex;align-items:center;gap:10px;padding:6px 12px;border-top:1px solid var(--line);background:var(--brand-soft);font-size:.82rem}\n.replybar div{flex:1;min-width:0;display:grid;border-inline-start:3px solid var(--brand);padding-inline-start:8px}\n.replybar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}\n.replybar button{border:0;background:none;font-size:1.1rem;min-height:32px;min-width:32px}\n.sim{border:1px solid var(--line);background:var(--surface);border-radius:8px;font-size:.72rem;padding:0 10px;min-height:24px}\n.rb{font-style:normal;font-size:.66rem;font-weight:700;border-radius:6px;padding:0 6px;background:var(--brand-soft);color:var(--brand)}\n.rb.ad{background:var(--admin-soft);color:var(--admin)}\n.t[data-members]{cursor:pointer}\n.t small u{text-decoration:none;color:var(--brand);font-weight:600}\n.pinbar{display:flex;align-items:center;gap:8px;padding:6px 12px;background:var(--admin-soft);border-bottom:1px solid var(--line);font-size:.8rem;cursor:pointer}\n.pinbar>div{flex:1;min-width:0;display:grid}\n.pinbar b{font-size:.72rem;color:var(--admin)}\n.pinbar span.tx{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.pinbar button{border:0;background:none;font-size:1rem;min-height:30px;min-width:30px}\n.mr{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}\n.av{width:38px;height:38px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:700;flex:none}\n.mr .nm2{flex:1;min-width:0;display:grid;line-height:1.35}\n.mr .nm2 span{display:flex;gap:6px;align-items:center;flex-wrap:wrap}\n.mr .acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}\n.mb{min-height:30px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-size:.76rem;font-weight:600}\n.mb.pro{color:var(--brand);border-color:var(--brand)}\n.mb.bad{color:var(--bad);border-color:var(--bad)}\n.mutedbar{padding:12px;text-align:center;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:.88rem;border-top:1px solid var(--line)}\n.mnote{font-size:.78rem;color:var(--muted);background:var(--brand-soft);border-radius:10px;padding:8px 12px}\nselect.sim{min-height:24px;padding:0 6px}\n\n.lnk{border:0;background:none;color:var(--muted);font-size:.8rem;text-decoration:underline;min-height:32px;justify-self:center}\n.more{align-self:center}\n.mr{flex-wrap:wrap}.mr .nm2{flex:1 1 60%}.mr .acts{flex-basis:100%;justify-content:flex-start}\ncode{background:var(--bg);padding:1px 6px;border-radius:6px;direction:ltr;unicode-bidi:embed;font-family:ui-monospace,monospace}\n<\/style><div class=\"wrap\" dir=\"rtl\" lang=\"ar\"><div class=\"app\" id=\"app\"><\/div><\/div>";
-window.__chatBadgeCb=function(n){var e=document.getElementById("chBdg1");if(e){e.textContent=n>9?"9+":n;e.hidden=!n}};
+var root=h.attachShadow({mode:"open"});root.innerHTML="<style>\n/* Layout: one phone column. Login card first, then a full-height chat room with header, scrolling messages, composer. */\n*{box-sizing:border-box}\n:host{display:block}.wrap{height:100%}\n.wrap{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ar);font-size:16px;line-height:1.55;\n  padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px));padding-block:6px}\nbutton,input{font:inherit;color:inherit}\nbutton{cursor:pointer}\n:focus-visible{outline:3px solid var(--brand);outline-offset:2px}\n.app{max-width:480px;margin:0 auto;height:100%;display:flex;flex-direction:column;gap:6px;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}\n.app>.card,.app>.demo{flex:none}\n.demo{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.72rem;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:3px 10px}\n.demo label{display:flex;align-items:center;gap:6px;cursor:pointer}\n.demo input{width:18px;height:18px;accent-color:var(--admin)}\n.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:14px}\nh1{margin:0;font-size:1.4rem;line-height:1.3}\n.sub{margin:0;color:var(--muted);font-size:.92rem}\n.logo{width:48px;height:48px;border-radius:14px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-size:1.6rem;font-weight:700}\n.field{display:grid;gap:6px}\n.field>span{font-size:.88rem;font-weight:600}\n.in{min-height:48px;padding:0 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);width:100%}\n.in:focus{border-color:var(--brand);outline:none}\n.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}\n.seg button{min-height:48px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);font-weight:700;font-size:1rem}\n.seg button[aria-pressed=\"true\"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}\n.btn{min-height:50px;border:0;border-radius:12px;background:var(--brand);color:var(--brand-ink);font-weight:700;padding:0 20px}\n.btn:disabled{opacity:.45;cursor:default}\n.err{background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:8px 12px;font-size:.9rem;font-weight:600}\n.rules{background:var(--brand-soft);border-radius:12px;padding:10px 12px;font-size:.86rem;line-height:1.6}\n.nl{display:grid;gap:8px;max-height:46vh;overflow-y:auto}\n.nr{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:6px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);text-align:right;width:100%}\n.nr[disabled]{opacity:.55;cursor:default}\n.tag{font-size:.72rem;font-weight:700;border-radius:99px;padding:2px 10px;white-space:nowrap}\n.tag.f{background:var(--brand-soft);color:var(--brand)}.tag.t{background:var(--bad-soft);color:var(--bad)}.tag.m{background:var(--brand);color:var(--brand-ink)}\n.row2{display:flex;gap:8px}.row2 .in{flex:1;min-width:0}\n.hint{font-size:.78rem;color:var(--muted);margin:0}\n.hint code{background:var(--bg);padding:1px 6px;border-radius:6px;direction:ltr;unicode-bidi:embed;font-family:ui-monospace,monospace}\n/* chat */\n.room{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}\n.top{display:flex;align-items:center;gap:10px;padding:6px 12px;border-bottom:1px solid var(--line)}\n.top .logo{width:32px;height:32px;border-radius:10px;font-size:1rem}\n.top .t{flex:1;min-width:0}\n.top b{display:block;line-height:1.2}\n.top small{color:var(--muted);font-size:.78rem}\n.pill{font-size:.72rem;font-weight:700;border-radius:99px;padding:2px 10px;background:var(--admin-soft);color:var(--admin);white-space:nowrap}\n.ghost{min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:.85rem}\n.list{flex:1;min-height:0;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}\n.day{align-self:center;font-size:.75rem;color:var(--muted);background:var(--surface);border-radius:99px;padding:2px 12px}\n.m{max-width:90%;display:grid;gap:3px}\n.m.me{align-self:flex-start}\n.m.ot{align-self:flex-end}\n.m .who{font-size:.76rem;color:var(--muted);display:flex;gap:6px;align-items:center}\n.m .who i{font-style:normal;background:var(--brand-soft);color:var(--brand);border-radius:6px;padding:0 6px;font-size:.7rem;font-weight:700}\n.bub{padding:8px 12px;border-radius:14px;background:var(--other);border:1px solid var(--line);word-break:break-word}\n.me .bub{background:var(--mine);color:var(--mine-ink);border-color:var(--mine)}\n.foot{display:flex;gap:10px;align-items:center;font-size:.72rem;color:var(--muted)}\n.del{border:0;background:none;color:var(--bad);font-size:.78rem;font-weight:600;padding:2px 0;min-height:28px}\n.del.adm{color:var(--admin)}\n.ask{display:flex;gap:8px;align-items:center;font-size:.78rem}\n.ask button{min-height:30px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-weight:600}\n.ask .y{background:var(--bad);color:#fff;border-color:var(--bad)}\n.note{align-self:center;font-size:.76rem;color:var(--muted)}\n.send{display:flex;gap:8px;padding:8px;border-top:1px solid var(--line);background:var(--surface)}\n.send .in{min-height:42px}\n.send .btn{min-height:42px;padding:0 18px}\n@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}\n.m{touch-action:pan-y}\n.m.fl .bub{outline:3px solid var(--brand);outline-offset:1px}\n.quote{display:grid;gap:0;border-inline-start:3px solid var(--brand);background:rgba(127,127,127,.14);border-radius:8px;padding:3px 8px;margin-bottom:6px;font-size:.8rem;cursor:pointer}\n.quote b{font-size:.76rem}\n.quote span{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.me .quote{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.7)}\n.rp{border:0;background:none;color:var(--brand);font-size:.78rem;font-weight:600;padding:2px 0;min-height:28px}\n.replybar{display:flex;align-items:center;gap:10px;padding:6px 12px;border-top:1px solid var(--line);background:var(--brand-soft);font-size:.82rem}\n.replybar div{flex:1;min-width:0;display:grid;border-inline-start:3px solid var(--brand);padding-inline-start:8px}\n.replybar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}\n.replybar button{border:0;background:none;font-size:1.1rem;min-height:32px;min-width:32px}\n.sim{border:1px solid var(--line);background:var(--surface);border-radius:8px;font-size:.72rem;padding:0 10px;min-height:24px}\n.rb{font-style:normal;font-size:.66rem;font-weight:700;border-radius:6px;padding:0 6px;background:var(--brand-soft);color:var(--brand)}\n.rb.ad{background:var(--admin-soft);color:var(--admin)}\n.t[data-members]{cursor:pointer}\n.t small u{text-decoration:none;color:var(--brand);font-weight:600}\n.pinbar{display:flex;align-items:center;gap:8px;padding:6px 12px;background:var(--admin-soft);border-bottom:1px solid var(--line);font-size:.8rem;cursor:pointer}\n.pinbar>div{flex:1;min-width:0;display:grid}\n.pinbar b{font-size:.72rem;color:var(--admin)}\n.pinbar span.tx{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.pinbar button{border:0;background:none;font-size:1rem;min-height:30px;min-width:30px}\n.mr{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}\n.av{width:38px;height:38px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:700;flex:none}\n.mr .nm2{flex:1;min-width:0;display:grid;line-height:1.35}\n.mr .nm2 span{display:flex;gap:6px;align-items:center;flex-wrap:wrap}\n.mr .acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}\n.mb{min-height:30px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-size:.76rem;font-weight:600}\n.mb.pro{color:var(--brand);border-color:var(--brand)}\n.mb.bad{color:var(--bad);border-color:var(--bad)}\n.mutedbar{padding:12px;text-align:center;background:var(--bad-soft);color:var(--bad);font-weight:600;font-size:.88rem;border-top:1px solid var(--line)}\n.mnote{font-size:.78rem;color:var(--muted);background:var(--brand-soft);border-radius:10px;padding:8px 12px}\nselect.sim{min-height:24px;padding:0 6px}\n\n.lnk{border:0;background:none;color:var(--muted);font-size:.8rem;text-decoration:underline;min-height:32px;justify-self:center}\n.more{align-self:center}\n.mn{unicode-bidi:isolate;color:var(--brand);font-weight:700}.me .mn{color:inherit;text-decoration:underline}.mn.mm{background:var(--admin-soft);color:var(--admin);border-radius:6px;padding:0 4px}\n.bub.ment{outline:2px solid var(--admin);outline-offset:1px}\n.mentbar{border:0;border-bottom:1px solid var(--line);background:var(--admin-soft);color:var(--admin);font-weight:700;min-height:38px;font-size:.84rem;width:100%}\n.men{display:flex;flex-direction:column;border-top:1px solid var(--line);background:var(--surface);max-height:190px;overflow-y:auto}.men button{border:0;border-bottom:1px solid var(--line);background:none;text-align:right;min-height:42px;padding:0 14px;font-size:.92rem}\n.mr{flex-wrap:wrap}.mr .nm2{flex:1 1 60%}.mr .acts{flex-basis:100%;justify-content:flex-start}\ncode{background:var(--bg);padding:1px 6px;border-radius:6px;direction:ltr;unicode-bidi:embed;font-family:ui-monospace,monospace}\n<\/style><div class=\"wrap\" dir=\"rtl\" lang=\"ar\"><div class=\"app\" id=\"app\"><\/div><\/div>";
+window.__chatBadgeCb=function(n,mn){var e=document.getElementById("chBdg1");if(e){e.textContent=n>9?"9+":n;e.hidden=!n}var f=document.getElementById("chMen1");if(f){f.textContent="@"+(mn>9?"9+":mn);f.hidden=!mn}};
 var ADMIN_EMAIL='majdalshmry450@gmail.com';
 var ADMIN_NAME='ماجد أحمد الشمري';
 var CFG={apiKey:"AIzaSyDZ4iOC-vi6DvLRCjR9x2Y7sdVdXwnaOmo",authDomain:"shuabti-chat.firebaseapp.com",projectId:"shuabti-chat",storageBucket:"shuabti-chat.firebasestorage.app",messagingSenderId:"796108616749",appId:"1:796108616749:web:54d78db56dbde86bebf4a4"};
@@ -1006,17 +1007,26 @@ function realDB(){
   }
   function watch(setup){var un=null,dead=false;load().then(function(m){if(!dead)un=setup(m)}).catch(function(){});return function(){dead=true;if(un)un()}}
   function ms(t){return t&&t.toMillis?t.toMillis():Date.now()}
-  function mem(d){var x=d.data();return {uid:d.id,name:x.name,role:x.role,muted:!!x.muted}}
+  function mem(d){var x=d.data();return {uid:d.id,name:x.name,role:x.role,muted:!!x.muted,helper:!!x.helper}}
   return {
     user:async function(){var m=await load();await auth.authStateReady();var u=auth.currentUser;return u?{uid:u.uid,email:u.email||''}:null},
     ensure:async function(){var m=await load();await auth.authStateReady();if(!auth.currentUser)await m.U.signInAnonymously(auth);var u=auth.currentUser;return {uid:u.uid,email:u.email||''}},
     adminLogin:async function(email,pass){var m=await load();var c=await m.U.signInWithEmailAndPassword(auth,email,pass);return {uid:c.user.uid,email:c.user.email||''}},
     signOut:async function(){var m=await load();await m.U.signOut(auth)},
     join:async function(sec,name,code){
-      var u=await this.ensure(),m=await load(),ref=m.F.doc(db,'sections',sec,'members',u.uid);
+      var u=await this.ensure(),m=await load();
+      var uref=m.F.doc(db,'users',u.uid),ref=m.F.doc(db,'sections',sec,'members',u.uid);
+      var us=await m.F.getDoc(uref);
+      if(us.exists()&&us.data().sec!==sec&&(us.data().extra||[]).indexOf(sec)<0){var le=new Error('locked');le.sec=us.data().sec;throw le}
       var s=await m.F.getDoc(ref);
-      if(s.exists())return mem(s);
-      try{await m.F.setDoc(ref,{name:name,code:code,role:'student',muted:false,joinedAt:m.F.serverTimestamp()})}
+      if(s.exists()){
+        if(!us.exists()){try{await m.F.setDoc(uref,{sec:sec,joinedAt:m.F.serverTimestamp()})}catch(e){}}
+        return mem(s);
+      }
+      var b=m.F.writeBatch(db);
+      if(!us.exists())b.set(uref,{sec:sec,joinedAt:m.F.serverTimestamp()});
+      b.set(ref,{name:name,code:code,role:'student',muted:false,joinedAt:m.F.serverTimestamp()});
+      try{await b.commit()}
       catch(e){if(e&&e.code==='permission-denied')throw new Error('code');throw e}
       return {uid:u.uid,name:name,role:'student',muted:false};
     },
@@ -1028,6 +1038,7 @@ function realDB(){
       var q=m.F.query(m.F.collection(db,'sections',sec,'messages'),m.F.orderBy('ts','desc'),m.F.limit(1));
       return m.F.onSnapshot(q,function(s){var t=0;s.forEach(function(d){t=ms(d.data({serverTimestamps:'estimate'}).ts)});cb(t)},function(e){})})},
     countSince:async function(sec,since){var m=await load();var q=m.F.query(m.F.collection(db,'sections',sec,'messages'),m.F.where('ts','>',m.F.Timestamp.fromMillis(since)));var s=await m.F.getCountFromServer(q);return s.data().count},
+    mentionsSince:async function(sec,since,key,myuid){var m=await load();var q=m.F.query(m.F.collection(db,'sections',sec,'messages'),m.F.where('ts','>',m.F.Timestamp.fromMillis(since)),m.F.orderBy('ts','asc'),m.F.limit(100));var s=await m.F.getDocs(q),n=0,mx=since;s.forEach(function(d){var x=d.data();var t=ms(x.ts);if(t>mx)mx=t;if(x.uid!==myuid&&typeof x.x==='string'&&x.x.indexOf('@'+key)>=0)n++});return {n:n,mx:mx}},
     send:async function(sec,msg){var m=await load();var d={uid:msg.uid,n:msg.n,x:msg.x,role:msg.role,ts:m.F.serverTimestamp()};if(msg.r)d.r=msg.r;return m.F.addDoc(m.F.collection(db,'sections',sec,'messages'),d)},
     del:async function(sec,id){var m=await load();return m.F.deleteDoc(m.F.doc(db,'sections',sec,'messages',id))},
     pins:function(sec,cb){return watch(function(m){return m.F.onSnapshot(m.F.doc(db,'sections',sec,'meta','pins'),function(s){cb(s.exists()?(s.data().items||[]):[])},function(e){})})},
@@ -1037,7 +1048,19 @@ function realDB(){
     getMember:async function(sec,uid){var m=await load();var s=await m.F.getDoc(m.F.doc(db,'sections',sec,'members',uid));return s.exists()?mem(s):null},
     setRole:async function(sec,uid,role){var m=await load();return m.F.updateDoc(m.F.doc(db,'sections',sec,'members',uid),{role:role})},
     setMuted:async function(sec,uid,v){var m=await load();return m.F.updateDoc(m.F.doc(db,'sections',sec,'members',uid),{muted:!!v})},
-    removeMember:async function(sec,uid){var m=await load();return m.F.deleteDoc(m.F.doc(db,'sections',sec,'members',uid))},
+    removeMember:async function(sec,uid,helper){var m=await load();var b=m.F.writeBatch(db);(helper?['A','B','C']:[sec]).forEach(function(k){b.delete(m.F.doc(db,'sections',k,'members',uid))});b.delete(m.F.doc(db,'users',uid));return b.commit()},
+    setHelper:async function(sec,uid,name,on){var m=await load();var others=['A','B','C'].filter(function(k){return k!==sec});var uref=m.F.doc(db,'users',uid);var us=await m.F.getDoc(uref);var b=m.F.writeBatch(db);
+      if(on){
+        if(us.exists())b.update(uref,{extra:others});else b.set(uref,{sec:sec,joinedAt:m.F.serverTimestamp(),extra:others});
+        b.update(m.F.doc(db,'sections',sec,'members',uid),{role:'mod',helper:true});
+        others.forEach(function(k){b.set(m.F.doc(db,'sections',k,'members',uid),{name:name,role:'mod',muted:false,helper:true,joinedAt:m.F.serverTimestamp()})});
+      }else{
+        var home=us.exists()?us.data().sec:sec;
+        if(us.exists())b.update(uref,{extra:[]});
+        b.update(m.F.doc(db,'sections',home,'members',uid),{role:'student',helper:false});
+        ['A','B','C'].filter(function(k){return k!==home}).forEach(function(k){b.delete(m.F.doc(db,'sections',k,'members',uid))});
+      }
+      return b.commit()},
     getCode:async function(sec){var m=await load();var s=await m.F.getDoc(m.F.doc(db,'config','codes'));return s.exists()?(s.data()[sec]||''):''},
     setCode:async function(sec,code){var m=await load();var o={};o[sec]=code;return m.F.setDoc(m.F.doc(db,'config','codes'),o,{merge:true})}
   };
@@ -1082,7 +1105,7 @@ function staff(){return isAdmin()||isMod()}
 function canDelete(m){return m.uid===S.me.uid||isAdmin()||(isMod()&&m.role==='student')}
 function canMuteMsg(m){return m.uid!==S.me.uid&&((isAdmin()&&m.role!=='admin')||(isMod()&&m.role==='student'))}
 function rbadge(r){return r==='admin'?'<i class="rb ad">أدمن<\/i>':r==='mod'?'<i class="rb">مشرف<\/i>':''}
-function badgeCb(n){try{if(window.__chatBadgeCb)window.__chatBadgeCb(n)}catch(e){}}
+function badgeCb(n,mn){try{if(window.__chatBadgeCb)window.__chatBadgeCb(n,mn||0)}catch(e){}}
 function flash(t){S.flash=t;renderFlash();clearTimeout(flash.t);flash.t=setTimeout(function(){S.flash='';renderFlash()},3500)}
 function errText(e){var c=e&&e.code||'';if(c==='permission-denied')return 'لا تملك صلاحية هذا الإجراء.';return 'تعذّر الاتصال. تأكد من الإنترنت وحاول مرة ثانية.'}
 /* ---------- views ---------- */
@@ -1107,7 +1130,7 @@ function loginView(){
   h+='<button class="lnk" type="button" data-adtoggle="1">دخول الأدمن<\/button><\/div>';
   return h;
 }
-function shell(){return '<div class="room"><div class="top" id="rtop"><\/div><div id="rpin"><\/div><div class="list" id="list"><\/div><div id="rflash"><\/div><div id="rrep"><\/div><div id="rcomp"><\/div><\/div>'}
+function shell(){return '<div class="room"><div class="top" id="rtop"><\/div><div id="rpin"><\/div><div id="rment"><\/div><div class="list" id="list"><\/div><div id="rflash"><\/div><div id="rrep"><\/div><div id="rmen"><\/div><div id="rcomp"><\/div><\/div>'}
 function renderTop(){
   var e=$('rtop');if(!e)return;
   e.innerHTML='<div class="logo">'+esc(S.me.sec)+'<\/div><div class="t" data-members="1" role="button" tabindex="0"><b>دردشة شعبة '+esc(S.me.sec)+'<\/b><small>'+(S.count?S.count+' عضو · ':'')+'<u>عرض الأعضاء<\/u><\/small><\/div>'+(staff()?'<span class="pill">'+(isAdmin()?'أدمن':'مشرف')+'<\/span>':'')+'<button class="ghost" id="out">خروج<\/button>';
@@ -1132,9 +1155,9 @@ function renderList(force){
   L.forEach(function(m){
     var dk=dayKey(m.ts);if(dk!==lastDay){lastDay=dk;h+='<span class="day">'+dayLabel(m.ts)+'<\/span>'}
     var mine=m.uid===S.me.uid;
-    h+='<div class="m '+(mine?'me':'ot')+'" data-mid="'+esc(m.id)+'"><div class="who"><span>'+esc(m.n)+'<\/span>'+rbadge(m.role)+'<\/div><div class="bub">';
+    h+='<div class="m '+(mine?'me':'ot')+'" data-mid="'+esc(m.id)+'"><div class="who"><span>'+esc(m.n)+'<\/span>'+rbadge(m.role)+'<\/div><div class="bub'+(!mine&&mentionsMe(m.x)?' ment':'')+'">';
     if(m.r){var ex=have[m.r.id];h+='<div class="quote"'+(ex?' data-goto="'+esc(m.r.id)+'"':'')+'><b>'+esc(m.r.n)+'<\/b><span>'+esc(m.r.x)+'<\/span><\/div>'}
-    h+=esc(m.x)+'<\/div><div class="foot"><span>'+stamp(m)+'<\/span>'+(S.muted?'':'<button class="rp" data-rp="'+esc(m.id)+'">رد<\/button>');
+    h+=fmt(m.x)+'<\/div><div class="foot"><span>'+stamp(m)+'<\/span>'+(S.muted?'':'<button class="rp" data-rp="'+esc(m.id)+'">رد<\/button>');
     if(staff())h+='<button class="rp" data-pin="'+esc(m.id)+'">'+(pinned[m.id]?'إلغاء التثبيت':'تثبيت')+'<\/button>';
     if(canMuteMsg(m)){
       if(S.askMute===m.uid)h+='<span class="ask">كتم '+esc(m.n.split(' ')[0])+'؟ <button class="y" data-myes="'+esc(m.uid)+'">نعم<\/button><button data-mno="1">لا<\/button><\/span>';
@@ -1154,6 +1177,22 @@ function renderReply(){
   var e=$('rrep');if(!e)return;
   e.innerHTML=S.reply?'<div class="replybar"><div><b>رد على '+esc(S.reply.n)+'<\/b><span>'+esc(snip(S.reply.x))+'<\/span><\/div><button type="button" data-cancelr="1" aria-label="إلغاء الرد">✕<\/button><\/div>':'';
 }
+function mkey(n){return String(n).replace(/ /g,'_')}
+function mentionsMe(x){return !!(S.me&&x.indexOf('@'+mkey(S.me.name))>=0)}
+function fmt(x){return esc(x).replace(/@([ء-ي_]+)/g,function(a,n){return '<span dir="rtl" class="mn'+(S.me&&n===mkey(S.me.name)?' mm':'')+'">@'+n.replace(/_/g,' ')+'<\/span>'})}
+function menCands(){var l=[{name:ADMIN_NAME}].concat(S.members||[]);return l.filter(function(c){return !S.me||c.name!==S.me.name})}
+function menQuery(){var t=$('tx');if(!t)return null;var p=t.selectionStart==null?t.value.length:t.selectionStart;var b=t.value.slice(0,p);var m=/(^|\s)@([ء-ي_]*)$/.exec(b);return m?{q:m[2].replace(/_/g,' '),start:p-m[2].length-1,end:p}:null}
+function renderMen(){
+  var e=$('rmen');if(!e)return;
+  var q=S.muted?null:menQuery();
+  if(!q){e.innerHTML='';S.mc=[];return}
+  if(!S.members&&!S.mload){S.mload=1;DB.members(S.me.sec).then(function(l){S.members=l;S.mload=0;renderMen()}).catch(function(){S.mload=0})}
+  var c=menCands().filter(function(x){return !q.q||x.name.indexOf(q.q)>=0}).slice(0,6);
+  S.mc=c;S.mq=q;
+  e.innerHTML=c.length?'<div class="men">'+c.map(function(x,i){return '<button type="button" data-mn="'+i+'">@ '+esc(x.name)+'<\/button>'}).join('')+'<\/div>':'';
+}
+function pendMent(){if(!S.me)return[];return S.msgs.filter(function(m){return m.ts>(S.entrySeen||0)&&m.uid!==S.me.uid&&!(S.menDone||{})[m.id]&&mentionsMe(m.x)})}
+function renderMent(){var e=$('rment');if(!e)return;var p=pendMent();e.innerHTML=p.length?'<button type="button" class="mentbar" data-gomen="1">@ لديك '+(p.length>1?p.length+' منشن':'منشن')+' جديد · اضغط للانتقال ⬇<\/button>':''}
 function renderFlash(){var e=$('rflash');if(e)e.innerHTML=S.flash?'<div class="mnote" style="margin:6px 8px">'+esc(S.flash)+'<\/div>':''}
 function renderComp(){
   var e=$('rcomp');if(!e)return;
@@ -1161,7 +1200,7 @@ function renderComp(){
 }
 function renderRoom(force){
   if(!$('rtop')){$('app').innerHTML=shell();renderTop();renderComp();renderReply();renderFlash();force=true}
-  renderPin();renderList(force);
+  renderPin();renderList(force);renderMent();
 }
 function panelView(){
   var l=S.members,h='<div class="room"><div class="top"><button class="ghost" data-back="1">رجوع →<\/button><div class="t"><b>أعضاء شعبة '+esc(S.me.sec)+'<\/b><small>'+(l?l.length+1:'…')+' عضو<\/small><\/div><\/div><div class="list" id="list">';
@@ -1176,14 +1215,15 @@ function panelView(){
   var all=[{uid:'_admin',name:ADMIN_NAME,role:'admin',muted:false}].concat(l.filter(function(x){return x.role==='mod'}).sort(cmp),l.filter(function(x){return x.role!=='mod'}).sort(cmp));
   function cmp(a,b){return a.name<b.name?-1:1}
   all.forEach(function(m){
-    var tag=rbadge(m.role),acts='',self=m.uid===S.me.uid;
+    var tag=rbadge(m.role)+(m.helper?'<i class="rb ad">مساعد<\/i>':''),acts='',self=m.uid===S.me.uid;
+    if(isAdmin()&&m.role!=='admin')acts+='<button class="mb pro" data-act="helper" data-u="'+esc(m.uid)+'">'+(m.helper?'إلغاء المساعد':'مساعد بكل الشعب')+'<\/button>';
     if(isAdmin()&&m.role==='student')acts+='<button class="mb pro" data-act="promote" data-u="'+esc(m.uid)+'">ترقية لمشرف<\/button>';
     if(isAdmin()&&m.role==='mod')acts+='<button class="mb" data-act="demote" data-u="'+esc(m.uid)+'">إزالة الإشراف<\/button>';
     if(m.role!=='admin'&&!self&&(isAdmin()||(isMod()&&m.role==='student')))acts+='<button class="mb bad" data-act="mute" data-u="'+esc(m.uid)+'">'+(m.muted?'رفع الكتم':'كتم')+'<\/button>';
     if(isAdmin()&&m.role!=='admin')acts+='<button class="mb bad" data-act="remove" data-u="'+esc(m.uid)+'">إزالة<\/button>';
     h+='<div class="mr"><div class="av">'+esc(m.name.charAt(0))+'<\/div><div class="nm2"><span><b>'+esc(m.name)+'<\/b>'+(self||(isAdmin()&&m.role==='admin')?'<small>(أنت)<\/small>':'')+'<\/span><span>'+tag+(m.muted?'<i class="rb" style="background:var(--bad-soft);color:var(--bad)">مكتوم<\/i>':'')+'<\/span><\/div><div class="acts">'+acts+'<\/div><\/div>';
   });
-  if(isAdmin())h+='<div class="mnote">«ترقية لمشرف»: يحذف رسائل الطلاب ويكتمهم ويثبّت رسالة داخل الدردشة فقط. «إزالة» تخرج العضو (مثلًا لو سجّل باسم مكرر) وبإمكانه الدخول من جديد بالرمز.<\/div>';
+  if(isAdmin())h+='<div class="mnote">«ترقية لمشرف»: يحذف رسائل الطلاب ويكتمهم ويثبّت رسالة داخل الدردشة فقط. «إزالة» تخرج العضو من الشعبة وتفكّ ارتباط جهازه بها، فيستطيع الدخول من جديد بالرمز (لنفس الشعبة أو لشعبة أخرى).<\/div>';
   else if(isMod())h+='<div class="mnote">أنت مشرف: تحذف رسائل الطلاب وتكتمهم وتثبّت رسالة. لا تستطيع التعامل مع الأدمن أو المشرفين الآخرين.<\/div>';
   return h+'<\/div><\/div>';
 }
@@ -1202,7 +1242,7 @@ function seenNow(){
   if(!S.in||S.panel||!S.me)return;
   var sec=S.me.sec,mx=0;S.msgs.forEach(function(m){if(m.ts>mx)mx=m.ts});
   if(mx>(S.seen[sec]||0)){S.seen[sec]=mx;saveSeen()}
-  S.unread=0;badgeCb(0);
+  S.unread=0;S.menN=0;S.menChk=S.seen[sec]||0;badgeCb(0,0);
 }
 function stopRoom(){['me','msgs','pins'].forEach(function(k){if(un[k]){un[k]();un[k]=null}})}
 function startMsgs(){
@@ -1219,7 +1259,7 @@ function kick(msg){
 }
 function startRoom(me){
   stopRoom();
-  S.me=me;S.in=true;S.panel=false;S.msgs=[];S.pins=[];S.pi=null;S.count=0;S.muted=false;S.ask=null;S.askMute=null;S.reply=null;S.draft='';S.err='';S.loading=true;S.lim=40;S.members=null;S.flash='';
+  S.entrySeen=S.seen[me.sec]||0;S.menDone={};S.me=me;S.in=true;S.panel=false;S.msgs=[];S.pins=[];S.pi=null;S.count=0;S.muted=false;S.ask=null;S.askMute=null;S.reply=null;S.draft='';S.err='';S.loading=true;S.lim=40;S.members=null;S.flash='';
   if(me.role!=='admin'){lsSet(K_ME,JSON.stringify({uid:me.uid,name:me.name,sec:me.sec}))}
   var firstMe=true;
   if(me.role!=='admin'){
@@ -1248,7 +1288,7 @@ async function enter(){
     startRoom({uid:m.uid,name:m.name,sec:S.sel,role:m.role});
   }catch(e){
     S.busy=false;
-    S.err=e&&e.message==='code'?'الرمز غير صحيح لشعبة '+S.sel+'. تأكد أنك اخترت شعبتك الصحيحة، أو اسأل الأدمن عن الرمز.':errText(e);
+    S.err=e&&e.message==='locked'?'هذا الجهاز مسجّل في شعبة '+e.sec+' ولا يستطيع دخول شعبة أخرى. إذا احتجت النقل اطلب من الأدمن.':e&&e.message==='code'?'الرمز غير صحيح لشعبة '+S.sel+'. تأكد أنك اخترت شعبتك الصحيحة، أو اسأل الأدمن عن الرمز.':errText(e);
     view();
   }
 }
@@ -1285,7 +1325,10 @@ function memberAct(act,uid){
   if(act==='promote'&&isAdmin())p=DB.setRole(sec,uid,'mod');
   else if(act==='demote'&&isAdmin())p=DB.setRole(sec,uid,'student');
   else if(act==='mute'){var t=S.members.filter(function(x){return x.uid===uid})[0];if(!t)return;p=DB.setMuted(sec,uid,!t.muted)}
-  else if(act==='remove'&&isAdmin()){var t2=S.members.filter(function(x){return x.uid===uid})[0];if(!t2||!confirm('إزالة '+t2.name+' من الشعبة؟'))return;p=DB.removeMember(sec,uid)}
+  else if(act==='remove'&&isAdmin()){var t2=S.members.filter(function(x){return x.uid===uid})[0];if(!t2||!confirm('إزالة '+t2.name+' من الشعبة؟'))return;p=DB.removeMember(sec,uid,t2.helper)}
+  else if(act==='helper'&&isAdmin()){var t3=S.members.filter(function(x){return x.uid===uid})[0];if(!t3)return;
+    if(!confirm(t3.helper?'إلغاء المساعد وإخراجه من الشعبتين الثانيتين؟':'جعل '+t3.name+' مساعداً (مشرف) في الشعب الثلاث؟'))return;
+    p=DB.setHelper(sec,uid,t3.name,!t3.helper)}
   else return;
   p.then(loadMembers).catch(function(e){S.flash=errText(e);view()});
 }
@@ -1340,18 +1383,23 @@ root.addEventListener('click',function(e){
     if(nv.length<6){S.flash='الرمز لازم يكون 6 أحرف أو أرقام على الأقل (إنجليزي وأرقام فقط).';view();return}
     DB.setCode(S.me.sec,nv).then(function(){S.codeVal=nv;S.codeEdit=false;S.flash='تم تغيير رمز الشعبة. الطلاب الحاليون لا يتأثرون، والجدد يحتاجون الرمز الجديد.';view()}).catch(function(e){S.flash=errText(e);view()});
     return}
+  if(x=t.closest('[data-mn]')){var c=S.mc&&S.mc[+x.dataset.mn],q=S.mq,tx=$('tx');
+    if(c&&q&&tx){var ins='@'+mkey(c.name)+' ';tx.value=tx.value.slice(0,q.start)+ins+tx.value.slice(q.end);S.draft=tx.value;var pos=q.start+ins.length;tx.focus();try{tx.setSelectionRange(pos,pos)}catch(_){}}
+    renderMen();return}
+  if(t.closest('[data-gomen]')){var pm=pendMent();if(pm.length){S.menDone[pm[0].id]=1;if(!jump(pm[0].id)){}renderMent()}return}
   if(x=t.closest('[data-rp]')){startReply(x.dataset.rp);return}
   if(t.closest('[data-cancelr]')){S.reply=null;renderReply();return}
   if(x=t.closest('[data-goto]')){jump(x.dataset.goto);return}
 });
-root.addEventListener('input',function(e){if(e.target.id==='tx')S.draft=e.target.value});
+root.addEventListener('input',function(e){if(e.target.id==='tx'){S.draft=e.target.value;renderMen()}});
+root.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('[data-mn]'))e.preventDefault()});
 root.addEventListener('submit',function(e){
   if(e.target.id!=='sf')return;e.preventDefault();
   var v=$('tx').value.trim();if(!v||S.muted)return;
   var m={uid:S.me.uid,n:S.me.name,x:v.slice(0,400),role:S.me.role};
   if(S.reply)m.r={id:S.reply.id,n:S.reply.n,x:snip(S.reply.x)};
   DB.send(S.me.sec,m).catch(function(er){flash(errText(er))});
-  S.reply=null;S.draft='';$('tx').value='';renderReply();$('tx').focus();
+  S.reply=null;S.draft='';$('tx').value='';renderReply();renderMen();$('tx').focus();
   var l=$('list');if(l)setTimeout(function(){l.scrollTop=l.scrollHeight},30);
 });
 root.addEventListener('keydown',function(e){
@@ -1373,11 +1421,21 @@ root.addEventListener('touchend',function(){
 });
 /* ---------- badge (unread count on the home chip) ---------- */
 async function refreshBadge(sec,ts){
+  if(S.rbBusy){S.rbAgain=[sec,ts];return}
+  S.rbBusy=1;
+  try{await refreshBadge1(sec,ts)}finally{S.rbBusy=0}
+  if(S.rbAgain){var a=S.rbAgain;S.rbAgain=null;refreshBadge(a[0],a[1])}
+}
+async function refreshBadge1(sec,ts){
   if(S.in)return;
   var seen=S.seen[sec]||0;
-  if(!ts||ts<=seen){S.unread=0;badgeCb(0);return}
+  if(!ts||ts<=seen){S.unread=0;S.menN=0;S.menChk=seen;badgeCb(0,0);return}
   try{S.unread=await DB.countSince(sec,seen)}catch(e){return}
-  if(!S.in)badgeCb(S.unread);
+  try{
+    var from=Math.max(seen,S.menChk||0),me=savedMe();
+    if(me&&S.unread>0){var r=await DB.mentionsSince(sec,from,mkey(me.name),me.uid);S.menN=(S.menN||0)+r.n;S.menChk=r.mx}
+  }catch(e){}
+  if(!S.in)badgeCb(S.unread,S.menN||0);
 }
 function startBadge(){
   var me=savedMe();if(!me||un.badge)return;
